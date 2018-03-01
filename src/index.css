@@ -3,3 +3,33 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 10vh 15vh 75vh;
+  width: 100%;
+}
+
+.appHeader {
+  grid-column: 1/4;
+  grid-row: 1;
+}
+
+.mapBox {
+  border: 1px solid black;
+  grid-column: 2 / 4;
+  grid-row: 2/4;
+}
+
+.seachBox {
+  border: 1px solid black;
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.resultsBox {
+  border: 1px solid black;
+  grid-column: 1;
+  grid-row: 3;
+}
