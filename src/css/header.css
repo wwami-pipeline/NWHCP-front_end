@@ -1,0 +1,19 @@
+.appHeader {
+    background-color: #4b2e83;
+    color: white;
+    height: 10vh;
+  }
+
+#HomeLink {
+    font-size: 1.5em;
+}
+
+nav {
+    text-align: right;
+  }
+  
+a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+}
