@@ -1,34 +1,23 @@
-import React from 'react';
-import '../css/map.css';
+import React from "react";
+import "../css/map.css";
+import ProgramCardContainer from "./ProgramCardContainer";
+import SearchBox from './SearchBox';
+import image from '../imgs/mapPlaceholder.png';
 
 const MapPage = () => {
-    return (
-        <div className="app">
-            <div className="container">
-                <div className="seachBox">
-                    <p>Seach Box</p>
-                </div>
-                <div className="resultsBox">
-                    <p>results that are visible on the map shown here as cards</p>
-                    <div className='card'>card content</div>
-                    <div className='card'>card content</div>
-                    <div className='card'>card content</div>
-                    <div className='card'>card content</div>
-                    <div className='card'>card content</div>
-                    <div className='card'>card content</div>
-                    <div className='card'>card content</div>
-                    <div className='card'>card content</div>
-                    <div className='card'>card content</div>
-                    <div className='card'>card content</div>
-                    <div className='card'>card content</div>
-                    <div className='card'>card content</div>
-                </div>
-                <div className="mapBox">
-                    <p>map goes here</p>
-                </div>
-            </div>
-        </div>
-    )
-}
- 
-export default MapPage
+  return (
+    <div className="mapPage">
+      <div className="seachBox">
+        <SearchBox name='Programs Near You' />
+      </div>
+      <div className="resultsBox">
+        <ProgramCardContainer />
+      </div>
+      <div className="mapBox">
+        <img src={image} alt="map of programs"/>
+      </div>
+    </div>
+  );
+};
+
+export default MapPage;

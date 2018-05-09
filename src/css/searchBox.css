@@ -1,0 +1,21 @@
+.searchBox {
+  margin: 10px;
+  height: 100%;
+  text-align: center;
+}
+
+.searchButton {
+  height: 40px;
+  display: inline;
+  margin: 5px;
+}
+
+input {
+  border-radius: 2px;
+  line-height: 30px;
+}
+
+h2 {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
