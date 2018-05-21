@@ -13,6 +13,7 @@ class ProgramPageContainer extends Component {
     var orgID = this.props.match.params.id;
     // TODO: get org by id from DB save it to the state
     var org = fullData.filter(
+      // eslint-disable-next-line
       function(data){ return data.OrgID == orgID }
     );
     this.setState({ program: org[0] });

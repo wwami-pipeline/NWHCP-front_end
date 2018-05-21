@@ -1,23 +1,75 @@
-import React from "react";
+import React, { Component } from 'react';
+import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import "../css/map.css";
-import ProgramCardContainer from "./ProgramCardContainer";
+import ProgramCard from "./ProgramCard";
 import SearchBox from './SearchBox';
-import image from '../imgs/mapPlaceholder.png';
+import test from '../data/orgs.json';
 
-const MapPage = () => {
-  return (
-    <div className="mapPage">
-      <div className="seachBox">
-        <SearchBox name='Programs Near You' />
-      </div>
-      <div className="resultsBox">
-        <ProgramCardContainer />
-      </div>
-      <div className="mapBox">
-        <img src={image} alt="map of programs"/>
-      </div>
-    </div>
-  );
-};
+class MapPageTest extends Component {
+  constructor(props) {
+    super(props);
+    this.state =  { programs: [], activeID: '', location: '' };
+    this.searchClick = this.searchClick.bind(this) 
+  }
 
-export default MapPage;
+  componentWillMount() {
+    this.setState({ programs: test, activeID: '', location: '' });
+  }
+
+  handleClick(orgID) {
+    this.setState({ activeID: orgID});
+    var test = document.getElementById(orgID);
+    test.scrollIntoView({
+      behavior: 'smooth' 
+    });
+  }
+
+  searchClick(event, input) {
+    event.preventDefault();
+    this.setState({location: input});
+  }
+
+  componentDidUpdate() {
+    console.log(this.state.location);
+  }
+
+  render() { 
+    const position = [47.649872200000004, -122.30822959999999];
+    return (
+      <div className="mapPage">
+        <div className="seachBox">
+          <SearchBox searchClick={this.searchClick} name='Programs Near You' />
+        </div>
+        <div className="resultsBox">
+          {
+            this.state.programs.map((program) =>  (
+              // eslint-disable-next-line
+              <ProgramCard isActive={program.OrgID==this.state.activeID} key={program.OrgID} program={program} onClick={() => this.handleClick(program.OrgID)} />
+            ))
+          }
+        </div>
+        <div className="mapBox">
+          <Map center={position} zoom={12} className='map'>
+            <TileLayer
+              attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+             {
+                this.state.programs.map((program) =>  (
+                  <Marker className='test' position={[program.Lat, program.Long]} key={"marker" + program.OrgID} onClick={() => this.handleClick(program.OrgID)}>
+                    <Popup>
+                      <span>
+                        {program.OrgTitle} <br /> More Info.
+                      </span>
+                    </Popup>
+                  </Marker>
+                ))
+              }
+          </Map>
+        </div>
+      </div>
+    )
+  }
+}
+ 
+export default MapPageTest;

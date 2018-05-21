@@ -3,7 +3,7 @@ import "../css/programCard.css";
 
 const ProgramCard = props => {
   return (
-    <div className='programCard'>
+    <div id={props.program.OrgID} className={'programCard ' + (props.isActive? 'active':'')} onClick={props.onClick}>
       <h4>{props.program.OrgTitle}</h4>
         <div className='address'>
           {props.program.StreetAddress}

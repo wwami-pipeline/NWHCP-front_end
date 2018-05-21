@@ -4,8 +4,9 @@
   height: 10vh;
 }
 
-#HomeLink {
-  font-size: 1.5em;
+#HomeLink img {
+  padding-left: 10px;
+  width: 18vw;
   float: left;
 }
 
@@ -19,3 +20,4 @@ a {
   color: white;
   padding: 10px;
 }
+
