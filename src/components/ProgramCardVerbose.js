@@ -3,10 +3,14 @@ import Icon from '@material-ui/core/Icon';
 import "../css/programCard.css";
 
 const ProgramCard = props => {
+  var partialText = props.program.ActivityDesc;
+  partialText = partialText.substring(0, 180);
+  partialText = partialText + " ...";
   return (
     <div id={props.program.OrgID} className={'programCard ' + (props.isActive? 'active':'')} onClick={props.onClick}>
       <h4>{props.program.OrgTitle}</h4>
       <hr/>
+      <div className='summary'>{partialText}</div>
       <div className='iconContent'>
         <Icon className='icon'>place</Icon>
         <div className='content'>

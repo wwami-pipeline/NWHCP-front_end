@@ -7,10 +7,12 @@ const Header = () => {
     <div className="appHeader">
       <header>
         <nav>
-          <Link to="/" id="HomeLink"><img id='logo' src='./waypoint-web.png' alt='temp'/></Link>
+          <Link to="/" id="HomeLink">
+            <img id='logo' src='./waypoint-web.png' alt='temp'/>
+          </Link>
           <div id='links'>
-            <Link to="/map">Map</Link>
-            <Link to="/findPrograms">Find Programs</Link>
+            <Link className='navBar' to="/map">Map</Link>
+            <Link className='navBar' to="/findPrograms">Find Programs</Link>
           </div>
         </nav>
       </header>

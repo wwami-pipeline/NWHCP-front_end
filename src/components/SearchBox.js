@@ -24,14 +24,15 @@ class SearchBox extends React.Component {
   render() {
     return (
       <div className='searchBox'>
-        <h2>{this.props.name}</h2>
-        <form onSubmit={(e) => (this.props.searchClick(e, this.state))}>
+        <h3>{this.props.name}</h3>
+        <form className='searchForm' onSubmit={(e) => (this.props.searchClick(e, this.state))}>
           <input 
+            className='searchInput'
             name='location' 
             type='text'
             onChange={this.handleInputChange}
-            placeholder='Search'/>
-          <input type='submit' value='Submit' className='searchButton'/>
+            placeholder={this.props.placeholder}/>
+          <input type='submit' value='Search' className='searchButton'/>
         </form>
       </div>
     );

@@ -15,9 +15,14 @@
 }
 
 button {
-  padding: 5px;
+  padding-left: 0px;
+  padding-right: 0px;
   background-color: white;
   color: #4b2e83;
   border-radius: 5px;
   border-color: #4b2e83
+}
+
+hr {
+  border-top: solid 1px #4b2e83;
 }

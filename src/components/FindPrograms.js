@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "../css/search.css";
-import ProgramCard from "./ProgramCard";
-import FilterForm from './FilterForm';
+import ProgramCardVerbose from "./ProgramCardVerbose";
+import FilterForm from './FilterFormTEST';
 import test from '../data/orgs.json';
 
 class FindPrograms extends Component {
@@ -18,6 +18,7 @@ class FindPrograms extends Component {
   submit(event, filters) {
     event.preventDefault();
     this.setState({filters: filters});
+    console.log(filters);
   }
 
   render() { 
@@ -25,20 +26,11 @@ class FindPrograms extends Component {
       <div className="searchPage">
         <div className="filters">
           <FilterForm submit={this.submit} />
-          <ul> 
-            <li>location: {this.state.filters.location}</li>
-            <li>CareerEmp: {this.state.filters.CareerEmp}</li>
-            <li>HasCost: {this.state.filters.HasCost}</li>
-            <li>Under18: {this.state.filters.Under18}</li>
-            <li>HasTransport: {this.state.filters.HasTransport}</li>
-            <li>HasCert: {this.state.filters.HasCert}</li>
-            <li>GradeLevels: {this.state.filters.GradeLevels}</li>
-          </ul>
         </div>
         <div className="results">
           {
             this.state.programs.map((program) =>  (
-              <ProgramCard key={program.OrgID} program={program} />
+              <ProgramCardVerbose key={program.OrgID} program={program} />
             ))
           }
         </div>

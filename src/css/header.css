@@ -13,11 +13,15 @@
 #links {
   float: right;
   padding-top: 15px;
+  color: white;
 }
 
 a {
   text-decoration: none;
-  color: white;
   padding: 10px;
+}
+
+.navBar {
+  color: white;
 }
 

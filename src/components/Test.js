@@ -1,10 +1,12 @@
 import React from 'react';
-import Cur from './SearchBox';
+import Cur from './ProgramCard';
+import singleOrg from '../data/singleOrg'
 
 const Test = () => {
+  console.log(singleOrg);
   return (
     <div>
-      <Cur name='Find Programs Near You'/>
+      <Cur program={singleOrg}  />
     </div>
   );
 }

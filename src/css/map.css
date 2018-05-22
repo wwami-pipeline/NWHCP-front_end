@@ -3,7 +3,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 20vh 70vh;
   width: 100%;
-  background-color: #F7F7F7;
+  background-color: #f8f8f8;
 }
 
 .mapBox {
