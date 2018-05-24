@@ -13,7 +13,7 @@ const ProgramCard = props => {
       <div className='summary'>{partialText}</div>
       <div className='iconContent'>
         <Icon className='icon'>place</Icon>
-        <div className='content'>
+        <div className='verboseContent'>
           {props.program.StreetAddress}
           <br />
           {props.program.City + 

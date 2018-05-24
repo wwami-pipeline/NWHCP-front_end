@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
-import "../css/map.css";
+import "../css/mapTEST.css";
 import ProgramCard from "./ProgramCard";
-import MarkerWrapper from './MarkerWrapper';
 import SearchBox from './SearchBox';
 import test from '../data/orgs.json';
-
 
 class MapPageTest extends Component {
   constructor(props) {
@@ -21,9 +19,6 @@ class MapPageTest extends Component {
   handleClick(orgID) {
     this.setState({ activeID: orgID});
     var test = document.getElementById(orgID);
-    var icon = document.getElementById(orgID + "icon");
-    console.log(icon);
-    icon.click();
     test.scrollIntoView({
       behavior: 'smooth' 
     });
@@ -38,19 +33,21 @@ class MapPageTest extends Component {
     const position = [47.649872200000004, -122.30822959999999];
     return (
       <div className="mapPage">
-        <div className="seachBox">
-          <SearchBox searchClick={this.searchClick} name='Programs Near You' />
-        </div>
-        <div className="resultsBox">
-          {
-            this.state.programs.map((program) =>  (
-              <ProgramCard 
-                // eslint-disable-next-line
-                isActive={program.OrgID==this.state.activeID} 
-                key={program.OrgID} program={program} 
-                onClick={() => this.handleClick(program.OrgID)} />
-            ))
-          }
+        <div className='sideBar'>
+          <div className='seachBox'>
+            <SearchBox searchClick={this.searchClick} name='Programs Near You' placeholder='Find a location' />
+          </div>
+          <div className="resultsBox">
+            {
+              this.state.programs.map((program) =>  (
+                <ProgramCard 
+                  // eslint-disable-next-line
+                  isActive={program.OrgID==this.state.activeID} 
+                  key={program.OrgID} program={program} 
+                  onClick={() => this.handleClick(program.OrgID)} />
+              ))
+            }
+          </div>
         </div>
         <div className="mapBox">
           <Map center={position} zoom={12} className='map'>
@@ -60,14 +57,17 @@ class MapPageTest extends Component {
             />
              {
                 this.state.programs.map((program) =>  (
-                  <MarkerWrapper 
+                  <Marker 
                     className='test'
                     position={[program.Lat, program.Long]}
                     key={"marker" + program.OrgID}
-                    onClick={() => this.handleClick(program.OrgID)}
-                    orgID={program.OrgID}
-                    OrgTitle={program.OrgTitle}>
-                  </MarkerWrapper>
+                    onClick={() => this.handleClick(program.OrgID)}>
+                    <Popup>
+                      <span>
+                        {program.OrgTitle} <br /> More Info.
+                      </span>
+                    </Popup>
+                  </Marker>
                 ))
               }
           </Map>

@@ -1,7 +1,7 @@
 .searchPage {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 90vh;
+  grid-template-rows: calc(100vh - 65px);
   width: 100%;
   background-color: #f8f8f8;
 }

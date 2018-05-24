@@ -23,7 +23,7 @@ class SearchBox extends React.Component {
   
   render() {
     return (
-      <div className='searchBox'>
+      <div className='searchComp'>
         <h3>{this.props.name}</h3>
         <form className='searchForm' onSubmit={(e) => (this.props.searchClick(e, this.state))}>
           <input 
