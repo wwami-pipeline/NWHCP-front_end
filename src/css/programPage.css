@@ -12,10 +12,28 @@
 }
 
 .genInfo {
-  margin: 30px;
-  padding: 10px;
-  border-left: 1px solid black;
+  margin: 20px;
+  padding: 20px;
+  border-left: 1px solid #4b2e83;
   grid-column: 4;
   grid-row: 1;
+}
+
+.iconContent {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  display: flex;
+}
+
+.icon {
+  align-self: center;
+  display: inline-block;
+  margin-right: 7px;
+}
+
+.content {
+  display: inline-block;
+  max-width: 250px;
+  align-self: center;
 }
 

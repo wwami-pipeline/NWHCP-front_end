@@ -14,7 +14,6 @@ const Header = () => {
             <NavLink className='navLink' activeClassName='curRoute' to="/locations">
               Locations
             </NavLink>
-    
             <NavLink className='navLink' activeClassName='curRoute' to="/find-programs">
               Find Programs
             </NavLink>

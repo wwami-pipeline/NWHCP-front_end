@@ -1,24 +1,33 @@
 import React, { Component } from 'react';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
+import L from 'leaflet';
 import "../css/mapTEST.css";
 import ProgramCard from "./ProgramCard";
 import SearchBox from './SearchBox';
-import test from '../data/orgs.json';
 
 class MapPageTest extends Component {
   constructor(props) {
     super(props);
     this.state =  { programs: [], activeID: '', location: '' };
     this.searchClick = this.searchClick.bind(this) 
+    this.createMarkerIcon = this.createMarkerIcon.bind(this) 
   }
 
   componentWillMount() {
-    this.setState({ programs: test, activeID: '', location: '' });
+    fetch('https://nwhealthcareerpath.uw.edu/api/v1/orgs/')
+    .then(result => {return result.json()})
+    .then(data => {
+      console.log(data);
+      this.setState({ programs: data, activeID: '', location: '' });
+    });
   }
 
   handleClick(orgID) {
     this.setState({ activeID: orgID});
     var test = document.getElementById(orgID);
+    var iconSelected = document.getElementsByClassName('icon' + orgID);
+    console.log(iconSelected);
+    //iconSelected.openPopup();
     test.scrollIntoView({
       behavior: 'smooth' 
     });
@@ -27,6 +36,14 @@ class MapPageTest extends Component {
   searchClick(event, input) {
     event.preventDefault();
     this.setState({location: input});
+  }
+
+  createMarkerIcon(program) {
+    var curIcon = new L.Icon({
+      iconUrl: require('../marker.svg'),
+      iconSize: new L.Point(30, 60),
+      className: 'icon' + program.OrgID});
+    return curIcon;
   }
 
   render() { 
@@ -59,6 +76,7 @@ class MapPageTest extends Component {
                 this.state.programs.map((program) =>  (
                   <Marker 
                     className='test'
+                    icon={this.createMarkerIcon(program)}
                     position={[program.Lat, program.Long]}
                     key={"marker" + program.OrgID}
                     onClick={() => this.handleClick(program.OrgID)}>

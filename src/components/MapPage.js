@@ -13,6 +13,9 @@ class MapPageTest extends Component {
   }
 
   componentWillMount() {
+    fetch('https://nwhealthcareerpath.uw.edu/api/v1/orgs/')
+    .then(result => {return result.json()})
+    .then(data => {console.log(data)});
     this.setState({ programs: test, activeID: '', location: '' });
   }
 
