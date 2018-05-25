@@ -47,6 +47,11 @@ const theme = createMuiTheme({
   },
 });
 
+const style = {
+  margin: 'theme.spacing.unit',
+  width: 275,
+  marginTop: 10
+};
 
 class FilterForm extends React.Component {
   constructor(props) {
@@ -81,14 +86,14 @@ class FilterForm extends React.Component {
           <input
             name="location"
             type="text"
-            className='searchInput'
+            className='searchFilter'
             value={this.state.location}
             onChange={this.handleInputChange}
             placeholder='Enter City or ZIP' />
           <MuiThemeProvider theme={theme}>
             <div className='multiSelects'>
               <div className='select'>
-                <FormControl>
+                <FormControl style={style}>
                   <InputLabel htmlFor="select-multiple-checkbox">Career Emphasis</InputLabel>
                     <Select
                       name='CareerEmp'
@@ -108,7 +113,7 @@ class FilterForm extends React.Component {
                 </FormControl>
               </div>
               <br />
-              <FormControl>
+              <FormControl style={style}>
                 <InputLabel htmlFor="select-multiple-checkbox" className='selectInput'>Grade Level</InputLabel>
                   <Select
                     name='GradeLevels'

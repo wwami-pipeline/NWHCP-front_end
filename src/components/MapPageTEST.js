@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import "../css/mapTEST.css";
+import test from '../data/orgs.json';
 import ProgramCard from "./ProgramCard";
 import SearchBox from './SearchBox';
 
@@ -15,10 +16,10 @@ class MapPageTest extends Component {
 
   componentWillMount() {
     fetch('https://nwhealthcareerpath.uw.edu/api/v1/orgs/')
-    .then(result => {return result.json()})
+    .then(result => {/*return result.json()*/console.log(result)})
     .then(data => {
       console.log(data);
-      this.setState({ programs: data, activeID: '', location: '' });
+      this.setState({ programs: test, activeID: '', location: '' });
     });
   }
 
