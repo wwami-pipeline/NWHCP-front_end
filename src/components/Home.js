@@ -13,13 +13,13 @@ const Home = () => {
               <div class="row">
                 <div class="col m10 offset-m1 s12 ">
                   <div class="center-align">
-                    <img style={{ marginTop: "40px" }}class="responsive-img" src="./assets/logo.png" />
+                    <img style={{ marginTop: "40px" }}class="responsive-img" src="./assets/logo.png" alt='logo'/>
                   </div>
                   <p class="center-align italic-light">
                     Illuminating the path between the dreams of today and the healthcare of tommorow.
                         </p>
                   <div class="center-align">
-                    <img class="responsive-img" src="./assets/roadmap.png" />
+                    <img class="responsive-img" src="./assets/roadmap.png" alt='roadmap'/>
                   </div>
                   <div class="col s10 offset-s1">
                     <p class="quote">
@@ -48,7 +48,7 @@ const Home = () => {
 
                   <div class="row">
                     <div class="col s8 xs12 offset-s2 center-align">
-                      <img class="responsive-img" src="./assets/statesBig.png" />
+                      <img class="responsive-img" src="./assets/statesBig.png" alt='wwami region'/>
                       <p class="italic-light">The five states of the WWAMI Region.</p>
                     </div>
                   </div>
@@ -73,7 +73,7 @@ const Home = () => {
                 <div class="col m10 offset-m1 s12">
                   <h2 class="center-align">Guide the Way</h2>
                   <div class="center-align">
-                    <img class="responsive-img" src="./assets/Map-Initial-View.svg" />
+                    <img class="responsive-img" src="./assets/Map-Initial-View.svg" alt='map'/>
                     <p class="italic-light">
                       With the mapping tool, students can easily find relevant programs in their area.
                             </p>
@@ -95,7 +95,7 @@ const Home = () => {
                     greater wealth of information.
                         </p>
                   <div class="center-align">
-                    <img class="responsive-img" src="./assets/steps.svg" />
+                    <img class="responsive-img" src="./assets/steps.svg" alt='pipeline steps'/>
                     <p class="italic-light">
                       Creating a robust API for accessing the data collected allows future teams to utilize its potential to the fullest.
                             </p>
