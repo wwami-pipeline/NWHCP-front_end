@@ -89,7 +89,7 @@ class FilterForm extends React.Component {
             className='searchFilter'
             value={this.state.location}
             onChange={this.handleInputChange}
-            placeholder='Enter City or ZIP' />
+            placeholder='Enter a location' />
           <MuiThemeProvider theme={theme}>
             <div className='multiSelects'>
               <div className='select'>
@@ -140,7 +140,7 @@ class FilterForm extends React.Component {
                   onChange={this.handleInputChange}
                   name='HasCost'/>
                 }
-              label='Free Enrollment'/>            
+              label='Associated Costs'/>            
             <br />
             <FormControlLabel
               control={
@@ -149,7 +149,8 @@ class FilterForm extends React.Component {
                   onChange={this.handleInputChange}
                   name='Under18'/>
                 }
-              label='Youth Program'/>          
+              label='Youth Program'/> 
+            <br />         
             <FormControlLabel
               control={
                 <Checkbox
@@ -157,7 +158,8 @@ class FilterForm extends React.Component {
                   onChange={this.handleInputChange}
                   name='HasTransport'/>
                 }
-              label='Provides Transportation'/>          
+              label='Provides Transportation'/> 
+            <br />         
             <FormControlLabel
               control={
                 <Checkbox

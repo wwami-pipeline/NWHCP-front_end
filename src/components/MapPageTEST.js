@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import "../css/mapTEST.css";
-import test from '../data/orgs.json';
 import ProgramCard from "./ProgramCard";
 import SearchBox from './SearchBox';
 
@@ -16,10 +15,10 @@ class MapPageTest extends Component {
 
   componentWillMount() {
     fetch('https://nwhealthcareerpath.uw.edu/api/v1/orgs/')
-    .then(result => {/*return result.json()*/console.log(result)})
+    .then(result => {return result.json()})
     .then(data => {
       console.log(data);
-      this.setState({ programs: test, activeID: '', location: '' });
+      this.setState({ programs: data, activeID: '', location: '' });
     });
   }
 
@@ -27,8 +26,16 @@ class MapPageTest extends Component {
     this.setState({ activeID: orgID});
     var test = document.getElementById(orgID);
     var iconSelected = document.getElementsByClassName('icon' + orgID);
+    iconSelected[0].click();
     console.log(iconSelected);
-    //iconSelected.openPopup();
+    test.scrollIntoView({
+      behavior: 'smooth' 
+    });
+  }
+
+  handleMarkerClick(orgID) {
+    this.setState({ activeID: orgID});
+    var test = document.getElementById(orgID);
     test.scrollIntoView({
       behavior: 'smooth' 
     });
@@ -80,10 +87,13 @@ class MapPageTest extends Component {
                     icon={this.createMarkerIcon(program)}
                     position={[program.Lat, program.Long]}
                     key={"marker" + program.OrgID}
-                    onClick={() => this.handleClick(program.OrgID)}>
+                    onClick={() => this.handleMarkerClick(program.OrgID)}>
                     <Popup>
                       <span>
-                        {program.OrgTitle} <br /> More Info.
+                        <h3>{program.OrgTitle}</h3>
+                        <button className="programButton">
+                          <a className='buttonLink' href={"/org" + program.OrgID}>More Details</a>
+                        </button>
                       </span>
                     </Popup>
                   </Marker>

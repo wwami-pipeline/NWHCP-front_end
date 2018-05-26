@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import "../css/findPrograms.css";
 import ProgramCardVerbose from "./ProgramCardVerbose";
 import FilterForm from './FilterForm';
-import test from '../data/orgs.json';
 
 class FindPrograms extends Component {
   constructor(props) {
@@ -11,20 +10,30 @@ class FindPrograms extends Component {
     this.submit = this.submit.bind(this)
   }
 
-  componentWillMount() {
-    this.setState({ programs: test, filters: [] });
+  componentDidMount() {
+    fetch('https://nwhealthcareerpath.uw.edu/api/v1/orgs/')
+    .then(result => {return result.json()})
+    .then(data => {
+      this.setState({ programs: data, filters: [] });
+    });
   }
 
   submit(event, filters) {
+    event.preventDefault();
     var jsonFilters = JSON.stringify(filters);
-    console.log(jsonFilters);
     fetch('https://nwhealthcareerpath.uw.edu/api/v1/orgs/', {
       method: "POST",
-      parameters: jsonFilters
-    }).then(result => {console.log(result)})
-    event.preventDefault();
-    this.setState({filters: filters});
-    console.log(filters);
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: jsonFilters
+    })
+    .then(result => {return result.json()})
+    .then(data => { 
+      this.setState({programs: data, filters: filters});
+    });
+   ;
   }
 
   render() { 
