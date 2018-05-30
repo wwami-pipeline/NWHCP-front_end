@@ -10,7 +10,7 @@ class ProgramPageContainer extends Component {
 
   componentDidMount() {
     var orgID = this.props.match.params.id;
-    fetch('https://nwhealthcareerpath.uw.edu/api/v1/orgs/id/' + orgID)
+    fetch('http://nwhealthcareerpath.uw.edu/api/v1/orgs/id/' + orgID)
     .then(result => {return result.json()})
     .then(org => {
       var url = org.OrgWebsite;

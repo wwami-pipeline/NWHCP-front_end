@@ -30,6 +30,7 @@ class MapPageTest extends Component {
   searchClick(event, input) {
     event.preventDefault();
     this.setState({location: input});
+    console.log('click');
   }
 
   render() { 

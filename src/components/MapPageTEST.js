@@ -14,7 +14,7 @@ class MapPageTest extends Component {
   }
 
   componentWillMount() {
-    fetch('https://nwhealthcareerpath.uw.edu/api/v1/orgs/')
+    fetch('http://nwhealthcareerpath.uw.edu/api/v1/orgs/')
     .then(result => {return result.json()})
     .then(data => {
       console.log(data);
@@ -43,7 +43,20 @@ class MapPageTest extends Component {
 
   searchClick(event, input) {
     event.preventDefault();
-    this.setState({location: input});
+    console.log('click');
+    var jsonFilters = JSON.stringify(input);
+    fetch('http://nwhealthcareerpath.uw.edu/api/v1/orgs/', {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: jsonFilters
+    })
+    .then(result => {return result.json()})
+    .then(data => { 
+      this.setState({programs: data, location: input});
+    });
   }
 
   createMarkerIcon(program) {

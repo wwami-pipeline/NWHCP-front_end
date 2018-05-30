@@ -11,7 +11,7 @@ class FindPrograms extends Component {
   }
 
   componentDidMount() {
-    fetch('https://nwhealthcareerpath.uw.edu/api/v1/orgs/')
+    fetch('http://nwhealthcareerpath.uw.edu/api/v1/orgs/')
     .then(result => {return result.json()})
     .then(data => {
       this.setState({ programs: data, filters: [] });
@@ -21,7 +21,7 @@ class FindPrograms extends Component {
   submit(event, filters) {
     event.preventDefault();
     var jsonFilters = JSON.stringify(filters);
-    fetch('https://nwhealthcareerpath.uw.edu/api/v1/orgs/', {
+    fetch('http://nwhealthcareerpath.uw.edu/api/v1/orgs/', {
       method: "POST",
       headers: {
         'Accept': 'application/json',
@@ -33,7 +33,6 @@ class FindPrograms extends Component {
     .then(data => { 
       this.setState({programs: data, filters: filters});
     });
-   ;
   }
 
   render() { 
