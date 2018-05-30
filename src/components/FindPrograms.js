@@ -21,6 +21,8 @@ class FindPrograms extends Component {
   submit(event, filters) {
     event.preventDefault();
     var jsonFilters = JSON.stringify(filters);
+    console.log(jsonFilters);
+    
     fetch('http://nwhealthcareerpath.uw.edu/api/v1/orgs/', {
       method: "POST",
       headers: {
@@ -36,17 +38,27 @@ class FindPrograms extends Component {
   }
 
   render() { 
+    const Results = this.state.programs && this.state.programs.length == 0 ? (
+      <h3 style = {{
+          marginTop: 15,
+          marginLeft: 30,
+          fontSize: '1.7rem'
+      }}>
+          No Results
+      </h3>
+      ) : (
+        this.state.programs.map((program) =>  (
+          <ProgramCardVerbose key={program.OrgID} program={program} />
+        ))
+      );
     return (
+      
       <div className="searchPage">
         <div className="filters">
           <FilterForm submit={this.submit} />
         </div>
         <div className="results">
-          {
-            this.state.programs.map((program) =>  (
-              <ProgramCardVerbose key={program.OrgID} program={program} />
-            ))
-          }
+          { Results }
         </div>
       </div>
     )
