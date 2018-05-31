@@ -14,7 +14,14 @@ class MapPageTest extends Component {
   }
 
   componentWillMount() {
-    fetch('http://nwhealthcareerpath.uw.edu/api/v1/orgs/')
+    fetch('http://nwhealthcareerpath.uw.edu/api/v1/orgs/', {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({location: "seattle, wa"})
+    })
     .then(result => {return result.json()})
     .then(data => {
       console.log(data);
@@ -45,6 +52,8 @@ class MapPageTest extends Component {
     event.preventDefault();
     console.log('click');
     var jsonFilters = JSON.stringify(input);
+    console.log(jsonFilters);
+
     fetch('http://nwhealthcareerpath.uw.edu/api/v1/orgs/', {
       method: "POST",
       headers: {
@@ -68,7 +77,31 @@ class MapPageTest extends Component {
   }
 
   render() { 
-    const position = [47.649872200000004, -122.30822959999999];
+    var position = this.state.programs[0] != null
+      ? [this.state.programs[0].Lat, this.state.programs[0].Long] 
+      : [47.649872200000004, -122.30822959999999];
+
+    console.log(position);
+
+    const Results = this.state.programs && this.state.programs.length == 0 ? (
+      <h3 style = {{
+          marginTop: 20,
+          marginLeft: 30,
+          fontSize: '1.7rem'
+      }}>
+          No Results
+      </h3>
+      ) : (
+        this.state.programs.map((program) =>  (
+          <ProgramCard 
+            // eslint-disable-next-line
+            isActive={program.OrgID==this.state.activeID} 
+            key={program.OrgID} program={program} 
+            onClick={() => this.handleClick(program.OrgID)} />
+        ))
+      );
+
+
     return (
       <div className="mapPage">
         <div className='sideBar'>
@@ -76,15 +109,7 @@ class MapPageTest extends Component {
             <SearchBox searchClick={this.searchClick} name='Programs Near You' placeholder='Find a location' />
           </div>
           <div className="resultsBox">
-            {
-              this.state.programs.map((program) =>  (
-                <ProgramCard 
-                  // eslint-disable-next-line
-                  isActive={program.OrgID==this.state.activeID} 
-                  key={program.OrgID} program={program} 
-                  onClick={() => this.handleClick(program.OrgID)} />
-              ))
-            }
+            { Results }
           </div>
         </div>
         <div className="mapBox">
