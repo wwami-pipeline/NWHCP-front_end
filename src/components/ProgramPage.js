@@ -31,11 +31,12 @@ const ProgramPage = ({ program }) => {
       <div className='iconContent'>
         <Icon className='icon'>desktop_mac</Icon>
         <div className='content'>
-          <a href={program.OrgWebsite}>Visit Program Website</a>
+          <a href={program.OrgWebsite} target='_blank'>Visit Program Website</a>
         </div>
       </div>
       </div>
       <div className='fullDesc'>
+        <button className='programButton' onClick={() => {window.history.back()}}>Back</button>
         <h3>{program.OrgTitle}</h3>
         <hr/>
         <p>{program.ActivityDesc}</p>
