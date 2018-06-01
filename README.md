@@ -1,7 +1,6 @@
 # Waypoint Front-End
+<img src="https://raw.githubusercontent.com/wwami-pipeline/Front-End/master/public/assets/logo.png" width="500">
 Repository for the client-side code of Waypoint.
-
-![logo]['https://raw.githubusercontent.com/wwami-pipeline/Front-End/master/public/assets/logo.png']
 
 ## Tech and Dependencies
 Project setup using create-react-app for simplicity. The project requires the following dependencies:
