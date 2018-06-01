@@ -1,6 +1,7 @@
 # Waypoint Front-End
 <img src="https://raw.githubusercontent.com/wwami-pipeline/Front-End/master/public/assets/logo.png" width="500">
-Repository for the client-side code of Waypoint.
+Repository for the client-side code of Waypoint.  
+
 ## About
 Client-side code provides mapping and filtering capabilities. This is to help interested students find programs that match to them, as well as help programs identify gaps in coverage. This is very much a minimum viable product, and there is a large opportunity for the continuation of this project.
 
