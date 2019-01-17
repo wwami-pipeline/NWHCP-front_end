@@ -23,7 +23,7 @@ class MapPageTest extends Component {
     this.setState({ activeID: orgID});
     var test = document.getElementById(orgID);
     test.scrollIntoView({
-      behavior: 'smooth' 
+      behavior: 'smooth'
     });
   }
 
@@ -33,7 +33,7 @@ class MapPageTest extends Component {
     console.log('click');
   }
 
-  render() { 
+  render() {
     const position = [47.649872200000004, -122.30822959999999];
     return (
       <div className="mapPage">
@@ -43,10 +43,10 @@ class MapPageTest extends Component {
         <div className="resultsBox">
           {
             this.state.programs.map((program) =>  (
-              <ProgramCard 
+              <ProgramCard
                 // eslint-disable-next-line
-                isActive={program.OrgID==this.state.activeID} 
-                key={program.OrgID} program={program} 
+                isActive={program.OrgID==this.state.activeID}
+                key={program.OrgID} program={program}
                 onClick={() => this.handleClick(program.OrgID)} />
             ))
           }
@@ -59,7 +59,7 @@ class MapPageTest extends Component {
             />
              {
                 this.state.programs.map((program) =>  (
-                  <Marker 
+                  <Marker
                     className='test'
                     position={[program.Lat, program.Long]}
                     key={"marker" + program.OrgID}
@@ -78,5 +78,5 @@ class MapPageTest extends Component {
     )
   }
 }
- 
+
 export default MapPageTest;
