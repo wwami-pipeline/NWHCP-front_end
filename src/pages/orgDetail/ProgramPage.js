@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from '@material-ui/core/Icon';
-import '../css/programPage.css';
+import 'css/programPage.css';
 
 const ProgramPage = ({ program }) => {
   return (

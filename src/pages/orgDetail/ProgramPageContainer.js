@@ -9,8 +9,9 @@ class ProgramPageContainer extends Component {
   }
 
   componentDidMount() {
-    var orgID = this.props.match.params.id;
-    fetch('http://nwhealthcareerpath.uw.edu/api/v1/orgs/id/' + orgID)
+    var OrgId = this.props.match.params.id;
+    console.log(this.props)
+    fetch(process.env.REACT_APP_API_ENDPOINT+'/api/v1/org/' + OrgId)
     .then(result => {return result.json()})
     .then(org => {
       var url = org.OrgWebsite;
@@ -23,7 +24,7 @@ class ProgramPageContainer extends Component {
   render() { 
     return (
       <div>
-        <ProgramPage key={this.state.program.OrgID} program={this.state.program} />
+        <ProgramPage key={this.state.program.OrgId} program={this.state.program} />
       </div>
       
     )};

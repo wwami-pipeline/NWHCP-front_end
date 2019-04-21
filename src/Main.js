@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Home from 'pages/home/Home';
 import MapPage from 'pages/map/MapPage';
 import FindPrograms from 'pages/findPrograms/FindPrograms';
-import ProgramPageContainer from 'components/ProgramPageContainer';
+import ProgramPageContainer from 'pages/orgDetail/ProgramPageContainer';
 
 
 const Main = () => {

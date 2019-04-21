@@ -7,7 +7,7 @@ const ProgramCard = props => {
   partialText = partialText.substring(0, 180);
   partialText = partialText + " ...";
   return (
-    <div id={props.program.OrgID} className={'programCard ' + (props.isActive? 'active':'')} onClick={props.onClick}>
+    <div id={props.program.OrgId} className={'programCard ' + (props.isActive? 'active':'')} onClick={props.onClick}>
       <h4>{props.program.OrgTitle}</h4>
       <hr/>
       <div className='summary'>{partialText}</div>
@@ -28,7 +28,7 @@ const ProgramCard = props => {
         </div>
       </div>
       <button className="programButton">
-        <a className='buttonLink' href={"/org" + props.program.OrgID}>More Details</a>
+        <a className='buttonLink' href={"/org" + props.program.OrgId}>More Details</a>
       </button>
     </div>
   )

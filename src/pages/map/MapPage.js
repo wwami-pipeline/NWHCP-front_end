@@ -29,10 +29,10 @@ class MapPage extends Component {
     });
   }
 
-  handleClick(orgID) {
-    this.setState({ activeID: orgID});
-    var test = document.getElementById(orgID);
-    var iconSelected = document.getElementsByClassName('icon' + orgID);
+  handleClick(OrgId) {
+    this.setState({ activeID: OrgId});
+    var test = document.getElementById(OrgId);
+    var iconSelected = document.getElementsByClassName('icon' + OrgId);
     iconSelected[0].click();
     console.log(iconSelected);
     test.scrollIntoView({
@@ -40,9 +40,9 @@ class MapPage extends Component {
     });
   }
 
-  handleMarkerClick(orgID) {
-    this.setState({ activeID: orgID});
-    var test = document.getElementById(orgID);
+  handleMarkerClick(OrgId) {
+    this.setState({ activeID: OrgId});
+    var test = document.getElementById(OrgId);
     test.scrollIntoView({
       behavior: 'smooth' 
     });
@@ -72,7 +72,7 @@ class MapPage extends Component {
     var curIcon = new L.Icon({
       iconUrl: require('marker.svg'),
       iconSize: new L.Point(30, 60),
-      className: 'icon' + program.OrgID});
+      className: 'icon' + program.OrgId});
     return curIcon;
   }
 
@@ -96,9 +96,9 @@ class MapPage extends Component {
         this.state.programs.map((program) =>  (
           <ProgramCard 
             // eslint-disable-next-line
-            isActive={program.OrgID==this.state.activeID} 
-            key={program.OrgID} program={program} 
-            onClick={() => this.handleClick(program.OrgID)} />
+            isActive={program.OrgId==this.state.activeID} 
+            key={program.OrgId} program={program} 
+            onClick={() => this.handleClick(program.OrgId)} />
         ))
       );
       
@@ -125,13 +125,13 @@ class MapPage extends Component {
                     className='test'
                     icon={this.createMarkerIcon(program)}
                     position={[program.Lat, program.Long]}
-                    key={"marker" + program.OrgID}
-                    onClick={() => this.handleMarkerClick(program.OrgID)}>
+                    key={"marker" + program.OrgId}
+                    onClick={() => this.handleMarkerClick(program.OrgId)}>
                     <Popup>
                       <span>
                         <h3>{program.OrgTitle}</h3>
                         <button className="programButton">
-                          <a className='buttonLink' href={"/org" + program.OrgID}>More Details</a>
+                          <a className='buttonLink' href={"/org" + program.OrgId}>More Details</a>
                         </button>
                       </span>
                     </Popup>

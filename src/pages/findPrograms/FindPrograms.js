@@ -48,7 +48,7 @@ class FindPrograms extends Component {
       </h3>
       ) : (
         this.state.programs.map((program) =>  (
-          <ProgramCardVerbose key={program.OrgID} program={program} />
+          <ProgramCardVerbose key={program.OrgId} program={program} />
         ))
       );
     return (

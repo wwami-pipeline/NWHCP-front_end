@@ -5,11 +5,11 @@ const MarkerWrapper = (props) => {
   
 
   return (
-    <div id={props.orgID + "icon"}>
+    <div id={props.OrgId + "icon"}>
       <Marker 
         className='test'
         position={props.position}
-        onClick={() => props.onClick(props.orgID)}>
+        onClick={() => props.onClick(props.OrgId)}>
         <Popup>
           <span>
             {props.OrgTitle} <br /> More Info.
