@@ -57,7 +57,7 @@ class FilterForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      location: '',
+      searchContent: '',
       CareerEmp: [],
       HasCost: false,
       Under18: false,
@@ -84,12 +84,12 @@ class FilterForm extends React.Component {
       <div className='filterForm'>
         <form onSubmit={(e) => (this.props.submit(e, this.state))}>
           <input
-            name="location"
+            name="searchContent"
             type="text"
             className='searchFilter'
-            value={this.state.location}
+            value={this.state.searchContent}
             onChange={this.handleInputChange}
-            placeholder='Enter a location' />
+            placeholder='Enter a name/city/street' />
           <MuiThemeProvider theme={theme}>
             <div className='multiSelects'>
               <div className='select'>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import "../css/findPrograms.css";
-import ProgramCardVerbose from "./ProgramCardVerbose";
+import "css/findPrograms.css";
+import ProgramCardVerbose from "components/ProgramCardVerbose";
 import FilterForm from './FilterForm';
 
 class FindPrograms extends Component {
@@ -11,7 +11,7 @@ class FindPrograms extends Component {
   }
 
   componentDidMount() {
-    fetch('http://nwhealthcareerpath.uw.edu/api/v1/orgs/')
+    fetch(process.env.REACT_APP_API_ENDPOINT+'/api/v1/orgs')
     .then(result => {return result.json()})
     .then(data => {
       this.setState({ programs: data, filters: [] });
@@ -23,7 +23,7 @@ class FindPrograms extends Component {
     var jsonFilters = JSON.stringify(filters);
     console.log(jsonFilters);
     
-    fetch('http://nwhealthcareerpath.uw.edu/api/v1/orgs/', {
+    fetch(process.env.REACT_APP_API_ENDPOINT+'/api/v1/search', {
       method: "POST",
       headers: {
         'Accept': 'application/json',

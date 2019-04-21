@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from '@material-ui/core/Icon';
-import "../css/programCard.css";
+import "css/programCard.css";
 
 const ProgramCard = props => {
   return (

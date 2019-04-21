@@ -1,31 +1,31 @@
 import React, { Component } from 'react';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
-import "../css/mapTEST.css";
-import ProgramCard from "./ProgramCard";
-import SearchBox from './SearchBox';
+import "css/mapTEST.css";
+import ProgramCard from "components/ProgramCard";
+import SearchBox from 'components/SearchBox';
 
-class MapPageTest extends Component {
+class MapPage extends Component {
   constructor(props) {
     super(props);
-    this.state =  { programs: [], activeID: '', location: '' };
+    this.state =  { programs: [], activeID: '', searchContent: '' };
     this.searchClick = this.searchClick.bind(this) 
     this.createMarkerIcon = this.createMarkerIcon.bind(this) 
   }
 
   componentWillMount() {
-    fetch('http://nwhealthcareerpath.uw.edu/api/v1/orgs/', {
+    fetch(process.env.REACT_APP_API_ENDPOINT+'/api/v1/search', {
       method: "POST",
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({location: "seattle, wa"})
+      body: JSON.stringify({searchContent: "seattle"})
     })
     .then(result => {return result.json()})
     .then(data => {
       console.log(data);
-      this.setState({ programs: data, activeID: '', location: '' });
+      this.setState({ programs: data, activeID: '', searchContent: '' });
     });
   }
 
@@ -50,11 +50,11 @@ class MapPageTest extends Component {
 
   searchClick(event, input) {
     event.preventDefault();
-    console.log('click');
+    // console.log('click');
     var jsonFilters = JSON.stringify(input);
-    console.log(jsonFilters);
+    // console.log(jsonFilters);
 
-    fetch('http://nwhealthcareerpath.uw.edu/api/v1/orgs/', {
+    fetch(process.env.REACT_APP_API_ENDPOINT+'/api/v1/search', {
       method: "POST",
       headers: {
         'Accept': 'application/json',
@@ -64,13 +64,13 @@ class MapPageTest extends Component {
     })
     .then(result => {return result.json()})
     .then(data => { 
-      this.setState({programs: data, location: input});
+      this.setState({programs: data, searchContent: input});
     });
   }
 
   createMarkerIcon(program) {
     var curIcon = new L.Icon({
-      iconUrl: require('../marker.svg'),
+      iconUrl: require('marker.svg'),
       iconSize: new L.Point(30, 60),
       className: 'icon' + program.OrgID});
     return curIcon;
@@ -82,6 +82,7 @@ class MapPageTest extends Component {
       : [47.649872200000004, -122.30822959999999];
 
     console.log(position);
+    console.log(this.state.programs)
 
     const Results = this.state.programs && this.state.programs.length == 0 ? (
       <h3 style = {{
@@ -100,7 +101,7 @@ class MapPageTest extends Component {
             onClick={() => this.handleClick(program.OrgID)} />
         ))
       );
-
+      
 
     return (
       <div className="mapPage">
@@ -144,4 +145,4 @@ class MapPageTest extends Component {
   }
 }
  
-export default MapPageTest;
+export default MapPage;

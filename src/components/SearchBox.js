@@ -5,7 +5,7 @@ class SearchBox extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      location: ''
+      searchContent: ''
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -28,7 +28,7 @@ class SearchBox extends React.Component {
         <form className='searchForm' onSubmit={(e) => (this.props.searchClick(e, this.state))}>
           <input 
             className='searchInput'
-            name='location' 
+            name='searchContent' 
             type='text'
             onChange={this.handleInputChange}
             placeholder={this.props.placeholder}/>
