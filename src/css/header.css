@@ -1,5 +1,5 @@
-.appHeader {
-  background-color: #4b2e83;
+.appHeader nav {
+  background-color: #4b2e83 !important;
   color: white;
   height: 65px;
 }
@@ -13,7 +13,6 @@
 
 #links {
   float: right;
-  padding-top: 20px;
   margin-right: 20px;
   color: white;
 }
@@ -35,4 +34,5 @@ a {
 .curRoute {
   border-bottom: 1px solid white;
 }
+
 

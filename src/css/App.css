@@ -26,3 +26,28 @@ button {
 hr {
   border-top: solid 1px #4b2e83;
 }
+
+
+h1 {
+  font-weight: 600;
+  font-size: 3.4em;
+  line-height: 1.05;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 1.8em;
+  line-height: 90%;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 1.0em;
+  line-height: 1.4em;
+}
+
+h4 {
+  font-weight: 400;
+  font-size: 0.9em;
+  line-height: 1.4em;
+}

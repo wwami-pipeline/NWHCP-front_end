@@ -1,7 +1,10 @@
 import React from 'react';
-import 'css/App.css';
 import Header from 'components/Header';
 import Main from './Main';
+import 'materialize-css';
+import 'materialize-css/dist/css/materialize.min.css';
+import 'css/App.css';
+
 
 
 const App = () => {
