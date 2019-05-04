@@ -3,6 +3,9 @@
   height: 65px;
   background-color: white;
 }
+#HomeLink {
+  color:#2B5F9E;
+}
 
 #HomeLink img {
   margin-top: 6px;
