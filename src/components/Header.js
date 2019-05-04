@@ -8,7 +8,7 @@ const Header = () => {
       <header>
         <nav>
           <Link to="/" id="HomeLink">
-            <img id='logo' src='./waypoint-web.png' alt='temp'/>
+            <img id='logo' src='./logo-image.png' alt='temp' />
           </Link>
           <div id='links'>
             <NavLink className='navLink' activeClassName='curRoute' to="/locations">

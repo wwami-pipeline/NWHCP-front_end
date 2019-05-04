@@ -1,13 +1,12 @@
-.appHeader nav {
-  background-color: #4b2e83 !important;
-  color: white;
+.appHeader {
+  color:#2B5F9E;
   height: 65px;
 }
 
 #HomeLink img {
   margin-top: 6px;
   margin-left: 10px;
-  width: 220px;
+  width: 50px;
   float: left;
 }
 
@@ -27,7 +26,7 @@ a {
 }
 
 .navLink {
-  color: white !important;
+  color:#2B5F9E !important;
   margin: 10px;
 }
 
