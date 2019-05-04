@@ -1,6 +1,7 @@
-.appHeader {
+.appHeader nav {
   color:#2B5F9E;
   height: 65px;
+  background-color: white;
 }
 
 #HomeLink img {
