@@ -5,21 +5,23 @@ const Home = () => {
   return (
     <React.Fragment>
       <main
-        style={{ margin: 'auto', width: '57%' }}
+        style={{ margin: 'auto', width: '60%' }}
       // class="home-wrapper"
       >
         <div class="container">
           <section id="top">
             <div class="row">
               <div class="col m10 offset-m1 s12 ">
+                <h2 class="title center-align">
+                  Northwest Health Career Path Project
+                </h2>
+                <h3 class="center-align">
+                  Transform your dreams of today into tomorrow's reality!
+                </h3>
                 <div class="center-align">
-                  <img style={{ marginTop: "40px" }} class="responsive-img" src="./assets/logo.png" alt='logo' />
-                </div>
-                <p class="center-align italic-light">
-                  Illuminating the path between the dreams of today and the healthcare of tommorow.
-                        </p>
-                <div class="center-align">
-                  <img class="responsive-img" src="./assets/roadmap.png" alt='roadmap' />
+                  <button className="center-align programButton">
+                    <a className='buttonLink' href="/locations">Search by map</a>
+                  </button>
                 </div>
                 <div class="col s10 offset-s1">
                   <p class="quote">

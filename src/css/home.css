@@ -17,12 +17,7 @@
 }
 
 .title {
-    font-weight: bolder;
-}
-
-.italic-light {
-    font-style: italic;
-    font-weight: 300;
+    color: #2B5F9E;
 }
 
 .quote {
@@ -37,6 +32,8 @@ svg text {
 
  .center-align {
      text-align: center;
+     margin-left: auto;
+     margin-right: auto;
  }
 
  .responsive-img {
