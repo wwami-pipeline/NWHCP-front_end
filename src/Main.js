@@ -11,7 +11,7 @@ const Main = () => {
     <main>
       <Switch>
         <Route exact path='/' component={Home}/>
-        <Route path='/locations' activeClassName='current' component={MapPage}/>
+        <Route path='/map' activeClassName='current' component={MapPage}/>
         <Route path='/find-programs' activeClassName='current' component={FindPrograms}/>
         <Route path='/org:id' activeClassName='current' render={(props) => <ProgramPageContainer {...props}/>}/>
       </Switch>

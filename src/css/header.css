@@ -1,4 +1,4 @@
-.appHeader nav {
+header nav {
   color:#2B5F9E;
   height: 65px;
   background-color: white;
@@ -7,35 +7,36 @@
   color:#2B5F9E;
 }
 
-#HomeLink img {
-  margin-top: 6px;
-  margin-left: 10px;
-  width: 50px;
-  float: left;
+.navi-title { 
+  float: right;
+  font-size: 15px;
 }
 
-#links {
-  float: right;
-  margin-right: 20px;
-  color: white;
+.navi-logo {
+  float: left;
+  margin: 10px;
+  width: 40px;
 }
+
+@media only screen and (min-width: 601px) and (max-width: 992px) {
+  .brand-logo {
+    left: 30px !important;
+  }
+}
+
+
 
 .navLink:hover {
   color: #b7a57a !important;
 }
 
-a {
-  text-decoration: none;
-  padding: 5px;
-}
 
 .navLink {
   color:#2B5F9E !important;
-  margin: 10px;
 }
 
 .curRoute {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #4b2e83;
 }
 
 

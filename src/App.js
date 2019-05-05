@@ -8,12 +8,11 @@ import 'css/App.css';
 
 
 const App = () => {
-
-
   return (
     <div>
       <Header/>
       <Main />
+      <footer/>
     </div>
   )
 }
