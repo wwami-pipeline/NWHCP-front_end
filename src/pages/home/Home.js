@@ -20,16 +20,31 @@ const Home = () => {
                 </h3>
                 <div class="center-align">
                   <button className="center-align programButton">
-                    <a className='buttonLink' href="/locations">Search by map</a>
+                    <a className='buttonLink' href="/map">Check out our map</a>
                   </button>
+                  <div class="center-align">
+                    <div><img class="responsive-img " src="./assets/people.png" alt='people' /></div>
+                  </div>
                 </div>
+
                 <div class="col s10 offset-s1">
-                  <p class="quote">
-                    Thousands of students in need. Five states with shortages of primary care physicians. One medical school trying to turn the
-                    tide. As part of UW Medicine,
-                                <b>Waypoint</b> maps the healthcare education pipeline so that programs can coordinate their
-outreach, and students can find the services they need to succeed as healthcare professionals.
-                            </p>
+                  <h2 class="center-align">Welcome!</h2>
+                  <p class="flow-text">
+                    Are you a middle school, high school, undergraduate, or post-graduate student
+                    interested in becoming a health professional?</p>
+                  <p class="flow-text">
+                    Do you identify as belonging to a group that has been identified as
+                    underrepresented in the healthcare fields, including ethnic, racial,
+                    socioeconomically and geographically disadvantaged, or LGBTQ?
+                  </p>
+                  <p class="flow-text">
+                    Our site can provide you with the educational and career support that you will
+                    need to reach your goals.
+                  </p>
+                  <p class="flow-text">Keep in mind, healthcare is a field that ofers a wide variety of career options
+                                    beyond clinical care like technology, research, community and environmental
+                    health, ofice administration, and so much more!</p>
+
                 </div>
               </div>
             </div>
@@ -48,12 +63,7 @@ outreach, and students can find the services they need to succeed as healthcare 
                   to solve this problem.
                         </p>
 
-                <div class="row">
-                  <div class="col s8 xs12 offset-s2 center-align">
-                    <img class="responsive-img" src="./assets/statesBig.png" alt='wwami region' />
-                    <p class="italic-light">The five states of the WWAMI Region.</p>
-                  </div>
-                </div>
+
 
                 <p class="flow-text">
                   Over the next decades the School of Medicine would create the
@@ -115,8 +125,8 @@ areas with targeted youth outreach and medical residencies.
             </div>
           </section>
         </div>
-      </main>
-    </React.Fragment>
+      </main >
+    </React.Fragment >
   );
 };
 

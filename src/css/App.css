@@ -10,15 +10,14 @@
   font-size: large;
 }
 
-
-/* button {
+button {
   padding-left: 0px;
   padding-right: 0px;
-  background-color:#6FB97C;
+  background-color: #6FB97C;
   color: white;
   border-radius: 5px;
-  border-color: #6FB97C;
-} */
+  border-color: white
+}
 
 h1 {
   font-weight: 600;
