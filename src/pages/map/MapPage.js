@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
-import "css/mapTEST.css";
+import "./map.css";
 import ProgramCard from "components/ProgramCard";
 import SearchBox from 'components/SearchBox';
 

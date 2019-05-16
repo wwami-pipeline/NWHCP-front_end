@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "css/findPrograms.css";
+import "./findPrograms.css";
 import ProgramCardVerbose from "components/ProgramCardVerbose";
 import FilterForm from './FilterForm';
 

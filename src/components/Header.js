@@ -20,12 +20,12 @@ const NaviLinks = () => {
           </NavLink>
         </li>
         <li>
-          <NavLink className='navLink' activeClassName='curRoute' to="/find-programs">
-              Programs
+          <NavLink className='navLink' activeClassName='curRoute' to="/about">
+              About
           </NavLink>
         </li>
         <li>
-          <NavLink className='navLink' activeClassName='curRoute' to="/find-programs">
+          <NavLink className='navLink' activeClassName='curRoute' to="/resources">
               Resources
           </NavLink>
         </li> 
