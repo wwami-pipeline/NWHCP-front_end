@@ -1,6 +1,5 @@
 header nav {
   color:#2B5F9E;
-  height: 65px;
   background-color: white;
 }
 #HomeLink {
@@ -10,12 +9,12 @@ header nav {
 .navi-title { 
   float: right;
   font-size: 15px;
+  font-weight: bold;
 }
 
 .navi-logo {
   float: left;
-  margin: 10px;
-  width: 40px;
+  height: 40px;
 }
 
 @media only screen and (min-width: 601px) and (max-width: 992px) {
@@ -37,6 +36,11 @@ header nav {
 
 .curRoute {
   border-bottom: 1px solid #4b2e83;
+}
+
+.sidenav .curRoute {
+  border-bottom: none;
+  background-color:#d3d3d3;
 }
 
 

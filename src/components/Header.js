@@ -36,6 +36,13 @@ const NaviLinks = () => {
 class Header extends React.Component {
     componentDidMount() {
       M.AutoInit()
+      document.addEventListener('DOMContentLoaded', function() {
+        var options = {
+          edge: 'right'
+        }
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems, options);
+      });
     } 
 
   render() {
@@ -44,10 +51,11 @@ class Header extends React.Component {
         <nav>
           <div class="nav-wrapper">
             {/* desktop */}
-            <Link className="brand-logo" to="/" id="HomeLink">
-              <div>
-                <img className="navi-logo" id='logo' src='assets/logo-image.png' alt='temp' />
-                <span className="navi-title hide-on-med-and-down">Northwest Health Career Path</span>
+            <Link className="left brand-logo" to="/" id="HomeLink">
+              <div className="valign-wrapper">
+                <img className="navi-logo" id='logo' src='assets/logo-image.png' alt='temp'/>
+                <span className="navi-title hide-on-small-and-down">Northwest Health Career Path</span>
+                <span className="navi-title hide-on-med-and-up">NWHCP</span>
               </div>
             </Link>
 
@@ -56,9 +64,9 @@ class Header extends React.Component {
             </ul>
 
             {/* mobile */}
-            <div className="hide-on-med-and-up">
+            <div className="right hide-on-med-and-up">
               <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-              <ul class="sidenav" id="mobile-demo">
+              <ul class="sidenav sidenav-close" id="mobile-demo">
                 <NaviLinks/>
               </ul>
             </div>
