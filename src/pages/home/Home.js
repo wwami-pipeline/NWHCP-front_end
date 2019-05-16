@@ -15,7 +15,7 @@ const Home = () => {
                 Transform your dreams of today into tomorrow's reality!
               </h3>
               <div class="center-align">
-                <button className="center-align programButton">
+                <button className="center-align primaryButton">
                   <a className='buttonLink' href="/map">Check out our map</a>
                 </button>
                 <div class="center-align">

@@ -1,10 +1,10 @@
 import React from 'react';
 import Header from 'components/Header';
 import Main from './Main';
+import 'css/App.css';
 import Footer from 'components/Footer'
 import 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
-import 'css/App.css';
 
 
 

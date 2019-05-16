@@ -81,8 +81,8 @@ class MapPage extends Component {
       ? [this.state.programs[0].Lat, this.state.programs[0].Long] 
       : [47.649872200000004, -122.30822959999999];
 
-    console.log(position);
-    console.log(this.state.programs)
+    // console.log(position);
+    // console.log(this.state.programs)
 
     const Results = this.state.programs && this.state.programs.length == 0 ? (
       <h3 style = {{
@@ -130,7 +130,7 @@ class MapPage extends Component {
                     <Popup>
                       <span>
                         <h3>{program.OrgTitle}</h3>
-                        <button className="programButton">
+                        <button className="markerButton primaryButton">
                           <a className='buttonLink' href={"/org" + program.OrgId}>More Details</a>
                         </button>
                       </span>

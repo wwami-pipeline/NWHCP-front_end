@@ -9,7 +9,7 @@ header nav {
 .navi-title { 
   float: right;
   font-size: 15px;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .navi-logo {
@@ -23,19 +23,16 @@ header nav {
   }
 }
 
-
-
 .navLink:hover {
   color: #b7a57a !important;
 }
-
 
 .navLink {
   color:#2B5F9E !important;
 }
 
 .curRoute {
-  border-bottom: 1px solid #4b2e83;
+  border-bottom: 1.5px solid #4b2e83;
 }
 
 .sidenav .curRoute {

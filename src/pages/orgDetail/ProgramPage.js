@@ -36,7 +36,7 @@ const ProgramPage = ({ program }) => {
       </div>
       </div>
       <div className='fullDesc'>
-        <button className='programButton' onClick={() => {window.history.back()}}>Back</button>
+        <button className='primaryButton' onClick={() => {window.history.back()}}>Back</button>
         <h3>{program.OrgTitle}</h3>
         <hr/>
         <p>{program.ActivityDesc}</p>

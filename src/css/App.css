@@ -20,13 +20,36 @@ main {
   font-size: large;
 }
 
-button {
-  padding-left: 0px;
-  padding-right: 0px;
-  background-color: #6FB97C;
+
+.primaryButton {
   color: white;
-  border-radius: 5px;
-  border-color: white
+  display: block;
+  padding: 8px 20px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 18px;
+  background-color: #6FB97C;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+.primaryButton:hover {
+  background-color: #4b2e83;
+  color: #EEE7D9;
+}
+
+.naviButton {
+  color: white;
+  display: block;
+  font-size: 20px;
+  background-color: #4b2e83;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.naviButton:hover {
+  color: #EEE7D9;
 }
 
 h1 {

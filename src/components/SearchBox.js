@@ -32,7 +32,7 @@ class SearchBox extends React.Component {
             type='text'
             onChange={this.handleInputChange}
             placeholder={this.props.placeholder}/>
-          <input type='submit' value='Search' className='searchButton'/>
+          <input type='submit' value='Search' className='searchButton primaryButton'/>
         </form>
       </div>
     );
