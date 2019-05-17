@@ -12,15 +12,9 @@ header nav {
   font-weight: 600;
 }
 
-@media (max-width: 600px) {
-  .navi-logo {
-    height: 56px;
-  }
-}
-
 .navi-logo {
   float: left;
-  height: 64px;
+  height: 56px;
 }
 
 @media only screen and (min-width: 601px) and (max-width: 992px) {
