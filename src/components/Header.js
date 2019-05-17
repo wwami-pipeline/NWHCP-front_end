@@ -49,11 +49,9 @@ class Header extends React.Component {
           <div class="nav-wrapper">
             {/* desktop */}
             <Link className="left brand-logo" to="/" id="HomeLink">
-              <div className="valign-wrapper">
-                <img className="navi-logo" id='logo' src='assets/logo-image.png' alt='temp'/>
-                <span className="navi-title hide-on-small-and-down">Northwest Health Career Path</span>
-                <span className="navi-title hide-on-med-and-up">NWHCP</span>
-              </div>
+              <img className="navi-logo" id='logo' src='assets/logo-image.png' alt='temp'/>
+              <span className="navi-title hide-on-small-and-down">Northwest Health Career Path</span>
+              <span className="navi-title hide-on-med-and-up">NWHCP</span>
             </Link>
 
             <ul className="right hide-on-small-and-down">
