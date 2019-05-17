@@ -1,7 +1,7 @@
 .mapPage {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: calc(100vh - 65px);
+  grid-template-rows: calc(100vh - 180px);
   width: 100%;
   background-color: #f8f8f8;
 }
@@ -9,6 +9,13 @@
 .mapBox {
   grid-column: 2 / 4;
   grid-row: 1;
+}
+
+@media (max-width: 600px) {
+  .mapBox {
+    grid-column: 1 / 4;
+    grid-row: 1;
+  }
 }
 
 .sideBar {
@@ -21,7 +28,7 @@
 }
 
 .resultsBox {
-  height: 80%;
+  height: 100%;
   overflow: auto;
 }
 
@@ -36,10 +43,15 @@
   height: 100%;
 }
 
+
 .markerButton {
   padding: 5px 10px !important;
 }
 .markerButton a {
   color: white !important;
   font-size: 14px;
+}
+
+.collapsible {
+  margin: 0;
 }

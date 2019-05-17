@@ -35,14 +35,11 @@ const NaviLinks = () => {
 
 class Header extends React.Component {
     componentDidMount() {
-      M.AutoInit()
-      document.addEventListener('DOMContentLoaded', function() {
-        var options = {
-          edge: 'right'
-        }
-        var elems = document.querySelectorAll('.sidenav');
-        var instances = M.Sidenav.init(elems, options);
-      });
+      var options = {
+        edge: 'right'
+      }
+      var elems = document.querySelectorAll('.sidenav');
+      M.Sidenav.init(elems, options);
     } 
 
   render() {
@@ -65,8 +62,12 @@ class Header extends React.Component {
 
             {/* mobile */}
             <div className="right hide-on-med-and-up">
-              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-              <ul class="sidenav sidenav-close" id="mobile-demo">
+              <a href="#" data-target="mobile-menu" class="valign-wrapper sidenav-trigger">
+                <svg fill="#2B5F9E" height="32px" version="1.1" viewBox="0 0 32 32" width="32px">
+                  <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z"/>
+                </svg>
+              </a>
+              <ul class="sidenav sidenav-close" id="mobile-menu">
                 <NaviLinks/>
               </ul>
             </div>

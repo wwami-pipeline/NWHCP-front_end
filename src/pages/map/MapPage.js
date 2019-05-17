@@ -3,7 +3,8 @@ import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import "./map.css";
 import ProgramCard from "components/ProgramCard";
-import SearchBox from 'components/SearchBox';
+import SearchBox from './SearchBox/SearchBox';
+import M from "materialize-css";
 
 class MapPage extends Component {
   constructor(props) {
@@ -11,6 +12,12 @@ class MapPage extends Component {
     this.state =  { programs: [], activeID: '', searchContent: '' };
     this.searchClick = this.searchClick.bind(this) 
     this.createMarkerIcon = this.createMarkerIcon.bind(this) 
+  }
+
+  componentDidMount() {
+    var elems = document.querySelectorAll('.collapsible');
+    const options = {}
+    M.Collapsible.init(elems, options);
   }
 
   componentWillMount() {
@@ -49,6 +56,10 @@ class MapPage extends Component {
   }
 
   searchClick(event, input) {
+    var elems = document.querySelectorAll('.collapsible');
+    elems.forEach(elem => {
+      M.Collapsible.getInstance(elem).close()
+    })
     event.preventDefault();
     // console.log('click');
     var jsonFilters = JSON.stringify(input);
@@ -104,11 +115,12 @@ class MapPage extends Component {
       
 
     return (
+      <React.Fragment>
+      <SearchBox searchClick={this.searchClick} placeholder='Location/City/Name' />
+
       <div className="mapPage">
         <div className='sideBar'>
-          <div className='seachBox'>
-            <SearchBox searchClick={this.searchClick} name='Programs Near You' placeholder='Find a location' />
-          </div>
+        
           <div className="resultsBox">
             { Results }
           </div>
@@ -141,6 +153,7 @@ class MapPage extends Component {
           </Map>
         </div>
       </div>
+      </React.Fragment>
     )
   }
 }
