@@ -20,7 +20,7 @@ header nav {
 
 .navi-logo {
   float: left;
-  height: 56px;
+  height: 64px;
 }
 
 @media only screen and (min-width: 601px) and (max-width: 992px) {
