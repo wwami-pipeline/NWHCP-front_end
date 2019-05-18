@@ -49,22 +49,6 @@ svg text {
      margin-right: auto;
 }
 
-.column {
-    display:table-cell;
-    vertical-align: middle;
-    width: 50%;
-    height: 100%;
-}
-
-.vertical-center {
-    margin: 0;
-    top: 50%;
-  }
-
-.highlight {
-    color:#6FB97C;
-}
-
 h3 {
     color: rgb(121, 121, 121);
 }

@@ -49,35 +49,46 @@ class About extends React.Component {
                             </p>
                         </div>
 
-                        <div>
-
+                        <div class="container center-align">
                             <ul class="features">
                                 <li>
-                                    <div class="feature-icon">
-                                        <div><img class="responsive-img " src="./assets/banner.png" alt='people' /></div>
-                                    </div>
-                                    <div class="feature-descr">
-                                        <p>Summer Camps</p>
+                                    <div>
+                                        <img class="responsive-img icon" src="./assets/camp.png" alt='camp' />
+                                        <p class="flow-text">Summer Camps</p>
                                     </div>
                                 </li>
                                 <li>
+                                    <div>
+                                        <img class="responsive-img icon" src="./assets/shadowing.png" alt='hadowing' />
+                                        <p class="flow-text">Shadowing Opportunities</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <img class="responsive-img icon" src="./assets/after-school.png" alt='after-school' />
+                                        <p class="flow-text">After School Programs</p>
+                                    </div>
 
                                 </li>
                                 <li>
-
+                                    <div>
+                                        <img class="responsive-img icon" src="./assets/workshop.png" alt='workshop' />
+                                        <p class="flow-text">Workshops</p>
+                                    </div>
                                 </li>
                                 <li>
-
+                                    <div>
+                                        <img class="responsive-img icon" src="./assets/intern.png" alt='intern' />
+                                        <p class="flow-text">Internships</p>
+                                    </div>
                                 </li>
                                 <li>
-
-                                </li>
-                                <li>
-
+                                    <div>
+                                        <img class="responsive-img icon" src="./assets/college.png" alt='college' />
+                                        <p class="flow-text">College Access Programs</p>
+                                    </div>
                                 </li>
                             </ul>
-
-
                         </div>
                     </section>
                 </div>
