@@ -1,0 +1,17 @@
+
+
+.column {
+    display:table-cell;
+    vertical-align: middle;
+    width: 50%;
+    height: 100%;
+}
+
+.vertical-center {
+    margin: 0;
+    top: 50%;
+  }
+
+.highlight {
+    color:#6FB97C;
+}

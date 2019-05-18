@@ -7,8 +7,8 @@
 
 @media only screen and (max-width: 400px) {
     .home-wrapper {
-        /* margin: 'auto'; */
-        width: '90%';
+        margin: 'auto';
+        width: '100%';
     }
 
     .flow-text {
@@ -35,19 +35,35 @@ svg text {
     font-family: "FontAwesome";
  }
 
- .center-align {
+.center-align {
      text-align: center;
      margin-left: auto;
      margin-right: auto;
- }
+}
 
- .responsive-img {
+.responsive-img {
      width: 90%;
      height: auto;
      margin-top: 20px;
      margin-left: auto;
      margin-right: auto;
- }
+}
+
+.column {
+    display:table-cell;
+    vertical-align: middle;
+    width: 50%;
+    height: 100%;
+}
+
+.vertical-center {
+    margin: 0;
+    top: 50%;
+  }
+
+.highlight {
+    color:#6FB97C;
+}
 
 h3 {
     color: rgb(121, 121, 121);

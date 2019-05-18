@@ -37,7 +37,9 @@
 
  .row {
    margin-bottom: 0;
+   display:table;
  }
+
  .row .col {
    padding: 0;
  }
