@@ -1,9 +1,16 @@
 
 
-.column {
+.column-left {
     display:table-cell;
     vertical-align: middle;
-    width: 50%;
+    width: 40%;
+    height: 100%;
+}
+
+.column-right {
+    display:table-cell;
+    vertical-align: middle;
+    width: 60%;
     height: 100%;
 }
 
@@ -27,8 +34,8 @@ ul {
 }
 
 .icon {
-    height: 40%;
-    width: 40%;
+    height: 30%;
+    width: 30%;
 }
 
   @media (min-width: 768px) {

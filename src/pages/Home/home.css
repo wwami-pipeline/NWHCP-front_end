@@ -35,6 +35,10 @@ svg text {
     font-family: "FontAwesome";
  }
 
+#top {
+    margin-bottom: 50px;
+}
+
 .center-align {
      text-align: center;
      margin-left: auto;

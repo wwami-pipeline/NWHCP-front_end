@@ -8,12 +8,12 @@ class About extends React.Component {
                 <div class="container">
                     <section id="problem">
                         <div class="row">
-                            <div class="column">
+                            <div class="column-left">
                                 <p>
                                     <img class="left-image responsive-img" src="./assets/about.png" alt='about' />
                                 </p>
                             </div>
-                            <div class="column">
+                            <div class="column-right">
                                 <p class="col m10 offset-m1 s12">
                                     <h2 class="title center-align">How does the NWHCP site work?</h2>
                                     <p class="flow-text">
@@ -49,7 +49,7 @@ class About extends React.Component {
                             </p>
                         </div>
 
-                        <div class="container center-align">
+                        <div class="center-align">
                             <ul class="features">
                                 <li>
                                     <div>
