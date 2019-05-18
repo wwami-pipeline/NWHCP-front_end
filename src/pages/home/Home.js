@@ -8,9 +8,9 @@ const Home = () => {
         <section id="top">
           <div class="row">
             <div class="col m10 offset-m1 s12 ">
-              <h2 class="title center-align">
+              <h1 class="title center-align">
                 Northwest Health Career Path Project
-              </h2>
+              </h1>
               <h3 class="center-align">
                 Transform your dreams of today into tomorrow's reality!
               </h3>

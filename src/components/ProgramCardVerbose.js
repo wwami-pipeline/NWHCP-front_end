@@ -8,7 +8,7 @@ const ProgramCard = props => {
   partialText = partialText + " ...";
   return (
     <div id={props.program.OrgId} className={'programCard ' + (props.isActive? 'active':'')} onClick={props.onClick}>
-      <h4>{props.program.OrgTitle}</h4>
+      <h4 className="orgTitle">{props.program.OrgTitle}</h4>
       <hr/>
       <div className='summary'>{partialText}</div>
       <div className='iconContent'>

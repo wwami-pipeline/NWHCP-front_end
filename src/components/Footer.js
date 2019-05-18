@@ -3,9 +3,9 @@ import '../css/footer.css'
 class Footer extends Component {
     render() {
         return (
-            <footer class="page-footer">
-                <div class="footer-copyright">
-                    <div class="container center-align">
+            <footer className="page-footer">
+                <div className="footer-copyright">
+                    <div className="center-align">
                         © 2019 Northwest Health Career Path Project. All Rights Reserved
                     </div>
                 </div>

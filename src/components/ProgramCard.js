@@ -5,7 +5,7 @@ import "css/programCard.css";
 const ProgramCard = props => {
   return (
     <div id={props.program.OrgId} className={'programCard ' + (props.isActive? 'active':'')} onClick={props.onClick}>
-      <h4>{props.program.OrgTitle}</h4>
+      <h4 className="orgTitle">{props.program.OrgTitle}</h4>
       <hr/>
       <div className='iconContent'>
         <Icon className='icon'>place</Icon>

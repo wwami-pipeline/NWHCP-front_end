@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './about.css';
 
 class About extends React.Component {
@@ -9,13 +9,11 @@ class About extends React.Component {
                     <section id="problem">
                         <div class="row">
                             <div class="column-left">
-                                <p>
-                                    <img class="left-image responsive-img" src="./assets/about.png" alt='about' />
-                                </p>
+                                <img class="left-image responsive-img" src="./assets/about.png" alt='about' />
                             </div>
                             <div class="column-right">
                                 <p class="col m10 offset-m1 s12">
-                                    <h2 class="title center-align">How does the NWHCP site work?</h2>
+                                    <h1 class="title center-align">How does the NWHCP site work?</h1>
                                     <p class="flow-text">
                                         Our map will link you to a variety of programs that will allow you to
                                     </p>
@@ -41,9 +39,9 @@ class About extends React.Component {
 
                     <section id="programs">
                         <div class="row">
-                            <h2 class="title center-align">
+                            <h1 class="title center-align">
                                 What kind of programs are included?
-                            </h2>
+                            </h1>
                             <p>
                                 Select from activities that will help you build your resume as you apply for school and work.
                             </p>

@@ -1,24 +1,12 @@
 .programPage {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 90vh;
-  width: 100%;
-}
-
-.fullDesc {
-  margin: 30px;
-  margin-top: 10px;
-  grid-column: 1 / 4;
-  grid-row: 1;
+  margin-top: 30px;
 }
 
 .genInfo {
   margin: 20px;
   padding: 20px;
-  border-left: 1px solid #4b2e83;
-  grid-column: 4;
-  grid-row: 1;
-}
+  border-left: 2px solid gary;
+} 
 
 .iconContent {
   margin-bottom: 10px;
