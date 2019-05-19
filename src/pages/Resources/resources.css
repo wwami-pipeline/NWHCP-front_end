@@ -12,6 +12,7 @@
 .resourceURL {
     color: black;
     font-size: 1rem;
+    word-break: break-all;
 }
 
 .resourceURL:hover {
