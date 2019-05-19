@@ -8,13 +8,19 @@ header nav {
 
 .navi-title { 
   float: right;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
 }
 
 .navi-logo {
   float: left;
   height: 56px;
+}
+
+@media (min-width: 993px) {
+  .navi-logo {
+    margin-left: 30px;
+  }
 }
 
 @media only screen and (min-width: 601px) and (max-width: 992px) {

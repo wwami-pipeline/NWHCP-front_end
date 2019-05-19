@@ -1,7 +1,13 @@
 .searchComp {
   padding: 0;
   margin: 0 10px;
-  text-align: center;
+}
+
+@media (min-width: 993px) {
+  .searchComp {
+    width: 60%;
+    margin: auto;
+  }
 }
 
 .collapsible.popout> li {
@@ -17,6 +23,7 @@
 
  .collapsible-body {
    padding: 0 10px;
+   border-bottom: none;
  }
 
  .collapsible-header {
@@ -49,6 +56,7 @@
 
 .searchForm {
   display: flex;
+  margin-left: 10px;
   justify-content: center;
 }
 
@@ -57,6 +65,10 @@
   display: inline-block;
   margin-left: 5px;
   height: 42px;
+}
+
+.searchBox {
+  padding: 5px 20px !important;
 }
 
 

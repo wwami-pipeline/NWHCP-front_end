@@ -4,14 +4,14 @@
 
 .resouceTitle {
     font-weight: 400;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin: 0;
     color: #6FB97C;
 }
 
 .resourceURL {
     color: black;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .resourceURL:hover {

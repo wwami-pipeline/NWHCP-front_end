@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+html {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.1rem;
+}
+
 body {
   display: flex;
   min-height: 100vh;

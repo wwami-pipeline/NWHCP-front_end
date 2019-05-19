@@ -120,7 +120,6 @@ class MapPage extends Component {
 
       <div className="mapPage">
         <div className='sideBar'>
-        
           <div className="resultsBox">
             { Results }
           </div>
