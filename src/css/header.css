@@ -33,11 +33,11 @@ header nav {
 
 .curRoute {
   border-bottom: 1.5px solid #4b2e83;
+  background-color: #d3d3d3;
 }
 
 .sidenav .curRoute {
   border-bottom: none;
-  background-color:#d3d3d3;
 }
 
 
