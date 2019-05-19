@@ -1,17 +1,46 @@
-
-
 .column-left {
     display:table-cell;
     vertical-align: middle;
-    width: 40%;
+    width: 45%;
     height: 100%;
 }
 
 .column-right {
     display:table-cell;
     vertical-align: middle;
-    width: 60%;
+    width: 55%;
     height: 100%;
+}
+
+#support .container {
+    margin-bottom: 0;
+}
+
+.support1 {
+    padding-top: 20px;
+    width: 60%;
+}
+
+.support2 {
+    padding-bottom: 20px;
+    width: 30%;
+}
+
+.detail {
+    font-size: 1rem;
+}
+
+#support {
+    background-color: #2B5F9E;
+    margin: auto;
+}
+
+.detail {
+    color: #FAFBFE;
+}
+
+.support-title {
+    color: #FAFBFE;
 }
 
 .vertical-center {
@@ -21,6 +50,10 @@
 
 .highlight {
     color:#6FB97C;
+}
+
+.highlight2 {
+    color: #FCCE77;
 }
 
 .features {

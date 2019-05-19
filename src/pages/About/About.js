@@ -42,7 +42,7 @@ class About extends React.Component {
                             <h1 class="title center-align">
                                 What kind of programs are included?
                             </h1>
-                            <p>
+                            <p class="center-align">
                                 Select from activities that will help you build your resume as you apply for school and work.
                             </p>
                         </div>
@@ -91,7 +91,32 @@ class About extends React.Component {
                     </section>
                 </div>
 
+                <div id="support">
+                        <div class="container support1"> 
+                                <div class="row">
+                                    <div class="column-right">
+                                        <p class="flow-text detail">
+                                        Help us create a health workforce that is reflective of the people of <span class="highlight2">our communities</span>.
+                                        </p>
+                                        <p class="flow-text detail">
+                                        Health career pathways provide an opportunity for students from <span class="highlight2">diverse backgrounds</span> to explore health careers through experiential learning on their journey to becoming a health professional.
+                                        </p>
+                                    </div>
+                                    <div class="column-left center-align">
+                                        <img class="responsive-img" src="./assets/support.png" alt='support'/>
+                                    </div>
+                                </div>
+                        </div>
 
+                        <div class="container support2">
+                            <div>
+                                <h2 class="center-align support-title">Support</h2>
+                                <p class="flow-text detail">
+                                This project represents a collaboration between the UW School of Medicine Service Learning Program, AHEC for Western Washington, UWSOM Center for Health Equity, Diversity, and Inclusion, Eastern AHEC Center, and all of our community partners throughout the region.
+                                </p>
+                            </div>
+                        </div>
+                </div> 
             </React.Fragment>
         )
     }
