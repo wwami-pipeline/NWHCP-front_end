@@ -1,16 +1,26 @@
 .column-left {
     display:table-cell;
     vertical-align: middle;
-    width: 45%;
+    width: 0%;
     height: 100%;
 }
 
 .column-right {
     display:table-cell;
     vertical-align: middle;
-    width: 55%;
+    width:100%;
     height: 100%;
 }
+
+@media (min-width: 993px) {
+    .column-left {
+      width: 45%;
+  }
+  
+    .column-right {
+      width:55%;
+    }
+  }
 
 #support .container {
     margin-bottom: 0;
