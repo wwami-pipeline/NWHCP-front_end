@@ -18,12 +18,20 @@
 
 .support1 {
     padding-top: 20px;
-    width: 60%;
 }
 
 .support2 {
     padding-bottom: 20px;
+}
+
+@media (min-width: 993px) {
+  .support1 {
+    width: 60%;
+}
+
+  .support2 {
     width: 30%;
+  }
 }
 
 .detail {
