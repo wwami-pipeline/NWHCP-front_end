@@ -29,6 +29,7 @@ main {
 .primaryButton {
   color: white;
   display: block;
+  border: none;
   padding: 8px 20px;
   border-radius: 7px;
   cursor: pointer;
@@ -45,6 +46,7 @@ main {
 
 .naviButton {
   color: white;
+  border: none;
   display: block;
   font-size: 20px;
   background-color: #4b2e83;
