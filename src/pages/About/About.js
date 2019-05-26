@@ -18,19 +18,19 @@ class About extends React.Component {
                                         Our map will link you to a variety of programs that will allow you to
                                     </p>
                                     <li class="flow-text">
-                                        Learn about oportunities in the <span class="highlight">health sciences and STEM</span>,
+                                        Learn about oportunities in the health sciences and STEM,
                                     </li>
                                     <li class="flow-text">
-                                        Experience <span class="highlight">hands-on activities</span>,
+                                        Experience hands-on activities,
                                     </li>
                                     <li class="flow-text">
-                                        Prepare <span class="highlight">academically</span>,
+                                        Prepare academically,
                                     </li>
                                     <li class="flow-text">
-                                        Build your <span class="highlight">resume</span>,
+                                        Build your resume,
                                     </li>
                                     <li class="flow-text">
-                                        Explore the <span class="highlight">wide variety of health based careers</span>. Learn about how to become a doctor, nurse, pharmacist, social worker, dentist, or therapist, and find out more about health professions that you might not even have heard of like health administration or health information technology!
+                                        Explore the wide variety of health based careers. Learn about how to become a doctor, nurse, pharmacist, social worker, dentist, or therapist, and find out more about health professions that you might not even have heard of like health administration or health information technology!
                                     </li>
                                 </p>
                             </div>
@@ -92,31 +92,31 @@ class About extends React.Component {
                 </div>
 
                 <div id="support">
-                        <div class="container support1"> 
-                                <div class="row">
-                                    <div class="column-right">
-                                        <p class="flow-text detail">
-                                        Help us create a health workforce that is reflective of the people of <span class="highlight2">our communities</span>.
-                                        </p>
-                                        <p class="flow-text detail">
-                                        Health career pathways provide an opportunity for students from <span class="highlight2">diverse backgrounds</span> to explore health careers through experiential learning on their journey to becoming a health professional.
-                                        </p>
-                                    </div>
-                                    <div class="column-left center-align">
-                                        <img class="responsive-img" src="./assets/support.png" alt='support'/>
-                                    </div>
-                                </div>
-                        </div>
-
-                        <div class="container support2">
-                            <div>
-                                <h2 class="center-align support-title">Support</h2>
+                    <div class="container support1">
+                        <div class="row">
+                            <div class="column-right">
                                 <p class="flow-text detail">
-                                This project represents a collaboration between the UW School of Medicine Service Learning Program, AHEC for Western Washington, UWSOM Center for Health Equity, Diversity, and Inclusion, Eastern AHEC Center, and all of our community partners throughout the region.
-                                </p>
+                                    Help us create a health workforce that is reflective of the people of <span class="highlight2">our communities</span>.
+                                        </p>
+                                <p class="flow-text detail">
+                                    Health career pathways provide an opportunity for students from <span class="highlight2">diverse backgrounds</span> to explore health careers through experiential learning on their journey to becoming a health professional.
+                                        </p>
+                            </div>
+                            <div class="column-left center-align">
+                                <img class="responsive-img" src="./assets/support.png" alt='support' />
                             </div>
                         </div>
-                </div> 
+                    </div>
+
+                    <div class="container support2">
+                        <div>
+                            <h2 class="center-align support-title">Support</h2>
+                            <p class="flow-text detail">
+                                This project represents a collaboration between the UW School of Medicine Service Learning Program, AHEC for Western Washington, UWSOM Center for Health Equity, Diversity, and Inclusion, Eastern AHEC Center, and all of our community partners throughout the region.
+                                </p>
+                        </div>
+                    </div>
+                </div>
             </React.Fragment>
         )
     }
