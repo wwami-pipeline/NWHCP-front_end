@@ -27,7 +27,7 @@ class MapPage extends Component {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({searchContent: "seattle"})
+      body: JSON.stringify({})
     })
     .then(result => {return result.json()})
     .then(data => {
@@ -88,13 +88,37 @@ class MapPage extends Component {
   }
 
   render() { 
-    var position = this.state.programs[0] != null
-      ? [this.state.programs[0].Lat, this.state.programs[0].Long] 
-      : [47.649872200000004, -122.30822959999999];
 
-    // console.log(position);
-    // console.log(this.state.programs)
+    let minLat = 180, maxLat = -180
+    let minLng = 180, maxLng = -180
+    this.state.programs.forEach(program => {
+      let lat = program["Lat"]
+      let lng = program["Long"]
+      if (lat < minLat) {
+        minLat = lat
+      }
+      if (lat > maxLat) {
+        maxLat = lat
+      }
+      if (lng < minLng) {
+        minLng = lng
+      }
+      if (lng > maxLng) {
+        maxLng = lng
+      }
+    })
+    console.log(minLat, maxLat, minLng, maxLng)
 
+    var centerLatLng = [(minLat+maxLat)/2, (minLng+maxLng)/2]
+    if (minLat == maxLat || minLng == maxLng) {
+      const adjustDegree = 0.05
+      minLat -= adjustDegree
+      minLng -= adjustDegree
+      maxLat += adjustDegree
+      maxLng += adjustDegree
+    }
+    let bounds = [[minLat, minLng], [maxLat, maxLng]]
+    console.log(bounds)
     const Results = this.state.programs && this.state.programs.length == 0 ? (
       <h3 style = {{
           marginTop: 20,
@@ -125,7 +149,7 @@ class MapPage extends Component {
           </div>
         </div>
         <div className="mapBox">
-          <Map center={position} zoom={12} className='map'>
+          <Map center={centerLatLng} bounds={bounds} boundsOptions={{padding: [20, 20]}} className='map'>
             <TileLayer
               attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -142,7 +166,7 @@ class MapPage extends Component {
                       <span>
                         <h3>{program.OrgTitle}</h3>
                         <button className="markerButton primaryButton">
-                          <a className='buttonLink' href={"/org" + program.OrgId}>More Details</a>
+                          <a className='' target="_blank" href={"/org" + program.OrgId}>More Details</a>
                         </button>
                       </span>
                     </Popup>

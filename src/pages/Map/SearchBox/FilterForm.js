@@ -51,7 +51,8 @@ const theme = createMuiTheme({
 const style = {
   margin: 'theme.spacing.unit',
   width: 275,
-  marginTop: 10
+  marginTop: 10,
+  marginBottom: 10
 };
 
 class FilterForm extends React.Component {
@@ -88,7 +89,7 @@ class FilterForm extends React.Component {
       <div className='filterForm'>
           <MuiThemeProvider theme={theme}>
             <div className="row">
-              <div className="col s7">
+              <div className="col s12 m6">
                 <div className='multiSelects'>
                   <div className='select'>
                     <FormControl style={style}>
@@ -110,7 +111,6 @@ class FilterForm extends React.Component {
                       </Select>
                     </FormControl>
                   </div>
-                  <br />
                   <FormControl style={style}>
                     <InputLabel htmlFor="select-multiple-checkbox" className='selectInput'>Grade Level</InputLabel>
                       <Select
@@ -119,7 +119,7 @@ class FilterForm extends React.Component {
                         value={this.state.GradeLevels}
                         onChange={this.handleInputChange}
                         input={<Input id="select-multiple-checkbox" />}
-                        renderValue={selected => selected.join(', ')}
+                        renderValue={selected => selected.map(id => gradeLevels[id].name).join(', ')}
                       >
                       {gradeLevels.map(level => (
                         <MenuItem key={level.id} value={level.id}>
@@ -132,7 +132,7 @@ class FilterForm extends React.Component {
                 </div>
               </div>
 
-              <div className="col checkBoxColumn">
+              <div className="col s12 m6 checkBoxColumn">
                   <FormControlLabel
                     control={
                       <Checkbox
@@ -142,15 +142,6 @@ class FilterForm extends React.Component {
                       }
                     label='Associated Costs'/>            
                   <br />
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        checked={this.state.Under18}
-                        onChange={this.handleInputChange}
-                        name='Under18'/>
-                      }
-                    label='Youth Program'/> 
-                  <br />         
                   <FormControlLabel
                     control={
                       <Checkbox

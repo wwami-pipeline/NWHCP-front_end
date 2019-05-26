@@ -34,7 +34,7 @@ class SearchBox extends React.Component {
             <div className="row valign-wrapper">
               <div className="col s3 m2">
                 <div className="valign-wrapper center-align">
-                  <div class="collapsible-header valign-wrapper center-align" style={{"font-size": "15px"}}>
+                  <div className="collapsible-header valign-wrapper center-align" style={{fontSize: "15px"}}>
                     <svg className="collapsible-indicator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"
                       version="1.1" width='21' height='21' fill="#2B5F9E">
                         <path d="M 50,50 5,95 5,5 z"/>

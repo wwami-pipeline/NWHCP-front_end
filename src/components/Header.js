@@ -21,7 +21,7 @@ const NaviLinks = () => {
         </li>
         <li>
           <NavLink className='navLink' activeClassName='curRoute' to="/about">
-              About
+              More
           </NavLink>
         </li>
         <li>

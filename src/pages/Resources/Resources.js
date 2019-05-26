@@ -45,25 +45,30 @@ class Resources extends React.Component {
     render() {
         return (
             <div className="container">
-                <h1 className="center">Resources in Washington State</h1>
-                <ul>
-                    {
-                        resourceLinks.map( item => {
-                            return (
-                                <li key={item.title} className="resourceItem">
-                                    <h2 className="resouceTitle">{item.title}</h2>
-                                    {   
-                                        item.urls.map( url => {
-                                            return (
-                                                <div><a key={url} className="resourceURL" href={url}>{url}</a></div>
-                                            )
-                                        })
-                                    }  
-                                </li>
-                            
-                            )
-                        })
-                    }
+                <h1 className="center">Resources</h1>
+                <ul className="browser-default">
+                    <li>
+                        <h2>Washington:</h2>
+                        <ul>
+                            {
+                                resourceLinks.map( item => {
+                                    return (
+                                        <li key={item.title} className="resourceItem">
+                                            <h2 className="resouceTitle">{item.title}</h2>
+                                            {   
+                                                item.urls.map( url => {
+                                                    return (
+                                                        <div key={url}><a className="resourceURL" href={url}>{url}</a></div>
+                                                    )
+                                                })
+                                            }  
+                                        </li>
+                                    
+                                    )
+                                })
+                            }
+                        </ul>
+                    </li>
                 </ul>
             </div>
         )
