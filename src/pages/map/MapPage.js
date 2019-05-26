@@ -140,7 +140,7 @@ class MapPage extends Component {
 
     return (
       <React.Fragment>
-      <SearchBox searchClick={this.searchClick} placeholder='Location/City/Name' />
+      <SearchBox searchClick={this.searchClick} placeholder='Location/Institution' />
 
       <div className="mapPage">
         <div className='sideBar'>

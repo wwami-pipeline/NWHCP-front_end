@@ -170,3 +170,5 @@ class FilterForm extends React.Component {
 }
 
 export default FilterForm;
+export const GradeLevels = gradeLevels;
+

@@ -10,7 +10,7 @@ class ProgramPageContainer extends Component {
 
   componentDidMount() {
     var OrgId = this.props.match.params.id;
-    console.log(this.props)
+    // console.log(this.props)
     fetch(process.env.REACT_APP_API_ENDPOINT+'/api/v1/org/' + OrgId)
     .then(result => {return result.json()})
     .then(org => {

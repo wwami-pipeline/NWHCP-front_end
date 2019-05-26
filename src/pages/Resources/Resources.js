@@ -48,7 +48,7 @@ class Resources extends React.Component {
                 <h1 className="center">Resources</h1>
                 <ul className="browser-default">
                     <li>
-                        <h2>Washington:</h2>
+                        <h2>Washington State:</h2>
                         <ul>
                             {
                                 resourceLinks.map( item => {
