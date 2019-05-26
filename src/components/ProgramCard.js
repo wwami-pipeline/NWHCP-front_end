@@ -23,9 +23,7 @@ const ProgramCard = props => {
           {props.program.Phone}
         </div>
       </div>
-      <button className="primaryButton">
-        <a className='buttonLink' href={"/org" + props.program.OrgId}>More Details</a>
-      </button>
+      <a className='primaryButton' target="_blank" href={"/org" + props.program.OrgId}>More Details</a>
     </div>
   )
 }

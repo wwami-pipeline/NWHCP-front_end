@@ -8,7 +8,7 @@ const ProgramPage = ({ program }) => {
       <div className="row">
         <div className="col s12 m7 l8">
           <div className='fullDesc'>
-          <button className='primaryButton' onClick={() => {window.history.back()}}>Back</button>
+          {/* <a className='primaryButton' onClick={() => {window.history.back()}}>Back</a> */}
           <h2>{program.OrgTitle}</h2>
           <hr/>
           <p>{program.ActivityDesc}</p>

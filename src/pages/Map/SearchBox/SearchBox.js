@@ -30,7 +30,7 @@ class SearchBox extends React.Component {
     return (
       <div className='center'>
         <ul className="searchComp collapsible popout">
-          <li className="searchBox">
+          <li className="searchBox active">
             <div className="row valign-wrapper">
               <div className="col s3 m2">
                 <div className="valign-wrapper center-align">
@@ -58,7 +58,7 @@ class SearchBox extends React.Component {
             </div>
             
             
-            <div class="collapsible-body">
+            <div className="collapsible-body">
               <div><FilterForm onNewFilterKey={this.receiveDataFromFilter}/></div>
             </div>
           </li>
