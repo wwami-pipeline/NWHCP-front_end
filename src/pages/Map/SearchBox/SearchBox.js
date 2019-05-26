@@ -38,7 +38,7 @@ class SearchBox extends React.Component {
                     <svg className="collapsible-indicator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"
                       version="1.1" width='21' height='21' fill="white">
                         <path d="M 50,50 5,95 5,5 z"/>
-                      </svg><span class="filtersText">Filters</span>
+                      </svg><span className="filtersText">Filters</span>
                   </div>
                 </div>
                 

@@ -80,6 +80,12 @@
   padding: 5px 20px !important;
 }
 
+@media (max-width: 600px) {
+  .searchBox {
+    padding: 0 2px !important;
+  }
+}
+
 
 .searchInput {
   border: none;

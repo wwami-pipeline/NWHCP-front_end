@@ -31,7 +31,7 @@ class MapPage extends Component {
     })
     .then(result => {return result.json()})
     .then(data => {
-      console.log(data);
+      // console.log(data);
       this.setState({ programs: data, activeID: '', searchContent: '' });
     });
   }
@@ -41,7 +41,7 @@ class MapPage extends Component {
     var test = document.getElementById(OrgId);
     var iconSelected = document.getElementsByClassName('icon' + OrgId);
     iconSelected[0].click();
-    console.log(iconSelected);
+    // console.log(iconSelected);
     test.scrollIntoView({
       behavior: 'smooth' 
     });
@@ -107,7 +107,7 @@ class MapPage extends Component {
         maxLng = lng
       }
     })
-    console.log(minLat, maxLat, minLng, maxLng)
+    // console.log(minLat, maxLat, minLng, maxLng)
 
     var centerLatLng = [(minLat+maxLat)/2, (minLng+maxLng)/2]
     if (minLat == maxLat || minLng == maxLng) {
@@ -118,7 +118,7 @@ class MapPage extends Component {
       maxLng += adjustDegree
     }
     let bounds = [[minLat, minLng], [maxLat, maxLng]]
-    console.log(bounds)
+    // console.log(bounds)
     const Results = this.state.programs && this.state.programs.length == 0 ? (
       <h3 style = {{
           marginTop: 20,
@@ -165,9 +165,7 @@ class MapPage extends Component {
                     <Popup>
                       <span>
                         <h3>{program.OrgTitle}</h3>
-                        <button className="markerButton primaryButton">
-                          <a className='' target="_blank" href={"/org" + program.OrgId}>More Details</a>
-                        </button>
+                        <a className='markerButton primaryButton' target="_blank" href={"/org" + program.OrgId}>More Details</a>
                       </span>
                     </Popup>
                   </Marker>
