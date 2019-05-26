@@ -6,7 +6,7 @@ class Footer extends Component {
             <footer className="page-footer">
                 <div className="footer-copyright">
                     <div className="center-align">
-                        © 2019 Northwest Health Career Path Project. All Rights Reserved
+                        © 2019 Northwest Health Career Path. All Rights Reserved
                     </div>
                 </div>
             </footer>

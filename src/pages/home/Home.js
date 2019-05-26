@@ -9,15 +9,13 @@ const Home = () => {
           <div class="row">
             <div class="col m10 offset-m1 s12 ">
               <h1 class="title center-align">
-                Northwest Health Career Path Project
+                Northwest Health Career Path
               </h1>
               <h3 class="center-align">
                 Transform your dreams of today into tomorrow's reality!
               </h3>
               <div class="center-align">
-                <button className="center-align primaryButton">
-                  <a className='buttonLink' href="/map">Check out our map</a>
-                </button>
+                <a className='center-align primaryButton' href="/map">Check out our map</a>
                 <div class="center-align">
                   <div><img class="responsive-img " src="./assets/banner.png" alt='people' /></div>
                 </div>

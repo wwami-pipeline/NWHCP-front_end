@@ -23,11 +23,12 @@ const careers = [
 ];
 
 const gradeLevels = [
-  'Middle School',
-  'High School',
-  'Community College/Technical Schools',
-  'Undergraduates',
-  'Post Bacc'
+  {name: 'Middle School', id: 0},
+  {name: 'High School', id: 1},
+  {name: 'Community College/Technical Schools', id: 2},
+  {name: 'Undergraduates', id: 3},
+  {name: 'Post Bacc', id: 4},
+  {name: 'Other', id: 5}
 ];
 
 const theme = createMuiTheme({
@@ -121,9 +122,9 @@ class FilterForm extends React.Component {
                         renderValue={selected => selected.join(', ')}
                       >
                       {gradeLevels.map(level => (
-                        <MenuItem key={level} value={level}>
-                          <Checkbox checked={this.state.GradeLevels.indexOf(level) > -1} />
-                          <ListItemText primary={level} />
+                        <MenuItem key={level.id} value={level.id}>
+                          <Checkbox checked={this.state.GradeLevels.indexOf(level.id) > -1} />
+                          <ListItemText primary={level.name} />
                         </MenuItem>
                       ))}
                     </Select>

@@ -50,8 +50,8 @@ class Header extends React.Component {
             {/* desktop */}
             <Link className="left brand-logo" to="/" id="HomeLink">
               <img className="navi-logo" id='logo' src='assets/logo-image.png' alt='temp'/>
-              <span className="navi-title hide-on-small-and-down">Northwest Health Career Path</span>
-              <span className="navi-title hide-on-med-and-up">NWHCP</span>
+              <span className="navi-title hide-on-med-and-down">Northwest Health Career Path</span>
+              <span className="navi-title hide-on-large-only">NWHCP</span>
             </Link>
 
             <ul className="right hide-on-small-and-down">
