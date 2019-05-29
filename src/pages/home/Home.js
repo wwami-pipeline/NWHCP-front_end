@@ -32,12 +32,11 @@ const Home = () => {
                   socioeconomically and geographically disadvantaged, or LGBTQ?
                 </p>
                 <p class="flow-text">
-                  Our site can provide you with the educational and career support that you will
-                  need to reach your goals.
+                  Search our map to find information on summer camps, shadowing opportunities, after school
+                  programs, workshops, internships, college access programs, and more!
                 </p>
-                <p class="flow-text">Keep in mind, healthcare is a field that ofers a wide variety of career options
-                                  beyond clinical care like technology, research, community and environmental
-                  health, ofice administration, and so much more!</p>
+                <p class="flow-text">Our site will provide you with the educational and career support that you will
+                  need to reach your goals.</p>
 
               </div>
             </div>

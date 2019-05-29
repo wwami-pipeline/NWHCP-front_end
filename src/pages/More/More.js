@@ -1,7 +1,7 @@
 import React from 'react';
-import './about.css';
+import './more.css';
 
-class About extends React.Component {
+class More extends React.Component {
     render() {
         return (
             <React.Fragment>
@@ -18,7 +18,7 @@ class About extends React.Component {
                                         Our map will link you to a variety of programs that will allow you to
                                     </p>
                                     <li class="flow-text">
-                                        Learn about oportunities in the health sciences and STEM,
+                                        Learn about opportunities in the health sciences and STEM,
                                     </li>
                                     <li class="flow-text">
                                         Experience hands-on activities,
@@ -42,9 +42,6 @@ class About extends React.Component {
                             <h1 class="title center-align">
                                 What kind of programs are included?
                             </h1>
-                            <p class="center-align">
-                                Select from activities that will help you build your resume as you apply for school and work.
-                            </p>
                         </div>
 
                         <div class="center-align">
@@ -95,12 +92,14 @@ class About extends React.Component {
                     <div class="container support1">
                         <div class="row">
                             <div class="column-right">
+                                <h2 class="center-align support-title">Join us</h2>
                                 <p class="flow-text detail">
-                                    Help us create a health workforce that is reflective of the people of <span class="highlight2">our communities</span>.
-                                        </p>
+                                    Health career pathways provide an opportunity for students from diverse backgrounds to explore health careers through experiential learning.
+                                </p>
                                 <p class="flow-text detail">
-                                    Health career pathways provide an opportunity for students from <span class="highlight2">diverse backgrounds</span> to explore health careers through experiential learning on their journey to becoming a health professional.
-                                        </p>
+                                    Help us create a health workforce that is reflective of the people of our communities by adding your program to our map. This can be done
+                                    by filling out the <a class="highlight" href="https://redcap.iths.org/surveys/?s=3FNCRCFYC9">NWHCP survey</a>. Help us spread the world!
+                                </p>
                             </div>
                             <div class="column-left center-align">
                                 <img class="responsive-img" src="./assets/support.png" alt='support' />
@@ -122,4 +121,4 @@ class About extends React.Component {
     }
 }
 
-export default About
+export default More
