@@ -98,7 +98,7 @@ class More extends React.Component {
                                 </p>
                                 <p class="flow-text detail">
                                     Help us create a health workforce that is reflective of the people of our communities by adding your program to our map. This can be done
-                                    by filling out the <a class="highlight" href="https://redcap.iths.org/surveys/?s=3FNCRCFYC9">NWHCP survey</a>. Help us spread the world!
+                                    by filling out the <a class="highlight" href="https://redcap.iths.org/surveys/?s=3FNCRCFYC9">NWHCP survey</a>. Help us spread the word!
                                 </p>
                             </div>
                             <div class="column-left center-align">
