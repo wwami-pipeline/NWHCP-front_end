@@ -45,21 +45,24 @@ const resourceLinks = [
         ]
     },
     {
-        state: "Wyoming",
-        links: [],
-    },
-    {
         state: "Alaska",
         links: [],
+    },
+    
+    {
+        state: "Idaho",
+        links: []
     },
     {
         state: "Montana",
         links: [],
     },
+    
     {
-        state: "Idaho",
-        links: []
+        state: "Wyoming",
+        links: [],
     },
+    
 ] 
 
 class Resources extends React.Component {
