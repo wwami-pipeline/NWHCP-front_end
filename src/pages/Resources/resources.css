@@ -1,5 +1,5 @@
 .resourceItem {
-    margin: 20px 0;
+    margin: 15px 0;
 }
 
 .resouceTitle {
@@ -17,4 +17,8 @@
 
 .resourceURL:hover {
     border-bottom: 1px solid black;
+}
+
+.stateTitle {
+    margin: 10px 0;
 }
