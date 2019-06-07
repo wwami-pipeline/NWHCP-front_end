@@ -1,4 +1,4 @@
-# Waypoint Front-End
+# NWHCP Front-End
 
 ## About
 Client-side code provides mapping and filtering capabilities. This is to help interested students find programs that match to them, as well as help programs identify gaps in coverage. This site fits mobile.
