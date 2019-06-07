@@ -1,19 +1,7 @@
 # Waypoint Front-End
-<img src="https://raw.githubusercontent.com/wwami-pipeline/Front-End/master/public/assets/logo.png" width="500">
-Repository for the client-side code of Waypoint.  
-
-## Notes
-navi logo margin
 
 ## About
-Client-side code provides mapping and filtering capabilities. This is to help interested students find programs that match to them, as well as help programs identify gaps in coverage. This is very much a minimum viable product, and there is a large opportunity for the continuation of this project.
-
-### Future Work
-- User accounts for programs and students.
-- Build program identification survey into website
-- Create mobile friendly version
-- Blog to provide success stories
-- Create more written content
+Client-side code provides mapping and filtering capabilities. This is to help interested students find programs that match to them, as well as help programs identify gaps in coverage. This site fits mobile.
 
 ## Tech and Dependencies
 Project setup using create-react-app for simplicity. The current version of the client-side application is a desktop based web app, that has not been optimized for mobile. It is completely open-source, leveraging React and Leaflet. The project requires the following dependencies:
@@ -24,6 +12,7 @@ Project setup using create-react-app for simplicity. The current version of the 
 - React-Leaflet
 - React-Router-Dom
 - React-Scripts
+- Materialize CSS for mobile responsiveness
 
 Dependencies will be installed by following the setup instructions below.
 
@@ -40,8 +29,8 @@ After cloning down the repo, run `npm install` to install and initialize all dep
 - Favicon
 ### Src
 #### Components
-All React components for the site. Some components are broken into presnetational and container components. I have left depricated versions of components for reference purposes. 
-#### CSS
-This project uses standard css files, as opposed to css modules. Each component has its own css file. This is merely for organizational sake, as styles will apply across the whole site.
-#### Data
-Static data for testing purposes. Shows structure of the data that the API returns as well.
+All shared components for the site. E.g. header and footer.
+
+#### Pages
+Everything that is specific to one page. E.g., the map, which is not used elsewhere.
+
