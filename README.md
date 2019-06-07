@@ -19,6 +19,9 @@ Dependencies will be installed by following the setup instructions below.
 ## Setup
 After cloning down the repo, run `npm install` to install and initialize all dependencies. If you do not have npm installed on your system, please refer to the instructions [here](https://www.npmjs.com/get-npm). Once the install is complete, run `npm start` to launch the local development server.
 
+## Deploy
+Built static html/js/css from ```npm run build``` will be hosted by nginx, which is also the gateway of the whole system. See NWHCP-docker for more information.
+
 ## Contents
 ### Root
 - ReactREADME: Quick reference on react. Created by react-create-app
