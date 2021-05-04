@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --footer-height: 75px;
+    --neg-foot-h: -75px;
+}
+
+body {
+  margin: 0;
+    font-family: 'Mulish', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.blue-color {
+    color: #004987;
+}
+
+.blue-background {
+    background-color: #004987;
+    color: white;
+}
+
+.light-blue-background {
+    background-color: #2B5F9E;
+    color: white;
+}
+
+.green-color {
+    color: #4E8B43;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.padding-sides {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    /* margin-left: 2rem;
+    margin-right: 2rem; */
+}
+
+.padding-top-2rem {
+    padding-top: 2rem;
+}
+
+.padding-bottom-1rem {
+    padding-bottom: 1rem;
+}
+
+.font-size-20 {
+    font-size: 20px;
+}
+
+.font-size-14 {
+    font-size: 14px;
+}
+
+.font-size-12 {
+    font-size: 12px;
+}
+
+/* Footer */
+.footer, .push {
+    height: var(--footer-height);
+  }
+
+.footer {
+    background-color: #1b3e75;
+    color: white;
+    font-size: 3vw;
+    /* vertical-align: middle; */
+    /* position:absolute;
+    left:0;
+    bottom:0;
+    right:0; */
+  }
+
+  .footerInfo .row .col-4 {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.footerInfo .row {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: calc(var(--footer-height) / 2.50);
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+#content-wrap {
+    min-height: 100%;
+    /* margin-left: auto; */
+    /* margin-right: auto; */
+    width: 90%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto var(--neg-foot-h);
+    
+}
+
+#root {
+    padding-bottom:60px;
+}
+
+/* map */
+
+#mapid {
+    height: 300px;
+    width: 100%;
+    /* height: 50vh; */
+}
