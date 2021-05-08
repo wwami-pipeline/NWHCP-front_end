@@ -11,6 +11,15 @@ export class Results extends React.Component {
             programs: [],
             error: null,
             isLoaded: false,
+            dataToSend: {
+                "searchContent": "seattle",
+                "CareerEmp": ["Nursing"],
+                "HasCost": false,
+                "Under18":false, 
+                "HasTransport":false, 
+                "HasShadow":false, 
+                "GradeLevels":[]
+            }
         }
     }
 
@@ -55,7 +64,7 @@ export class Results extends React.Component {
     render() {
         return (
             <div>
-                {/* <Search /> */}
+                <Search />
                 {/* <ResultCard /> */}
                 <ResultMap programs={this.state.programs}/>
                 <ResultGroup programs={this.state.programs}/>

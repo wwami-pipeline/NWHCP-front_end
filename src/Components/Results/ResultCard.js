@@ -43,10 +43,10 @@ import {faStar} from '@fortawesome/free-regular-svg-icons'
 // props takes in a careerEmp as a string that names a career emphasis
 function CareerEmpContainer(props) {
     return (
-        <Col>
+        <div className="flex-row">
             <FontAwesomeIcon icon={faCheck} className="green-color" />
-            {props.careerEmp}
-        </Col>
+            <p className="emphasis">{props.careerEmp}</p>
+        </div>
         
     );
 }
@@ -72,15 +72,13 @@ export function ResultCard(props) {
             <Row>
                 <Col xs={10}>
                     <p className="font-size-12">
-                        <b className="font-size-14">{program.OrgTitle}</b>
-                        <br />
-                        {program.Phone}
-                        <br />
-                        {program.StreetAddress}
-                        <Row>
+                        <p className="font-size-14">{program.OrgTitle}</p>
+                        <p className="program-details">{program.Phone}</p>
+                        <p className="program-details">{program.StreetAddress}</p>
+                        <div className="flex-row">
                             {generateCareerEmphasis(program.CareerEmp)}
-                        </Row>
-                        2 days ago
+                        </div>
+                        <p>2 days ago</p>
                     </p>
                 </Col>
                 <Col xs={2}>
