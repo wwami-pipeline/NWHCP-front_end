@@ -13,7 +13,10 @@ import {Footer} from './Components/Footer/Footer';
 import {Results} from './Components/Results/Results';
 import {SignIn} from './Components/Account/SignIn';
 import {SignUp} from './Components/Account/SignUp';
+import {AccountSettings} from './Components/Account/AccountSettings';
 import SingleResult from './Components/SingleResult/SingleResult';
+import { CardBody } from 'reactstrap';
+import { faParking } from '@fortawesome/free-solid-svg-icons';
 
 // function App() {
 class App extends Component {
@@ -62,6 +65,17 @@ class App extends Component {
                                 <SignUp setPage={this.setPage} setAuthToken={this.setAuthToken} setUser={this.setUser} />
                             } */}
                         </Route>
+                        {/* <Route exact path="/account-settings" component={AccountSettings} /> */}
+                        <Route exact path="/account-settings" render={() => 
+                            <AccountSettings user={
+                                {
+                                    FirstName: "Cody",
+                                    LastName: "Park",
+                                    JoinDate: "02-02-2021",
+                                    Email: "cody123@gmail.com",
+                                    Status: "Confirmed"
+                                }
+                            }/> } />
                     </Switch>
                     <Footer/>
                 </div>
