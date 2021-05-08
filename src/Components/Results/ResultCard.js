@@ -39,8 +39,9 @@ import {faStar} from '@fortawesome/free-regular-svg-icons'
 //     }
 // }
 
+// Container for any career emphasis the program has (green checkmark if exists, defaults to all green)
+// props takes in a careerEmp as a string that names a career emphasis
 function CareerEmpContainer(props) {
-    console.log(props.careerEmp);
     return (
         <Col>
             <FontAwesomeIcon icon={faCheck} className="green-color" />
@@ -50,10 +51,12 @@ function CareerEmpContainer(props) {
     );
 }
 
+// component to display an individual result for program search
+// contains the title of the organization, phone number, street address
+// takes in a prop called program (JSON of health careepathway program info)
 export function ResultCard(props) {
-
-    let program = props.program;
-
+    let program = props.program
+    
     let generateCareerEmphasis = (careerEmp) => {
         let res = []
         for (let i = 0; i < careerEmp.length; i++) {

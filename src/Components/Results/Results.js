@@ -53,12 +53,11 @@ export class Results extends React.Component {
     }
 
     render() {
-        console.log(this.state.programs);
         return (
             <div>
                 {/* <Search /> */}
                 {/* <ResultCard /> */}
-                <ResultMap />
+                <ResultMap programs={this.state.programs}/>
                 <ResultGroup programs={this.state.programs}/>
             </div>
         )
