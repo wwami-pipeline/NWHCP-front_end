@@ -39,9 +39,30 @@ import {faStar} from '@fortawesome/free-regular-svg-icons'
 //     }
 // }
 
+function CareerEmpContainer(props) {
+    console.log(props.careerEmp);
+    return (
+        <Col>
+            <FontAwesomeIcon icon={faCheck} className="green-color" />
+            {props.careerEmp}
+        </Col>
+        
+    );
+}
+
 export function ResultCard(props) {
 
     let program = props.program;
+
+    let generateCareerEmphasis = (careerEmp) => {
+        let res = []
+        for (let i = 0; i < careerEmp.length; i++) {
+            res.push(
+                <CareerEmpContainer careerEmp={careerEmp[i]} />
+            )
+        }
+        return res;
+    }
 
     return (
         <Container>
@@ -54,12 +75,7 @@ export function ResultCard(props) {
                         <br />
                         {program.StreetAddress}
                         <Row>
-                            <Col>
-                                <FontAwesomeIcon icon={faCheck} className="green-color" /> College
-                            </Col>
-                            <Col>
-                                <FontAwesomeIcon icon={faCheck} className="green-color" /> Internship
-                            </Col>
+                            {generateCareerEmphasis(program.CareerEmp)}
                         </Row>
                         2 days ago
                     </p>
