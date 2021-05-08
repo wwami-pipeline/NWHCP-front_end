@@ -11,6 +11,8 @@ import {About} from './Components/About/About';
 import {HowTo} from './Components/HowTo/HowTo';
 import {Footer} from './Components/Footer/Footer';
 import {Results} from './Components/Results/Results';
+import {SignIn} from './Components/Account/SignIn';
+import {SignUp} from './Components/Account/SignUp';
 import SingleResult from './Components/SingleResult/SingleResult';
 
 // function App() {
@@ -47,14 +49,14 @@ class App extends Component {
                         <Route exact path="/how-to" component={HowTo} />
                         <Route exact path="/search" component={Results} />
                         <Route exact path="/single-result" component={SingleResult} />
-                        <Route exact path="/signin">
+                        <Route exact path="/signin" component={SignIn}>
                             {/* {user ? <SignOutButton setUser={this.setUser} setAuthToken={this.setAuthToken} />
                                 :
                                 <SignIn setPage={this.setPage} setAuthToken={this.setAuthToken} setUser={this.setUser} />
                     
                             } */}
                         </Route>
-                        <Route exact path="/signup">
+                        <Route exact path="/signup" component={SignUp}>
                             {/* {user ? <SignOutButton setUser={this.setUser} setAuthToken={this.setAuthToken} />
                                 :
                                 <SignUp setPage={this.setPage} setAuthToken={this.setAuthToken} setUser={this.setUser} />
