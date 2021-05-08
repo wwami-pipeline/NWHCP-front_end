@@ -14,3 +14,11 @@ export const addOrganization = (orgId, orgTitle, city) => ({
 
 // Next step: Write the organizations reducer to update its part of the state
 // when the ADD_ORGANIZATION action is dispatched to the store
+
+export const addUser = (email, password) => ({
+    type: ActionTypes.ADD_USER,
+    payload: {
+        email: email,
+        password: password
+    }
+});
