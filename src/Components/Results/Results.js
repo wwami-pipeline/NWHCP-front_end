@@ -1,7 +1,7 @@
 import React, {Component, useState} from 'react';
 import {Search} from './Search';
 // import {ResultCard} from './ResultCard';
-import {ResultGroup} from './ResultGroup';
+import ResultGroup from './ResultGroup';
 import {ResultMap} from './ResultMap';
 
 export class Results extends React.Component {
@@ -59,7 +59,7 @@ export class Results extends React.Component {
                 {/* <Search /> */}
                 {/* <ResultCard /> */}
                 <ResultMap />
-                <ResultGroup />
+                <ResultGroup programs={this.state.programs}/>
             </div>
         )
     }
