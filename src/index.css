@@ -127,3 +127,7 @@ code {
     width: 100%;
     /* height: 50vh; */
 }
+
+.form-label {
+    color: #004987;
+}
