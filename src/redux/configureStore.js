@@ -1,13 +1,13 @@
 import { createStore, combineReducers } from 'redux';
 
-import { Dataset1 } from './organizationsReducer';
-import { Dataset2 } from './dataset2Reducer';
+import { OrganizationsReducer } from './organizationsReducer';
+import { Dataset2Reducer } from './dataset2Reducer';
 
 export const ConfigureStore = () => {
     const store = createStore(
         combineReducers({
-        dataset1: Dataset1,
-        dataset2: Dataset2
+            OrganizationsReducer,
+            Dataset2Reducer
         })
     );
     return store;

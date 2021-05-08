@@ -4,7 +4,7 @@
 import * as ActionTypes from './ActionTypes';
 
 export const addOrganization = (orgId, orgTitle, city) => ({
-    type: ActionTypes.ADD_POSTING,  // match with name in ActionTypes.js
+    type: ActionTypes.ADD_ORGANIZATION,  // match with name in ActionTypes.js
     payload: {
         orgId: orgId,
         orgTitle: orgTitle,
@@ -12,5 +12,5 @@ export const addOrganization = (orgId, orgTitle, city) => ({
     }
 });
 
-// Next step: Update the comments reducer to update its part of the state
-// when the ADD_COMMENT action is dispatched to the store
+// Next step: Write the organizations reducer to update its part of the state
+// when the ADD_ORGANIZATION action is dispatched to the store
