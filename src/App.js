@@ -12,7 +12,7 @@ import {HowTo} from './Components/HowTo/HowTo';
 import {Footer} from './Components/Footer/Footer';
 import {Results} from './Components/Results/Results';
 import {SignIn} from './Components/Account/SignIn';
-import {SignUp} from './Components/Account/SignUp';
+import SignUp from './Components/Account/SignUp';
 import {AccountSettings} from './Components/Account/AccountSettings';
 import SingleResult from './Components/SingleResult/SingleResult';
 import { CardBody } from 'reactstrap';

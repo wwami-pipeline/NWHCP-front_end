@@ -3,13 +3,31 @@ import { Link } from 'react-router-dom';
 import { Container, Row, Col,
     Form, FormGroup, Input, Label, Button } from 'reactstrap';
 
-export class SignUp extends Component {
+import { connect } from 'react-redux';
+import { addUser } from '../../redux/ActionCreators';
+
+const mapDispatchToProps = {
+    addUser: (email, password) => addUser(email, password)
+}
+
+class SignUp extends Component {
+
+    constructor(props) {
+        super(props);
+        this.handleSignUp = this.handleSignUp.bind(this);
+    }
+
+    handleSignUp(event) {
+        this.props.addUser(this.email.value, this.password.value);
+        event.preventDefault();
+    }
+
     render() {
         return (
             <div>
                 <Container>
                     <p>Sign up</p>
-                    <Form onSubmit={this.handleLogin}>
+                    <Form onSubmit={this.handleSignUp}>
                         <FormGroup>
                             <Label htmlFor="email" className="form-label">Email</Label>
                             <Input type="text" id="email" name="email" placeholder="Email"
@@ -54,3 +72,5 @@ export class SignUp extends Component {
         )
     }
 }
+
+export default connect(null, mapDispatchToProps)(SignUp);
