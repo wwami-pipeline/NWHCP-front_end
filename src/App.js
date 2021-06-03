@@ -18,16 +18,18 @@ import SingleResult from './Components/SingleResult/SingleResult';
 import { CardBody } from 'reactstrap';
 import { faParking } from '@fortawesome/free-solid-svg-icons';
 
+/* 
+// --- Redux Config ---
 import { Provider } from 'react-redux';
 import { ConfigureStore } from './redux/configureStore';
-
 const store = ConfigureStore();
+*/
 
 // function App() {
 class App extends Component {
     render() {
         return (
-            <Provider store={store}>
+            // <Provider store={store}>
                 <Router basename={process.env.PUBLIC_URL} >
                     <div>
                         <Navbar bg="light" expand="sm">
@@ -86,7 +88,7 @@ class App extends Component {
                         <Footer/>
                     </div>
                         </Router>
-            </Provider>
+            // </Provider>
         );
     }
   

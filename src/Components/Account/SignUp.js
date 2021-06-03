@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import { Container, Row, Col,
     Form, FormGroup, Input, Label, Button } from 'reactstrap';
 
-import { connect } from 'react-redux';
-import { addUser } from '../../redux/ActionCreators';
+// import { connect } from 'react-redux';
+// import { addUser } from '../../redux/ActionCreators';
 
-const mapDispatchToProps = {
-    addUser: (email, password) => addUser(email, password)
-}
+// const mapDispatchToProps = {
+//     addUser: (email, password) => addUser(email, password)
+// }
 
 class SignUp extends Component {
 
@@ -18,7 +18,7 @@ class SignUp extends Component {
     }
 
     handleSignUp(event) {
-        this.props.addUser(this.email.value, this.password.value);
+        // this.props.addUser(this.email.value, this.password.value);
         event.preventDefault();
     }
 
@@ -73,4 +73,5 @@ class SignUp extends Component {
     }
 }
 
-export default connect(null, mapDispatchToProps)(SignUp);
+// export default connect(null, mapDispatchToProps)(SignUp);
+export default SignUp;
