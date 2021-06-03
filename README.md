@@ -4,15 +4,15 @@
 Client-side code provides mapping and filtering capabilities. This is to help interested students find programs that match to them, as well as help programs identify gaps in coverage. This site fits mobile.
 
 ## Tech and Dependencies
-Project setup using create-react-app for simplicity. The current version of the client-side application is a desktop based web app, that has not been optimized for mobile. It is completely open-source, leveraging React and Leaflet. The project requires the following dependencies:
-- Material UI
+Project setup using create-react-app for simplicity. The current version of the client-side application is a mobile based web app, that has not been optimized for desktop. It is completely open-source, leveraging React and Leaflet. The project requires the following dependencies:
+- Reactstrap
 - Leaflet
 - React
 - React-Dom
 - React-Leaflet
 - React-Router-Dom
 - React-Scripts
-- Materialize CSS for mobile responsiveness
+- Bootstrap for mobile responsiveness
 
 Dependencies will be installed by following the setup instructions below.
 
