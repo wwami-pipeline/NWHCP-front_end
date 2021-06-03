@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-import React, {Component} from 'react';
-import {Search} from './Search';
-// import {ResultCard} from './ResultCard';
-import {ResultGroup} from './ResultGroup';
-import {ResultMap} from './ResultMap';
-
-export class Results extends React.Component {
-    render() {
-        return (
-            <div>
-                {/* <Search /> */}
-                {/* <ResultCard /> */}
-                <ResultMap />
-                <ResultGroup />
-=======
 import React, {Component, useState} from 'react';
 import {Search} from './Search';
 // import {ResultCard} from './ResultCard';
@@ -84,7 +68,6 @@ export class Results extends React.Component {
                 {/* <ResultCard /> */}
                 <ResultMap programs={this.state.programs}/>
                 <ResultGroup programs={this.state.programs}/>
->>>>>>> hackathon
             </div>
         )
     }
