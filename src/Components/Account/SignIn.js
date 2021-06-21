@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Row, Col,
-    Form, FormGroup, Input, Label, Button } from 'reactstrap';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
 export class SignIn extends Component {
     render() {
@@ -10,16 +9,16 @@ export class SignIn extends Component {
                 <p>Sign in to continue</p>
 
                 <Form onSubmit={this.handleLogin}>
-                    <FormGroup>
-                        <Label htmlFor="email" className="form-label">Email</Label>
-                        <Input type="text" id="email" name="email" placeholder="Email"
+                    <Form.Group>
+                        <Form.Label htmlFor="email" className="form-label">Email</Form.Label>
+                        <Form.Control type="text" id="email" name="email" placeholder="Email"
                                     innerRef={input => this.email = input} />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label htmlFor="password" className="form-label">Password</Label>
-                        <Input type="text" id="password" name="password" placeholder="Password"
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label htmlFor="password" className="form-label">Password</Form.Label>
+                        <Form.Control type="text" id="password" name="password" placeholder="Password"
                                     innerRef={input => this.password = input} />
-                    </FormGroup>
+                    </Form.Group>
                     <small class="d-flex justify-content-end"><Link to="/">Forgot your password?</Link></small>
                     <Button type="submit" value="submit" color="primary" className="w-100">Sign In</Button>
                 </Form>

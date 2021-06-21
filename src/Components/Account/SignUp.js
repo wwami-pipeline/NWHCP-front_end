@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Row, Col,
-    Form, FormGroup, Input, Label, Button } from 'reactstrap';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 
 // import { connect } from 'react-redux';
 // import { addUser } from '../../redux/ActionCreators';
@@ -28,21 +27,21 @@ class SignUp extends Component {
                 <Container>
                     <p>Sign up</p>
                     <Form onSubmit={this.handleSignUp}>
-                        <FormGroup>
-                            <Label htmlFor="email" className="form-label">Email</Label>
-                            <Input type="text" id="email" name="email" placeholder="Email"
+                        <Form.Group>
+                            <Form.Label htmlFor="email" className="form-label">Email</Form.Label>
+                            <Form.Input type="text" id="email" name="email" placeholder="Email"
                                         innerRef={input => this.email = input} />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label htmlFor="password" className="form-label">Password</Label>
-                            <Input type="text" id="password" name="password" placeholder="Password"
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label htmlFor="password" className="form-label">Password</Form.Label>
+                            <Form.Input type="text" id="password" name="password" placeholder="Password"
                                         innerRef={input => this.password = input} />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label htmlFor="confirmPassword" className="form-label">Confirm Password</Label>
-                            <Input type="text" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password"
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label htmlFor="confirmPassword" className="form-label">Confirm Password</Form.Label>
+                            <Form.Input type="text" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password"
                                         innerRef={input => this.confirmPassword = input} />
-                        </FormGroup>
+                        </Form.Group>
                 
                         <Button type="submit" value="submit" color="primary" className="w-100">Sign Up</Button>
                     </Form>

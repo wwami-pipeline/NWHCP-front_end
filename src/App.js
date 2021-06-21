@@ -15,7 +15,6 @@ import {SignIn} from './Components/Account/SignIn';
 import SignUp from './Components/Account/SignUp';
 import {AccountSettings} from './Components/Account/AccountSettings';
 import SingleResult from './Components/SingleResult/SingleResult';
-import { CardBody } from 'reactstrap';
 import { faParking } from '@fortawesome/free-solid-svg-icons';
 
 /* 
