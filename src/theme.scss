@@ -1,0 +1,16 @@
+// Bootstrap Theme Customization
+
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+// $light: rgb(233, 243, 249);
+// $dark: rgb(91, 78, 101);
+$primary: #004987;
+
+$link-color: #004987;
+
+$theme-colors: (
+    // light: $light,
+    // dark: $dark,
+    primary: $primary
+);
