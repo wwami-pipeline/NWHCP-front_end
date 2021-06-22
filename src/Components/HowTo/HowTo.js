@@ -2,7 +2,7 @@ import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCheck, faLightbulb, faSearch, faMap} from '@fortawesome/free-solid-svg-icons';
 import {Container, Row, Col} from 'react-bootstrap';
-import {SupportFooter} from '../SupportFooter/SupportFooter';
+import SupportFooter from '../SupportFooter/SupportFooter.js';
 
 export class HowTo extends React.Component {
     render() {

@@ -1,5 +1,5 @@
 import React from "react";
-import { SupportFooter } from "../SupportFooter/SupportFooter";
+import SupportFooter from "../SupportFooter/SupportFooter.js";
 
 const About = () => {
   return (
