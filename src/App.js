@@ -6,7 +6,7 @@ import {
     Route,
     Link
 } from 'react-router-dom';
-import {Navbar, Nav, Button} from 'react-bootstrap';
+import {Navbar, Nav} from 'react-bootstrap';
 import {About} from './Components/About/About';
 import {HowTo} from './Components/HowTo/HowTo';
 import {Footer} from './Components/Footer/Footer';
@@ -15,7 +15,7 @@ import {SignIn} from './Components/Account/SignIn';
 import SignUp from './Components/Account/SignUp';
 import {AccountSettings} from './Components/Account/AccountSettings';
 import SingleResult from './Components/SingleResult/SingleResult';
-import { faParking } from '@fortawesome/free-solid-svg-icons';
+// import { faParking } from '@fortawesome/free-solid-svg-icons';
 
 /* 
 // --- Redux Config ---

@@ -1,9 +1,9 @@
-import React, {Component, useState} from 'react';
+import React, {useState} from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faGlobe, faPhone, faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons';
 import {faEnvelope} from '@fortawesome/free-regular-svg-icons'
-import { Collapse } from 'reactstrap';
+// import { Collapse } from 'reactstrap';
 
 // export class SingleResult extends React.Component {
 function SingleResult() {
@@ -63,9 +63,9 @@ function SingleResult() {
                 </Container>
                 <div>
                 <Button color="primary" onClick={toggle} style={{ marginBottom: '1rem' }}>Toggle</Button>
-                <Collapse isOpen={isOpen}>
+                {/* <Collapse isOpen={isOpen}>
                     <p>hey ;)</p>
-                </Collapse>
+                </Collapse> */}
                 </div>
             </div>
         )

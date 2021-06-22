@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import { MapContainer, TileLayer, Marker, Popup, Map } from 'react-leaflet';
-import L from 'leaflet';
+import React from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+// import L from 'leaflet';
 
 // calculates and returns the average of a nums array
 function avgPt(arr) {

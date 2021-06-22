@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {SupportFooter} from '../SupportFooter/SupportFooter';
 
 export class About extends React.Component {

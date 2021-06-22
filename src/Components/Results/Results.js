@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React from 'react';
 import {Search} from './Search';
 // import {ResultCard} from './ResultCard';
 import ResultGroup from './ResultGroup';

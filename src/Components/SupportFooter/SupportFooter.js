@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 export class SupportFooter extends React.Component {
     render() {

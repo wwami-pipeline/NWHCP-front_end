@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCheck, faLightbulb, faSearch, faMap} from '@fortawesome/free-solid-svg-icons';
 import {Container, Row, Col} from 'react-bootstrap';
