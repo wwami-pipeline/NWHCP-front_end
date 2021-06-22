@@ -7,7 +7,7 @@ import {
     Link
 } from 'react-router-dom';
 import {Navbar, Nav} from 'react-bootstrap';
-import {About} from './Components/About/About';
+import About from './Components/About/About';
 import {HowTo} from './Components/HowTo/HowTo';
 import {Footer} from './Components/Footer/Footer';
 import {Results} from './Components/Results/Results';

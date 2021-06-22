@@ -5,12 +5,15 @@
 
 // $light: rgb(233, 243, 249);
 // $dark: rgb(91, 78, 101);
-$primary: #004987;
+$primary: #004987;  // navy blue
+$secondary: #DAD8D8;    // light grey
+$medium-blue: #2B5F9E;
 
-$link-color: #004987;
+$link-color: $medium-blue;
 
 $theme-colors: (
     // light: $light,
     // dark: $dark,
-    primary: $primary
+    primary: $primary,
+    secondary: $secondary
 );

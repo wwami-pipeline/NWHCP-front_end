@@ -2,6 +2,8 @@
 @import './theme.scss';
 @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+$base-font-size: 12 / 16;  // = 0.75rem = 12px assuming browser default is 1rem = 16px
+
 :root {
     --footer-height: 75px;
     --neg-foot-h: -75px;
@@ -9,14 +11,35 @@
 
 body {
   margin: 0;
+  font-size: $base-font-size * 1rem;    // 12px
   font-family: 'Mulish', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+}
+
+h1, h2, h3, h4 {
+    font-weight: bold;
+    color: $primary;
+    text-align: center;
+}
+
+h1 { font-size: 2rem * $base-font-size; }   // = 24px
+h2 { font-size: 1.67rem * $base-font-size; }   // = 20px
+h3 { color: black; }
+
+.lead {
+    color: $primary;
+    font-weight: 600;
+    font-size: $base-font-size * 1.16rem;   // = 14px
+}
+
+.page-wrapper {
+    margin: 2rem 2rem;
 }
 
 .width-100 {
@@ -151,4 +174,4 @@ code {
     color: $primary;
 }
 
-@import '~bootstrap/scss/bootstrap';    // Apply Bootstrap theme modifications
+// @import '~bootstrap/scss/bootstrap';    // Apply Bootstrap theme modifications
