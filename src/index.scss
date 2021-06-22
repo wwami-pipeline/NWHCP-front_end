@@ -4,10 +4,10 @@
 
 $base-font-size: 12 / 16;  // = 0.75rem = 12px assuming browser default is 1rem = 16px
 
-:root {
-    --footer-height: 75px;
-    --neg-foot-h: -75px;
-}
+// :root {
+//     --footer-height: 75px;
+//     --neg-foot-h: -75px;
+// }
 
 body {
   margin: 0;
@@ -113,30 +113,29 @@ h3 { color: black; }
 }
 
 /* Footer */
-.footer, .push {
-    height: var(--footer-height);
-  }
+// .footer, .push {
+//     height: var(--footer-height);
+//   }
 
 .footer {
-    background-color: #1b3e75;
+    background-color: $primary;
     color: white;
-    font-size: 3vw;
-    /* vertical-align: middle; */
-    /* position:absolute;
-    left:0;
-    bottom:0;
-    right:0; */
   }
 
-  .footerInfo .row .col-4 {
-    padding-left: 0;
-    padding-right: 0;
+.support-footer {
+    background-color: $medium-blue;
 }
 
-.footerInfo .row {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: calc(var(--footer-height) / 2.50);
+.support-footer h2 {
+    color: white;
+    text-align: left;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.footer-info p {
+    text-align: center;
+    margin: 0;
 }
 
 .vertical-center {
@@ -158,9 +157,9 @@ h3 { color: black; }
     
 }
 
-#root {
-    padding-bottom:60px;
-}
+// #root {
+//     padding-bottom:60px;
+// }
 
 /* map */
 
