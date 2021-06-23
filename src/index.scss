@@ -42,6 +42,11 @@ h3 { color: black; }
     margin: 2rem 2rem;
 }
 
+.figure-caption {
+    font-size: 1rem * $base-font-size;
+    color: black;
+}
+
 .width-100 {
     width: 100%;
 }
@@ -120,7 +125,12 @@ h3 { color: black; }
 .footer {
     background-color: $primary;
     color: white;
-  }
+}
+
+.main-footer p {
+    text-align: center;
+    margin: 0;
+}
 
 .support-footer {
     background-color: $medium-blue;
@@ -131,11 +141,6 @@ h3 { color: black; }
     text-align: left;
     padding-top: 1rem;
     padding-bottom: 1rem;
-}
-
-.footer-info p {
-    text-align: center;
-    margin: 0;
 }
 
 .vertical-center {
