@@ -6,7 +6,7 @@ const About = () => {
     <div>
       <div className="page-wrapper">
 
-        <h1>About Us</h1>
+        <h1 className="text-primary text-center">About Us</h1>
 
         <p className="lead">
           The Northwest Health Career Path (NWHCP) connects underrepresented
@@ -21,7 +21,7 @@ const About = () => {
           opportunities in their local area.
         </p>
 
-        <h2>Mission</h2>
+        <h2 className="text-primary text-center mt-5">Mission</h2>
 
         <p className="lead">
           Our hope is that other users like advisors, counselors, and program

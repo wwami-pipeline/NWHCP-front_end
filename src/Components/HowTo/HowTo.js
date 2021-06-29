@@ -45,7 +45,7 @@ const HowTo = () => {
 
                     <div>
                         <h2>Included Programs</h2>
-                        <Container className='center-text py-2'>
+                        <Container className='text-center py-2'>
                             <Row>
                                 <Col xs={6}>
                                     <Figure>
