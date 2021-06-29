@@ -7,7 +7,7 @@ import SupportFooter from '../SupportFooter/SupportFooter.js';
 
 const HowTo = () => {
 
-    const check = <span class="fa-li"><FontAwesomeIcon icon={faCheck}/></span>;
+    const check = <span className="fa-li"><FontAwesomeIcon icon={faCheck}/></span>;
 
         return (
             <div>
