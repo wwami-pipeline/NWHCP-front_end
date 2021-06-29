@@ -1,7 +1,6 @@
 import React from 'react';
 import {Search} from './Search';
-// import {ResultCard} from './ResultCard';
-import ResultGroup from './ResultGroup';
+import ResultCard from './ResultCard';
 import {ResultMap} from './ResultMap';
 
 export class Results extends React.Component {
@@ -62,12 +61,21 @@ export class Results extends React.Component {
     }
 
     render() {
+
+        const programCards = this.state.programs.map( (program, index) => {
+            return (
+                <div key={index}>
+                    <ResultCard program={program} />
+                    {/* <hr /> */}
+                </div>
+            )
+        })
+
         return (
             <div>
                 <Search />
-                {/* <ResultCard /> */}
                 <ResultMap programs={this.state.programs}/>
-                <ResultGroup programs={this.state.programs}/>
+                {programCards}
             </div>
         )
     }
