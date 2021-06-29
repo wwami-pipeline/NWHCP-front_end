@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css'; // moved import to index.scss
 import 'leaflet/dist/leaflet.css';
 import './index.scss';
 import App from './App';
