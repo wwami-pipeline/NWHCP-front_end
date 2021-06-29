@@ -23,10 +23,10 @@ export default function ResultCard(props) {
     });
 
     return (
-        <Container>
+        <Container className="pb-3">
             <Row>
                 <Col xs={10}>
-                    <h4 className='text-dark text-left'>{program.OrgTitle}</h4>
+                    <h4 className='text-left'>{program.OrgTitle}</h4>
                     <p>
                         {program.Phone} <br />
                         {program.StreetAddress}
@@ -38,10 +38,11 @@ export default function ResultCard(props) {
                     
                 </Col>
                 <Col xs={2}>
-                    <h2 className='text-dark'>
+                    <h2>
                         <FontAwesomeIcon icon={faStar} />
                     </h2>
                 </Col>
+                
             </Row>
             <hr />
         </Container>

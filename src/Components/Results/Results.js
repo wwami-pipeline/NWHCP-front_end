@@ -74,7 +74,7 @@ export class Results extends React.Component {
             <div>
                 <Search />
                 <ResultMap programs={this.state.programs}/>
-                {programCards}
+                <div className="mt-5">{programCards}</div>
             </div>
         )
     }

@@ -2,6 +2,7 @@
 $base-font-ratio: 12 / 16;  // = 0.75 (assumes browser default = 1rem = 16px)
 $font-size-12: $base-font-ratio * 1rem;     // = 12px
 $font-size-14: $base-font-ratio * 1.16rem;  // = 14px
+$font-size-18: $base-font-ratio * 1.5rem;   // = 18px
 $font-size-20: $base-font-ratio * 1.67rem;  // = 20px
 $font-size-24: $base-font-ratio * 2rem;     // = 24px
 
@@ -17,8 +18,6 @@ $secondary: #DAD8D8;    // light grey
 $link-color: $medium-blue;
 
 $theme-colors: (
-    // light: $light,
-    // dark: $dark,
     primary: $primary,
     secondary: $secondary
 );
