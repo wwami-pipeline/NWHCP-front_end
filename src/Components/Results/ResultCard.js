@@ -4,10 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
 
-// Component to display an individual result card for program search.
-// Contains the title of the organization, phone number, street address
-// Takes in a prop called program (JSON of health careepathway program info)
+// - Component to display an individual result card for program search.
+// - Contains the title of the organization, phone number, street address.
+// - Takes in a prop called program (JSON of health careepathway program info).
 export default function ResultCard(props) {
+
     let program = props.program;
 
     const emphasisList = program.CareerEmp.map((emphasis, index) => {
