@@ -1,13 +1,18 @@
-// Bootstrap Theme Customization
+// NWHCP Variables
+$base-font-ratio: 12 / 16;  // = 0.75 (assumes browser default = 1rem = 16px)
+$font-size-12: $base-font-ratio * 1rem;     // = 12px
+$font-size-14: $base-font-ratio * 1.16rem;  // = 14px
+$font-size-20: $base-font-ratio * 1.67rem;  // = 20px
+$font-size-24: $base-font-ratio * 2rem;     // = 24px
 
+$medium-blue: #2B5F9E;
+
+// Bootstrap Theme Customization
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
 
-// $light: rgb(233, 243, 249);
-// $dark: rgb(91, 78, 101);
 $primary: #004987;  // navy blue
 $secondary: #DAD8D8;    // light grey
-$medium-blue: #2B5F9E;
 
 $link-color: $medium-blue;
 

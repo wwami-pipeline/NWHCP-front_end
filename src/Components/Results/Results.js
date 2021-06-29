@@ -1,5 +1,5 @@
 import React from 'react';
-import {Search} from './Search';
+import Search from './Search';
 import ResultCard from './ResultCard';
 import {ResultMap} from './ResultMap';
 
@@ -66,7 +66,6 @@ export class Results extends React.Component {
             return (
                 <div key={index}>
                     <ResultCard program={program} />
-                    {/* <hr /> */}
                 </div>
             )
         })
