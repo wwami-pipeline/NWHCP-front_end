@@ -118,7 +118,7 @@ const HowTo = () => {
                                     </Figure>
                                 </Col>
                             </Row>
-                            <Button variant="primary">Start Exploring</Button>
+                            <Button variant="primary" size="lg">Start Exploring</Button>
                         </Container>
                     </div>
 
