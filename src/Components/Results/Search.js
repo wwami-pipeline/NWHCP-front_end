@@ -12,9 +12,17 @@ import {
 } from '../../shared/filters.js';
 import './search.scss';
 
+// To Do:
+// - Search by location
+// - Reset search terms
+
+// Caveats:
+// - Searchbar only appears to search for keywords in org name & address
+// - Selecting multiple filters in one category searches for one OR the other
+
 export default function Search(props) {
     /*{
-        searchContent: 'seattle',
+        searchContent: '',
         CareerEmp: [],
         HasCost: false,
         Under18: false,
@@ -26,50 +34,68 @@ export default function Search(props) {
 
     const handleFormChange = (event) => {
         const target = event.target;
-        let value = target.value;
         const name = target.name;
-
+        let value = target.value;
         let newState = props.formData;
+
         if (name === 'CareerEmp' || name === 'GradeLevels') {
             // expects an array
             if (name === 'GradeLevels') value = parseInt(value);
-            if (target.checked) {
-                newState[name].push(value);
-            } else {
-                newState[name] = newState[name].filter(
-                    (item) => item !== value
-                );
-            }
-        } else {
+            newState[name] = target.checked
+                ? [...newState[name], value]
+                : newState[name].filter((item) => item !== value);
+        } else if (target.type === 'checkbox') {
             // expects true or false
             newState[name] = target.checked;
+        } else {
+            // searchbar input
+            newState[name] = value;
         }
 
-        console.log(newState[name]);
+        // console.log(newState[name]);
         props.setFormData(newState);
     };
 
     return (
         <div className='page-wrapper search-form'>
+
+            {/* Searchbar */}
             <Form onSubmit={props.handleSubmit}>
-            
-                <Form.Group controlId='formCareerPath'>
-                    <Form.Label>Find a career path</Form.Label>
+                <Form.Group>
+                    <Form.Label>Find a Career Path</Form.Label>
                     <InputGroup>
-                        <Form.Control placeholder='Location, keywords, organizations' />
+                        <Form.Control
+                            type='text'
+                            name='searchContent'
+                            placeholder='Location, keywords, organizations'
+                            onChange={handleFormChange}
+                        />
                         <InputGroup.Append>
-                            <Button variant='secondary' size='sm'>
+                            <Button variant='secondary' size='sm' type='submit'>
                                 <FontAwesomeIcon icon={faSearch} />
                             </Button>
                         </InputGroup.Append>
                     </InputGroup>
                 </Form.Group>
+            </Form>
 
+            {/* Search by Location */}
+            <Form onSubmit={props.handleSubmit}>
                 <Form.Group controlId='formLocation'>
                     <Form.Label>Location</Form.Label>
-                    <Form.Control type='text' placeholder='Seattle, WA' />
+                    <InputGroup>
+                        <Form.Control type='text' placeholder='Zipcode or City, State' />
+                        <InputGroup.Append>
+                            <Button variant='secondary' size='sm' type='submit'>
+                                <FontAwesomeIcon icon={faSearch} />
+                            </Button>
+                        </InputGroup.Append>
+                    </InputGroup>
                 </Form.Group>
+            </Form>
 
+            {/* Filters */}
+            <Form onSubmit={props.handleSubmit}>
                 <h3 className='text-primary'>Filters</h3>
                 <Accordion defaultActiveKey='0'>
                     <Form.Group controlId='formEducation'>
@@ -80,6 +106,7 @@ export default function Search(props) {
                         </Form.Label>
                         <Accordion.Collapse eventKey='0'>
                             <div>
+                                <Form.Check className='d-none'></Form.Check>
                                 {gradeLevels.map((grade) => (
                                     <Form.Check
                                         type='checkbox'
@@ -101,6 +128,7 @@ export default function Search(props) {
                         </Form.Label>
                         <Accordion.Collapse eventKey='1'>
                             <div>
+                                <Form.Check className='d-none'></Form.Check>
                                 {careers.map((career) => (
                                     <Form.Check
                                         type='checkbox'
@@ -122,6 +150,7 @@ export default function Search(props) {
                         </Form.Label>
                         <Accordion.Collapse eventKey='2'>
                             <div>
+                                <Form.Check className='d-none'></Form.Check>
                                 {enrollment.map((cost) => (
                                     <Form.Check
                                         type='checkbox'
@@ -143,6 +172,7 @@ export default function Search(props) {
                         </Form.Label>
                         <Accordion.Collapse eventKey='3'>
                             <div>
+                                <Form.Check className='d-none'></Form.Check>
                                 {duration.map((item) => (
                                     <Form.Check
                                         type='checkbox'
@@ -164,6 +194,7 @@ export default function Search(props) {
                         </Form.Label>
                         <Accordion.Collapse eventKey='4'>
                             <div>
+                                <Form.Check className='d-none'></Form.Check>
                                 {eligibility.map((item) => (
                                     <Form.Check
                                         type='checkbox'
@@ -185,6 +216,7 @@ export default function Search(props) {
                         </Form.Label>
                         <Accordion.Collapse eventKey='5'>
                             <div>
+                                <Form.Check className='d-none'></Form.Check>
                                 {advanced.map((item) => (
                                     <Form.Check
                                         type='checkbox'
