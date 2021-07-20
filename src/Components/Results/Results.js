@@ -3,36 +3,11 @@ import Search from './Search';
 import ResultCard from './ResultCard';
 import { ResultMap } from './ResultMap';
 
-const RenderPrograms = (props) => {
-    return props.programs.map((program, index) => {
-        return (
-            <div key={index}>
-                <ResultCard program={program} />
-            </div>
-        );
-    });
-}
+const fetchPrograms = (formData, setPrograms, setLoading, setError) => {
+    setLoading(true);
+    // console.log("fetching...");
 
-const Results = () => {
-
-    const [formData, setFormData] = useState({
-                                                searchContent: 'seattle',
-                                                CareerEmp: ['Nursing'],
-                                                HasCost: false,
-                                                Under18: false,
-                                                HasTransport: false,
-                                                HasShadow: false,
-                                                GradeLevels: [] 
-                                            });
-    const [programs, setPrograms] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
-
-    useEffect( () => {
-        setLoading(true);
-        console.log("fetching...");
-
-        fetch('http://nwhealthcareerpath.uw.edu/api/v1/search', 
+    fetch('http://nwhealthcareerpath.uw.edu/api/v1/search', 
             {
                 method: 'POST',
                 body: JSON.stringify(formData),
@@ -54,20 +29,55 @@ const Results = () => {
                 }
             )
             .finally(setLoading(false));
+}
+
+const RenderPrograms = (props) => {
+    return props.programs.map((program, index) => {
+        return (
+            <div key={index}>
+                <ResultCard program={program} />
+            </div>
+        );
+    });
+}
+
+const Results = () => {
+
+    const [formData, setFormData] = useState({
+                                                searchContent: 'seattle',
+                                                CareerEmp: [],
+                                                HasCost: false,
+                                                Under18: false,
+                                                HasTransport: false,
+                                                HasShadow: false,
+                                                GradeLevels: [] 
+                                            });
+    const [programs, setPrograms] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+
+    useEffect( () => {
+        fetchPrograms(formData, setPrograms, setLoading, setError);
     }, []);
 
-    if (loading) {
-        return (
-            <p>Loading Programs...</p>
-        );
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log("form data", formData);
+        setFormData(formData);
+        fetchPrograms(formData, setPrograms, setLoading, setError);
     }
 
     return (
         <div>
-            <Search />
+            <Search formData={formData} setFormData={setFormData} handleSubmit={handleSubmit}/>
             <ResultMap programs={programs} />
             <div className='mt-5'>
+            <h3 className="text-center text-primary mb-4">Search results found {programs.length} programs</h3>
+            {
+                loading ? <p>Loading Programs...</p> :
+                error ? <p>Error fetching programs...</p> :
                 <RenderPrograms programs={programs} />
+            }
             </div>
         </div>
     );
