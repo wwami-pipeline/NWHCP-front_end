@@ -11,6 +11,7 @@ import Footer from "../Components/Footer/Footer";
 import { PrivateRoute } from "./PrivateRoute";
 import HowTo from "../Components/HowTo/HowTo";
 import { AchieveYourFuture } from "../Components/AchieveYourFuture/AchieveYourFuture";
+import { Program } from "../Components/Program/Program";
 
 export const AppRouter = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -31,6 +32,7 @@ export const AppRouter = () => {
             path="/achieve-your-future"
             component={AchieveYourFuture}
           ></Route>
+          <Route exact path="/show-program" component={Program}></Route>
           <Route exact path="/signin" component={SignIn}>
             {/* {user ? <SignOutButton setUser={this.setUser} setAuthToken={this.setAuthToken} />
                         :
