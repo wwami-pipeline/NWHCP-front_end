@@ -1,43 +1,65 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-// import L from 'leaflet';
-
-// calculates and returns the average of a nums array
-function avgPt(arr) {
-    let total = 0;
-    for (let i = 0; i < arr.length; i++) {
-        total += arr[i]
-    }
-    return total / arr.length
-}
+import L from 'leaflet';
 
 // Component that displays a react leaflet map
 // centers itself around the average of the search results or the inputted search parameters
 // inputted search parameters can be an address, a career emphasis, or an organizaton name
 // (I think)
-export function ResultMap(props) {
+export function ResultMap({programs}) {
 
-    let programs = props.programs
-    console.log(props.programs)
+    const marker =  new L.Icon({ iconUrl: process.env.PUBLIC_URL + '/imgs/icon-location.svg' });
 
-    let lats = programs.map(d => d.Lat)
-    let longs = programs.map(d => d.Long)
+    const [centerLatLng, setCenterLatLng] = useState([40.71427, -74.00597])  ;
+    const [bounds, setBounds] = useState([
+        [40.66427, -74.05597],
+        [40.76427, -73.95597]
+    ]);
 
-    let avgLat = avgPt(lats)
-    let avgLong = avgPt(longs)
+    useEffect( () => {
 
-    let center = [avgLat, avgLong]
+        let minLat = 180, maxLat = -180
+        let minLng = 180, maxLng = -180
 
-    console.log(center)
+        programs.forEach(program => {
+            let lat = program["Lat"]
+            let lng = program["Long"]
+            if (lat < minLat) {
+                minLat = lat
+            }
+            if (lat > maxLat) {
+                maxLat = lat
+            }
+            if (lng < minLng) {
+                minLng = lng
+            }
+            if (lng > maxLng) {
+                maxLng = lng
+            }
+        })
+        // console.log(minLat, maxLat, minLng, maxLng)
+        
+        if (minLat === maxLat || minLng === maxLng) {
+            const adjustDegree = 0.05
+            minLat -= adjustDegree
+            minLng -= adjustDegree
+            maxLat += adjustDegree
+            maxLng += adjustDegree
+        }
+
+        setCenterLatLng([(minLat+maxLat)/2, (minLng+maxLng)/2]);
+        setBounds( [[minLat, minLng], [maxLat, maxLng]] );
+
+    }, [programs])
 
     return (
         <div>
-            <MapContainer center={/* center */ [47.638976615384614, -122.31030542307691]} zoom={13} scrollWheelZoom={false} id="mapid">
+            <MapContainer center={centerLatLng} bounds={bounds} boundsOptions={{ padding: [20, 20] }} id="mapid">
                 <TileLayer
                     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                <Marker position={[47.638976615384614, -122.31030542307691]}>
+                <Marker position={[40.71427, -74.00597]} icon={marker}>
                     <Popup>
                     A pretty CSS3 popup. <br /> Easily customizable.
                     </Popup>
