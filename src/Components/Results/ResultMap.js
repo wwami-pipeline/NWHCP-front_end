@@ -50,6 +50,7 @@ export function ResultMap({ programs }) {
         </Marker>
     ));
 
+    // Set map parameters
     useEffect(() => {
         let minLat = 180,
             maxLat = -180;

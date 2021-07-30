@@ -13,11 +13,12 @@ import {
 import './search.scss';
 
 // To Do:
-// - Search by location
-// - Reset search terms
+// - Search by location & radius
+// - Clear filters button
 
-// Caveats:
-// - Searchbar only appears to search for keywords in org name & address
+// Issues:
+// - API only appears to search for keywords in org name & address
+// - Can't search by zipcode
 // - Selecting multiple filters in one category searches for one OR the other
 
 export default function Search(props) {
@@ -30,6 +31,7 @@ export default function Search(props) {
         HasShadow: false,
         GradeLevels: [] 
     }*/
+
     const caretIcon = <FontAwesomeIcon icon={faCaretDown} className='ml-2' />;
 
     const handleFormChange = (event) => {
@@ -58,8 +60,7 @@ export default function Search(props) {
 
     return (
         <div className='page-wrapper search-form'>
-
-            {/* Searchbar */}
+            {/* Search by keyword */}
             <Form onSubmit={props.handleSubmit}>
                 <Form.Group>
                     <Form.Label>Find a Career Path</Form.Label>
@@ -67,7 +68,7 @@ export default function Search(props) {
                         <Form.Control
                             type='text'
                             name='searchContent'
-                            placeholder='Location, keywords, organizations'
+                            placeholder='Search by keyword'
                             onChange={handleFormChange}
                         />
                         <InputGroup.Append>
@@ -84,7 +85,10 @@ export default function Search(props) {
                 <Form.Group controlId='formLocation'>
                     <Form.Label>Location</Form.Label>
                     <InputGroup>
-                        <Form.Control type='text' placeholder='Zipcode or City, State' />
+                        <Form.Control
+                            type='text'
+                            placeholder='Zipcode or City, State'
+                        />
                         <InputGroup.Append>
                             <Button variant='secondary' size='sm' type='submit'>
                                 <FontAwesomeIcon icon={faSearch} />
@@ -95,8 +99,16 @@ export default function Search(props) {
             </Form>
 
             {/* Filters */}
-            <Form onSubmit={props.handleSubmit}>
-                <h3 className='text-primary'>Filters</h3>
+
+            <div className='pb-3'>
+                <Button variant='secondary' onClick={props.clickFilterButton}>Select Filters</Button>
+                <a role='button' onClick='' className='pl-2'>
+                    Clear Filters
+                </a>
+            </div>
+
+            <Form onSubmit={props.handleSubmit} className={props.toggleFilters}>
+                {/* <h3 className='text-primary py-3'>Filters</h3> */}
                 <Accordion defaultActiveKey='0'>
                     <Form.Group controlId='formEducation'>
                         <Form.Label>

@@ -7,29 +7,27 @@ const fetchPrograms = (formData, setPrograms, setLoading, setError) => {
     setLoading(true);
     // console.log("fetching...");
 
-    fetch('https://nwhealthcareerpath.uw.edu/api/v3/search', 
-            {
-                method: 'POST',
-                body: JSON.stringify(formData),
-                headers: new Headers({
-                                        'Accept': 'application/json',
-                                        'Content-Type': 'application/json'
-                                    })
+    fetch('https://nwhealthcareerpath.uw.edu/api/v3/search', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: new Headers({
+            Accept: 'application/json',
+            'Content-Type': 'application/json'
+        })
+    })
+        .then((res) => res.json())
+        .then(
+            (result) => {
+                // console.log("fetched data: ", result);
+                setPrograms(result);
+            },
+            (error) => {
+                setLoading(false);
+                setError(error);
             }
         )
-            .then((res) => res.json())
-            .then(
-                (result) => {
-                    // console.log("fetched data: ", result);
-                    setPrograms(result);
-                },
-                (error) => {
-                    setLoading(false);
-                    setError(error);
-                }
-            )
-            .finally(setLoading(false));
-}
+        .finally(setLoading(false));
+};
 
 const RenderPrograms = (props) => {
     return props.programs.map((program, index) => {
@@ -39,44 +37,62 @@ const RenderPrograms = (props) => {
             </div>
         );
     });
-}
+};
 
 const Results = () => {
-
     const [formData, setFormData] = useState({
-                                                searchContent: '',
-                                                CareerEmp: [],
-                                                HasCost: false,
-                                                Under18: false,
-                                                HasTransport: false,
-                                                HasShadow: false,
-                                                GradeLevels: [] 
-                                            });
+        searchContent: '',
+        CareerEmp: [],
+        HasCost: false,
+        Under18: false,
+        HasTransport: false,
+        HasShadow: false,
+        GradeLevels: []
+    });
     const [programs, setPrograms] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [toggleFilters, setToggleFilters] = useState('d-none');
+
+    const clickFilterButton = () => {
+        if (toggleFilters === 'd-none') {
+            setToggleFilters('');
+        } else {
+            setToggleFilters('d-none')
+        }
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log("form data", formData);
+        console.log('form data', formData);
         fetchPrograms(formData, setPrograms, setLoading, setError);
-    }
+    };
 
-    useEffect( () => {
+    useEffect(() => {
         fetchPrograms(formData, setPrograms, setLoading, setError);
     }, []);
 
     return (
         <div>
-            <Search formData={formData} setFormData={setFormData} handleSubmit={handleSubmit}/>
+            <Search
+                formData={formData}
+                setFormData={setFormData}
+                handleSubmit={handleSubmit}
+                toggleFilters={toggleFilters}
+                clickFilterButton={clickFilterButton}
+            />
             <ResultMap programs={programs} />
             <div className='mt-5'>
-            <h3 className="text-center text-primary mb-5">Search found {programs.length} programs</h3>
-            {
-                loading ? <p>Loading Programs...</p> :
-                error ? <p>Error fetching programs...</p> :
-                <RenderPrograms programs={programs} />
-            }
+                <h3 className='text-center text-primary mb-5'>
+                    Found {programs.length} programs
+                </h3>
+                {loading ? (
+                    <p>Loading Programs...</p>
+                ) : error ? (
+                    <p>Error fetching programs...</p>
+                ) : (
+                    <RenderPrograms programs={programs} />
+                )}
             </div>
         </div>
     );
