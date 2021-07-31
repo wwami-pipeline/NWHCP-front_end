@@ -19,13 +19,14 @@ export const Program = () => {
     educationLevel: "College | Academy",
     careerEmphasis: "Nursing",
     description:
-      "The nursing program at Seatle Central offers an Associate in Nursing Direct Transfer Degree/Major Related Program (AN DTA/MRP) with...",
+      "The nursing program at Seatle Central offers an Associate in Nursing Direct Transfer Degree/Major Related Program (AN DTA/MRP) with.",
     image:
       "https://www.freevector.com/uploads/vector/preview/30485/Healthcare_characters_vector_5-01.jpg",
     elegibilityRequirements: ["one", "two"],
     targetPopulation: ["one", "two"],
     other: ["one", "two"],
   };
+  const [showMore, setShowMore] = useState(false);
   const [contactInfo, setContactInfo] = useState(false);
   const [programDetail, setProgramDetail] = useState(false);
 
@@ -42,9 +43,13 @@ export const Program = () => {
           <p>{program.careerEmphasis}</p>
         </Col>
       </Row>
-      <p className="mt-4">{program.description}</p>
+      <p className={`mt-4 ${showMore || " text-truncate"}`}>
+        {program.description}
+      </p>
       <div className="my-4">
-        <a href="#">Show more</a>
+        <Button variant="link" onClick={() => setShowMore(!showMore)}>
+          {showMore ? "Show less" : "Show more"}
+        </Button>
       </div>
       <div className="mb-3">
         <Button variant="outline-primary" block>
