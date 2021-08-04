@@ -29,16 +29,6 @@ const fetchPrograms = (formData, setPrograms, setLoading, setError) => {
         .finally(setLoading(false));
 };
 
-const RenderPrograms = (props) => {
-    return props.programs.map((program, index) => {
-        return (
-            <div key={index}>
-                <ResultCard program={program} />
-            </div>
-        );
-    });
-};
-
 const Results = () => {
     const [formData, setFormData] = useState({
         searchContent: '',
@@ -68,6 +58,37 @@ const Results = () => {
         fetchPrograms(formData, setPrograms, setLoading, setError);
     };
 
+    // const handleMarkerClick = (OrgId) => {
+    //     // Scroll to program card
+    //     // setActiveID(OrgId);
+    //     let test = document.getElementById(OrgId);
+    //     test.scrollIntoView({   // need to wrap results in scrollbar for desktop
+    //       behavior: 'smooth' 
+    //     });
+    // }
+
+    const handleCardClick = (OrgId) => {
+        // Show program on map
+        // this.setState({ activeID: OrgId});
+        var test = document.getElementById('mapid');
+        var iconSelected = document.getElementsByClassName('marker' + OrgId);
+        iconSelected[0].click();
+        console.log('icon', iconSelected);
+        test.scrollIntoView({
+          behavior: 'smooth' 
+        });
+    }
+
+    const RenderPrograms = (props) => {
+        return props.programs.map((program, index) => {
+            return (
+                <div key={index}>
+                    <ResultCard program={program} onClick={() => handleCardClick(program.OrgId)}/>
+                </div>
+            );
+        });
+    };
+
     useEffect(() => {
         fetchPrograms(formData, setPrograms, setLoading, setError);
     }, []);
@@ -81,7 +102,7 @@ const Results = () => {
                 toggleFilters={toggleFilters}
                 clickFilterButton={clickFilterButton}
             />
-            <ResultMap programs={programs} />
+            <ResultMap programs={programs}/>
             <div className='mt-5'>
                 <h3 className='text-center text-primary mb-5'>
                     Found {programs.length} programs

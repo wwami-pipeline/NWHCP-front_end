@@ -7,10 +7,15 @@ import L from 'leaflet';
 // inputted search parameters can be an address, a career emphasis, or an organizaton name
 // (I think)
 export function ResultMap({ programs }) {
-    const marker = new L.Icon({
-        iconUrl: process.env.PUBLIC_URL + '/imgs/icon-location.svg',
-        iconSize: new L.Point(20, 30)
-    });
+    
+    const createMarker = (id) => {
+        let marker = new L.Icon({
+            iconUrl: process.env.PUBLIC_URL + '/imgs/icon-location.svg',
+            iconSize: new L.Point(20, 30),
+            className: 'marker' + id
+        });
+        return marker;
+    }
 
     const [centerLatLng, setCenterLatLng] = useState([47.6062, -122.3321]);
     const [bounds, setBounds] = useState([
@@ -28,7 +33,8 @@ export function ResultMap({ programs }) {
         <Marker
             key={program.OrgId}
             position={[program.Lat, program.Long]}
-            icon={marker}
+            icon={createMarker(program.OrgId)}
+            // onClick={() => handleMarkerClick(program.OrgId)}
         >
             <Popup>
                 <span>
