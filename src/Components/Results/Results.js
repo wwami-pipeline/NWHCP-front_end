@@ -42,19 +42,9 @@ const Results = () => {
     const [programs, setPrograms] = useState([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [toggleFilters, setToggleFilters] = useState('d-none');
-
-    const clickFilterButton = () => {
-        if (toggleFilters === 'd-none') {
-            setToggleFilters('');
-        } else {
-            setToggleFilters('d-none')
-        }
-    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log('form data', formData);
         fetchPrograms(formData, setPrograms, setLoading, setError);
     };
 
@@ -99,8 +89,6 @@ const Results = () => {
                 formData={formData}
                 setFormData={setFormData}
                 handleSubmit={handleSubmit}
-                toggleFilters={toggleFilters}
-                clickFilterButton={clickFilterButton}
             />
             <ResultMap programs={programs}/>
             <div className='mt-5'>

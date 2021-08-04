@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { InputGroup, Form, Button, Accordion } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faCaretDown } from '@fortawesome/free-solid-svg-icons';
@@ -33,6 +33,20 @@ export default function Search(props) {
     }*/
 
     const caretIcon = <FontAwesomeIcon icon={faCaretDown} className='ml-2' />;
+    const [buttonText, setButtonText] = useState('Select Filters')
+    const [toggleFilters, setToggleFilters] = useState('d-none');
+
+    const clickFilterButton = () => {
+        if (toggleFilters === 'd-none') {
+            // Display filters
+            setButtonText('Hide Filters')
+            setToggleFilters('');
+        } else {
+            // Hide filters
+            setButtonText('Select Filters')
+            setToggleFilters('d-none')
+        }
+    }
 
     const handleFormChange = (event) => {
         const target = event.target;
@@ -54,9 +68,29 @@ export default function Search(props) {
             newState[name] = value;
         }
 
-        // console.log(newState[name]);
+        console.log(newState[name]);
         props.setFormData(newState);
     };
+
+    const resetForm = () => {
+        Array.from(document.querySelectorAll('input[type=checkbox]:checked'))
+            .forEach( checkbox => checkbox.checked = false)
+        
+        props.setFormData(
+            {
+                searchContent: props.formData.searchContent,
+                CareerEmp: [],
+                HasCost: false,
+                Under18: false,
+                HasTransport: false,
+                HasShadow: false,
+                GradeLevels: []
+            }
+        );
+
+        clickFilterButton();
+
+    }
 
     return (
         <div className='page-wrapper search-form'>
@@ -99,15 +133,11 @@ export default function Search(props) {
             </Form>
 
             {/* Filters */}
-
             <div className='pb-3'>
-                <Button variant='secondary' onClick={props.clickFilterButton}>Select Filters</Button>
-                <a role='button' onClick='' className='pl-2'>
-                    Clear Filters
-                </a>
+                <Button variant='secondary' onClick={clickFilterButton}>{buttonText}</Button>
             </div>
 
-            <Form onSubmit={props.handleSubmit} className={props.toggleFilters}>
+            <Form onSubmit={props.handleSubmit} onReset={props.handleSubmit} className={toggleFilters} id='filtersForm'>
                 {/* <h3 className='text-primary py-3'>Filters</h3> */}
                 <Accordion defaultActiveKey='0'>
                     <Form.Group controlId='formEducation'>
@@ -244,9 +274,10 @@ export default function Search(props) {
                 </Accordion>
 
                 <div className='text-center pt-3'>
-                    <Button size='lg' variant='primary' type='submit'>
+                    <Button size='lg' variant='primary' type='submit' onClick={clickFilterButton} className='mx-2'>
                         Apply filters
                     </Button>
+                    <Button type='reset' size='lg' variant='outline-primary' onClick={resetForm} className='mx-2'>Clear Filters</Button>
                 </div>
             </Form>
         </div>
