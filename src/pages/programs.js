@@ -29,7 +29,7 @@ const fetchPrograms = (formData, setPrograms, setLoading, setError) => {
         .finally(setLoading(false));
 };
 
-const Results = () => {
+const Programs = () => {
     const [formData, setFormData] = useState({
         searchContent: '',
         CareerEmp: [],
@@ -107,4 +107,4 @@ const Results = () => {
     );
 };
 
-export default Results;
+export default Programs;

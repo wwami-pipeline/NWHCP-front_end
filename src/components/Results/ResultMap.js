@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import iconLocation from '../../images/icon-location.svg';
 
 // Component that displays a react leaflet map
 // centers itself around the average of the search results or the inputted search parameters
@@ -8,26 +10,26 @@ import L from 'leaflet';
 // (I think)
 export function ResultMap({ programs }) {
     
-    const createMarker = (id) => {
-        let marker = new L.Icon({
-            iconUrl: process.env.PUBLIC_URL + '/imgs/icon-location.svg',
-            iconSize: new L.Point(20, 30),
-            className: 'marker' + id
-        });
-        return marker;
-    }
-
     const [centerLatLng, setCenterLatLng] = useState([47.6062, -122.3321]);
     const [bounds, setBounds] = useState([
         [47.51, -122.23],
         [47.71, -122.43]
     ]);
-
+    
     const ChangeView = ({ bounds }) => {
         const map = useMap();
         map.fitBounds(bounds);
         return null;
     };
+
+    const createMarker = (id) => {
+        let marker = new L.Icon({
+            iconUrl: iconLocation,
+            iconSize: new L.Point(20, 30),
+            className: 'marker' + id
+        });
+        return marker;
+    }
 
     const renderedMarkers = programs.map((program) => (
         <Marker
