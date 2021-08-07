@@ -1,9 +1,8 @@
 {
-  "name": "gatsby",
+  "name": "nwhcp-client",
   "version": "1.0.0",
   "private": true,
-  "description": "gatsby",
-  "author": "AJ",
+  "description": "NWHCP front end",
   "keywords": [
     "gatsby"
   ],
@@ -15,10 +14,19 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-brands-svg-icons": "^5.15.3",
+    "@fortawesome/free-regular-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
+    "bootstrap": "^4.6.0",
     "gatsby": "^3.11.0",
     "gatsby-plugin-sass": "^4.11.0",
+    "leaflet": "^1.7.1",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "sass": "^1.37.5"
+    "react-bootstrap": "^1.6.1",
+    "react-dom": "^17.0.2",
+    "react-leaflet": "^3.1.0",
+    "sass": "^1.35.1"
   }
 }
