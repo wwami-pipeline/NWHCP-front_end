@@ -6,7 +6,7 @@ import { faStar } from '@fortawesome/free-regular-svg-icons';
 
 // - Component to display an individual result card for program search.
 // - Takes in a prop called program (JSON of health careepathway program info).
-export default function ResultCard({ program, onClick }) {
+export default function ProgramCard({ program, onClick }) {
     const emphasisList = program.CareerEmp.map((emphasis, index) => {
         return (
             <li key={index} className='w-50'>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Search from '../components/Results/Search';
-import ResultCard from '../components/Results/ResultCard';
-import { ResultMap } from '../components/Results/ResultMap';
+import SearchForm from '../components/Programs/SearchForm';
+import ProgramCard from '../components/Programs/ProgramCard';
+import Map from '../components/Programs/Map';
 
 const fetchPrograms = (formData, setPrograms, setLoading, setError) => {
     setLoading(true);
@@ -73,7 +73,7 @@ const Programs = () => {
         return props.programs.map((program, index) => {
             return (
                 <div key={index}>
-                    <ResultCard program={program} onClick={() => handleCardClick(program.OrgId)}/>
+                    <ProgramCard program={program} onClick={() => handleCardClick(program.OrgId)}/>
                 </div>
             );
         });
@@ -85,12 +85,12 @@ const Programs = () => {
 
     return (
         <div>
-            <Search
+            <SearchForm
                 formData={formData}
                 setFormData={setFormData}
                 handleSubmit={handleSubmit}
             />
-            <ResultMap programs={programs}/>
+            <Map programs={programs}/>
             <div className='mt-5'>
                 <h3 className='text-center text-primary mb-5'>
                     Found {programs.length} programs

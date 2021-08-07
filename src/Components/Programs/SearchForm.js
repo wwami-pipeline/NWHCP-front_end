@@ -10,7 +10,7 @@ import {
     eligibility,
     advanced
 } from '../../shared/filters.js';
-import './search.scss';
+import '../../css/search-form.scss';
 
 // To Do:
 // - Search by location & radius
@@ -21,7 +21,7 @@ import './search.scss';
 // - Can't search by zipcode
 // - Selecting multiple filters in one category searches for one OR the other
 
-export default function Search(props) {
+export default function SearchForm(props) {
     /*{
         searchContent: '',
         CareerEmp: [],

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Search from './Search';
-import ResultCard from './ResultCard';
-import { ResultMap } from './ResultMap';
+import Search from './SearchForm';
+import ProgramCard from './ProgramCard';
+import Map from './Map';
 
 const fetchPrograms = (formData, setPrograms, setLoading, setError) => {
     setLoading(true);
@@ -29,7 +29,7 @@ const fetchPrograms = (formData, setPrograms, setLoading, setError) => {
         .finally(setLoading(false));
 };
 
-const Results = () => {
+const SearchResults = () => {
     const [formData, setFormData] = useState({
         searchContent: '',
         CareerEmp: [],
@@ -73,7 +73,7 @@ const Results = () => {
         return props.programs.map((program, index) => {
             return (
                 <div key={index}>
-                    <ResultCard program={program} onClick={() => handleCardClick(program.OrgId)}/>
+                    <ProgramCard program={program} onClick={() => handleCardClick(program.OrgId)}/>
                 </div>
             );
         });
@@ -90,7 +90,7 @@ const Results = () => {
                 setFormData={setFormData}
                 handleSubmit={handleSubmit}
             />
-            <ResultMap programs={programs}/>
+            <Map programs={programs}/>
             <div className='mt-5'>
                 <h3 className='text-center text-primary mb-5'>
                     Found {programs.length} programs
@@ -107,4 +107,4 @@ const Results = () => {
     );
 };
 
-export default Results;
+export default SearchResults;
