@@ -1,50 +1,33 @@
 {
   "name": "nwhcp-client",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "description": "NWHCP front end",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
-    "@testing-library/jest-dom": "^5.12.0",
-    "@testing-library/react": "^11.2.6",
-    "@testing-library/user-event": "^12.8.3",
     "bootstrap": "^4.6.0",
+    "gatsby": "^3.11.0",
+    "gatsby-plugin-layout": "^2.11.0",
+    "gatsby-plugin-sass": "^4.11.0",
     "leaflet": "^1.7.1",
-    "react": "^17.0.2",
+    "react": "^17.0.1",
     "react-bootstrap": "^1.6.1",
     "react-dom": "^17.0.2",
     "react-leaflet": "^3.1.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
-    "sass": "^1.35.1",
-    "web-vitals": "^1.1.1"
-  },
-  "scripts": {
-    "start": "react-scripts start && npm run sass",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "sass": "sass src/Sass:src/Css --watch --no-source-map"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "sass": "^1.35.1"
   }
 }
