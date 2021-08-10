@@ -7,7 +7,7 @@ const fetchPrograms = (formData, setPrograms, setLoading, setError) => {
     setLoading(true);
     // console.log("fetching...");
 
-    fetch('https://nwhealthcareerpath.uw.edu/api/v3/search', {
+    fetch('http://nwhealthcareerpath.uw.edu/api/v1/search', {
         method: 'POST',
         body: JSON.stringify(formData),
         headers: new Headers({
@@ -29,7 +29,7 @@ const fetchPrograms = (formData, setPrograms, setLoading, setError) => {
         .finally(setLoading(false));
 };
 
-const Programs = () => {
+const SearchPrograms = () => {
     const [formData, setFormData] = useState({
         searchContent: '',
         CareerEmp: [],
@@ -107,4 +107,4 @@ const Programs = () => {
     );
 };
 
-export default Programs;
+export default SearchPrograms;

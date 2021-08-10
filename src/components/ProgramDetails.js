@@ -11,46 +11,49 @@ import {
   faChevronUp,
 } from "@fortawesome/free-solid-svg-icons";
 
-export const Program = () => {
+const ProgramDetails = (props) => {
+  
   const program = {
-    id: 1,
-    title: "Nursing Assistant Program",
-    location: "Seatle Central College",
-    educationLevel: "College | Academy",
-    careerEmphasis: "Nursing",
-    description:
-      "The nursing program at Seatle Central offers an Associate in Nursing Direct Transfer Degree/Major Related Program (AN DTA/MRP) with.",
-    image:
-      "https://www.freevector.com/uploads/vector/preview/30485/Healthcare_characters_vector_5-01.jpg",
-    elegibilityRequirements: ["one", "two"],
+    ...props.location.state,
+    image: "https://www.freevector.com/uploads/vector/preview/30485/Healthcare_characters_vector_5-01.jpg",
+    eligibilityRequirements: ["one", "two"],
     targetPopulation: ["one", "two"],
     other: ["one", "two"],
   };
-  const [showMore, setShowMore] = useState(false);
+  console.log(program); 
+
+  // const [showMore, setShowMore] = useState(false);
   const [contactInfo, setContactInfo] = useState(false);
   const [programDetail, setProgramDetail] = useState(false);
 
   return (
     <Container className="mb-4">
-      <h1 className="text-primary text-center">{program.title}</h1>
+      <h1 className="text-primary text-center">{program.OrgTitle}</h1>
       <Row className="align-items-center">
         <Col xs={4}>
           <Image src={program.image} thumbnail />
         </Col>
         <Col>
-          <p>{program.location}</p>
-          <p>{program.educationLevel}</p>
-          <p>{program.careerEmphasis}</p>
+          <p>
+              {program.StreetAddress}
+              <br />
+              {`${program.City}, ${
+                  program.State
+              } ${program.ZipCode.slice(0, 5)}`}
+              <br />
+              {program.Phone}
+          </p>
         </Col>
       </Row>
-      <p className={`mt-4 ${showMore || " text-truncate"}`}>
-        {program.description}
+      {/* <p className={`mt-4 ${showMore || " text-truncate"}`}> */}
+      <p>  
+        {program.ActivityDesc}
       </p>
-      <div className="my-4">
+      {/* <div className="my-4">
         <Button variant="link" onClick={() => setShowMore(!showMore)}>
           {showMore ? "Show less" : "Show more"}
         </Button>
-      </div>
+      </div> */}
       <div className="mb-3">
         <Button variant="outline-primary" block>
           <FontAwesomeIcon icon={faGlobe} className="mr-2" />
@@ -83,19 +86,21 @@ export const Program = () => {
           <div id="contact-information">
             <Row className="align-items-center ml-0 mr-0 mb-2 mt-2">
               <FontAwesomeIcon icon={faGlobe} className="mr-2" />
-              <p className="mb-0">Website: {program.website}</p>
+              <p className="mb-0">Website: {program.OrgWebsite}</p>
             </Row>
             <Row className="align-items-center ml-0 mr-0 mb-2">
               <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
-              <p className="mb-0">E-mail: {program.email}</p>
+              <p className="mb-0">E-mail: {program.Email}</p>
             </Row>
             <Row className="align-items-center ml-0 mr-0 mb-2">
               <FontAwesomeIcon icon={faPhoneAlt} className="mr-2" />
-              <p className="mb-0">Phone Number: {program.phoneNumber}</p>
+              <p className="mb-0">Phone Number: {program.Phone}</p>
             </Row>
             <Row className="align-items-center ml-0 mr-0 mb-3">
               <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" />
-              <p className="mb-0">Address: {program.website}</p>
+              <p className="mb-0">
+                Address: {program.StreetAddress}, {program.City}, {program.State}, {program.ZipCode.slice(0, 5)}
+              </p>
             </Row>
           </div>
         </Collapse>
@@ -109,7 +114,7 @@ export const Program = () => {
           className="text-left d-flex justify-content-between align-items-center"
           variant="light"
         >
-          Program Detail
+          Program Details
           <FontAwesomeIcon
             icon={programDetail ? faChevronUp : faChevronDown}
             className="mr-2 text-right"
@@ -118,10 +123,10 @@ export const Program = () => {
         <Collapse in={programDetail}>
           <div id="program-detail">
             <p className="text-primary text-uppercase mt-3">
-              Elegibility requirements
+              Eligibility requirements
             </p>
             <ul>
-              {program.elegibilityRequirements.map((item, index) => (
+              {program.eligibilityRequirements.map((item, index) => (
                 <li key={index}>{item}</li>
               ))}
             </ul>
@@ -143,3 +148,5 @@ export const Program = () => {
     </Container>
   );
 };
+
+export default ProgramDetails;

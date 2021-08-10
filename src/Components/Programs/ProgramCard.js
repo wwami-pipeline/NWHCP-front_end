@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
@@ -22,21 +23,19 @@ export default function ProgramCard({ program, onClick }) {
         <Container className='pb-3' id={program.OrgId}>
             <Row>
                 <Col xs={10}>
-                    <h4 className='text-left'>{program.OrgTitle}</h4>
-                    <p>
-                        {program.StreetAddress}
-                        <br />
-                        {`${program.City}, ${
-                            program.State
-                        } ${program.ZipCode.slice(0, 5)}`}
-                        <br />
-                        {program.Phone}
-                    </p>
-
-                    <ul className='fa-ul d-flex flex-row flex-wrap'>
-                        {emphasisList}
-                    </ul>
-
+                <h4 className='text-left'>{program.OrgTitle}</h4>
+            <p>
+                {program.StreetAddress}
+                <br />
+                {`${program.City}, ${
+                    program.State
+                } ${program.ZipCode.slice(0, 5)}`}
+                <br />
+                {program.Phone}
+            </p>
+            <ul className='fa-ul d-flex flex-row flex-wrap'>
+                {emphasisList}
+            </ul>
                 </Col>
                 <Col xs={2}>
                     <h2>
@@ -44,8 +43,8 @@ export default function ProgramCard({ program, onClick }) {
                     </h2>
                 </Col>
             </Row>
-            <Button href='#' target='_blank' size='small'>
-                More Details
+            <Button size='small'>
+                <Link to={`/orgs/${program.OrgId}`} state={program}>More Details</Link>
             </Button>
             <a role='button' onClick={onClick} className='pl-2'>
                     Show on map
