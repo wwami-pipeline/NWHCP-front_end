@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import { Link } from 'gatsby';
 import iconLocation from '../../images/icon-location.svg';
 
 // Component that displays a react leaflet map
@@ -49,9 +50,9 @@ function Map({ programs }) {
                         <br />
                         {program.Phone}
                     </p>
-                    <a className='text-primary' target='_blank' href='#'>
+                    <Link to={`/orgs/${program.OrgId}`} state={program}>
                         More Details
-                    </a>
+                    </Link>
                 </span>
             </Popup>
         </Marker>

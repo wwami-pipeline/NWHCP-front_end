@@ -1,3 +1,5 @@
+// https://www.qed42.com/blog/dynamic-routing-gatsby
+
 const path = require("path");
 
 exports.onCreatePage = async ({ page, actions }) => {

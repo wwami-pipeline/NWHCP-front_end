@@ -43,8 +43,8 @@ export default function ProgramCard({ program, onClick }) {
                     </h2>
                 </Col>
             </Row>
-            <Button size='small'>
-                <Link to={`/orgs/${program.OrgId}`} state={program}>More Details</Link>
+            <Button size='sm'>
+                <Link to={`/orgs/${program.OrgId}`} state={program} className='text-white'>More Details</Link>
             </Button>
             <a role='button' onClick={onClick} className='pl-2'>
                     Show on map
