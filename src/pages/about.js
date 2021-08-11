@@ -1,56 +1,46 @@
-import React from "react";
-import SupportFooter from "../components/SupportFooter.js";
+import React from 'react';
+import SupportFooter from '../components/SupportFooter.js';
 
 const About = () => {
-  return (
-    <div>
-      <div className="page-wrapper">
+    return (
+        <div>
+            <div className='page-wrapper'>
+                <h1 className='text-primary text-center my-4'>
+                    About Northwest Health Career Path (NWHCP)
+                </h1>
 
-        <h1 className="text-primary text-center">About Us</h1>
+                <p className='lead'>
+                    NWHCP seeks to connect underrepresented students of all ages
+                    who are interested in pursuing a career in healthcare with
+                    opportunities that will help them to achieve their goal.
+                </p>
+                <p>
+                    To do so, we collect and distribute information on what we
+                    call pathway or outreach programs. Students can access this
+                    information on our website, allowing them to identify
+                    opportunities in their local area. Our hope is that other
+                    users like advisors, counselors, and program administrators
+                    will also utilize this information to direct students and
+                    find ways to bridge gaps in programming.
+                </p>
 
-        <p className="lead">
-          The Northwest Health Career Path (NWHCP) connects underrepresented
-          students of all ages with healthcare career programs
-        </p>
-        <p>
-          To do so, we collect and post information on what we call pathway or
-          outreact programs
-        </p>
-        <p>
-          Students can access this information on our website and identify
-          opportunities in their local area.
-        </p>
+                <p>
+                    In addition to improving the visibility of learning
+                    opportunities for underrepresented students, we also work to
+                    bolster communication between the pathway programs
+                    themselves. We create opportunities for staff, faculty and
+                    students to come together each year at the annual <strong>Northwest
+                    Health Career Path Summit</strong>. Participants are given the
+                    opportunity to share their knowledge on how to remove the
+                    barriers that underrepresented students face in moving
+                    forward with their dreams. This Summit is also a great venue
+                    for networking, professional development, and collaboration.
+                </p>
+            </div>
 
-        <h2 className="text-primary text-center mt-5">Mission</h2>
-
-        <p className="lead">
-          Our hope is that other users like advisors, counselors, and program
-          administrators will utilize this information to direct students and
-          find ways to bridge gaps in programming.
-        </p>
-        <p>
-          We also work to bolster communication between the pathway programs
-          themselves.
-        </p>
-        <p>
-          We create opporunities for staff, faculty, and students to come
-          together each year at the annual Northweest Health Career Path Summit.
-        </p>
-        <p>
-          Participants are given the opportunity to share their knowledge on how
-          to remove the barriers that underrepresented students face in moving
-          forward with their dreams.
-        </p>
-        <p>
-          This Summit is also a great venue for networking, professional
-          development, and collaboration.
-        </p>
-      </div>
-
-      <SupportFooter />
-
-    </div>
-  );
+            <SupportFooter />
+        </div>
+    );
 };
 
 export default About;

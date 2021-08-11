@@ -14,10 +14,12 @@ $medium-blue: #2B5F9E;
 
 $primary: #004987;  // navy blue
 $secondary: #DAD8D8;    // light grey
+$dark: rgb(116, 116, 116);
 
 $link-color: $medium-blue;
 
 $theme-colors: (
     primary: $primary,
-    secondary: $secondary
+    secondary: $secondary,
+    dark: $dark,
 );
