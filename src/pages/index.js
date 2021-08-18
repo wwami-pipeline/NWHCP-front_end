@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
-import { Button } from 'react-bootstrap';
-import { StaticImage } from 'gatsby-plugin-image';
-
+import { Button, Carousel } from 'react-bootstrap';
 import { Dialog } from '../components/HomeDialog';
 
 const Home = () => {
@@ -20,7 +18,21 @@ const Home = () => {
                 <p className='lead text-dark'>
                     There's something for every student in healthcare
                 </p>
-                <StaticImage src='../images/students.png' alt='student diversity'/>
+                <Carousel fade className='mx-3 my-3'>
+                    {
+                        Array(6).fill().map( (elem, i) => {
+                            return <Carousel.Item interval={5000} className='d-block w-100'>
+                                <img
+                                    src={`images/home/students-${i+1}.jpg`}
+                                    alt={`students-${i+1}.jpg`}
+                                    width={640}
+                                    height={427}
+                                    className='img-fluid'
+                                />
+                            </Carousel.Item>
+                        })
+                    }
+                </Carousel>
                 <h2 className='mt-4'>Achieve your future</h2>
                 <p>
                     Are you a student pursuing a career in the health
