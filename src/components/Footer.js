@@ -5,7 +5,7 @@ import {faPhoneAlt, faEnvelope} from '@fortawesome/free-solid-svg-icons';
 
 const Footer = () => {
     return (
-        <Container fluid className="footer main-footer py-3">
+        <Container fluid className="footer main-footer py-3 mt-4">
             <Row>
                 <Col xs={6}>
                     <p>

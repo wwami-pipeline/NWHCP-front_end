@@ -20,6 +20,11 @@ h1 { font-size: $font-size-24; }
 h2 { font-size: $font-size-20; } 
 h3 { font-size: $font-size-18; }
 h4 { font-size: $font-size-14; }
+h5 {
+    color: $primary;
+    text-transform: uppercase;
+    font-size: $font-size-14;
+}
 
 .lead {
     color: $primary;

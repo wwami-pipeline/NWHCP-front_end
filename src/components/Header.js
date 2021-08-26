@@ -1,38 +1,52 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
-import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
+import '../css/header.scss';
 
 const Header = () => {
   return (
-      <Navbar bg="light" expand="sm">
-        <Navbar.Brand as={Link} to="/" id="navbar-brand">
-          NWHCP
+      <Navbar expand="md" className='nwhcp-nav mb-4'>
+        <Navbar.Brand href="/">
+          <StaticImage 
+            src='../images/logo-image.png'
+            alt='NWHCP Logo'
+            width={32}
+            height='auto'
+          />
+          {/* <span className="align-middle text-primary"> NWHCP</span> */}
         </Navbar.Brand>
         <Navbar.Toggle area-controls="basic-navbar-nav" />
-        <Navbar.Collapse>
+        <Navbar.Collapse className='links-wrapper justify-content-between'>
           <Nav>
-            <Link to="/" className="nav-link">
+
+            <Nav.Link href="/" className="custom-link">
               Home
-            </Link>
-            <Link to="/about" className="nav-link">
+            </Nav.Link>
+            
+            <Nav.Link href="/about" className="custom-link">
               About
-            </Link>
-            <Link to="/how-to" className="nav-link">
+            </Nav.Link>
+            
+            <Nav.Link href="/how-to" className="custom-link">
               How To
-            </Link>
-            <Link to="/search-programs" className="nav-link">
+            </Nav.Link>
+
+            <Nav.Link href="/search-programs" className="custom-link">
               Find Programs
-            </Link>
-            {/* <Link to="/post-opportunity" className="nav-link">
+            </Nav.Link>
+
+            <Nav.Link href="https://redcap.iths.org/surveys/?s=3FNCRCFYC9" target="_blank" className="custom-link">
               Post Opportunity
-            </Link> */}
-            <Link to="/" className="nav-link">
+            </Nav.Link>
+
+            <Nav.Link href="/account-settings" className="custom-link">
               Account
-            </Link>
+            </Nav.Link>
+
             {/* <div>
                                           {this.state.isSignedIn ?
                                               <Button onClick={this.test}>Sign-Out</Button> :
-                                          <Link to='/login' className="nav-link" exact>Login</Link> }
+                                          <Link to='/login' className="custom-link" exact>Login</Link> }
       
                                       </div> */}
           </Nav>
