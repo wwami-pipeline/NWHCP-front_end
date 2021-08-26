@@ -12,14 +12,9 @@ import {
 } from '../../shared/filters.js';
 import '../../css/search-form.scss';
 
-// To Do:
-// - Search by location & radius
-// - Clear filters button
-
-// Issues:
+// Backend Issues:
 // - API only appears to search for keywords in org name & address
 // - Can't search by zipcode
-// - Selecting multiple filters in one category searches for one OR the other
 
 export default function SearchForm(props) {
     /*{
@@ -94,6 +89,7 @@ export default function SearchForm(props) {
 
     return (
         <div className='page-wrapper search-form'>
+           
             {/* Search by keyword */}
             <Form onSubmit={props.handleSubmit}>
                 <Form.Group>
@@ -102,11 +98,11 @@ export default function SearchForm(props) {
                         <Form.Control
                             type='text'
                             name='searchContent'
-                            placeholder='Search by keyword'
+                            placeholder='Search by keyword or location'
                             onChange={handleFormChange}
                         />
                         <InputGroup.Append>
-                            <Button variant='secondary' size='sm' type='submit'>
+                            <Button variant='primary' size='sm' type='submit'>
                                 <FontAwesomeIcon icon={faSearch} />
                             </Button>
                         </InputGroup.Append>
@@ -115,7 +111,7 @@ export default function SearchForm(props) {
             </Form>
 
             {/* Search by Location */}
-            <Form onSubmit={props.handleSubmit}>
+            {/* <Form onSubmit={props.handleSubmit}>
                 <Form.Group controlId='formLocation'>
                     <Form.Label>Location</Form.Label>
                     <InputGroup>
@@ -130,16 +126,12 @@ export default function SearchForm(props) {
                         </InputGroup.Append>
                     </InputGroup>
                 </Form.Group>
-            </Form>
+            </Form> */}
 
             {/* Filters */}
-            <div className='pb-3'>
-                <Button variant='secondary' onClick={clickFilterButton}>{buttonText}</Button>
-            </div>
-
+            <Button variant='secondary' onClick={clickFilterButton}>{buttonText}</Button>
             <Form onSubmit={props.handleSubmit} onReset={props.handleSubmit} className={toggleFilters} id='filtersForm'>
-                {/* <h3 className='text-primary py-3'>Filters</h3> */}
-                <Accordion defaultActiveKey='0'>
+                <Accordion defaultActiveKey='0' className='pt-4'>
                     <Form.Group controlId='formEducation'>
                         <Form.Label>
                             <Accordion.Toggle as={Form.Label} eventKey='0'>
