@@ -1,5 +1,6 @@
 import React from 'react';
 import SupportFooter from '../components/SupportFooter.js';
+import JoinUs from '../components/JoinUs.js';
 
 const About = () => {
     return (
@@ -29,13 +30,17 @@ const About = () => {
                     opportunities for underrepresented students, we also work to
                     bolster communication between the pathway programs
                     themselves. We create opportunities for staff, faculty and
-                    students to come together each year at the annual <strong>Northwest
-                    Health Career Path Summit</strong>. Participants are given the
-                    opportunity to share their knowledge on how to remove the
-                    barriers that underrepresented students face in moving
-                    forward with their dreams. This Summit is also a great venue
-                    for networking, professional development, and collaboration.
+                    students to come together each year at the annual{' '}
+                    <strong>Northwest Health Career Path Summit</strong>.
+                    Participants are given the opportunity to share their
+                    knowledge on how to remove the barriers that
+                    underrepresented students face in moving forward with their
+                    dreams. This Summit is also a great venue for networking,
+                    professional development, and collaboration.
                 </p>
+
+                <hr/>
+                <JoinUs />
             </div>
 
             <SupportFooter />

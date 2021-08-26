@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { Container, Row, Col, Button, Figure } from 'react-bootstrap';
 import SupportFooter from '../components/SupportFooter.js';
+import JoinUs from '../components/JoinUs.js';
 
 const HowTo = () => {
 
@@ -122,21 +123,8 @@ const HowTo = () => {
                         </Container>
                     </div>
 
-                    <div>
-                        <h2>Join Us!</h2>
-                        <p>
-                            Health career pathways provide an opportunity for
-                            students from diverse backgrounds to explore health
-                            careers through experiential learning.
-                        </p>
-                        <p>
-                            Help us create a health workforce that is reflective
-                            of the people of our communities by adding your
-                            program to our map. This can be done by filling out
-                            the NWHCP survey. Help us spread the word!
-                        </p>
-                    </div>
-
+                    <JoinUs />    
+                    
                 </div>
                 <SupportFooter />
             </div>
