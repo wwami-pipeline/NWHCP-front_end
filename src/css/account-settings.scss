@@ -1,0 +1,16 @@
+@import './theme.scss';
+
+.light-blue-bg {
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    background: $light-blue;
+}
+
+label.form-label {
+    font-weight: normal;
+    font-size: $font-size-14;
+}
+
+h3 {
+    margin-bottom: 1rem;
+}
