@@ -69,6 +69,7 @@ const ProgramDetails = (props) => {
                 <a
                     href={program.OrgWebsite}
                     target='_blank'
+                    rel='noreferrer'
                     className='text-white'
                 >
                     Visit Program Website
@@ -94,7 +95,7 @@ const ProgramDetails = (props) => {
                             <span className='fa-li'>
                                 <FontAwesomeIcon icon={faGlobe} />
                             </span>
-                            <a href={program.OrgWebsite} target='_blank'>
+                            <a href={program.OrgWebsite} target='_blank' rel='noreferrer'>
                                 {program.OrgWebsite}
                             </a>
                         </li>

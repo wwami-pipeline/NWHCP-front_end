@@ -46,9 +46,9 @@ export default function ProgramCard({ program, onClick }) {
             <Button size='sm'>
                 <Link to={`/orgs/${program.OrgId}`} state={program} className='text-white'>More Details</Link>
             </Button>
-            <a role='button' onClick={onClick} className='pl-2'>
+            <Button variant='link' size='sm' onClick={onClick} className='pl-2'>
                     Show on map
-            </a>
+            </Button>
             <hr/>
         </Container>
     );

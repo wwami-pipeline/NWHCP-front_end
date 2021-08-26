@@ -11,7 +11,6 @@ const Header = () => {
             src='../images/logo-image.png'
             alt='NWHCP Logo'
             width={32}
-            height='auto'
           />
           {/* <span className="align-middle text-primary"> NWHCP</span> */}
         </Navbar.Brand>

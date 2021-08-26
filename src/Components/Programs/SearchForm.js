@@ -141,12 +141,13 @@ export default function SearchForm(props) {
                         <Accordion.Collapse eventKey='0'>
                             <div>
                                 <Form.Check className='d-none'></Form.Check>
-                                {gradeLevels.map((grade) => (
+                                {gradeLevels.map((grade, i) => (
                                     <Form.Check
                                         type='checkbox'
                                         name='GradeLevels'
                                         label={grade.name}
                                         value={grade.id}
+                                        key={'grade' + i}
                                         onChange={handleFormChange}
                                     />
                                 ))}
@@ -163,12 +164,13 @@ export default function SearchForm(props) {
                         <Accordion.Collapse eventKey='1'>
                             <div>
                                 <Form.Check className='d-none'></Form.Check>
-                                {careers.map((career) => (
+                                {careers.map((career, i) => (
                                     <Form.Check
                                         type='checkbox'
                                         name='CareerEmp'
                                         label={career}
                                         value={career}
+                                        key={'career' + i}
                                         onChange={handleFormChange}
                                     />
                                 ))}
@@ -185,11 +187,12 @@ export default function SearchForm(props) {
                         <Accordion.Collapse eventKey='2'>
                             <div>
                                 <Form.Check className='d-none'></Form.Check>
-                                {enrollment.map((cost) => (
+                                {enrollment.map((cost, i) => (
                                     <Form.Check
                                         type='checkbox'
                                         name='HasCost'
                                         label={cost}
+                                        key={'cost' + i}
                                         // value={cost}
                                         // onChange={handleFormChange}
                                     />
@@ -207,11 +210,12 @@ export default function SearchForm(props) {
                         <Accordion.Collapse eventKey='3'>
                             <div>
                                 <Form.Check className='d-none'></Form.Check>
-                                {duration.map((item) => (
+                                {duration.map((time, i) => (
                                     <Form.Check
                                         type='checkbox'
                                         name='Duration'
-                                        label={item}
+                                        label={time}
+                                        key={'time' + i}
                                         // value={item}
                                         // onChange={handleFormChange}
                                     />
@@ -229,11 +233,12 @@ export default function SearchForm(props) {
                         <Accordion.Collapse eventKey='4'>
                             <div>
                                 <Form.Check className='d-none'></Form.Check>
-                                {eligibility.map((item) => (
+                                {eligibility.map((item, i) => (
                                     <Form.Check
                                         type='checkbox'
                                         name='Eligibility'
                                         label={item}
+                                        key={'eligible' + i}
                                         // value={item}
                                         // onChange={handleFormChange}
                                     />
@@ -251,11 +256,12 @@ export default function SearchForm(props) {
                         <Accordion.Collapse eventKey='5'>
                             <div>
                                 <Form.Check className='d-none'></Form.Check>
-                                {advanced.map((item) => (
+                                {advanced.map((item, i) => (
                                     <Form.Check
                                         type='checkbox'
                                         name='Advanced'
                                         label={item}
+                                        key={'advanced' + i}
                                         // value={item}
                                         // onChange={handleFormChange}
                                     />
