@@ -12,10 +12,6 @@ import {
 } from '../../shared/filters.js';
 import '../../css/search-form.scss';
 
-// Backend Issues:
-// - API only appears to search for keywords in org name & address
-// - Can't search by zipcode
-
 export default function SearchForm(props) {
     /*{
         searchContent: '',
@@ -53,8 +49,8 @@ export default function SearchForm(props) {
             // expects an array
             if (name === 'GradeLevels') value = parseInt(value);
             newState[name] = target.checked
-                ? [...newState[name], value]
-                : newState[name].filter((item) => item !== value);
+                ? [...newState[name], value]    // add the item
+                : newState[name].filter((item) => item !== value);  // remove the item
         } else if (target.type === 'checkbox') {
             // expects true or false
             newState[name] = target.checked;
@@ -63,7 +59,7 @@ export default function SearchForm(props) {
             newState[name] = value;
         }
 
-        console.log(newState[name]);
+        // console.log(newState[name]);
         props.setFormData(newState);
     };
 
@@ -141,16 +137,18 @@ export default function SearchForm(props) {
                         <Accordion.Collapse eventKey='0'>
                             <div>
                                 <Form.Check className='d-none'></Form.Check>
-                                {gradeLevels.map((grade, i) => (
-                                    <Form.Check
+                                {gradeLevels.map((grade, i) => {
+                                    const options = props.formData.GradeLevels;
+                                    return <Form.Check
                                         type='checkbox'
                                         name='GradeLevels'
                                         label={grade.name}
                                         value={grade.id}
                                         key={'grade' + i}
                                         onChange={handleFormChange}
+                                        defaultChecked={ i === options[0] ? true : false }  // check the box if there are params in the URL
                                     />
-                                ))}
+                                })}
                             </div>
                         </Accordion.Collapse>
                     </Form.Group>

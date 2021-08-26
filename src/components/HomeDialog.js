@@ -1,110 +1,64 @@
 import React, { useState } from "react";
 import { Button, ListGroup, Modal, Image, Row, Col } from "react-bootstrap";
+import { navigate } from 'gatsby';
+import { gradeLevels } from "../shared/filters";
 
-export const Dialog = ({ show, setShow }) => {
-  const handleClose = () => setShow(false);
+export const Dialog = ({ show, toggleShow }) => {
+
   const [whereStudy, setWhereStudy] = useState("");
 
-  const handleSelection = (event, selected) => {
-    event.preventDefault();
-    setWhereStudy(selected);
-  };
+  const handleSubmit = e => {
+    e.preventDefault();
+    navigate('/search-programs?gradeLvl=' + whereStudy);
+  }
 
   return (
-    <Modal show={show} onHide={handleClose} dialogClassName="dialog-rounded">
-      <Modal.Header closeButton>
-        <Modal.Title className="text-center">
+    <Modal 
+      show={show} 
+      onHide={toggleShow}
+      dialogClassName="dialog-rounded"
+    >
+      <Modal.Header closeButton />
+      <Modal.Body className="text-center">
+        <Modal.Title>
           Tell us more about you
         </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <p className="text-primary text-center">
+        <h3 className="text-primary pb-3">
           Where are you in your life right now?
-        </p>
+        </h3>
         <ListGroup defaultActiveKey={whereStudy}>
-          <ListGroup.Item
-            action
-            href="#middle-school"
-            onClick={(e) => handleSelection(e, "middle-school")}
-          >
-            <Row className="align-items-center">
-              <Col xs={4}>
-                <Image
-                  src="https://www.freevector.com/uploads/vector/preview/30485/Healthcare_characters_vector_5-01.jpg"
-                  thumbnail
-                />
-              </Col>
-              <Col>
-                <p>
-                  <b>Middle School</b>
-                </p>
-              </Col>
-            </Row>
-          </ListGroup.Item>
-          <ListGroup.Item
-            action
-            href="#high-school"
-            onClick={(e) => handleSelection(e, "high-school")}
-          >
-            <Row className="align-items-center">
-              <Col xs={4}>
-                <Image
-                  src="https://www.freevector.com/uploads/vector/preview/30485/Healthcare_characters_vector_5-01.jpg"
-                  thumbnail
-                />
-              </Col>
-              <Col>
-                <p>
-                  <b>High School</b>
-                </p>
-              </Col>
-            </Row>
-          </ListGroup.Item>
-          <ListGroup.Item
-            action
-            href="#community-college"
-            onClick={(e) => handleSelection(e, "community-college")}
-          >
-            <Row className="align-items-center">
-              <Col xs={4}>
-                <Image
-                  src="https://www.freevector.com/uploads/vector/preview/30485/Healthcare_characters_vector_5-01.jpg"
-                  thumbnail
-                />
-              </Col>
-              <Col>
-                <p>
-                  <b>Community College</b>
-                </p>
-              </Col>
-            </Row>
-          </ListGroup.Item>
-          <ListGroup.Item
-            action
-            href="undergraduated"
-            onClick={(e) => handleSelection(e, "undergraduated")}
-          >
-            <Row className="align-items-center">
-              <Col xs={4}>
-                <Image
-                  src="https://www.freevector.com/uploads/vector/preview/30485/Healthcare_characters_vector_5-01.jpg"
-                  thumbnail
-                />
-              </Col>
-              <Col>
-                <p>
-                  <b>Undergraduated</b>
-                </p>
-              </Col>
-            </Row>
-          </ListGroup.Item>
+          {
+            gradeLevels.map( grade => {
+              const id = 'grade' + grade.id;
+              return <ListGroup.Item
+                action
+                href={'#' + id}
+                key={id}
+                onClick={() => setWhereStudy(grade.id)}
+              >
+                <Row className="align-items-center">
+                  <Col xs={4}>
+                    <Image
+                      src="https://www.freevector.com/uploads/vector/preview/30485/Healthcare_characters_vector_5-01.jpg"
+                      thumbnail
+                    />
+                  </Col>
+                  <Col>
+                    <h3 className='m-0'>{grade.name}</h3>
+                  </Col>
+                </Row>
+              </ListGroup.Item>;
+            })
+          }
         </ListGroup>
-      </Modal.Body>
-      <div className="text-center pb-4">
-        <Button variant="primary" onClick={handleClose}>
-          Next
+        <Button 
+          onClick={handleSubmit}
+          size='md' 
+          className='my-3' 
+        >
+          Submit
         </Button>
-      </div>
+      </Modal.Body>
     </Modal>
   );
 };

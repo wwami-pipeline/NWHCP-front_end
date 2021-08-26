@@ -5,7 +5,7 @@ import { Dialog } from '../components/HomeDialog';
 
 const Home = () => {
     const [show, setShow] = useState(false);
-    const handleShow = () => setShow(true);
+    const toggleShow = () => setShow(!show);
 
     return (
         <div>
@@ -21,7 +21,7 @@ const Home = () => {
                 <Carousel fade className='mx-3 my-3'>
                     {
                         Array(6).fill().map( (elem, i) => {
-                            return <Carousel.Item interval={5000} className='d-block w-100'>
+                            return <Carousel.Item interval={5000} key={'carousel' + i} className='d-block w-100'>
                                 <img
                                     src={`images/home/students-${i+1}.jpg`}
                                     alt={`students-${i+1}.jpg`}
@@ -49,11 +49,11 @@ const Home = () => {
                     Let's match you up with programs that might be right for you!
                 </p>
                 <div className='text-center pb-4'>
-                    <Button size='lg' variant='primary' onClick={handleShow}>
+                    <Button size='lg' variant='primary' onClick={toggleShow}>
                         Find Your Program
                     </Button>
                 </div>
-                <Dialog show={show} setShow={setShow} />
+                <Dialog show={show} toggleShow={toggleShow} />
                 <p className='text-center'>
                     Click <Link to='/about'>here</Link> to learn more about us.
                 </p>

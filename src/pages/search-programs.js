@@ -5,9 +5,10 @@ import Map from '../components/Programs/Map';
 
 const fetchPrograms = (formData, setPrograms, setLoading, setError) => {
     setLoading(true);
-    // console.log("fetching...");
+    console.log('Fetching data...');
 
-    fetch('https://test.nwhcp.tk/api/v3/search', {  // TEST SERVER. UPDATE TO UW.EDU WHEN READY
+    // fetch('https://test.nwhcp.tk/api/v3/search', {  // TEST SERVER. UPDATE TO UW.EDU WHEN READY
+    fetch('http://nwhealthcareerpath.uw.edu/api/v1/search', {  // OLD API. UPDATE WHEN READY
         method: 'POST',
         body: JSON.stringify(formData),
         headers: new Headers({
@@ -15,21 +16,39 @@ const fetchPrograms = (formData, setPrograms, setLoading, setError) => {
             'Content-Type': 'application/json'
         })
     })
-        .then((res) => res.json())
+        .then( response => {
+            if (response.ok) {
+                console.log('Data fetched successfully!')
+                return response.json();
+            } else {
+                console.log(`Status code ${response.status}. ${response.statusText}.`);
+                throw Error(response.statusText);
+            }
+        })
         .then(
-            (result) => {
+            result => {
                 // console.log("fetched data: ", result);
                 setPrograms(result);
-            },
-            (error) => {
-                setLoading(false);
-                setError(error);
             }
         )
+        .catch( error => setError(error))
         .finally(setLoading(false));
 };
 
-const SearchPrograms = () => {
+// Page Component
+const SearchPrograms = ({location}) => {
+
+    const getUrlParams = () => {
+        if (location.search) {   // location is a URL object deconstructed from the component's props
+            // Check url for search parameters
+            // e.g. https://localhost:8000/search-programs?gradeLvl=0
+            const params = new URLSearchParams(location.search);
+            return [parseInt(params.get('gradeLvl'))];
+        } else {
+            return [];
+        }
+    }
+
     const [formData, setFormData] = useState({
         searchContent: '',
         CareerEmp: [],
@@ -37,7 +56,7 @@ const SearchPrograms = () => {
         Under18: false,
         HasTransport: false,
         HasShadow: false,
-        GradeLevels: []
+        GradeLevels: getUrlParams()
     });
     const [programs, setPrograms] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -81,6 +100,9 @@ const SearchPrograms = () => {
 
     useEffect(() => {
         fetchPrograms(formData, setPrograms, setLoading, setError);
+        
+        // Next line supresses useEffect dependency warning
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

@@ -14,9 +14,9 @@ export const careers = [
 export const gradeLevels = [
     {name: 'Middle School', id: 0},
     {name: 'High School', id: 1},
-    {name: 'Community College/Technical Schools', id: 2},
-    {name: 'Undergraduates', id: 3},
-    {name: 'Post Bacc', id: 4},
+    {name: 'Community / Technical College', id: 2},
+    {name: 'Undergraduate', id: 3},
+    {name: 'Post Baccalaureate / Graduate', id: 4},
     {name: 'Other', id: 5}
 ];
 
