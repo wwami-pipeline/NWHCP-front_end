@@ -1,8 +1,9 @@
 import React from 'react';
+import '../scss/footers.scss';
 
 const SupportFooter = () => {
     return (
-        <div className="footer support-footer p-4">
+        <div className="footer support-footer">
 
             <h2>Support</h2>
             <p>

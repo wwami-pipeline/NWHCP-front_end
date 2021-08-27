@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
-import '../css/account-settings.scss';
+import '../scss/account-settings.scss';
 
 const AccountSettings = (props) => {
     const user = {

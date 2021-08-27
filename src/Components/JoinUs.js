@@ -3,7 +3,7 @@ import { Button } from 'react-bootstrap';
 
 const JoinUs = () => {
     return (
-        <div>
+        <div className='mb-4'>
             <h2>Join Us!</h2>
             <p>
                 Are you an organization looking to add your healthcare program

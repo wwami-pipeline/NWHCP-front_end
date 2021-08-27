@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { StaticImage } from "gatsby-plugin-image";
-import '../css/header.scss';
+import '../scss/header.scss';
 
 const Header = () => {
   return (

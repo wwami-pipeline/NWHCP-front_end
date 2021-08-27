@@ -7,6 +7,7 @@ const fetchPrograms = (formData, setPrograms, setLoading, setError) => {
     setLoading(true);
     console.log('Fetching data...');
 
+    // fetch('https://test.nwhcp.tk/api/v3/search', {   // TEST SERVER. UPDATE LATER.
     fetch('https://nwhealthcareerpath.uw.edu/api/v3/search', {
         method: 'POST',
         body: JSON.stringify(formData),
@@ -26,7 +27,7 @@ const fetchPrograms = (formData, setPrograms, setLoading, setError) => {
         }, error => { throw error; } )
         .then(
             result => {
-                // console.log("fetched data: ", result);
+                console.log("Fetched data: ", result);
                 setPrograms(result);
             }
         )

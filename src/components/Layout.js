@@ -1,13 +1,16 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import '../css/layout.scss';
+import { Container } from 'react-bootstrap';
+import '../scss/layout.scss';
 
 const Layout = ({children}) => {
     return (
-        <div style={{margin: '0'}}>
+        <div className='main-wrapper'>
             <Header />
-            {children}
+            <Container className='page-wrapper'>
+                {children}
+            </Container>
             <Footer />
         </div>
     )

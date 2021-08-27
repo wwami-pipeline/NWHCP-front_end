@@ -10,7 +10,7 @@ import {
     eligibility,
     advanced
 } from '../../shared/filters.js';
-import '../../css/search-form.scss';
+import '../../scss/search-form.scss';
 
 export default function SearchForm(props) {
     /*{
@@ -84,10 +84,10 @@ export default function SearchForm(props) {
     }
 
     return (
-        <div className='page-wrapper search-form'>
+        <div className='search-form mb-4'>
            
             {/* Search by keyword */}
-            <Form onSubmit={props.handleSubmit}>
+            <Form onSubmit={props.handleSubmit} className='keyword-search'>
                 <Form.Group>
                     <Form.Label>Find a Career Path</Form.Label>
                     <InputGroup>

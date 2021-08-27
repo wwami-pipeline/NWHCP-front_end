@@ -1,5 +1,7 @@
-// Global Styles
+/*** Global Stylesheet ***/
+
 @import './theme.scss';
+// Note: Delete Mulish font-sizes not being used
 @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import 'bootstrap'; // Apply Bootstrap theme modifications
 
@@ -9,6 +11,11 @@ body {
   font-family: 'Mulish', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
 }
 
 h1, h2, h3, h4 {
@@ -32,10 +39,6 @@ h5 {
     font-size: $font-size-14
 }
 
-.page-wrapper {
-    margin: 2rem 2rem;
-}
-
 .figure-caption {
     font-size: $font-size-12;
     color: black;
@@ -51,55 +54,23 @@ h5 {
     font-size: $font-size-12;
 }
 
-.footer {
-    background-color: $primary;
-    color: white;
+// Sticky Footer
+.main-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
-.main-footer p {
-    text-align: center;
-    margin: 0;
+.page-wrapper {
+    flex: 1 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 700px;
 }
 
-.support-footer {
-    background-color: $medium-blue;
-}
-
-.support-footer h2 {
-    color: white;
-    text-align: left;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-}
-
-.vertical-center {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-
-#content-wrap {
-    min-height: 100%;
-    /* margin-left: auto; */
-    /* margin-right: auto; */
-    width: 90%;
-    height: auto !important;
-    height: 100%;
-    margin: 0 auto var(--neg-foot-h);
-    
-}
-
-/* map */
-
+// Leaflet Map
 #mapid {
     height: 300px;
     width: 100%;
     /* height: 50vh; */
-}
-
-code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
 }

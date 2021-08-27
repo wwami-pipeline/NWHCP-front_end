@@ -50,7 +50,7 @@ const Home = () => {
                 </p>
                 <div className='text-center pb-4'>
                     <Button size='lg' variant='primary' onClick={toggleShow}>
-                        Find Your Program
+                        Get Started!
                     </Button>
                 </div>
                 <Dialog show={show} toggleShow={toggleShow} />

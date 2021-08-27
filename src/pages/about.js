@@ -5,8 +5,8 @@ import JoinUs from '../components/JoinUs.js';
 const About = () => {
     return (
         <div>
-            <div className='page-wrapper'>
-                <h1 className='text-primary text-center my-4'>
+            <div className='page-wrapper text-center'>
+                <h1 className='text-primary my-4'>
                     About Northwest Health Career Path (NWHCP)
                 </h1>
 

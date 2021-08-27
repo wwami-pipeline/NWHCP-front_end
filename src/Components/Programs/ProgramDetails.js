@@ -11,7 +11,7 @@ import {
     faChevronDown,
     faChevronLeft
 } from '@fortawesome/free-solid-svg-icons';
-import '../../css/program-details.scss';
+import '../../scss/program-details.scss';
 
 const ProgramDetails = (props) => {
     const validateUrl = (url) => {
