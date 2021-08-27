@@ -7,31 +7,33 @@ const fetchPrograms = (formData, setPrograms, setLoading, setError) => {
     setLoading(true);
     console.log('Fetching data...');
 
-    // fetch('https://test.nwhcp.tk/api/v3/search', {  // TEST SERVER. UPDATE TO UW.EDU WHEN READY
-    fetch('http://nwhealthcareerpath.uw.edu/api/v1/search', {  // OLD API. UPDATE WHEN READY
+    fetch('https://nwhealthcareerpath.uw.edu/api/v3/search', {
         method: 'POST',
         body: JSON.stringify(formData),
-        headers: new Headers({
-            Accept: 'application/json',
+        headers: {
             'Content-Type': 'application/json'
-        })
+        }
     })
         .then( response => {
             if (response.ok) {
                 console.log('Data fetched successfully!')
                 return response.json();
             } else {
-                console.log(`Status code ${response.status}. ${response.statusText}.`);
-                throw Error(response.statusText);
+                const error = new Error(`Status code ${response.status}: ${response.statusText}.`);
+                error.response = response;
+                throw error;
             }
-        })
+        }, error => { throw error; } )
         .then(
             result => {
                 // console.log("fetched data: ", result);
                 setPrograms(result);
             }
         )
-        .catch( error => setError(error))
+        .catch( error => {
+            console.log('Could not fetch data... ' + error.message);
+            setError(error)
+        })
         .finally(setLoading(false));
 };
 
