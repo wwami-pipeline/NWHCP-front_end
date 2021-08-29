@@ -1,6 +1,6 @@
 # NWHCP Front-End
 
-![workflow](https://github.com/wwami-pipeline/NWHCP-gateway/actions/workflows/docker_image.yml/badge.svg)
+![workflow](https://github.com/wwami-pipeline/NWHCP-gateway/actions/workflows/docker.yml/badge.svg)
 
 ## About
 The Northwest Health Career Path (NWHCP) seeks to connect underrepresented students of all ages with healthcare programs and opportunities that will help them achieve their career goals.
