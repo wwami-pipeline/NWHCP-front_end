@@ -54,9 +54,10 @@ jobs:
 
       # build go binary from source
       - name: Build React
-        run: 
+        run:
             |
-            npm install -g gatsby-cli
+            npm install gatsby
+            npm install gatsby-cli
             npm run build
 
       # Build and push Docker image with Buildx (don't push on PR)
