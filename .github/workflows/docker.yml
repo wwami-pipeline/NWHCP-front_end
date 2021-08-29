@@ -57,9 +57,7 @@ jobs:
         run:
             |
             npm install
-            npm install gatsby-cli
-            gatsby clean
-            gatsby build
+            npm run build
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
