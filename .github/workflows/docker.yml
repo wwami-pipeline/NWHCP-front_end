@@ -56,8 +56,7 @@ jobs:
       - name: Build React
         run:
             |
-            npm install gatsby
-            npm install sass gatsby-plugin-sass
+            npm install
             npm install gatsby-cli
             npm run build
 
