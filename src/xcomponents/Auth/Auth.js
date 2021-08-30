@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import PageTypes from '../../Constants/PageTypes/PageTypes';
+import PageTypes from '../../xconstants/PageTypes/PageTypes';
 import SignUp from './Components/SignUp/SignUp';
 import SignIn from './Components/SignIn/SignIn';
 import ForgotPassword from './Components/ForgotPassword/ForgotPassword';
