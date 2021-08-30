@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import SearchForm from '../components/Programs/SearchForm';
-import ProgramCard from '../components/Programs/ProgramCard';
-import Map from '../components/Programs/Map';
+import SearchForm from '../xcomponents/Programs/SearchForm';
+import ProgramCard from '../xcomponents/Programs/ProgramCard';
+import Map from '../xcomponents/Programs/Map';
 
 const fetchPrograms = (formData, setPrograms, setLoading, setError) => {
     setLoading(true);

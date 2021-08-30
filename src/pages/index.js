@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import { Button, Carousel } from 'react-bootstrap';
-import { Dialog } from '../components/HomeDialog';
+import { Dialog } from '../xcomponents/HomeDialog';
 
 const Home = () => {
     const [show, setShow] = useState(false);

@@ -3,8 +3,8 @@ import '../scss/how-to.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { Container, Row, Col, Button, Figure } from 'react-bootstrap';
-import SupportFooter from '../components/SupportFooter.js';
-import JoinUs from '../components/JoinUs.js';
+import SupportFooter from '../xcomponents/SupportFooter.js';
+import JoinUs from '../xcomponents/JoinUs.js';
 
 const HowTo = () => {
 
