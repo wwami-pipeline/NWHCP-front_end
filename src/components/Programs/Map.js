@@ -98,24 +98,27 @@ function Map({ programs }) {
         ]);
     }, [programs]);
 
-
-    return (
-        <div>
-            <MapContainer
-                center={centerLatLng}
-                bounds={bounds}
-                boundsOptions={{ padding: [20, 20] }}
-                id='mapid'
-            >
-                <TileLayer
-                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-                />
-                {renderedMarkers}
-                <ChangeView bounds={bounds} />
-            </MapContainer>
-        </div>
-    );
+    // https://www.gatsbyjs.com/plugins/gatsby-plugin-react-leaflet/
+    if (typeof window !== 'undefined') {
+        return (
+            <div>
+                <MapContainer
+                    center={centerLatLng}
+                    bounds={bounds}
+                    boundsOptions={{padding: [20, 20]}}
+                    id='mapid'
+                >
+                    <TileLayer
+                        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                        url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+                    />
+                    {renderedMarkers}
+                    <ChangeView bounds={bounds}/>
+                </MapContainer>
+            </div>
+        );
+    }
+    return null
 
 }
 
