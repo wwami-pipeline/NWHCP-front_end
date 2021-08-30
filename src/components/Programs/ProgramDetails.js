@@ -19,6 +19,10 @@ const ProgramDetails = (props) => {
         return valid ? url : 'http://' + url;
     };
 
+    if (props.location.state === undefined) {
+        return null
+    }
+
     const program = {
         ...props.location.state,
         OrgWebsite: validateUrl(props.location.state.OrgWebsite),
@@ -31,9 +35,9 @@ const ProgramDetails = (props) => {
     const emphasisList = program.CareerEmp.map((emphasis, index) => {
         return (
             <li key={index} className='w-50'>
-                <span className='fa-li'>
-                    <FontAwesomeIcon icon={faCheck} className='text-success' />
-                </span>
+            <span className='fa-li'>
+                <FontAwesomeIcon icon={faCheck} className='text-success' />
+            </span>
                 {emphasis}
             </li>
         );

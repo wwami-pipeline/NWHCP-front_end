@@ -98,6 +98,7 @@ function Map({ programs }) {
         ]);
     }, [programs]);
 
+
     return (
         <div>
             <MapContainer
@@ -115,6 +116,7 @@ function Map({ programs }) {
             </MapContainer>
         </div>
     );
+
 }
 
 export default Map;
