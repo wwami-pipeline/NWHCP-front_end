@@ -1,6 +1,6 @@
 import React from 'react';
-import SupportFooter from '../xcomponents/SupportFooter.js';
-import JoinUs from '../xcomponents/JoinUs.js';
+import SupportFooter from '../components/SupportFooter.js';
+import JoinUs from '../components/JoinUs.js';
 
 const About = () => {
     return (

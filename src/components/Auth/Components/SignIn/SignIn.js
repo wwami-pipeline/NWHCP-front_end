@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SignForm from '../SignForm/SignForm';
-import api from '../../../../xconstants/APIEndpoints/APIEndpoints';
+import api from '../../../../constants/APIEndpoints/APIEndpoints';
 import Errors from '../../../Errors/Errors';
-import PageTypes from '../../../../xconstants/PageTypes/PageTypes';
+import PageTypes from '../../../../constants/PageTypes/PageTypes';
 import {Container, Row, Col} from 'react-bootstrap';
 /**
  * @class
