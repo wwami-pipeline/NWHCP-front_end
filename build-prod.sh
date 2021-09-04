@@ -1,1 +1,2 @@
-docker run -d --network host --rm --pull=always --name nwhcpfrontend docker pull ghcr.io/wwami-pipeline/nwhcp-front_end:development@sha256:aba36256b8d1019db78dc0a107057814cf1d551bb208053c7f25e9e566f8b488
+# run on webserver
+docker run -d --network host --rm --pull=always --name nwhcpfrontend ghcr.io/wwami-pipeline/nwhcp-front_end:development
