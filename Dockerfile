@@ -7,5 +7,5 @@ COPY vhost.conf /etc/nginx/conf.d/default.conf
 RUN apt-get update && apt-get install certbot -y
 # RUN certbot certonly --register-unsafely-without-email --agree-tos --preferred-challenges http --nginx -d nwhealthcareerpath.uw.edu
 
-ENTRYPOINT ["certbot","certonly","--register-unsafely-without-email","--agree-tos","--preferred-challenges=http","--nginx","-d nwhealthcareerpath.uw.edu"]
+ENTRYPOINT ["certbot","certonly","--register-unsafely-without-email","--agree-tos","--preferred-challenges=http","--nginx","-d nwhealthcareerpath.uw.edu;"]
 CMD ["nginx", "-g", "daemon off;"]
