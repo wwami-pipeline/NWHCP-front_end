@@ -1,4 +1,5 @@
 # run on webserver
-docker run -d --network host --rm --pull=always --name nwhcpfrontend ghcr.io/wwami-pipeline/nwhcp-front_end:development
+docker run -d --rm --network host --pull=always -v /etc/letsencrypt:/etc/letsencrypt --name nwhcpfrontend ghcr.io/wwami-pipeline/nwhcp-front_end:development
 
-docker run --network host --pull=always --name nwhcpfrontend ghcr.io/wwami-pipeline/nwhcp-front_end:development-nightly
+docker run         --network host --pull=always -v /etc/letsencrypt:/etc/letsencrypt --name nwhcpfrontend ghcr.io/wwami-pipeline/nwhcp-front_end:development-nightly
+
