@@ -10,4 +10,4 @@ RUN apt-get update && apt-get install certbot -y
 
 #ENTRYPOINT ["certbot","certonly","--register-unsafely-without-email","--agree-tos","--preferred-challenges=http","--nginx","-d nwhealthcareerpath.uw.edu;"]
 #CMD ["nginx", "-g", "daemon off;"]
-ENTRYPOINT ["/usr/bin/docker-entrypoint.sh"]
+ENTRYPOINT ["sh","/usr/bin/docker-entrypoint.sh"]
