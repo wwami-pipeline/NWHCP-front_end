@@ -257,11 +257,11 @@ export default function SearchForm(props) {
                                 {advanced.map((item, i) => (
                                     <Form.Check
                                         type='checkbox'
-                                        name='Advanced'
-                                        label={item}
+                                        name={item.codeName}
+                                        label={item.name}
                                         key={'advanced' + i}
                                         // value={item}
-                                        // onChange={handleFormChange}
+                                        onChange={handleFormChange}
                                     />
                                 ))}
                             </div>

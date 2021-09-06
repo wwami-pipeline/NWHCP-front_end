@@ -12,12 +12,12 @@ export const careers = [
   ];
   
 export const gradeLevels = [
-    {name: 'Middle School', id: 0},
-    {name: 'High School', id: 1},
-    {name: 'Community / Technical College', id: 2},
-    {name: 'Undergraduate', id: 3},
-    {name: 'Post Baccalaureate / Graduate', id: 4},
-    {name: 'Other', id: 5}
+    {name: 'Middle School', id: 6},
+    {name: 'High School', id: 9},
+    {name: 'Community / Technical College', id: 0},
+    {name: 'Undergraduate', id: 0},
+    {name: 'Post Baccalaureate / Graduate', id: 0},
+    {name: 'Other', id: 0}
 ];
 
 export const enrollment = [
@@ -47,11 +47,11 @@ export const eligibility = [
 ]
 
 export const advanced = [
-    'Accessible by Public Transportation',
-    'Transportation Provided',
-    'Includes Health Professions Shadowing Opportunity',
-    'Academic Credit Offered',
-    'Certificate Program',
-    'Offered as Part of an Educational Program',
-    'Internship'
+    {name: 'Accessible by Public Transportation', codeName: ""},
+    {name: 'Transportation Provided', codeName: "HasTransport"},
+    {name: 'Includes Health Professions Shadowing Opportunity', codeName: "HasShadow"},
+    {name: 'Academic Credit Offered', codeName: ""},
+    {name: 'Certificate Program', codeName: ""},
+    {name: 'Offered as Part of an Educational Program', codeName: ""},
+    {name: 'Internship', codeName: ""},
 ]
