@@ -6,6 +6,18 @@ import { gradeLevels } from '../shared/filters';
 export const Dialog = ({ show, toggleShow }) => {
     const [whereStudy, setWhereStudy] = useState('');
 
+    // TODO: Replace all instances of TEMP_GRADE_LEVELS with gradeLevels once gradeLevels and 
+    // backend data is updated to include 
+    //
+    // 'Community / Technical College',
+    // 'Undergraduate',
+    // 'Post Baccalaureate / Graduate',
+    // 'Other'
+    //
+    // Eg all instances of gradeLevels["id"] are filled in and NOT 0
+    const TEMP_GRADE_LEVELS = gradeLevels.filter(g => g.id !== 0);
+    console.log(TEMP_GRADE_LEVELS);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         let params = whereStudy ? '?gradeLvl=' + whereStudy : '';
@@ -21,7 +33,7 @@ export const Dialog = ({ show, toggleShow }) => {
                     Where are you in your life right now?
                 </h3>
                 <ListGroup defaultActiveKey={whereStudy}>
-                    {gradeLevels.map((grade) => {
+                    {TEMP_GRADE_LEVELS.map((grade) => {
                         const id = 'grade' + grade.id;
                         return (
                             <ListGroup.Item
