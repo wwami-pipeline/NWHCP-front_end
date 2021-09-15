@@ -27,6 +27,9 @@ const fetchPrograms = (formData, setPrograms, setLoading, setError) => {
         .then(
             result => {
                 console.log("Fetched data: ", result);
+                
+                // Some of the grade level data doesn't match the description
+                console.log(result.filter(g => g.GradeLevels[0] < 6))
                 setPrograms(result);
             }
         )
