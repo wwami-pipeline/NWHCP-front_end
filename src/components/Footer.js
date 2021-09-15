@@ -4,6 +4,8 @@ import {Container, Row, Col} from 'react-bootstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faPhoneAlt, faEnvelope} from '@fortawesome/free-solid-svg-icons';
 
+// test
+
 const Footer = () => {
     return (
         <Container fluid className="footer main-footer py-3 mt-4">
