@@ -1,0 +1,10 @@
+@import './theme.scss';
+
+.how-to-content h2 {
+    color: $primary;
+    text-align: left;
+    border-bottom: 1px solid $primary;
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}

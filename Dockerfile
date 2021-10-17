@@ -1,5 +1,9 @@
-FROM nginx:alpine
-COPY /build /usr/share/nginx/html
+FROM nginx
+
+COPY /public /usr/share/nginx/html
 COPY vhost.conf /etc/nginx/conf.d/default.conf
-EXPOSE 80
+
+# install certbot
+RUN apt-get update && apt-get install certbot python-certbot-nginx -y
+
 CMD ["nginx", "-g", "daemon off;"]

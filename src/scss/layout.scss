@@ -1,0 +1,76 @@
+/*** Global Stylesheet ***/
+
+@import './theme.scss';
+// Note: Delete Mulish font-sizes not being used
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import 'bootstrap'; // Apply Bootstrap theme modifications
+
+body {
+  margin: 0;
+  font-size: $font-size-12; 
+  font-family: 'Mulish', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+}
+
+h1, h2, h3, h4 {
+    font-weight: bold;
+    color: black;
+}
+
+h1 { font-size: $font-size-24; }
+h2 { font-size: $font-size-20; } 
+h3 { font-size: $font-size-18; }
+h4 { font-size: $font-size-14; }
+h5 {
+    color: $primary;
+    text-transform: uppercase;
+    font-size: $font-size-14;
+}
+
+.lead {
+    color: $primary;
+    font-weight: 600;
+    font-size: $font-size-14
+}
+
+.figure-caption {
+    font-size: $font-size-12;
+    color: black;
+}
+
+.btn-lg {
+    font-size: $font-size-14;
+    line-height: $font-size-20;
+    padding: 0.6rem 1.2rem;
+}
+
+.form-control {
+    font-size: $font-size-12;
+}
+
+// Sticky Footer
+.main-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.page-wrapper {
+    flex: 1 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 700px;
+}
+
+// Leaflet Map
+#mapid {
+    height: 300px;
+    width: 100%;
+    /* height: 50vh; */
+}

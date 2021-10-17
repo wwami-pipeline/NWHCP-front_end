@@ -1,0 +1,28 @@
+@import './theme.scss';
+
+.footer {
+    background-color: $primary;
+    color: white;
+
+    // Sticky Footer
+    flex-shrink: 0;
+    margin-bottom: 0 !important;
+}
+
+.main-footer p {
+    text-align: center;
+    margin: 0;
+}
+
+.support-footer {
+    background-color: $medium-blue;
+    margin-top: 3rem;
+    padding: 1rem;
+}
+
+.support-footer h2 {
+    color: white;
+    text-align: left;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}

@@ -1,81 +1,57 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
-import "../css/header.css";
+import { Navbar, Nav } from "react-bootstrap";
+import { StaticImage } from "gatsby-plugin-image";
+import '../scss/header.scss';
 
-import 'materialize-css';
-import 'materialize-css/dist/css/materialize.min.css';
-import M from "materialize-css";
-
-const NaviLinks = () => {
+const Header = () => {
   return (
-    <div>
-      <li>
-        <NavLink className='navLink' activeClassName='curRoute' exact to="/">
-          Home
-            </NavLink>
-      </li>
-      <li>
-        <NavLink className='navLink' activeClassName='curRoute' to="/map">
-          Map
-          </NavLink>
-      </li>
-      <li>
-        <NavLink className='navLink' activeClassName='curRoute' to="/more">
-          More
-          </NavLink>
-      </li>
-      <li>
-        <NavLink className='navLink' activeClassName='curRoute' to="/resources">
-          Resources
-          </NavLink>
-      </li>
-    </div>
+      <Navbar expand="md" className='nwhcp-nav mb-4'>
+        <Navbar.Brand href="/">
+          <StaticImage 
+            src='../images/logo-image.png'
+            alt='NWHCP Logo'
+            width={32}
+          />
+          {/* <span className="align-middle text-primary"> NWHCP</span> */}
+        </Navbar.Brand>
+        <Navbar.Toggle area-controls="basic-navbar-nav" />
+        <Navbar.Collapse className='links-wrapper justify-content-between'>
+          <Nav>
+
+            <Nav.Link href="/" className="custom-link">
+              Home
+            </Nav.Link>
+            
+            <Nav.Link href="/about" className="custom-link">
+              About
+            </Nav.Link>
+            
+            <Nav.Link href="/how-to" className="custom-link">
+              How To
+            </Nav.Link>
+
+            <Nav.Link href="/search-programs" className="custom-link">
+              Find Programs
+            </Nav.Link>
+
+            <Nav.Link href="https://redcap.iths.org/surveys/?s=3FNCRCFYC9" target="_blank" className="custom-link">
+              Post Opportunity
+            </Nav.Link>
+
+            <Nav.Link href="/account-settings" className="custom-link">
+              Account
+            </Nav.Link>
+
+            {/* <div>
+                                          {this.state.isSignedIn ?
+                                              <Button onClick={this.test}>Sign-Out</Button> :
+                                          <Link to='/login' className="custom-link" exact>Login</Link> }
+      
+                                      </div> */}
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
   );
-}
-
-class Header extends React.Component {
-  componentDidMount() {
-    var options = {
-      edge: 'right'
-    }
-    var elems = document.querySelectorAll('.sidenav');
-    M.Sidenav.init(elems, options);
-  }
-
-  render() {
-    return (
-      <header>
-        <nav>
-          <div className="nav-wrapper">
-            {/* desktop */}
-            <Link className="left brand-logo" to="/" id="HomeLink">
-              <img className="navi-logo" id='logo' src='assets/logo-image.png' alt='temp' />
-              <span className="navi-title hide-on-med-and-down">Northwest Health Career Path</span>
-              <span className="navi-title hide-on-large-only">NWHCP</span>
-            </Link>
-
-            <ul className="right hide-on-small-and-down">
-              <NaviLinks />
-            </ul>
-
-            {/* mobile */}
-            <div className="right hide-on-med-and-up">
-              <a href="" data-target="mobile-menu" className="valign-wrapper sidenav-trigger">
-                <svg fill="#2B5F9E" height="32px" version="1.1" viewBox="0 0 32 32" width="32px">
-                  <path d="M4,10h24c1.104,0,2-0.896,2-2s-0.896-2-2-2H4C2.896,6,2,6.896,2,8S2.896,10,4,10z M28,14H4c-1.104,0-2,0.896-2,2  s0.896,2,2,2h24c1.104,0,2-0.896,2-2S29.104,14,28,14z M28,22H4c-1.104,0-2,0.896-2,2s0.896,2,2,2h24c1.104,0,2-0.896,2-2  S29.104,22,28,22z" />
-                </svg>
-              </a>
-              <ul className="sidenav sidenav-close" id="mobile-menu">
-                <NaviLinks />
-              </ul>
-            </div>
-
-          </div>
-        </nav>
-
-      </header>
-    );
-  }
-}
+};
 
 export default Header;

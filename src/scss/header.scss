@@ -1,0 +1,14 @@
+@import './theme.scss';
+
+.custom-link {
+    color: $link-color !important;
+    font-size: $font-size-14;
+    text-transform: uppercase;
+    margin: 0.2rem 0.5rem;
+    // text-align: center;
+}
+
+.links-wrapper {
+    // background: $light-blue;
+    padding: 0.5rem;
+}
