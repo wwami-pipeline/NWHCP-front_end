@@ -129,36 +129,37 @@ const ProgramDetails = (props) => {
             </li>
           </ul>
         </Accordion>
-        <Accordion.Toggle as="h4" eventkey="1">
-          <div className="mt-4">
-            Program Details
-            <FontAwesomeIcon icon={faChevronDown} className="ml-2" />
-          </div>
-        </Accordion.Toggle>
-        <Accordion eventkey="1">
-          <div>
-            <p className="text-primary text-uppercase mt-3">
-              Eligibility requirements
-            </p>
-            <ul>
-              {program.eligibilityRequirements.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-            <p className="text-primary text-uppercase">Target Population</p>
-            <ul>
-              {program.targetPopulation.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-            <p className="text-primary text-uppercase">Other</p>
-            <ul>
-              {program.other.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        </Accordion>
+        {/*TODO*/}
+        {/*<Accordion.Toggle as="h4" eventkey="1">*/}
+        {/*  <div className="mt-4">*/}
+        {/*    Program Details*/}
+        {/*    <FontAwesomeIcon icon={faChevronDown} className="ml-2" />*/}
+        {/*  </div>*/}
+        {/*</Accordion.Toggle>*/}
+        {/*<Accordion eventkey="1">*/}
+        {/*  <div>*/}
+        {/*    <p className="text-primary text-uppercase mt-3">*/}
+        {/*      Eligibility requirements*/}
+        {/*    </p>*/}
+        {/*    <ul>*/}
+        {/*      {program.eligibilityRequirements.map((item, index) => (*/}
+        {/*        <li key={index}>{item}</li>*/}
+        {/*      ))}*/}
+        {/*    </ul>*/}
+        {/*    <p className="text-primary text-uppercase">Target Population</p>*/}
+        {/*    <ul>*/}
+        {/*      {program.targetPopulation.map((item, index) => (*/}
+        {/*        <li key={index}>{item}</li>*/}
+        {/*      ))}*/}
+        {/*    </ul>*/}
+        {/*    <p className="text-primary text-uppercase">Other</p>*/}
+        {/*    <ul>*/}
+        {/*      {program.other.map((item, index) => (*/}
+        {/*        <li key={index}>{item}</li>*/}
+        {/*      ))}*/}
+        {/*    </ul>*/}
+        {/*  </div>*/}
+        {/*</Accordion>*/}
       </Accordion>
     </div>
   );
