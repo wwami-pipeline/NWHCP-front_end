@@ -51,7 +51,7 @@ const Home = () => {
           Let's match you up with programs that might be right for you!
         </p>
         <div className="text-center pb-4">
-          <Link to="/search-programs">
+          <Link to="/programs">
             <Button size="lg" variant="primary">
               Get Started!
             </Button>
