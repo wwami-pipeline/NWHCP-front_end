@@ -97,11 +97,12 @@ const SearchPrograms = ({ location }) => {
   }, []);
   return (
     <div>
-      <SearchForm
-        formData={formData}
-        setFormData={setFormData}
-        handleSubmit={handleSubmit}
-      />
+      {/*TODO*/}
+      {/*<SearchForm*/}
+      {/*  formData={formData}*/}
+      {/*  setFormData={setFormData}*/}
+      {/*  handleSubmit={handleSubmit}*/}
+      {/*/>*/}
       <Map programs={programs} />
       <div className="mt-5">
         <h3 className="text-center text-primary mb-5">

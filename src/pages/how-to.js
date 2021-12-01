@@ -5,6 +5,7 @@ import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { Container, Row, Col, Button, Figure } from "react-bootstrap";
 import SupportFooter from "../components/SupportFooter.js";
 import JoinUs from "../components/JoinUs.js";
+import Link from "gatsby-link";
 const HowTo = () => {
   const check = (
     <span className="fa-li">
@@ -98,9 +99,11 @@ const HowTo = () => {
                 </Figure>
               </Col>
             </Row>
+            <Link to="/programs">
             <Button variant="primary" size="lg">
               Start Exploring
             </Button>
+            </Link>
           </Container>
         </div>
         <JoinUs />
