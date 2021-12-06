@@ -1,17 +1,18 @@
 import React from "react";
 import { Link } from "gatsby";
-import { Button, Accordion } from "react-bootstrap";
+import { Accordion, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheck,
-  faGlobe,
-  faEnvelope,
-  faPhoneAlt,
-  faMapMarkerAlt,
   faChevronDown,
   faChevronLeft,
+  faEnvelope,
+  faGlobe,
+  faMapMarkerAlt,
+  faPhoneAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import "../../scss/program-details.scss";
+
 const ProgramDetails = (props) => {
   const validateUrl = (url) => {
     let valid = /^(ftp|http|https):\/\//.test(url);
@@ -27,13 +28,13 @@ const ProgramDetails = (props) => {
     targetPopulation: ["one", "two"],
     other: ["one", "two"],
   };
-  // build career emphasis list
+  // career emphasis
   const allCareers = Object.fromEntries(
     Object.entries(program).filter(([key]) => key.includes("career_emp"))
   );
   let careerEmphasis = [];
   Object.keys(allCareers).map(function (career) {
-    if (allCareers[career] == 1) {
+    if (allCareers[career] === "1") {
       careerEmphasis.push(career.split("___")[1]);
     }
   });
@@ -48,19 +49,40 @@ const ProgramDetails = (props) => {
       </li>
     );
   });
+  // academic credits
+  const allAcadCreds = Object.fromEntries(
+    Object.entries(program).filter(([key]) => key.includes("academic_credit"))
+  );
+  let hasAcadCred = "No";
+  Object.keys(allAcadCreds).map(function (entry) {
+    if (allAcadCreds[entry] === "1") {
+      hasAcadCred = "Yes";
+    }
+  });
+  // age requirements
+
   // render page
   return (
     <div className="page-wrapper">
+      {/*back to search results*/}
       <Link to="/programs">
         <FontAwesomeIcon icon={faChevronLeft} className="mr-2" />
         Search Results
       </Link>
+      {/*name*/}
       <h3 className="text-primary mt-4 mb-3">
         {program.org_name || program.org_name_v2}
       </h3>
+      {/*description*/}
       <p>{program.description}</p>
+      {/*career emphasis*/}
       <h4>Career Emphasis</h4>
       <ul className="fa-ul d-flex flex-row flex-wrap">{emphasisList}</ul>
+      {/*academic credit*/}
+      <h4>Academic Credit: {hasAcadCred}</h4>
+      {/*TODO: age requirement*/}
+      {/*<h4>Age Requirement</h4>*/}
+      {/*visit program website*/}
       <Button variant="primary" block className="my-4">
         <FontAwesomeIcon icon={faGlobe} className="mr-2" />
         <a
