@@ -60,6 +60,15 @@ const ProgramDetails = (props) => {
     }
   });
   // age requirements
+  const allAgeReqs = Object.fromEntries(
+    Object.entries(program).filter(([key]) => key.includes("age_requirement"))
+  );
+  let ageReq = "No";
+  Object.keys(allAgeReqs).map(function (entry) {
+    if (allAgeReqs[entry] === "1") {
+      ageReq = entry.match("___(.*)")[1];
+    }
+  });
 
   // render page
   return (
@@ -80,8 +89,8 @@ const ProgramDetails = (props) => {
       <ul className="fa-ul d-flex flex-row flex-wrap">{emphasisList}</ul>
       {/*academic credit*/}
       <h4>Academic Credit: {hasAcadCred}</h4>
-      {/*TODO: age requirement*/}
       {/*<h4>Age Requirement</h4>*/}
+      <h4>Age Requirement: {ageReq}</h4>
       {/*visit program website*/}
       <Button variant="primary" block className="my-4">
         <FontAwesomeIcon icon={faGlobe} className="mr-2" />

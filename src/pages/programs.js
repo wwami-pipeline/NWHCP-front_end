@@ -5,7 +5,7 @@ import Map from "../components/Programs/Map";
 const fetchPrograms = (formData, setPrograms, setLoading, setError) => {
   setLoading(true);
   console.log("Fetching data...");
-  fetch("https://nwhealthcareerpath.uw.edu//api/v3/orgs-all", {
+  fetch("https://nwhealthcareerpath.uw.edu/api/v3/orgs-all", {
     method: "POST",
     body: JSON.stringify(formData),
     headers: {
