@@ -1,9 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import { Container, Row, Col, Button } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import { faStar } from "@fortawesome/free-regular-svg-icons";
+import { Button, Col, Container, Row } from "react-bootstrap";
 // - Component to display an individual result card for program search.
 // - Takes in a prop called program (JSON of health careepathway program info).
 export default function ProgramCard({ program, onClick }) {
@@ -35,11 +32,6 @@ export default function ProgramCard({ program, onClick }) {
             {program.org_phone_number || program.org_phone_number_v2}
           </p>
           {/* <ul className="fa-ul d-flex flex-row flex-wrap">{emphasisList}</ul> */}
-        </Col>
-        <Col xs={2}>
-          <h2>
-            <FontAwesomeIcon icon={faStar} />
-          </h2>
         </Col>
       </Row>
       <Button size="sm">
