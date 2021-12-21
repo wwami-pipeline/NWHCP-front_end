@@ -101,7 +101,7 @@ const ProgramDetails = (props) => {
       {/*Age Requirement*/}
       <h4>Age Requirement: {ageReq}</h4>
       {/*Certificates*/}
-      <h4>Certificates: {certString}</h4>
+      <h4>Certificates Offered: {certString}</h4>
       {/*visit program website*/}
       <Button variant="primary" block className="my-4">
         <FontAwesomeIcon icon={faGlobe} className="mr-2" />
