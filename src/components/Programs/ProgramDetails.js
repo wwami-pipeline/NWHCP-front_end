@@ -69,7 +69,16 @@ const ProgramDetails = (props) => {
       ageReq = entry.match("___(.*)")[1];
     }
   });
-
+  // certificates
+  const allCerts = Object.fromEntries(
+    Object.entries(program).filter(([key]) => key.includes("certificate_title"))
+  );
+  let certString = "None";
+  Object.keys(allCerts).map(function (entry) {
+    if (allCerts[entry] != "") {
+      certString = allCerts[entry];
+    }
+  });
   // render page
   return (
     <div className="page-wrapper">
@@ -89,8 +98,10 @@ const ProgramDetails = (props) => {
       <ul className="fa-ul d-flex flex-row flex-wrap">{emphasisList}</ul>
       {/*academic credit*/}
       <h4>Academic Credit: {hasAcadCred}</h4>
-      {/*<h4>Age Requirement</h4>*/}
+      {/*Age Requirement*/}
       <h4>Age Requirement: {ageReq}</h4>
+      {/*Certificates*/}
+      <h4>Certificates: {certString}</h4>
       {/*visit program website*/}
       <Button variant="primary" block className="my-4">
         <FontAwesomeIcon icon={faGlobe} className="mr-2" />
