@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SearchForm from "../components/Programs/SearchForm";
 import ProgramCard from "../components/Programs/ProgramCard";
 import Map from "../components/Programs/Map";
+
 const fetchPrograms = (formData, setPrograms, setLoading, setError) => {
   setLoading(true);
-  console.log("Fetching data...");
   fetch("https://nwhealthcareerpath.uw.edu/api/v3/orgs-all", {
     method: "POST",
-    body: JSON.stringify(formData),
+    // body: JSON.stringify(formData),
     headers: {
       "Content-Type": "application/json",
     },
@@ -15,7 +15,6 @@ const fetchPrograms = (formData, setPrograms, setLoading, setError) => {
     .then(
       (response) => {
         if (response.ok) {
-          console.log("Data fetched successfully!");
           return response.json();
         } else {
           const error = new Error(
@@ -30,8 +29,23 @@ const fetchPrograms = (formData, setPrograms, setLoading, setError) => {
       }
     )
     .then((result) => {
-      // console.log("Fetched data: ", result);
-      setPrograms(result);
+      // Search filtering
+      const keyword = formData["searchContent"].toLowerCase();
+      let filteredResult = [];
+      result.forEach((program) => {
+        // Filter by keywords
+        let text = "";
+        for (const attribute in program) {
+          if (!["1", "0", ""].includes(program[attribute])) {
+            text += " " + String(program[attribute]).toLowerCase();
+          }
+        }
+        if (text.search(keyword) !== -1) {
+          filteredResult.push(program);
+        }
+      });
+      // Load filtered results
+      setPrograms(filteredResult);
     })
     .catch((error) => {
       console.log("Could not fetch data... " + error.message);
@@ -97,12 +111,11 @@ const SearchPrograms = ({ location }) => {
   }, []);
   return (
     <div>
-      {/*TODO*/}
-      {/*<SearchForm*/}
-      {/*  formData={formData}*/}
-      {/*  setFormData={setFormData}*/}
-      {/*  handleSubmit={handleSubmit}*/}
-      {/*/>*/}
+      <SearchForm
+        formData={formData}
+        setFormData={setFormData}
+        handleSubmit={handleSubmit}
+      />
       <Map programs={programs} />
       <div className="mt-5">
         <h3 className="text-center text-primary mb-5">

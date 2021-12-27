@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { InputGroup, Form, Button, Accordion } from "react-bootstrap";
+import { Accordion, Button, Form, InputGroup } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { faCaretDown, faSearch } from "@fortawesome/free-solid-svg-icons";
 import {
+  advanced,
   careers,
-  gradeLevels,
-  enrollment,
   duration,
   eligibility,
-  advanced,
+  enrollment,
+  gradeLevels,
 } from "../../shared/filters.js";
 import "../../scss/search-form.scss";
+
 export default function SearchForm(props) {
   /*{
         searchContent: '',
@@ -93,26 +94,23 @@ export default function SearchForm(props) {
         </Form.Group>
       </Form>
       {/* Search by Location */}
-      {/* <Form onSubmit={props.handleSubmit}>
-                <Form.Group controlId='formLocation'>
-                    <Form.Label>Location</Form.Label>
-                    <InputGroup>
-                        <Form.Control
-                            type='text'
-                            placeholder='Zipcode or City, State'
-                        />
-                        <InputGroup.Append>
-                            <Button variant='secondary' size='sm' type='submit'>
-                                <FontAwesomeIcon icon={faSearch} />
-                            </Button>
-                        </InputGroup.Append>
-                    </InputGroup>
-                </Form.Group>
-            </Form> */}
+      {/*<Form onSubmit={props.handleSubmit}>*/}
+      {/*  <Form.Group controlId="formLocation">*/}
+      {/*    <Form.Label>Location</Form.Label>*/}
+      {/*    <InputGroup>*/}
+      {/*      <Form.Control type="text" placeholder="Zipcode or City, State" />*/}
+      {/*      <InputGroup.Append>*/}
+      {/*        <Button variant="secondary" size="sm" type="submit">*/}
+      {/*          <FontAwesomeIcon icon={faSearch} />*/}
+      {/*        </Button>*/}
+      {/*      </InputGroup.Append>*/}
+      {/*    </InputGroup>*/}
+      {/*  </Form.Group>*/}
+      {/*</Form>*/}
       {/* Filters */}
-      <Button variant="secondary" onClick={clickFilterButton}>
-        {buttonText}
-      </Button>
+      {/*<Button variant="secondary" onClick={clickFilterButton}>*/}
+      {/*  {buttonText}*/}
+      {/*</Button>*/}
       <Form
         onSubmit={props.handleSubmit}
         onReset={props.handleSubmit}
