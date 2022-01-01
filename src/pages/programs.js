@@ -3,56 +3,74 @@ import SearchForm from "../components/Programs/SearchForm";
 import ProgramCard from "../components/Programs/ProgramCard";
 import Map from "../components/Programs/Map";
 
+// save fetched data
+let saved_res = null;
+
 const fetchPrograms = (formData, setPrograms, setLoading, setError) => {
   setLoading(true);
-  fetch("https://nwhealthcareerpath.uw.edu/api/v3/orgs-all", {
-    method: "POST",
-    // body: JSON.stringify(formData),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  })
-    .then(
-      (response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          const error = new Error(
-            `Status code ${response.status}: ${response.statusText}.`
-          );
-          error.response = response;
-          throw error;
-        }
+  if (saved_res !== null) {
+    // reuse fetched data
+    loadPrograms(saved_res, formData, setPrograms)
+  } else {
+    fetch("https://nwhealthcareerpath.uw.edu/api/v3/orgs-all", {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
       },
-      (error) => {
-        throw error;
+    })
+        .then(
+            (response) => {
+              if (response.ok) {
+                return response.json();
+              } else {
+                const error = new Error(
+                    `Status code ${response.status}: ${response.statusText}.`
+                );
+                error.response = response;
+                throw error;
+              }
+            },
+            (error) => {
+              throw error;
+            }
+        )
+        .then((result) => {
+          loadPrograms(result, formData, setPrograms)
+        })
+        .catch((error) => {
+          console.log("Could not fetch data... " + error.message);
+          setError(error);
+        })
+        .finally(setLoading(false));
+  }
+  ;
+}
+
+// update results based on search parameters
+const loadPrograms = (result,formData,setPrograms) => {
+  console.log(formData)
+
+
+
+  const keyword = formData["searchContent"].toLowerCase();
+  let filteredResult = [];
+  result.forEach((program) => {
+    // filter by keywords
+    let text = "";
+    for (const attribute in program) {
+      if (!["1", "0", ""].includes(program[attribute])) {
+        text += " " + String(program[attribute]).toLowerCase();
       }
-    )
-    .then((result) => {
-      // Search filtering
-      const keyword = formData["searchContent"].toLowerCase();
-      let filteredResult = [];
-      result.forEach((program) => {
-        // Filter by keywords
-        let text = "";
-        for (const attribute in program) {
-          if (!["1", "0", ""].includes(program[attribute])) {
-            text += " " + String(program[attribute]).toLowerCase();
-          }
-        }
-        if (text.search(keyword) !== -1) {
-          filteredResult.push(program);
-        }
-      });
-      // Load filtered results
-      setPrograms(filteredResult);
-    })
-    .catch((error) => {
-      console.log("Could not fetch data... " + error.message);
-      setError(error);
-    })
-    .finally(setLoading(false));
-};
+    }
+    if (text.search(keyword) !== -1) {
+      filteredResult.push(program);
+    }
+  });
+  // load filtered results
+  setPrograms(filteredResult);
+}
+
 // Page Component
 const SearchPrograms = ({ location }) => {
   const getUrlParams = () => {
