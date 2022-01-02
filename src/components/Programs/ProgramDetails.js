@@ -1,3 +1,7 @@
+/*
+Program Details
+Shows more info about selected programs, when "More Details" is clicked on webpage
+ */
 import React from "react";
 import { Link } from "gatsby";
 import { Accordion, Button } from "react-bootstrap";
@@ -12,6 +16,11 @@ import {
   faPhoneAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import "../../scss/program-details.scss";
+import {
+  prettyCareer,
+  prettyGrade,
+  prettyPathway,
+} from "../../shared/filters.js";
 
 const ProgramDetails = (props) => {
   const validateUrl = (url) => {
@@ -35,13 +44,12 @@ const ProgramDetails = (props) => {
   let careerEmphasis = [];
   Object.keys(allCareers).map(function (career) {
     if (allCareers[career] === "1") {
-      careerEmphasis.push(career.split("___")[1]);
+      careerEmphasis.push(prettyCareer[career.split("___")[1]]);
     }
   });
-  console.log(careerEmphasis);
   const emphasisList = careerEmphasis.map((emphasis, index) => {
     return (
-      <li key={index} className="w-50">
+      <li key={"empahasis" + index} className="w-50">
         <span className="fa-li">
           <FontAwesomeIcon icon={faCheck} className="text-success" />
         </span>
@@ -49,6 +57,47 @@ const ProgramDetails = (props) => {
       </li>
     );
   });
+  // education levels
+  const allGrades = Object.fromEntries(
+    Object.entries(program).filter(([key]) => key.includes("target_school_age"))
+  );
+  let gradeLevel = [];
+  Object.keys(allGrades).map(function (grade) {
+    if (allGrades[grade] === "1") {
+      gradeLevel.push(prettyGrade[grade.split("___")[1]]);
+    }
+  });
+  const gradeList = gradeLevel.map((grade, index) => {
+    return (
+      <li key={index} className="w-50">
+        <span className="fa-li">
+          <FontAwesomeIcon icon={faCheck} className="text-success" />
+        </span>
+        {grade}
+      </li>
+    );
+  });
+  // program type
+  const allPathways = Object.fromEntries(
+    Object.entries(program).filter(([key]) => key.includes("pathway_type"))
+  );
+  let pathways = [];
+  Object.keys(allPathways).map(function (type) {
+    if (allPathways[type] === "1") {
+      pathways.push(prettyPathway[type.split("___")[1]]);
+    }
+  });
+  const pathwaysList = pathways.map((type, index) => {
+    return (
+      <li key={index} className="w-50">
+        <span className="fa-li">
+          <FontAwesomeIcon icon={faCheck} className="text-success" />
+        </span>
+        {type}
+      </li>
+    );
+  });
+
   // academic credits
   const allAcadCreds = Object.fromEntries(
     Object.entries(program).filter(([key]) => key.includes("academic_credit"))
@@ -73,12 +122,13 @@ const ProgramDetails = (props) => {
   const allCerts = Object.fromEntries(
     Object.entries(program).filter(([key]) => key.includes("certificate_title"))
   );
-  let certString = "None";
+  let certString = "NA";
   Object.keys(allCerts).map(function (entry) {
-    if (allCerts[entry] != "") {
+    if (allCerts[entry] !== "") {
       certString = allCerts[entry];
     }
   });
+
   // render page
   return (
     <div className="page-wrapper">
@@ -93,9 +143,15 @@ const ProgramDetails = (props) => {
       </h3>
       {/*description*/}
       <p>{program.description}</p>
+      {/*program type*/}
+      <h4>Program Type</h4>
+      <ul className="fa-ul d-flex flex-row flex-wrap">{pathwaysList}</ul>
       {/*career emphasis*/}
       <h4>Career Emphasis</h4>
       <ul className="fa-ul d-flex flex-row flex-wrap">{emphasisList}</ul>
+      {/*grade level*/}
+      <h4>Education Levels</h4>
+      <ul className="fa-ul d-flex flex-row flex-wrap">{gradeList}</ul>
       {/*academic credit*/}
       <h4>Academic Credit: {hasAcadCred}</h4>
       {/*Age Requirement*/}

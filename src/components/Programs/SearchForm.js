@@ -1,22 +1,26 @@
+/*
+Search Form
+Shows the text search box and filters, in the "Find Programs" page
+ */
 import React, { useState } from "react";
 import {
   Accordion,
   Button,
+  Col,
+  Container,
   Form,
   InputGroup,
-  Container,
   Row,
-  Col,
 } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faSearch } from "@fortawesome/free-solid-svg-icons";
 import {
-  programType,
   advanced,
   careers,
   duration,
   enrollment,
   gradeLevels,
+  programType,
 } from "../../shared/filters.js";
 import "../../scss/search-form.scss";
 
@@ -42,7 +46,6 @@ export default function SearchForm(props) {
     let newState = props.formData;
     if (name === "CareerEmp" || name === "GradeLevels") {
       // expects an array
-      if (name === "GradeLevels") value = parseInt(value);
       newState[name] = target.checked
         ? [...newState[name], value] // add the item
         : newState[name].filter((item) => item !== value); // remove the item
@@ -172,8 +175,8 @@ export default function SearchForm(props) {
                         <Form.Check
                           type="checkbox"
                           name="CareerEmp"
-                          label={career}
-                          value={career}
+                          label={career.name}
+                          value={career.id}
                           key={"career" + i}
                           onChange={handleFormChange}
                         />

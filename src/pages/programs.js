@@ -1,8 +1,12 @@
+/*
+Programs
+controls overall layout of "Find Programs" page
+and filters results
+ */
 import React, { useEffect, useState } from "react";
 import SearchForm from "../components/Programs/SearchForm";
 import ProgramCard from "../components/Programs/ProgramCard";
 import Map from "../components/Programs/Map";
-
 // save fetched data
 let saved_res = null;
 
@@ -10,7 +14,7 @@ const fetchPrograms = (formData, setPrograms, setLoading, setError) => {
   setLoading(true);
   if (saved_res !== null) {
     // reuse fetched data
-    loadPrograms(saved_res, formData, setPrograms)
+    loadPrograms(saved_res, formData, setPrograms);
   } else {
     fetch("https://nwhealthcareerpath.uw.edu/api/v3/orgs-all", {
       method: "POST",
@@ -19,57 +23,97 @@ const fetchPrograms = (formData, setPrograms, setLoading, setError) => {
         "Content-Type": "application/json",
       },
     })
-        .then(
-            (response) => {
-              if (response.ok) {
-                return response.json();
-              } else {
-                const error = new Error(
-                    `Status code ${response.status}: ${response.statusText}.`
-                );
-                error.response = response;
-                throw error;
-              }
-            },
-            (error) => {
-              throw error;
-            }
-        )
-        .then((result) => {
-          loadPrograms(result, formData, setPrograms)
-        })
-        .catch((error) => {
-          console.log("Could not fetch data... " + error.message);
-          setError(error);
-        })
-        .finally(setLoading(false));
+      .then(
+        (response) => {
+          if (response.ok) {
+            return response.json();
+          } else {
+            const error = new Error(
+              `Status code ${response.status}: ${response.statusText}.`
+            );
+            error.response = response;
+            throw error;
+          }
+        },
+        (error) => {
+          throw error;
+        }
+      )
+      .then((result) => {
+        loadPrograms(result, formData, setPrograms);
+      })
+      .catch((error) => {
+        console.log("Could not fetch data... " + error.message);
+        setError(error);
+      })
+      .finally(setLoading(false));
   }
-  ;
-}
+};
 
 // update results based on search parameters
-const loadPrograms = (result,formData,setPrograms) => {
-  console.log(formData)
-
-
-
-  const keyword = formData["searchContent"].toLowerCase();
+const loadPrograms = (result, formData, setPrograms) => {
+  let res = result;
   let filteredResult = [];
-  result.forEach((program) => {
-    // filter by keywords
-    let text = "";
-    for (const attribute in program) {
-      if (!["1", "0", ""].includes(program[attribute])) {
-        text += " " + String(program[attribute]).toLowerCase();
+
+  // filter by education level
+  const eduLevels = formData["GradeLevels"];
+  if (eduLevels.length !== 0) {
+    res.forEach((program) => {
+      for (const attribute in program) {
+        if (
+          attribute.includes("target_school_age") &&
+          program[attribute] === "1" &&
+          eduLevels.some((element) => attribute.includes(element))
+        ) {
+          filteredResult.push(program);
+          break;
+        }
       }
-    }
-    if (text.search(keyword) !== -1) {
-      filteredResult.push(program);
-    }
-  });
+    });
+    res = filteredResult;
+    filteredResult = [];
+  }
+
+  // filter by career
+  const careerEmp = formData["CareerEmp"];
+  if (careerEmp.length !== 0) {
+    res.forEach((program) => {
+      for (const attribute in program) {
+        if (
+          attribute.includes("career_emp") &&
+          program[attribute] === "1" &&
+          careerEmp.some((element) => attribute.includes(element))
+        ) {
+          filteredResult.push(program);
+          break;
+        }
+      }
+    });
+    res = filteredResult;
+    filteredResult = [];
+  }
+
+  // filter by keywords
+  const keyword = formData["searchContent"].toLowerCase();
+  if (keyword.length !== 0) {
+    res.forEach((program) => {
+      let text = "";
+      for (const attribute in program) {
+        if (!["1", "0", ""].includes(program[attribute])) {
+          text += " " + String(program[attribute]).toLowerCase();
+        }
+      }
+      if (text.search(keyword) !== -1) {
+        filteredResult.push(program);
+      }
+    });
+    res = filteredResult;
+    filteredResult = [];
+  }
+
   // load filtered results
-  setPrograms(filteredResult);
-}
+  setPrograms(res);
+};
 
 // Page Component
 const SearchPrograms = ({ location }) => {
@@ -113,7 +157,7 @@ const SearchPrograms = ({ location }) => {
   const RenderPrograms = (props) => {
     return props.programs.map((program, index) => {
       return (
-        <div key={index}>
+        <div key={"program" + index}>
           <ProgramCard
             program={program}
             onClick={() => handleCardClick(program._id)}
