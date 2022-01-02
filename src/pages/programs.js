@@ -1,7 +1,7 @@
 /*
 Programs
-controls overall layout of "Find Programs" page
-and filters results
+Overall layout of "Find Programs" page
+Filters results
  */
 import React, { useEffect, useState } from "react";
 import SearchForm from "../components/Programs/SearchForm";
@@ -57,7 +57,7 @@ const loadPrograms = (result, formData, setPrograms) => {
 
   // filter by education level
   const eduLevels = formData["GradeLevels"];
-  if (eduLevels.length !== 0) {
+  if (eduLevels !== undefined && eduLevels.length !== 0) {
     res.forEach((program) => {
       for (const attribute in program) {
         if (
@@ -76,7 +76,7 @@ const loadPrograms = (result, formData, setPrograms) => {
 
   // filter by career
   const careerEmp = formData["CareerEmp"];
-  if (careerEmp.length !== 0) {
+  if (careerEmp !== undefined && careerEmp.length !== 0) {
     res.forEach((program) => {
       for (const attribute in program) {
         if (
@@ -94,8 +94,8 @@ const loadPrograms = (result, formData, setPrograms) => {
   }
 
   // filter by keywords
-  const keyword = formData["searchContent"].toLowerCase();
-  if (keyword.length !== 0) {
+  const keyword = formData["SearchContent"].toLowerCase();
+  if (keyword !== undefined && keyword.length !== 0) {
     res.forEach((program) => {
       let text = "";
       for (const attribute in program) {
@@ -129,13 +129,12 @@ const SearchPrograms = ({ location }) => {
     }
   };
   const [formData, setFormData] = useState({
-    searchContent: "",
+    SearchContent: "",
     CareerEmp: [],
-    HasCost: false,
-    Under18: false,
-    HasTransport: false,
-    HasShadow: false,
-    GradeLevels: getUrlParams(),
+    ProgramType: [],
+    GradeLevels: [],
+    Duration: [],
+    Advanced: [],
   });
   const [programs, setPrograms] = useState([]);
   const [loading, setLoading] = useState(false);

@@ -11,15 +11,14 @@ export const careers = [
   { name: "Other", id: "other" },
 ];
 export const programType = [
-  "Health Professions School and Programs",
-  "Health Career Awareness Programs",
-  "Tutoring & Skill Building",
-  "College Readiness Programs",
-  "Youth Camps",
-  "Work-based Learning Opportunities",
-  "Mentorship Programs",
-  "Certification Programs",
-  "Volunteer Community Service Programs",
+  { name: "Certification Programs", id: "certification" },
+  { name: "College Readiness Programs", id: "college_readiness" },
+  { name: "Volunteer Community Service Programs", id: "community_service" },
+  { name: "Health Professions School and Programs", id: "health_career" },
+  { name: "Youth Camps", id: "youth_camp" },
+  { name: "Mentorship Programs", id: "mentor" },
+  { name: "Tutoring & Skill Building", id: "tutoring" },
+  { name: "Work-based Learning Opportunities", id: "work_based" },
 ];
 export const gradeLevels = [
   { name: "Middle School", id: "middle" },
@@ -29,20 +28,17 @@ export const gradeLevels = [
   { name: "Post Baccalaureate / Graduate", id: "postgrad" },
   { name: "Other", id: "other" },
 ];
-export const enrollment = [
-  "Free",
-  "Associated Costs",
-  "Associated Costs with Financial Support Offered",
-  "Paid/Stipend Offered",
-];
+
 export const duration = [
-  "Weekday Event (Daytime)",
-  "Weekday Event (Evening)",
-  "Weekends",
-  "Single Event",
-  "Quarterly",
-  "Year-Long",
-  "Summer",
+  { name: "Education Program", id: "edu_program" },
+  { name: "After School Program", id: "after_school" },
+  { name: "Weekday Event (Daytime)", id: "wkday_day" },
+  { name: "Weekday Event (Evening)", id: "wkday_ev" },
+  { name: "Weekends", id: "wkend" },
+  { name: "Year-Long", id: "year" },
+  { name: "Quarterly", id: "quarter" },
+  { name: "Summer", id: "summer" },
+  { name: "School Break", id: "school_break" },
 ];
 export const eligibility = [
   "General Enrollment",
@@ -53,17 +49,14 @@ export const eligibility = [
   "Enrollment Preference for Students from Underrepresented Backgrounds",
 ];
 export const advanced = [
-  { name: "Accessible by Public Transportation", codeName: "" },
+  { name: "Accessible by Public Transportation", id: "public_transportation" },
   {
     name: "Academic Credit or Certificate Provided with Program Completion",
-    codeName: "",
+    id: "certificate",
   },
-  {
-    name: "No Background Check Required",
-    codeName: "",
-  },
-  { name: "No Pre-requisites or Experience Required", codeName: "" },
-  { name: "No Citizenship / Residency Required", codeName: "" },
+  { name: "No Background Check Required", id: "bground_check" },
+  { name: "No Pre-requisites or Experience Required", id: "prereqs" },
+  { name: "No Citizenship/Residency Required", id: "citizen_residency" },
 ];
 export const prettyGrade = {
   middle: "middle school",
