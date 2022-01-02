@@ -1,6 +1,6 @@
 /*
 Program Details
-Shows more info about selected programs, when "More Details" is clicked on webpage
+"More Details" page
  */
 import React from "react";
 import { Link } from "gatsby";

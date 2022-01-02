@@ -1,6 +1,6 @@
 /*
 Search Form
-Shows the text search box and filters, in the "Find Programs" page
+Format search box and filters
  */
 import React, { useState } from "react";
 import {
@@ -18,7 +18,6 @@ import {
   advanced,
   careers,
   duration,
-  enrollment,
   gradeLevels,
   programType,
 } from "../../shared/filters.js";
@@ -44,14 +43,11 @@ export default function SearchForm(props) {
     const name = target.name;
     let value = target.value;
     let newState = props.formData;
-    if (name === "CareerEmp" || name === "GradeLevels") {
+    if (name !== "SearchContent") {
       // expects an array
       newState[name] = target.checked
         ? [...newState[name], value] // add the item
         : newState[name].filter((item) => item !== value); // remove the item
-    } else if (target.type === "checkbox") {
-      // expects true or false
-      newState[name] = target.checked;
     } else {
       // searchbar input
       newState[name] = value;
@@ -64,9 +60,14 @@ export default function SearchForm(props) {
       document.querySelectorAll("input[type=checkbox]:checked")
     ).forEach((checkbox) => (checkbox.checked = false));
     props.setFormData({
-      searchContent: props.formData.searchContent,
+      SearchContent: props.formData.SearchContent,
+      CareerEmp: [],
+      ProgramType: [],
+      GradeLevels: [],
+      Duration: [],
+      Advanced: [],
     });
-    //clickFilterButton();
+    // clickFilterButton();
   };
   return (
     <div className="search-form mb-4">
@@ -77,7 +78,7 @@ export default function SearchForm(props) {
           <InputGroup>
             <Form.Control
               type="text"
-              name="searchContent"
+              name="SearchContent"
               placeholder="Search by keyword or location"
               onChange={handleFormChange}
             />
@@ -114,19 +115,16 @@ export default function SearchForm(props) {
                   <Accordion.Collapse eventKey="0">
                     <div>
                       <Form.Check className="d-none" />
-                      {gradeLevels.map((grade, i) => {
-                        const options = props.formData.GradeLevels;
-                        return (
-                          <Form.Check
-                            type="checkbox"
-                            name="GradeLevels"
-                            label={grade.name}
-                            value={grade.id}
-                            key={"grade" + i}
-                            onChange={handleFormChange}
-                          />
-                        );
-                      })}
+                      {gradeLevels.map((grade, i) => (
+                        <Form.Check
+                          type="checkbox"
+                          name="GradeLevels"
+                          label={grade.name}
+                          value={grade.id}
+                          key={"grade" + i}
+                          onChange={handleFormChange}
+                        />
+                      ))}
                     </div>
                   </Accordion.Collapse>
                 </Form.Group>
@@ -149,8 +147,8 @@ export default function SearchForm(props) {
                         <Form.Check
                           type="checkbox"
                           name="ProgramType"
-                          label={program}
-                          value={program}
+                          label={program.name}
+                          value={program.id}
                           key={"program" + i}
                           onChange={handleFormChange}
                         />
@@ -165,7 +163,8 @@ export default function SearchForm(props) {
                 <Form.Group controlId="formCareer">
                   <Form.Label>
                     <Accordion.Toggle as={Form.Label} eventKey="2">
-                      Career Emphasis{caretIcon}
+                      Career Emphasis <br />
+                      {caretIcon}
                     </Accordion.Toggle>
                   </Form.Label>
                   <Accordion.Collapse eventKey="2">
@@ -179,31 +178,6 @@ export default function SearchForm(props) {
                           value={career.id}
                           key={"career" + i}
                           onChange={handleFormChange}
-                        />
-                      ))}
-                    </div>
-                  </Accordion.Collapse>
-                </Form.Group>
-              </Accordion>
-            </Col>
-            <Col>
-              <Accordion>
-                <Form.Group controlId="formEnrollment">
-                  <Form.Label>
-                    <Accordion.Toggle as={Form.Label} eventKey="3">
-                      Cost <br />
-                      {caretIcon}
-                    </Accordion.Toggle>
-                  </Form.Label>
-                  <Accordion.Collapse eventKey="3">
-                    <div>
-                      <Form.Check className="d-none" />
-                      {enrollment.map((cost, i) => (
-                        <Form.Check
-                          type="checkbox"
-                          name="HasCost"
-                          label={cost}
-                          key={"cost" + i}
                         />
                       ))}
                     </div>
@@ -227,8 +201,10 @@ export default function SearchForm(props) {
                         <Form.Check
                           type="checkbox"
                           name="Duration"
-                          label={time}
+                          label={time.name}
+                          value={time.id}
                           key={"time" + i}
+                          onChange={handleFormChange}
                         />
                       ))}
                     </div>
@@ -251,9 +227,11 @@ export default function SearchForm(props) {
                       {advanced.map((item, i) => (
                         <Form.Check
                           type="checkbox"
-                          name={item.codeName}
+                          name="Advanced"
                           label={item.name}
+                          value={item.id}
                           key={"advanced" + i}
+                          onChange={handleFormChange}
                         />
                       ))}
                     </div>

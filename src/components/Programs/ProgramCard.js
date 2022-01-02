@@ -1,6 +1,6 @@
 /*
 Program Card
-Shows snippet of each program, as part of the list in "Find Programs"
+Shows snippet of each program in the search results 
  */
 import React from "react";
 import { Link } from "gatsby";
