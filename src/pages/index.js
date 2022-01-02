@@ -1,10 +1,8 @@
 /* main page */
-
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import { Button, Carousel } from "react-bootstrap";
 import { navigate } from "gatsby";
-
 const Home = () => {
   return (
     <div>
@@ -53,7 +51,7 @@ const Home = () => {
           Let's match you up with programs that might be right for you!
         </p>
         <div className="text-center pb-4">
-          <Link to="/search-programs">
+          <Link to="/programs">
             <Button size="lg" variant="primary">
               Get Started!
             </Button>
@@ -66,5 +64,4 @@ const Home = () => {
     </div>
   );
 };
-
 export default Home;
