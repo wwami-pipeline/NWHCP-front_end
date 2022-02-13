@@ -14,13 +14,7 @@ import {
 } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faSearch } from "@fortawesome/free-solid-svg-icons";
-import {
-  advanced,
-  careers,
-  duration,
-  gradeLevels,
-  programType,
-} from "../../shared/filters.js";
+import { careers, gradeLevels } from "../../shared/filters.js";
 import "../../scss/search-form.scss";
 
 export default function SearchForm(props) {
@@ -130,34 +124,34 @@ export default function SearchForm(props) {
                 </Form.Group>
               </Accordion>
             </Col>
-            <Col>
-              <Accordion>
-                <Form.Group controlId="formProgramType">
-                  <Form.Label>
-                    <Accordion.Toggle as={Form.Label} eventKey="1">
-                      Program Type
-                      <br />
-                      {caretIcon}
-                    </Accordion.Toggle>
-                  </Form.Label>
-                  <Accordion.Collapse eventKey="1">
-                    <div>
-                      <Form.Check className="d-none" />
-                      {programType.map((program, i) => (
-                        <Form.Check
-                          type="checkbox"
-                          name="ProgramType"
-                          label={program.name}
-                          value={program.id}
-                          key={"program" + i}
-                          onChange={handleFormChange}
-                        />
-                      ))}
-                    </div>
-                  </Accordion.Collapse>
-                </Form.Group>
-              </Accordion>
-            </Col>
+            {/*<Col>*/}
+            {/*  <Accordion>*/}
+            {/*    <Form.Group controlId="formProgramType">*/}
+            {/*      <Form.Label>*/}
+            {/*        <Accordion.Toggle as={Form.Label} eventKey="1">*/}
+            {/*          Program Type*/}
+            {/*          <br />*/}
+            {/*          {caretIcon}*/}
+            {/*        </Accordion.Toggle>*/}
+            {/*      </Form.Label>*/}
+            {/*      <Accordion.Collapse eventKey="1">*/}
+            {/*        <div>*/}
+            {/*          <Form.Check className="d-none" />*/}
+            {/*          {programType.map((program, i) => (*/}
+            {/*            <Form.Check*/}
+            {/*              type="checkbox"*/}
+            {/*              name="ProgramType"*/}
+            {/*              label={program.name}*/}
+            {/*              value={program.id}*/}
+            {/*              key={"program" + i}*/}
+            {/*              onChange={handleFormChange}*/}
+            {/*            />*/}
+            {/*          ))}*/}
+            {/*        </div>*/}
+            {/*      </Accordion.Collapse>*/}
+            {/*    </Form.Group>*/}
+            {/*  </Accordion>*/}
+            {/*</Col>*/}
             <Col>
               <Accordion>
                 <Form.Group controlId="formCareer">
@@ -185,60 +179,60 @@ export default function SearchForm(props) {
                 </Form.Group>
               </Accordion>
             </Col>
-            <Col>
-              <Accordion>
-                <Form.Group controlId="formDuration">
-                  <Form.Label>
-                    <Accordion.Toggle as={Form.Label} eventKey="4">
-                      Program Timing <br />
-                      {caretIcon}
-                    </Accordion.Toggle>
-                  </Form.Label>
-                  <Accordion.Collapse eventKey="4">
-                    <div>
-                      <Form.Check className="d-none" />
-                      {duration.map((time, i) => (
-                        <Form.Check
-                          type="checkbox"
-                          name="Duration"
-                          label={time.name}
-                          value={time.id}
-                          key={"time" + i}
-                          onChange={handleFormChange}
-                        />
-                      ))}
-                    </div>
-                  </Accordion.Collapse>
-                </Form.Group>
-              </Accordion>
-            </Col>
-            <Col>
-              <Accordion>
-                <Form.Group controlId="formAdvanced">
-                  <Form.Label>
-                    <Accordion.Toggle as={Form.Label} eventKey="5">
-                      Advanced Search <br />
-                      {caretIcon}
-                    </Accordion.Toggle>
-                  </Form.Label>
-                  <Accordion.Collapse eventKey="5">
-                    <div>
-                      <Form.Check className="d-none" />
-                      {advanced.map((item, i) => (
-                        <Form.Check
-                          type="checkbox"
-                          name="Advanced"
-                          label={item.name}
-                          value={item.id}
-                          key={"advanced" + i}
-                          onChange={handleFormChange}
-                        />
-                      ))}
-                    </div>
-                  </Accordion.Collapse>
-                </Form.Group>
-              </Accordion>
-            </Col>
+            {/*<Col>*/}
+            {/*  <Accordion>*/}
+            {/*    <Form.Group controlId="formDuration">*/}
+            {/*      <Form.Label>*/}
+            {/*        <Accordion.Toggle as={Form.Label} eventKey="4">*/}
+            {/*          Program Timing <br />*/}
+            {/*          {caretIcon}*/}
+            {/*        </Accordion.Toggle>*/}
+            {/*      </Form.Label>*/}
+            {/*      <Accordion.Collapse eventKey="4">*/}
+            {/*        <div>*/}
+            {/*          <Form.Check className="d-none" />*/}
+            {/*          {duration.map((time, i) => (*/}
+            {/*            <Form.Check*/}
+            {/*              type="checkbox"*/}
+            {/*              name="Duration"*/}
+            {/*              label={time.name}*/}
+            {/*              value={time.id}*/}
+            {/*              key={"time" + i}*/}
+            {/*              onChange={handleFormChange}*/}
+            {/*            />*/}
+            {/*          ))}*/}
+            {/*        </div>*/}
+            {/*      </Accordion.Collapse>*/}
+            {/*    </Form.Group>*/}
+            {/*  </Accordion>*/}
+            {/*</Col>*/}
+            {/*<Col>*/}
+            {/*  <Accordion>*/}
+            {/*    <Form.Group controlId="formAdvanced">*/}
+            {/*      <Form.Label>*/}
+            {/*        <Accordion.Toggle as={Form.Label} eventKey="5">*/}
+            {/*          Advanced Search <br />*/}
+            {/*          {caretIcon}*/}
+            {/*        </Accordion.Toggle>*/}
+            {/*      </Form.Label>*/}
+            {/*      <Accordion.Collapse eventKey="5">*/}
+            {/*        <div>*/}
+            {/*          <Form.Check className="d-none" />*/}
+            {/*          {advanced.map((item, i) => (*/}
+            {/*            <Form.Check*/}
+            {/*              type="checkbox"*/}
+            {/*              name="Advanced"*/}
+            {/*              label={item.name}*/}
+            {/*              value={item.id}*/}
+            {/*              key={"advanced" + i}*/}
+            {/*              onChange={handleFormChange}*/}
+            {/*            />*/}
+            {/*          ))}*/}
+            {/*        </div>*/}
+            {/*      </Accordion.Collapse>*/}
+            {/*    </Form.Group>*/}
+            {/*  </Accordion>*/}
+            {/*</Col>*/}
           </Row>
           <Row>
             <div className="text-center pt-3">
