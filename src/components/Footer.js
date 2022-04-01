@@ -9,14 +9,14 @@ import { faPhoneAlt, faEnvelope, faUserCircle } from '@fortawesome/free-solid-sv
 const Footer = () => {
   return (
     <Container fluid className="footer main-footer py-3 mt-4" style={{ padding: "40px 15%" }}>
-      <h2 style={{ color: "white" }}>
+      <h2 style={{ color: "white", marginTop: 48 }}>
         Contact
       </h2>
-      <Row>
+      <Row className='justify-content-between' style={{ marginTop: 24 }}>
         <Col xs={5}>
           <Row>
             <Col xs={3}>
-              <FontAwesomeIcon icon={faUserCircle} style={{ height: 64, width: 64 }} />
+              <FontAwesomeIcon icon={faUserCircle} style={{ height: 56, width: 56 }} />
             </Col>
             <Col xs={9}>
               <Row>
@@ -34,7 +34,7 @@ const Footer = () => {
         <Col xs={5}>
           <Row>
             <Col xs={3}>
-              <FontAwesomeIcon icon={faEnvelope} style={{ height: 64, width: 64 }} />
+              <FontAwesomeIcon icon={faEnvelope} style={{ height: 56, width: 56 }} />
             </Col>
             <Col xs={9}>
               <Row>
@@ -52,6 +52,7 @@ const Footer = () => {
       <Row>
         <Col xs={12}>
           <p className="small mt-2">NWHCP ©2021</p>
+          <p className="small mt-2">Please use computer browser for best experience</p>
         </Col>
       </Row>
     </Container>
