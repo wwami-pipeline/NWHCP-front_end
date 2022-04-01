@@ -1,28 +1,37 @@
 @import './theme.scss';
 
 .footer {
-    background-color: $primary;
-    color: white;
+  background-color: $primary;
+  color: white;
 
-    // Sticky Footer
-    flex-shrink: 0;
-    margin-bottom: 0 !important;
+  // Sticky Footer
+  flex-shrink: 0;
+  margin-bottom: 0 !important;
 }
 
 .main-footer p {
-    text-align: center;
-    margin: 0;
+  text-align: center;
+  margin: 0;
+}
+
+.sub-text-footer {
+  color: white;
+  margin-top: 6px;
+  font-weight: 400;
+  width: 100%;
+  flex-shrink: 0;
+  margin-bottom: 0 !important;
 }
 
 .support-footer {
-    background-color: $medium-blue;
-    margin-top: 3rem;
-    padding: 1rem;
+  background-color: $medium-blue;
+  margin-top: 3rem;
+  padding: 1rem;
 }
 
 .support-footer h2 {
-    color: white;
-    text-align: left;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+  color: white;
+  text-align: left;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
