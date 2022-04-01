@@ -2,7 +2,7 @@ import React from 'react';
 import '../scss/footers.scss';
 import { Container, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhoneAlt, faEnvelope, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 // test
 
