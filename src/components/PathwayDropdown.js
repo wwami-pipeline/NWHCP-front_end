@@ -7,15 +7,16 @@ export default function PathwayDropdown({ title, handleClose }) {
 
   return (
     <div>
-
-      <div style={{ display: "flex", direction: "row", alignItems: "center" }} onClick={() => { console.log("Click"); setOpen(!open) }}>
-        <p style={{ height: "initial" }}>
-          <FontAwesomeIcon icon={faPlus} />
+      <div style={{ display: "flex", direction: "row", alignContent: "center", }} onClick={() => { console.log("Click"); setOpen(!open) }}>
+        <p style={{ height: "initial", fontSize: 14, margin: 0, borderBottom: "1px solid black", paddingBottom: 4 }}>
           {title}
+          <FontAwesomeIcon icon={faPlus} style={{ marginLeft: 8, height: 14, width: 14 }} />
         </p>
       </div>
-      {open && (<p>
-        this is some content
-      </p>)}
-    </div>)
+      {
+        open && (<p>
+          this is some content
+        </p>)
+      }
+    </div >)
 }
