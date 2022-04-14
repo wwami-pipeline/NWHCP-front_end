@@ -30,7 +30,7 @@ const Header = () => {
             target="_blank"
             className="custom-link"
           >
-            Post Opportunity
+            Add a program
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>
