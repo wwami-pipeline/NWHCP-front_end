@@ -8,6 +8,14 @@
     // text-align: center;
 }
 
+.vertical-align {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+}
+
 .links-wrapper {
     // background: $light-blue;
     padding: 0.5rem;
