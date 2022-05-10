@@ -3,7 +3,8 @@ import SupportFooter from "../components/SupportFooter.js";
 import { Grid } from '@mui/material'
 import { Button } from "react-bootstrap";
 import { StaticImage } from "gatsby-plugin-image";
-import PathwayDropdown from "../components/PathwayDropdown.js";
+import SchoolAndTrainingWrapper from "../components/schoolAndTrainingWrapper";
+import PathwayWrapper from "../components/pathwayWrapper.js";
 const About = () => {
   return (
     <div>
@@ -45,7 +46,7 @@ const About = () => {
           <p>
             Ultimately, pathway programs help to build a healthcare workforce that reflects our communities. This site works to connect students to systems that improve equity and access to education
           </p>
-          <PathwayDropdown title={"Type of Pathway Programs"} />
+          <PathwayWrapper />
         </div>
         <h4 style={{ color: "#435B70", paddingBottom: "8px" }}>
           Schools and Training Programs for the Health Professions
@@ -53,7 +54,7 @@ const About = () => {
         <p>
           Schools and training programs are also represented on our map. It’s important for students to identify their end goal as they work to create a “pathway” to get there
         </p>
-        <PathwayDropdown title={"Type of Schools and Training Programs"} />
+        <SchoolAndTrainingWrapper />
         <hr />
         <Grid container justifyContent={'center'}>
           <Grid>
