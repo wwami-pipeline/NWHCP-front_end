@@ -12,8 +12,8 @@ export default function PathwayDropdown({ title, children, level }) {
   }
 
   return (
-    <div>
-      <div style={{ display: "flex", direction: "row", alignContent: "center", paddingBottom: 12 }} >
+    <div style={{ paddingBottom: 8 }}>
+      <div style={{ display: "flex", direction: "row", alignContent: "center" }} >
         <p style={{ height: "initial", fontSize: 14, margin: 0, borderBottom: level ? "" : "1px solid black", paddingBottom: 4, }}>
           <Grid container direction='row' alignItems='center'>
             <Grid style={{ fontSize: 18 - level * 1, cursor: "pointer" }} item onClick={() => { console.log("Click"); setOpen(!open) }}>
@@ -37,7 +37,7 @@ export default function PathwayDropdown({ title, children, level }) {
         </p>
       </div>
       <Collapse in={open}>
-        <Grid container style={{ marginBottom: 8, marginLeft: 32 }}>
+        <Grid container style={{ marginTop: 8, marginBottom: 8, marginLeft: 32 }}>
           {children}
         </Grid>
       </Collapse>
