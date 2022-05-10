@@ -1,6 +1,7 @@
 import React from "react";
 import SupportFooter from "../components/SupportFooter.js";
-import { Link, Button, Grid } from '@mui/material'
+import { Grid } from '@mui/material'
+import { Button } from "react-bootstrap";
 import { StaticImage } from "gatsby-plugin-image";
 import PathwayDropdown from "../components/PathwayDropdown.js";
 const About = () => {
@@ -56,11 +57,9 @@ const About = () => {
         <hr />
         <Grid container justifyContent={'center'}>
           <Grid>
-            <Link href="/programs">
-              <Button variant="contained" style={{ boxShadow: "none", background: "#2B5F9E", padding: "16px 32px", fontFamily: "Mulish, Arial, sans-serif" }}>
-                Explore More
-              </Button>
-            </Link>
+            <Button href="/programs" variant="primary" size="lg">
+              Start Exploring
+            </Button>
           </Grid>
         </Grid>
       </div>
