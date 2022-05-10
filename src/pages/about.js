@@ -1,6 +1,6 @@
 import React from "react";
 import SupportFooter from "../components/SupportFooter.js";
-import JoinUs from "../components/JoinUs.js";
+import { Link, Button, Grid } from '@mui/material'
 import { StaticImage } from "gatsby-plugin-image";
 import PathwayDropdown from "../components/PathwayDropdown.js";
 const About = () => {
@@ -54,7 +54,15 @@ const About = () => {
         </p>
         <PathwayDropdown title={"Type of Schools and Training Programs"} />
         <hr />
-        <JoinUs />
+        <Grid container justifyContent={'center'}>
+          <Grid>
+            <Link href="/programs">
+              <Button variant="contained" style={{ boxShadow: "none", background: "#2B5F9E", padding: "16px 32px", fontFamily: "Mulish, Arial, sans-serif" }}>
+                Explore More
+              </Button>
+            </Link>
+          </Grid>
+        </Grid>
       </div>
       <SupportFooter />
     </div >

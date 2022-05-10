@@ -38,8 +38,7 @@ const Header = () => {
               Find Programs
             </Nav.Link>
             <Nav.Link
-              href="https://redcap.iths.org/surveys/?s=4PPLMJ7FHY"
-              target="_blank"
+              href="/post"
               className="custom-link"
             >
               Post Opportunity
