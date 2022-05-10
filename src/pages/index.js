@@ -17,6 +17,10 @@ const Home = () => {
           {Array(6)
             .fill()
             .map((elem, i) => {
+              // temp prorary remove
+              if (i === 0 || i === 3) {
+                return
+              }
               return (
                 <Carousel.Item
                   interval={5000}
@@ -39,11 +43,12 @@ const Home = () => {
           Are you a student pursuing a career in the health professions? Do you
           come from a background that might place barriers in your way? Explore
           our site to find supplemental programs and opportunities that will
-          help you reach your goals. Start at the{" "}
+          help you reach your goals.
+          {/* Start at the{" "}
           <Link to="/how-to">
             <strong>How To</strong>
           </Link>{" "}
-          page to learn how it works or continue below.
+          page to learn how it works or continue below. */}
         </p>
         <p className="lead text-center">
           Let's match you up with programs that might be right for you!
