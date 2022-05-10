@@ -3,7 +3,7 @@ import '../scss/footers.scss';
 // import { Container, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import { Container, Grid, Typography } from '@mui/material';
+import { Container, Grid, Link } from '@mui/material';
 
 // test
 
@@ -23,11 +23,13 @@ const Footer = () => {
                 <FontAwesomeIcon icon={faUserCircle} style={{ height: 56, width: 56 }} />
               </Grid>
               <Grid item xs={9} >
-                <h4 className='footer'>Cori Anne Garcia-Hansen, Position</h4>
-                <h4 className='sub-text-footer' style={{ color: "white", fontWeight: 500 }}>Department</h4>
+                <h4 className='footer'>Cori Anne Garcia-Hansen, Director</h4>
+                <Link href="https://www.ahecww.org/">
+                  <h4 className='sub-text-footer' style={{ textDecoration: "none", color: "white", fontWeight: 500 }}>Ahecww.org</h4>
+                </Link>
                 <br></br>
-                <h4 className='sub-text-footer' style={{ color: "white", fontWeight: 500 }}>email@gmail.com</h4>
-                <h4 className='sub-text-footer' style={{ color: "white", fontWeight: 500 }}>(206)221-4613</h4>
+                <h4 className='sub-text-footer' style={{ color: "white", fontWeight: 500 }}>ahecww@whatcom.edu</h4>
+                <h4 className='sub-text-footer' style={{ color: "white", fontWeight: 500 }}>(360)-383-3170</h4>
                 <h4 className='sub-text-footer' style={{ color: "white", fontWeight: 500 }}>237 West Kellogg Road, Bellingham, WA</h4>
               </Grid>
             </Grid>
@@ -40,8 +42,8 @@ const Footer = () => {
               <Grid item xs={9} >
                 <h4 className='footer'>Mailing address</h4>
                 <br></br>
-                <h4 className='sub-text-footer' style={{ color: "white", fontWeight: 500 }}>4200 Whitman Ct NE,</h4>
-                <h4 className='sub-text-footer' style={{ color: "white", fontWeight: 500 }}>Seattle, 98195</h4>
+                <h4 className='sub-text-footer' style={{ color: "white", fontWeight: 500 }}>237 West Kellogg Road</h4>
+                <h4 className='sub-text-footer' style={{ color: "white", fontWeight: 500 }}>Bellingham, 98226</h4>
                 <h4 className='sub-text-footer' style={{ color: "white", fontWeight: 500 }}>WA</h4>
               </Grid>
             </Grid>
