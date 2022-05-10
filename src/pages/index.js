@@ -8,9 +8,7 @@ const Home = () => {
     <div>
       <div className="page-wrapper text-center">
         <h1 className="text-primary">
-          Northwest Health
-          <br />
-          Career Path
+          Northwest Health Career Path
         </h1>
         <p className="lead text-dark">
           There's something for every student in healthcare
