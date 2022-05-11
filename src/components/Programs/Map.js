@@ -6,7 +6,8 @@ import { Link } from "gatsby";
 import iconLocation from "../../images/icon-location.svg";
 // Component that displays a react leaflet map
 // Centers itself around the average of the search results
-function Map({ programs }) {
+function Map({ programs, setCenter }) {
+  const [map, setMap] = useState(null);
   const [centerLatLng, setCenterLatLng] = useState([47.6062, -122.3321]); // Seattle, WA
   const [bounds, setBounds] = useState([
     [47.51, -122.23],
@@ -14,7 +15,7 @@ function Map({ programs }) {
   ]);
   const ChangeView = ({ bounds }) => {
     const map = useMap();
-    map.fitBounds(bounds);
+    // map.fitBounds(bounds);
     return null;
   };
   const createMarker = (id) => {
@@ -87,13 +88,24 @@ function Map({ programs }) {
       [maxLat, maxLng],
     ]);
   }, [programs]);
+  useEffect(() => {
+    if (!map) return;
+    console.log(map.getBounds());
+
+    map.on("zoomend", function () {
+      console.log(map.getBounds());
+      console.log("Fuck")
+    });
+  }, [map]);
   // https://www.gatsbyjs.com/plugins/gatsby-plugin-react-leaflet/
   if (typeof window !== "undefined") {
     return (
       <div>
         <MapContainer
+          style={{ height: "90vh" }}
           center={centerLatLng}
           bounds={bounds}
+          whenCreated={setMap}
           boundsOptions={{ padding: [20, 20] }}
           id="mapid"
         >

@@ -124,34 +124,34 @@ export default function SearchForm(props) {
                 </Form.Group>
               </Accordion>
             </Col>
-            {/*<Col>*/}
-            {/*  <Accordion>*/}
-            {/*    <Form.Group controlId="formProgramType">*/}
-            {/*      <Form.Label>*/}
-            {/*        <Accordion.Toggle as={Form.Label} eventKey="1">*/}
-            {/*          Program Type*/}
-            {/*          <br />*/}
-            {/*          {caretIcon}*/}
-            {/*        </Accordion.Toggle>*/}
-            {/*      </Form.Label>*/}
-            {/*      <Accordion.Collapse eventKey="1">*/}
-            {/*        <div>*/}
-            {/*          <Form.Check className="d-none" />*/}
-            {/*          {programType.map((program, i) => (*/}
-            {/*            <Form.Check*/}
-            {/*              type="checkbox"*/}
-            {/*              name="ProgramType"*/}
-            {/*              label={program.name}*/}
-            {/*              value={program.id}*/}
-            {/*              key={"program" + i}*/}
-            {/*              onChange={handleFormChange}*/}
-            {/*            />*/}
-            {/*          ))}*/}
-            {/*        </div>*/}
-            {/*      </Accordion.Collapse>*/}
-            {/*    </Form.Group>*/}
-            {/*  </Accordion>*/}
-            {/*</Col>*/}
+            {/* <Col>
+              <Accordion>
+                <Form.Group controlId="formProgramType">
+                  <Form.Label>
+                    <Accordion.Toggle as={Form.Label} eventKey="1">
+                      Program Type
+                      <br />
+                      {caretIcon}
+                    </Accordion.Toggle>
+                  </Form.Label>
+                  <Accordion.Collapse eventKey="1">
+                    <div>
+                      <Form.Check className="d-none" />
+                      {programType.map((program, i) => (
+                        <Form.Check
+                          type="checkbox"
+                          name="ProgramType"
+                          label={program.name}
+                          value={program.id}
+                          key={"program" + i}
+                          onChange={handleFormChange}
+                        />
+                      ))}
+                    </div>
+                  </Accordion.Collapse>
+                </Form.Group>
+              </Accordion>
+            </Col> */}
             <Col>
               <Accordion>
                 <Form.Group controlId="formCareer">

@@ -7,6 +7,7 @@ import React, { useEffect, useState } from "react";
 import SearchForm from "../components/Programs/SearchForm";
 import ProgramCard from "../components/Programs/ProgramCard";
 import Map from "../components/Programs/Map";
+import { Grid } from '@mui/material'
 // save fetched data
 let saved_res = null;
 
@@ -171,13 +172,12 @@ const SearchPrograms = ({ location }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <div>
+    <div style={{ position: "relative" }}>
       <SearchForm
         formData={formData}
         setFormData={setFormData}
         handleSubmit={handleSubmit}
       />
-      <Map programs={programs} />
       <div className="mt-5">
         <h3 className="text-center text-primary mb-5">
           Found {programs.length} programs
@@ -187,10 +187,21 @@ const SearchPrograms = ({ location }) => {
         ) : error ? (
           <p>Error fetching programs...</p>
         ) : (
-          <RenderPrograms programs={programs} />
+          <></>
+          // <RenderPrograms programs={programs} />
         )}
       </div>
-    </div>
+      <Grid container style={{ height: "90vh" }}>
+        <Grid item xs={4} style={{ height: "inherit", overflowX: "hidden", }}>
+          {programs.length && <RenderPrograms programs={programs} />}
+        </Grid>
+        <Grid item xs={8}>
+          <div>
+            <Map programs={programs} />
+          </div>
+        </Grid>
+      </Grid>
+    </div >
   );
 };
 export default SearchPrograms;
