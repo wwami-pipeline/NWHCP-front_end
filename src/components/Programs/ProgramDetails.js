@@ -129,6 +129,8 @@ const ProgramDetails = (props) => {
     }
   });
 
+  console.log(program)
+
   // render page
   return (
     <div className="page-wrapper">

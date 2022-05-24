@@ -2,6 +2,31 @@ import { createTheme } from '@mui/material/styles';
 
 export const mainTheme = createTheme({
   components: {
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          "& .MuiOutlinedInput-input": {
+            color: "#000000"
+          }
+        }
+      }
+    },
+    MuiCheckbox: {
+      styleOverrides: {
+        root: {
+          "* > input": {
+            border: '1px solid black'
+          }
+        }
+      }
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        input: {
+          border: "none"
+        }
+      }
+    },
     MuiButton: {
       styleOverrides: {
         root: {
@@ -20,18 +45,18 @@ export const mainTheme = createTheme({
   },
   palette: {
     primary: {
-      main: "#425D50",
+      main: "#004987",
     },
     secondary: {
-      main: "#1B4D82",
+      main: "#E53935",
     },
     background: {
       default: "white",
       paper: "white",
     },
     text: {
-      primary: "#7B7B7C",
-      secondary: "#FAFAFA",
+      primary: "#000000",
+      secondary: "#004987",
     },
   },
   typography: {
@@ -47,41 +72,48 @@ export const mainTheme = createTheme({
       '"Apple Color Emoji"',
       '"Segoe UI Emoji"',
       '"Segoe UI Symbol"',
+      "Mulish",
+      "Menlo",
+      "Monaco",
+      "Consolas",
+      'Courier New',
     ].join(","),
     h1: {
-      fontSize: "64px",
-      fontWeight: 600,
-      fontFamily: "Poppins"
+      fontSize: "35px",
+      fontWeight: 700,
+      fontFamily: "Mulish",
     },
     h2: {
-      fontSize: "24px",
-      fontWeight: 600,
-      fontFamily: "Poppins"
+      fontSize: "30px",
+      fontWeight: 400,
+      fontFamily: "Mulish"
     },
     h3: {
-      fontSize: "19px",
+      fontSize: "20px",
       fontWeight: 400,
-      fontFamily: "Poppins"
+      fontFamily: "Mulish"
     },
     h4: {
       fontSize: "18px",
       fontWeight: 400,
-      fontFamily: "Poppins"
+      fontFamily: "Mulish"
     },
     h5: {
       fontSize: "16px",
       fontWeight: 400,
-      fontFamily: "Poppins"
+      fontFamily: "Mulish"
     },
     h6: {},
     caption: {},
     body1: {
-      fontSize: "16px",
-      fontFamily: "Poppins"
+      fontSize: "14px",
+      fontWeight: 400,
+      fontFamily: "Mulish"
     },
     body2: {
-      fontSize: "12px",
-      fontFamily: "Poppins"
+      fontSize: "14px",
+      fontWeight: 700,
+      fontFamily: "Mulish"
     },
     button: {
       fontSize: "16px",

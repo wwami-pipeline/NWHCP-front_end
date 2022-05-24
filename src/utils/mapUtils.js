@@ -1,15 +1,15 @@
 function getbound(lat, lo) {
   const adjustDegree = 0.05;
-  minLat -= adjustDegree;
-  minLng -= adjustDegree;
-  maxLat += adjustDegree;
-  maxLng += adjustDegree;
+  const minLat = lat - adjustDegree;
+  const minLng = lo - adjustDegree;
+  const maxLat = lat + adjustDegree;
+  const maxLng = lo + adjustDegree;
   return [
     [minLat, minLng],
     [maxLat, maxLng],
   ]
 }
 
-function filterAround(arr, bounds) {
-
+export {
+  getbound
 }
