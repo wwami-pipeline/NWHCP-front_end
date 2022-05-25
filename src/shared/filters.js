@@ -50,13 +50,15 @@ export const eligibility = [
 ];
 export const advanced = [
   { name: "Accessible by Public Transportation", id: "public_transportation" },
+  { name: "Academic Credit", id: "academic_credit" },
   {
-    name: "Academic Credit or Certificate Provided with Program Completion",
-    id: "certificate",
+    name: "Certificate Provided with Program Completion",
+    id: "certificate_yesno",
   },
-  { name: "No Background Check Required", id: "bground_check" },
-  { name: "No Pre-requisites or Experience Required", id: "prereqs" },
-  { name: "No Citizenship/Residency Required", id: "citizen_residency" },
+  // { name: "No Background Check Required", id: "bground_check" },
+  // { name: "No Pre-requisites or Experience Required", id: "prereqs" },
+  // { name: "No Citizenship Required", id: "citizen" },
+  // { name: "No Residency Required", id: "residency" }
 ];
 export const prettyGrade = {
   middle: "middle school",
