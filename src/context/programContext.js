@@ -55,7 +55,7 @@ const programReducer = (state, action) => {
 
       const eduLevels = state.searchFilter.gradeLevels;
       if (eduLevels !== undefined && eduLevels.length !== 0) {
-        console.log(eduLevels)
+        // console.log(eduLevels)
         newState.filteredProgram = newState.filteredProgram.filter((program) => {
           for (const attribute in program) {
             if (
@@ -90,7 +90,7 @@ const programReducer = (state, action) => {
       if (advanced !== undefined && advanced.length !== 0) {
         newState.filteredProgram = newState.filteredProgram.filter((program) => {
           for (const el of advanced) {
-            console.log(el);
+            // console.log(el);
             if (program[el] === "1") {
               return true;
             }
@@ -108,7 +108,6 @@ const programReducer = (state, action) => {
     };
     case 'UPDATE_LOCATION_FILTER': {
       const newState = { ...state };
-      console.log(action.payload)
       newState.searchFilter = {
         ...state.searchFilter,
         location: action.payload

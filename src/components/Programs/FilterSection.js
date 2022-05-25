@@ -114,7 +114,6 @@ export default function ProgramFilterSection({ setBounds }) {
                   name="searchContent"
                   onChange={handleSearchContent}
                   onKeyPress={(e) => {
-                    console.log(e.key)
                     if (e.key == "Enter") {
                       submitSearch()
                     }

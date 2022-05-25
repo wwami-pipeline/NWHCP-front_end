@@ -129,7 +129,6 @@ const ProgramDetails = (props) => {
     }
   });
 
-  console.log(program)
 
   // render page
   return (

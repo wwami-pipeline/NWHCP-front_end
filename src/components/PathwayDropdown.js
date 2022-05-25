@@ -16,11 +16,11 @@ export default function PathwayDropdown({ title, children, level }) {
       <div style={{ display: "flex", direction: "row", alignContent: "center" }} >
         <p style={{ height: "initial", fontSize: 14, margin: 0, borderBottom: level ? "" : "1px solid black", paddingBottom: 4, }}>
           <Grid container direction='row' alignItems='center'>
-            <Grid style={{ fontSize: 18 - level * 1, cursor: "pointer" }} item onClick={() => { console.log("Click"); setOpen(!open) }}>
+            <Grid style={{ fontSize: 18 - level * 1, cursor: "pointer" }} item onClick={() => { setOpen(!open) }}>
               <b>{title}</b>
             </Grid>
             <Grid item>
-              <Grid container style={{ marginLeft: 16, cursor: "pointer" }} onClick={() => { console.log("Click"); setOpen(!open) }}>
+              <Grid container style={{ marginLeft: 16, cursor: "pointer" }} onClick={() => { setOpen(!open) }}>
                 <Zoom in={!open} style={{ transitionDelay: '200ms' }}>
                   <Grid>
                     <FontAwesomeIcon icon={faPlus} style={{ marginLeft: 0, height: 14, width: 14 }} />

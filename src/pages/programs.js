@@ -50,13 +50,12 @@ const SearchPrograms = ({ location }) => {
 
   const handleCardClick = (program) => {
     // Show program on map
-    console.log("markerRefs");
     var test = document.getElementById("mapid");
     console.log([program?.latitude, program?.longitude])
     setCenterLatLng(program?._id ? [program?.latitude, program?.longitude] : centerLatLng);
     var iconSelected = document.getElementsByClassName("marker" + program?._id);
     iconSelected[0].click();
-    console.log("icon", iconSelected);
+    // console.log("icon", iconSelected);
   };
 
   const RenderPrograms = (props) => {
