@@ -3,8 +3,8 @@ Programs
 Overall layout of "Find Programs" page
 Filters results
  */
+
 import React, { useEffect, useState, useContext } from "react";
-import SearchForm from "../components/Programs/SearchForm";
 import ProgramCard from "../components/Programs/ProgramCard";
 import Map from "../components/Programs/Map";
 import { Grid, Typography } from '@mui/material'
@@ -13,8 +13,8 @@ import ProgramFilterSection from "../components/Programs/FilterSection";
 
 // Page Component
 const SearchPrograms = ({ location }) => {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  // const [loading, setLoading] = useState(false);
+  // const [error, setError] = useState(null);
   const [centerLatLng, setCenterLatLng] = useState([47.6062, -122.3321]); // Seattle, WA
   const [markerRefs, setMarkerRef] = useState([]);
   const [bounds, setBounds] = useState([
@@ -24,8 +24,6 @@ const SearchPrograms = ({ location }) => {
 
   const {
     fetchAllPrograms,
-    updateFilterLocation,
-    clearAll,
   } = useContext(AllProgramConText);
 
   const programState = useContext(AllProgramConText).state;
@@ -33,25 +31,24 @@ const SearchPrograms = ({ location }) => {
 
   useEffect(() => {
     fetchAllPrograms();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-
-  const getUrlParams = () => {
-    if (location.search) {
-      // location is a URL object deconstructed from the component's props
-      // Check url for search parameters
-      // e.g. https://localhost:8000/search-programs?gradeLvl=0
-      const params = new URLSearchParams(location.search);
-      return [parseInt(params.get("gradeLvl"))];
-    } else {
-      return [];
-    }
-  };
+  // const getUrlParams = () => {
+  //   if (location.search) {
+  //     // location is a URL object deconstructed from the component's props
+  //     // Check url for search parameters
+  //     // e.g. https://localhost:8000/search-programs?gradeLvl=0
+  //     const params = new URLSearchParams(location.search);
+  //     return [parseInt(params.get("gradeLvl"))];
+  //   } else {
+  //     return [];
+  //   }
+  // };
 
   const handleCardClick = (program) => {
     // Show program on map
-    var test = document.getElementById("mapid");
-    console.log([program?.latitude, program?.longitude])
+    // console.log([program?.latitude, program?.longitude])
     setCenterLatLng(program?._id ? [program?.latitude, program?.longitude] : centerLatLng);
     var iconSelected = document.getElementsByClassName("marker" + program?._id);
     iconSelected[0].click();
@@ -81,14 +78,14 @@ const SearchPrograms = ({ location }) => {
         <h3 className="text-center text-primary mb-5">
           Found {filterProgram?.length} programs
         </h3>
-        {loading ? (
+        {/* {loading ? (
           <p>Loading Programs...</p>
         ) : error ? (
           <p>Error fetching programs...</p>
         ) : (
           <></>
           // <RenderPrograms programs={programs} />
-        )}
+        )} */}
       </div>
       <Grid container style={{ height: "90vh" }}>
         <Grid item xs={4} style={{ height: "inherit", overflowX: "hidden", }}>

@@ -1,8 +1,8 @@
 /* main page */
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "gatsby";
 import { Button, Carousel } from "react-bootstrap";
-import { navigate } from "gatsby";
+
 const Home = () => {
   return (
     <div>
@@ -19,7 +19,7 @@ const Home = () => {
             .map((elem, i) => {
               // temp prorary remove
               if (i === 0 || i === 3) {
-                return
+                return null
               }
               return (
                 <Carousel.Item

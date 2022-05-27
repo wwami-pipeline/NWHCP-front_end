@@ -1,4 +1,3 @@
-import axios from 'axios';
 import createContext from './createData';
 import * as api from "../api/api"
 
@@ -34,8 +33,8 @@ const programReducer = (state, action) => {
     };
     case 'UPDATE_FILTERED_PROGRAMS': {
       const newState = { ...state };
-      if (state.searchFilter.location != "") {
-        newState.filteredProgram = state.allPrograms.filter(el => el?.org_state.toLowerCase() == state.searchFilter.location.toLowerCase());
+      if (state.searchFilter.location !== "") {
+        newState.filteredProgram = state.allPrograms.filter(el => el?.org_state.toLowerCase() === state.searchFilter.location.toLowerCase());
       } else {
         newState.filteredProgram = state.allPrograms;
       }
@@ -213,7 +212,7 @@ function modifyReturnProgram(obj) {
       if (obj[el] === "0" || obj[el] === "1") {
         obj[remove(el)] = String(Number(obj[el]) | Number(obj[remove(el)]));
       } else {
-        if (obj[remove(el)] == undefined) {
+        if (obj[remove(el)] === undefined) {
           obj[remove(el)] = obj[el];
         } else {
           obj[remove(el)] = obj[el] + obj[remove(el)];

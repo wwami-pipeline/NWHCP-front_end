@@ -1,28 +1,28 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import React, { useState, useEffect, useContext } from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { Link } from "gatsby";
 import iconLocation from "../../images/icon-location.svg";
 import { Context as AllProgramContext } from "../../context/programContext";
 
-import { getbound } from "../../utils/mapUtils";
 // Component that displays a react leaflet map
 // Centers itself around the average of the search results
-function Map({ programs, setCenter, center, bounds, markerRefs, setMarkerRef }) {
+function Map({ programs, center, bounds }) {
   const [map, setMap] = useState(null);
   const programAllStates = useContext(AllProgramContext).state;
 
-  const ChangeView = ({ bounds }) => {
-    const map = useMap();
-    // map.fitBounds(bounds);
-    return null;
-  };
+  // const ChangeView = ({ bounds }) => {
+  //   const map = useMap();
+  //   // map.fitBounds(bounds);
+  //   return null;
+  // };
   useEffect(() => {
     if (map) {
       map.fitBounds(bounds);
-      console.log(bounds)
+      // console.log(bounds)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bounds])
 
   // useEffect(() => {
@@ -38,6 +38,7 @@ function Map({ programs, setCenter, center, bounds, markerRefs, setMarkerRef }) 
         duration: 1.5
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [center]);
 
   const createMarker = (id) => {
@@ -83,16 +84,18 @@ function Map({ programs, setCenter, center, bounds, markerRefs, setMarkerRef }) 
       [minLat, minLng],
       [maxLat, maxLng],
     ]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [programAllStates.searchFilter.searchContent]);
 
-  useEffect(() => {
-    if (!map) return;
-    console.log(map.getBounds());
+  // useEffect(() => {
+  //   if (!map) return;
+  //   console.log(map.getBounds());
 
-    map.on("zoomend", function () {
-      console.log(map.getBounds());
-    });
-  }, [map]);
+  //   map.on("zoomend", function () {
+  //     console.log(map.getBounds());
+  //   });
+  // }, [map]);
+
   if (typeof window !== "undefined") {
     return (
       <div>
@@ -135,7 +138,7 @@ function Map({ programs, setCenter, center, bounds, markerRefs, setMarkerRef }) 
               </Popup>
             </ Marker>
           })}
-          <ChangeView bounds={bounds} />
+          {/* <ChangeView bounds={bounds} /> */}
         </MapContainer>
       </div>
     );

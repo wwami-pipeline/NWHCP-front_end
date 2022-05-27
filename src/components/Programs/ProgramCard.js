@@ -5,9 +5,7 @@ Shows snippet of each program in the search results
 import React, { useState } from "react";
 import { Link } from "gatsby";
 import { Grid, Typography, Button, Collapse } from "@mui/material"
-import { Button as BootstrapBTN, Col, Container, Row } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { Button as BootstrapBTN, Container } from "react-bootstrap";
 import { prettyCareer } from "../../shared/filters";
 // - Component to display an individual result card for program search.
 // - Takes in a prop called program (JSON of health careepathway program info).
@@ -19,7 +17,7 @@ export default function ProgramCard({ program, onClick }) {
     Object.entries(program).filter(([key]) => key.includes("career_emp"))
   );
   let careerEmphasis = [];
-  Object.keys(allCareers).map(function (career) {
+  Object.keys(allCareers).forEach(function (career) {
     if (allCareers[career] === "1") {
       careerEmphasis.push(prettyCareer[career.split("___")[1]]);
     }

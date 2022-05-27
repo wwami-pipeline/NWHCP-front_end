@@ -42,7 +42,7 @@ const ProgramDetails = (props) => {
     Object.entries(program).filter(([key]) => key.includes("career_emp"))
   );
   let careerEmphasis = [];
-  Object.keys(allCareers).map(function (career) {
+  Object.keys(allCareers).forEach(function (career) {
     if (allCareers[career] === "1") {
       careerEmphasis.push(prettyCareer[career.split("___")[1]]);
     }
@@ -62,7 +62,7 @@ const ProgramDetails = (props) => {
     Object.entries(program).filter(([key]) => key.includes("target_school_age"))
   );
   let gradeLevel = [];
-  Object.keys(allGrades).map(function (grade) {
+  Object.keys(allGrades).forEach(function (grade) {
     if (allGrades[grade] === "1") {
       gradeLevel.push(prettyGrade[grade.split("___")[1]]);
     }
@@ -82,7 +82,7 @@ const ProgramDetails = (props) => {
     Object.entries(program).filter(([key]) => key.includes("pathway_type"))
   );
   let pathways = [];
-  Object.keys(allPathways).map(function (type) {
+  Object.keys(allPathways).forEach(function (type) {
     if (allPathways[type] === "1") {
       pathways.push(prettyPathway[type.split("___")[1]]);
     }
@@ -103,7 +103,7 @@ const ProgramDetails = (props) => {
     Object.entries(program).filter(([key]) => key.includes("academic_credit"))
   );
   let hasAcadCred = "No";
-  Object.keys(allAcadCreds).map(function (entry) {
+  Object.keys(allAcadCreds).forEach(function (entry) {
     if (allAcadCreds[entry] === "1") {
       hasAcadCred = "Yes";
     }
@@ -113,7 +113,7 @@ const ProgramDetails = (props) => {
     Object.entries(program).filter(([key]) => key.includes("age_requirement"))
   );
   let ageReq = "No";
-  Object.keys(allAgeReqs).map(function (entry) {
+  Object.keys(allAgeReqs).forEach(function (entry) {
     if (allAgeReqs[entry] === "1") {
       ageReq = entry.match("___(.*)")[1];
     }
@@ -123,7 +123,7 @@ const ProgramDetails = (props) => {
     Object.entries(program).filter(([key]) => key.includes("certificate_title"))
   );
   let certString = "NA";
-  Object.keys(allCerts).map(function (entry) {
+  Object.keys(allCerts).forEach(function (entry) {
     if (allCerts[entry] !== "") {
       certString = allCerts[entry];
     }

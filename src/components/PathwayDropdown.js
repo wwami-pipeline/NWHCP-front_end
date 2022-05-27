@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
-import { Collapse, Fade, Grid, Zoom } from '@mui/material';
-
-
+import { Collapse, Grid, Zoom } from '@mui/material';
 
 export default function PathwayDropdown({ title, children, level }) {
   const [open, setOpen] = useState(false)

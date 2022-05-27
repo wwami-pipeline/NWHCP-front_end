@@ -1,4 +1,4 @@
-import { Grid, Typography, MenuItem, TextField, IconButton, Button, ListSubheader, Tooltip, Dialog, Collapse } from "@mui/material";
+import { Grid, Typography, MenuItem, TextField, IconButton, Button, ListSubheader, Tooltip, Collapse } from "@mui/material";
 import React, { useContext, useState, useEffect } from "react";
 import { bounds as defaultBound, defaultAllBound } from "../../../static/stateCoordinate";
 
@@ -44,10 +44,10 @@ export default function ProgramFilterSection({ setBounds }) {
   const handleSelect = (event) => {
     updateFilterLocation(event.target.value);
     setLocation(event.target.value);
-    if (event.target.value == "") {
+    if (event.target.value === "") {
       setBounds(defaultAllBound)
     } else {
-      const newBound = defaultBound.find((el) => el.NAME == event.target.value);
+      const newBound = defaultBound.find((el) => el.NAME === event.target.value);
       setBounds([[newBound.ymin, newBound.xmin], [newBound.ymax, newBound.xmax]])
     }
   };
@@ -82,10 +82,10 @@ export default function ProgramFilterSection({ setBounds }) {
               }}
             >
               <MenuItem>All</MenuItem>
-              <ListSubheader>Category 1</ListSubheader>
-              <MenuItem>Health Professional School and Training Program</MenuItem>
-              <ListSubheader>Category 2</ListSubheader>
-              <MenuItem>Pathway</MenuItem>
+              <ListSubheader>Health Professional School and Training Program</ListSubheader>
+              <MenuItem>This filter is comming soon</MenuItem>
+              <ListSubheader>Pathway</ListSubheader>
+              <MenuItem>This filter is comming soon</MenuItem>
             </TextField>
           </Grid>
           <Grid item xs={3} className="Location">
@@ -114,7 +114,7 @@ export default function ProgramFilterSection({ setBounds }) {
                   name="searchContent"
                   onChange={handleSearchContent}
                   onKeyPress={(e) => {
-                    if (e.key == "Enter") {
+                    if (e.key === "Enter") {
                       submitSearch()
                     }
                   }}
@@ -161,7 +161,7 @@ export default function ProgramFilterSection({ setBounds }) {
                   <CateList cates={gradeLevels} selected={filter.gradeLevels} handleChoose={(label) => {
                     if (filter.gradeLevels.includes(label)) {
                       let newGradelevel = filter.gradeLevels;
-                      newGradelevel = newGradelevel.filter(el => el != label);
+                      newGradelevel = newGradelevel.filter(el => el !== label);
                       setFilter((prev) => ({
                         ...prev,
                         gradeLevels: newGradelevel
@@ -184,7 +184,7 @@ export default function ProgramFilterSection({ setBounds }) {
                   <CateList cates={careers} selected={filter.careerEmp} handleChoose={(label) => {
                     if (filter.careerEmp.includes(label)) {
                       let newCareerEmp = filter.careerEmp;
-                      newCareerEmp = newCareerEmp.filter(el => el != label);
+                      newCareerEmp = newCareerEmp.filter(el => el !== label);
                       setFilter((prev) => ({
                         ...prev,
                         careerEmp: newCareerEmp
@@ -209,7 +209,7 @@ export default function ProgramFilterSection({ setBounds }) {
                       <CateList cates={advanced} selected={filter.advanced} handleChoose={(label) => {
                         if (filter.advanced.includes(label)) {
                           let newAdvance = filter.advanced;
-                          newAdvance = newAdvance.filter(el => el != label);
+                          newAdvance = newAdvance.filter(el => el !== label);
                           setFilter((prev) => ({
                             ...prev,
                             advanced: newAdvance
