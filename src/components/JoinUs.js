@@ -20,7 +20,7 @@ const JoinUs = () => {
         <Button
           variant="primary"
           size="lg"
-          href="https://redcap.iths.org/surveys/?s=3FNCRCFYC9"
+          href="https://redcap.iths.org/surveys/?s=4PPLMJ7FHY"
           rel="noreferrer"
           target="_blank"
         >
