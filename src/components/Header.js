@@ -13,9 +13,9 @@ const Header = () => {
               <StaticImage
                 src="../images/logo-image.png"
                 alt="NWHCP Logo"
-                width={48} />
+                width={40} />
               <Col>
-                <h2 style={{ display: "inline" }} className="text-primary vertical-align">
+                <h2 style={{ display: "inline" , fontSize:"1.1rem"}} className="text-primary vertical-align">
                   Northwest Health Career Path
                 </h2>
               </Col>
