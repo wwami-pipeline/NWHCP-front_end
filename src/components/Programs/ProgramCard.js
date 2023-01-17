@@ -24,7 +24,7 @@ export default function ProgramCard({ program, onClick }) {
   });
   const emphasisList = careerEmphasis.map((emphasis, index) => {
     return (
-      <Grid item style={{ margin: 2, padding: "3px 8px", border: "1px solid #004987", borderRadius: 8 }}>
+      <Grid item key={index} style={{ margin: 2, padding: "3px 8px", border: "1px solid #004987", borderRadius: 8 }}>
         <Grid container alignContent={"center"}>
           <Typography variant='caption'>
             {emphasis}
@@ -39,11 +39,11 @@ export default function ProgramCard({ program, onClick }) {
         <h4 className="text-left">
           {program.org_name || program.org_name_v2}
         </h4>
-        <Typography variant="body1" inline>
+        <Typography variant="body1" inline="true">
           {!openMore ? program?.description.slice(0, 80) + "..." : ""}
         </Typography>
         <Collapse in={openMore}>
-          <Typography inline variant="body1">{program?.description}</Typography>
+          <Typography inline="true" variant="body1">{program?.description}</Typography>
         </Collapse>
         <Grid container justifyContent={"right"}>
           <Button variant="text" style={{ paddingRight: 0 }} onClick={() => setOpenMore(!openMore)}>

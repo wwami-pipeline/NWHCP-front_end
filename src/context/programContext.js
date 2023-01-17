@@ -85,11 +85,26 @@ const programReducer = (state, action) => {
         });
       }
 
+      const timing = state.searchFilter.duration;
+      if (timing !== undefined && timing.length !== 0) {
+        newState.filteredProgram = newState.filteredProgram.filter((program) => {
+          for (const attribute in program) {
+            if (
+              attribute.includes("program_duration") &&
+              program[attribute] === "1" &&
+              timing.some((element) => attribute.includes(element))
+            ) {
+              return true
+            }
+          }
+          return false;
+        });
+      }
+
       const advanced = state.searchFilter.advanced;
       if (advanced !== undefined && advanced.length !== 0) {
         newState.filteredProgram = newState.filteredProgram.filter((program) => {
           for (const el of advanced) {
-            // console.log(el);
             if (program[el] === "1") {
               return true;
             }

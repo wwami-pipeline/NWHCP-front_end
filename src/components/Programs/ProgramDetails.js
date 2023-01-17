@@ -2,13 +2,11 @@
 Program Details
 "More Details" page
  */
-import React from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "gatsby";
-import { Accordion, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheck,
-  faChevronDown,
   faChevronLeft,
   faEnvelope,
   faGlobe,
@@ -21,8 +19,15 @@ import {
   prettyGrade,
   prettyPathway,
 } from "../../shared/filters.js";
+import { Grid, Typography, Button } from "@mui/material";
+import Logo from "../../images/logo-image.png"
 
-const ProgramDetails = (props) => {
+const menuButtonNameID = ["About the Program", "Program Logistics", "Program Applicants"];
+
+function ProgramDetails(props) {
+  const [section, setSection] = useState(0);
+  const contactRef = useRef(null)
+
   const validateUrl = (url) => {
     let valid = /^(ftp|http|https):\/\//.test(url);
     return valid ? url : "http://" + url;
@@ -47,16 +52,43 @@ const ProgramDetails = (props) => {
       careerEmphasis.push(prettyCareer[career.split("___")[1]]);
     }
   });
-  const emphasisList = careerEmphasis.map((emphasis, index) => {
-    return (
-      <li key={"empahasis" + index} className="w-50">
-        <span className="fa-li">
-          <FontAwesomeIcon icon={faCheck} className="text-success" />
-        </span>
-        {emphasis}
-      </li>
-    );
+
+  // Time
+  const allTime = Object.fromEntries(
+    Object.entries(program).filter(([key]) => key.includes("program_duration"))
+  );
+  let orgTimimg = [];
+  Object.keys(allTime).forEach(function (el) {
+    if (allTime[el] === "1") {
+      orgTimimg.push(el.split("___")[1]);
+    }
   });
+
+  // Finaid
+
+  const allOrgAid = Object.fromEntries(
+    Object.entries(program).filter(([key]) => key.includes("fin_support"))
+  );
+  let finaids = [];
+  Object.keys(allOrgAid).forEach(function (el) {
+    if (allOrgAid[el] === "1") {
+      finaids.push(el.split("___")[1].slice(4, -1));
+    }
+  });
+
+
+  // org Type
+  const allOrgTypes = Object.fromEntries(
+    Object.entries(program).filter(([key]) => key.includes("org_type"))
+  );
+  let orgTypes = [];
+  Object.keys(allOrgTypes).forEach(function (el) {
+    if (allOrgTypes[el] === "1") {
+      orgTypes.push(el.split("___")[1]);
+    }
+  });
+
+  // console.log(orgTypes)
   // education levels
   const allGrades = Object.fromEntries(
     Object.entries(program).filter(([key]) => key.includes("target_school_age"))
@@ -66,16 +98,6 @@ const ProgramDetails = (props) => {
     if (allGrades[grade] === "1") {
       gradeLevel.push(prettyGrade[grade.split("___")[1]]);
     }
-  });
-  const gradeList = gradeLevel.map((grade, index) => {
-    return (
-      <li key={index} className="w-50">
-        <span className="fa-li">
-          <FontAwesomeIcon icon={faCheck} className="text-success" />
-        </span>
-        {grade}
-      </li>
-    );
   });
   // program type
   const allPathways = Object.fromEntries(
@@ -87,17 +109,6 @@ const ProgramDetails = (props) => {
       pathways.push(prettyPathway[type.split("___")[1]]);
     }
   });
-  const pathwaysList = pathways.map((type, index) => {
-    return (
-      <li key={index} className="w-50">
-        <span className="fa-li">
-          <FontAwesomeIcon icon={faCheck} className="text-success" />
-        </span>
-        {type}
-      </li>
-    );
-  });
-
   // academic credits
   const allAcadCreds = Object.fromEntries(
     Object.entries(program).filter(([key]) => key.includes("academic_credit"))
@@ -129,138 +140,253 @@ const ProgramDetails = (props) => {
     }
   });
 
+  const SubSectionNavDetail = ({ subSectionName }) => {
+    return (
+      <Grid container style={{ marginBottom: 24 }}>
+        <Grid item xs={10} style={{ backgroundColor: "#074983", padding: 12, width: "100%", color: "white", fontWeight: 800 }}>
+          <Typography style={{ fontSize: 32, fontWeight: 800, marginLeft: 30 }}>{subSectionName}</Typography>
+        </Grid>
+        <Grid item xs={2}>
+          <Button variant="outlined" style={{ borderRadius: "0", width: "100%", height: "100%" }}>
+            <Typography style={{ fontWeight: 700, fontSize: 18 }}>Check Map</Typography>
+          </Button>
+        </Grid>
+      </Grid>
+    )
+  }
 
-  // render page
+  const DetailCategoryDisplay = ({ title, obj }) => {
+    if (Array.isArray(obj)) {
+      return (
+        <Grid container style={{ marginBottom: 6 }}>
+          <Typography style={{ fontSize: "16px", fontWeight: 700 }}>{title}:&nbsp;</Typography>
+          <Typography style={{ fontSize: "16px" }} align={"left"} inline>{obj.length !== 0 ? obj.join(", ") : "No information provided"}</Typography>
+        </Grid>
+      )
+    }
+
+    if (typeof obj === 'string' || obj instanceof String) {
+      let str = ""
+      if (obj === "1") {
+        str = "Yes"
+      } else if (obj === "0") {
+        str = "N/A"
+      } else if (obj === "") {
+        str = "No information provided"
+      } else {
+        str = obj
+      }
+      return (
+        <Grid container style={{ marginBottom: 6 }}>
+          <Typography style={{ fontSize: "16px", fontWeight: 700 }}>{title}:&nbsp;</Typography>
+          <Typography style={{ fontSize: "16px" }} align={"left"} inline>{str}</Typography>
+        </Grid>
+      )
+    }
+  }
+
+  const AboutApplicant = ({ program }) => {
+    return (
+      <Grid container>
+        <SubSectionNavDetail subSectionName={"Application's Profile"} />
+        <DetailCategoryDisplay title={"Age requirement"} obj={ageReq} />
+        <DetailCategoryDisplay title={"DACA"} obj={program.daca___yes} />
+        <DetailCategoryDisplay title={"Education Level"} obj={gradeLevel} />
+        <DetailCategoryDisplay title={"Background Check Requirement"} obj={program.eligibility___bground_check} />
+        <DetailCategoryDisplay title={"Citizenship Requirement"} obj={program.eligibility___citizen} />
+        <DetailCategoryDisplay title={"Residency Requirement"} obj={program.eligibility___residency} />
+        <DetailCategoryDisplay title={"Prerequisites"} obj={program.prereqs} />
+        <DetailCategoryDisplay title={"Requirement to be enrolled in Academic Program or School to participate"} obj={program.enrollment___yes} />
+      </Grid>
+    )
+  }
+
+  const AboutLogistricSection = ({ program }) => {
+    return (
+      <Grid container>
+        <SubSectionNavDetail subSectionName={"Program Logistics"} />
+        <DetailCategoryDisplay title={"Public Transportation"} obj={program.public_transportation} />
+        <DetailCategoryDisplay title={"Program's Time"} obj={orgTimimg} />
+        <DetailCategoryDisplay title={"Program's Fee"} obj={program.has_cost} />
+        <DetailCategoryDisplay title={"Financial Aid"} obj={finaids} />
+        <DetailCategoryDisplay title={"Grants"} obj={program.grants___yes} />
+        <DetailCategoryDisplay title={"Loan"} obj={""} />
+      </Grid>
+    )
+  }
+
+  const AboutProgramSection = ({ program }) => {
+    return (
+      <Grid container>
+        <SubSectionNavDetail subSectionName={"About the Program"} />
+        <Grid container style={{ marginBottom: 6 }}>
+          <p>{program.description}</p>
+          {/* <DetailCategoryDisplay title={"Organization Details"} obj="" /> */}
+          <DetailCategoryDisplay title={"Organization Type"} obj={orgTypes} />
+          <DetailCategoryDisplay title={"Service Area"} obj={program.other_servicearea} />
+          <DetailCategoryDisplay title={"Career Emphasis"} obj={careerEmphasis} />
+          <DetailCategoryDisplay title={"Academic Credit"} obj={hasAcadCred} />
+          <DetailCategoryDisplay title={"Shadow Opportunity"} obj={program.has_shadow} />
+          <DetailCategoryDisplay title={"Certificates Offered"} obj={certString} />
+        </Grid>
+      </Grid >
+    )
+  }
+
+  const SubDetailMenuButton = ({ id, name }) => {
+    return (
+      <Grid container>
+        <Button style={{
+          background: id !== section ? "white" : "#004987",
+          height: "100%",
+          padding: 20,
+          width: "100%",
+          borderRadius: 0
+        }} onClick={() => setSection(id)}>
+          <Typography style={{
+            fontSize: 18,
+            color: id !== section ? "#004987" : "white",
+            fontWeight: id === section ? 600 : 300
+          }}>{name}</Typography>
+        </Button>
+      </Grid>
+    )
+  }
+
+  const ContactSection = ({ program, reef }) => {
+
+    return (
+      <>
+        <Typography style={{ padding: 12, fontSize: 20, fontWeight: 700, color: "#004978" }} id={"contact-section"} ref={reef}>Contact</Typography>
+        <ul id="contact-information" className="fa-ul contact-info">
+          <li>
+            <span className="fa-li">
+              <FontAwesomeIcon icon={faGlobe} />
+            </span>
+            <a
+              href={program.org_website || program.org_website_v2}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Program's website
+            </a>
+          </li>
+          <li>
+            <span className="fa-li">
+              <FontAwesomeIcon icon={faEnvelope} />
+            </span>
+            <a href={`mailto:${program.org_email || program.org_email_v2}`}>
+              {program.org_email || program.org_email_v2}
+            </a>
+          </li>
+          <li>
+            <span className="fa-li">
+              <FontAwesomeIcon icon={faPhoneAlt} />
+            </span>
+            <a
+              href={
+                "tel:+1" +
+                (
+                  program.org_phone_number || program.org_phone_number_v2
+                ).match(/\d+/g)
+              }
+            >
+              {program.org_phone_number}
+              {program.org_phone_number_v2}
+            </a>
+          </li>
+          <li>
+            <span className="fa-li">
+              <FontAwesomeIcon icon={faMapMarkerAlt} />
+            </span>
+            {program.street_address_1 || program.street_address_1_v2},{" "}
+            {program.street_address_2 || program.street_address_2_v2},{" "}
+            {program.org_city || program.org_city_v2},{" "}
+            {program.org_state || program.org_state_v2},{" "}
+            {(program.zip_code || program.zip_code_v2).slice(0, 5)}
+          </li>
+        </ul>
+      </>
+    )
+  }
+
+
   return (
-    <div className="page-wrapper">
-      {/*back to search results*/}
+
+    <>
+      <button onClick={() => { console.log(program) }}></button>
       <Link to="/programs">
         <FontAwesomeIcon icon={faChevronLeft} className="mr-2" />
         Search Results
       </Link>
-      {/*name*/}
-      <h3 className="text-primary mt-4 mb-3">
-        {program.org_name || program.org_name_v2}
-      </h3>
-      {/*description*/}
-      <p>{program.description}</p>
-      {/*program type*/}
-      <h4>Program Type</h4>
-      <ul className="fa-ul d-flex flex-row flex-wrap">{pathwaysList}</ul>
-      {/*career emphasis*/}
-      <h4>Career Emphasis</h4>
-      <ul className="fa-ul d-flex flex-row flex-wrap">{emphasisList}</ul>
-      {/*grade level*/}
-      <h4>Education Levels</h4>
-      <ul className="fa-ul d-flex flex-row flex-wrap">{gradeList}</ul>
-      {/*academic credit*/}
-      <h4>Academic Credit: {hasAcadCred}</h4>
-      {/*Age Requirement*/}
-      <h4>Age Requirement: {ageReq}</h4>
-      {/*Certificates*/}
-      <h4>Certificates Offered: {certString}</h4>
-      {/*visit program website*/}
-      <Button variant="primary" block className="my-4">
-        <FontAwesomeIcon icon={faGlobe} className="mr-2" />
-        <a
-          href={program.org_website || program.org_website_v2}
-          target="_blank"
-          rel="noreferrer"
-          className="text-white"
-        >
-          Visit Program Website
-        </a>
-      </Button>
-      <Accordion>
-        <Accordion.Toggle as="h4" eventkey="0">
-          <div>
-            Contact Information
-            <FontAwesomeIcon icon={faChevronDown} className="ml-2" />
-          </div>
-        </Accordion.Toggle>
-        <Accordion eventkey="0">
-          <ul id="contact-information" className="fa-ul contact-info">
-            <li>
-              <span className="fa-li">
-                <FontAwesomeIcon icon={faGlobe} />
-              </span>
-              <a
-                href={program.org_website || program.org_website_v2}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {program.org_website || program.org_website_v2}
-              </a>
-            </li>
-            <li>
-              <span className="fa-li">
-                <FontAwesomeIcon icon={faEnvelope} />
-              </span>
-              <a href={`mailto:${program.org_email || program.org_email_v2}`}>
-                {program.org_email || program.org_email_v2}
-              </a>
-            </li>
-            <li>
-              <span className="fa-li">
-                <FontAwesomeIcon icon={faPhoneAlt} />
-              </span>
-              <a
-                href={
-                  "tel:+1" +
-                  (
-                    program.org_phone_number || program.org_phone_number_v2
-                  ).match(/\d+/g)
-                }
-              >
-                {program.org_phone_number}
-                {program.org_phone_number_v2}
-              </a>
-            </li>
-            <li>
-              <span className="fa-li">
-                <FontAwesomeIcon icon={faMapMarkerAlt} />
-              </span>
-              {program.street_address_1 || program.street_address_1_v2},{" "}
-              {program.street_address_2 || program.street_address_2_v2},{" "}
-              {program.org_city || program.org_city_v2},{" "}
-              {program.org_state || program.org_state_v2},{" "}
-              {(program.zip_code || program.zip_code_v2).slice(0, 5)}
-            </li>
-          </ul>
-        </Accordion>
-        {/*TODO*/}
-        {/*<Accordion.Toggle as="h4" eventkey="1">*/}
-        {/*  <div className="mt-4">*/}
-        {/*    Program Details*/}
-        {/*    <FontAwesomeIcon icon={faChevronDown} className="ml-2" />*/}
-        {/*  </div>*/}
-        {/*</Accordion.Toggle>*/}
-        {/*<Accordion eventkey="1">*/}
-        {/*  <div>*/}
-        {/*    <p className="text-primary text-uppercase mt-3">*/}
-        {/*      Eligibility requirements*/}
-        {/*    </p>*/}
-        {/*    <ul>*/}
-        {/*      {program.eligibilityRequirements.map((item, index) => (*/}
-        {/*        <li key={index}>{item}</li>*/}
-        {/*      ))}*/}
-        {/*    </ul>*/}
-        {/*    <p className="text-primary text-uppercase">Target Population</p>*/}
-        {/*    <ul>*/}
-        {/*      {program.targetPopulation.map((item, index) => (*/}
-        {/*        <li key={index}>{item}</li>*/}
-        {/*      ))}*/}
-        {/*    </ul>*/}
-        {/*    <p className="text-primary text-uppercase">Other</p>*/}
-        {/*    <ul>*/}
-        {/*      {program.other.map((item, index) => (*/}
-        {/*        <li key={index}>{item}</li>*/}
-        {/*      ))}*/}
-        {/*    </ul>*/}
-        {/*  </div>*/}
-        {/*</Accordion>*/}
-      </Accordion>
-    </div>
+      <Grid container style={{ marginTop: 24 }}>
+        <Grid item xs={2} style={{
+          height: 200,
+          backgroundImage: `url(${Logo})`,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "contain"
+        }}>
+        </Grid>
+        <Grid item xs={8}>
+          <Grid container style={{ marginLeft: 16 }}>
+            <h3 className="text-primary mt-4 mb-3">
+              {program.org_name || program.org_name_v2}
+            </h3>
+            <p>{(program.street_address_1 || program.street_address_1_v2) + " " +
+              (program.street_address_2 || program.street_address_2_v2) + ", " +
+              (program.org_city || program.org_city_v2) + ", " +
+              (program.org_state || program.org_state_v2) + ", " +
+              (program.zip_code || program.zip_code_v2)}</p>
+          </Grid>
+        </Grid>
+        <Grid item xs={2}>
+          <Button variant="contained" style={{ borderRadius: 0, width: "100%", marginBottom: 12, marginTop: 12 }}>
+            <a
+              href={program.org_website || program.org_website_v2}
+              target="_blank"
+              rel="noreferrer"
+              className="text-white"
+            >
+              Website
+            </a>
+          </Button>
+          <Button
+            onClick={() => contactRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+            variant="contained"
+            style={{ borderRadius: 0, width: "100%", marginBottom: 12 }}>
+            <a className="text-white">Contact</a>
+          </Button>
+          <Button variant="contained" style={{ borderRadius: 0, width: "100%", marginBottom: 12 }}>
+            <a
+              href={`mailto:${program.org_email || program.org_email_v2}`}
+              className="text-white"
+            >Send Email</a>
+          </Button>
+        </Grid>
+      </Grid>
+      <Grid container style={{ marginTop: 40, paddingTop: 24, borderTop: "1px solid #004987", minHeight: 600 }}>
+        <Grid item xs={3}>
+          <Grid container direction="row" alignContent={"space-between"} style={{ height: "100%" }}>
+            <Grid item xs={12}>
+              {menuButtonNameID.map((e, i) => {
+                return (
+                  <SubDetailMenuButton key={i} id={i} name={e}></SubDetailMenuButton>
+                )
+              })}
+            </Grid>
+            <Grid item xs={12}>
+              <ContactSection program={program} reef={contactRef} />
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid item xs={9} style={{ paddingLeft: 12 }}>
+          {section === 0 && <AboutProgramSection program={program} />}
+          {section === 1 && <AboutLogistricSection program={program} />}
+          {section === 2 && <AboutApplicant program={program} />}
+        </Grid>
+      </Grid>
+    </>
   );
 };
 export default ProgramDetails;

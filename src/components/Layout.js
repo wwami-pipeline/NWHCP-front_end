@@ -12,7 +12,7 @@ const Layout = ({ children, flood }) => {
       <ProgramProvider>
         <div className="main-wrapper">
           <Header />
-          <Container Container className="page-wrapper">{children}</Container>
+          <Container className="page-wrapper">{children}</Container>
           <Footer />
         </div >
       </ProgramProvider>

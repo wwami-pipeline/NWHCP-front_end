@@ -1,4 +1,4 @@
-import { Grid, Typography, MenuItem, TextField, IconButton, Button, ListSubheader, Tooltip, Collapse } from "@mui/material";
+import { Grid, Typography, TextField, IconButton, Button, Tooltip, Collapse } from "@mui/material";
 import React, { useContext, useState, useEffect } from "react";
 import { bounds as defaultBound, defaultAllBound } from "../../../static/stateCoordinate";
 
@@ -7,10 +7,10 @@ import ClearIcon from '@mui/icons-material/Clear';
 
 import { Context as AllProgramConText } from "../../context/programContext"
 import CateList from "./cateSelect";
-import { careers, gradeLevels, advanced } from "../../shared/filters";
+import { careers, gradeLevels, advanced, duration as configDuration } from "../../shared/filters";
 
 export default function ProgramFilterSection({ setBounds }) {
-  const [location, setLocation] = useState("");
+  // const [location, setLocation] = useState("");
   const [openfilter, setOpenFilter] = useState(false);
   const [filter, setFilter] = useState({})
   const [openAdvance, setOpenAdvance] = useState(false);
@@ -41,16 +41,16 @@ export default function ProgramFilterSection({ setBounds }) {
     clearAll();
   }
 
-  const handleSelect = (event) => {
-    updateFilterLocation(event.target.value);
-    setLocation(event.target.value);
-    if (event.target.value === "") {
-      setBounds(defaultAllBound)
-    } else {
-      const newBound = defaultBound.find((el) => el.NAME === event.target.value);
-      setBounds([[newBound.ymin, newBound.xmin], [newBound.ymax, newBound.xmax]])
-    }
-  };
+  // const handleSelect = (event) => {
+  //   updateFilterLocation(event.target.value);
+  //   setLocation(event.target.value);
+  //   if (event.target.value === "") {
+  //     setBounds(defaultAllBound)
+  //   } else {
+  //     const newBound = defaultBound.find((el) => el.NAME === event.target.value);
+  //     setBounds([[newBound.ymin, newBound.xmin], [newBound.ymax, newBound.xmax]])
+  //   }
+  // };
 
   return (
     <>
@@ -65,7 +65,7 @@ export default function ProgramFilterSection({ setBounds }) {
               <Typography variant='body1' style={{ color: "#004987" }}>{!openfilter ? "Open Filter" : "Close Filter"}</Typography>
             </Button>
           </Grid>
-          <Grid item xs={2} className='type'>
+          {/* <Grid item xs={2} className='type'>
             <TextField
               select
               label="Program Type" fullWidth
@@ -87,8 +87,8 @@ export default function ProgramFilterSection({ setBounds }) {
               <ListSubheader>Pathway</ListSubheader>
               <MenuItem>This filter is comming soon</MenuItem>
             </TextField>
-          </Grid>
-          <Grid item xs={3} className="Location">
+          </Grid> */}
+          {/* <Grid item xs={3} className="Location">
             <TextField
               select
               color="primary"
@@ -101,8 +101,8 @@ export default function ProgramFilterSection({ setBounds }) {
               <MenuItem value={""}>All</MenuItem>
               {defaultBound && defaultBound.map((e, i) => (<MenuItem value={e.NAME} key={i}>{e.NAME}</MenuItem>))}
             </TextField>
-          </Grid>
-          <Grid item xs={5} className="Search">
+          </Grid> */}
+          <Grid item xs={10} className="Search">
             <Grid container>
               <Grid item xs={10}>
                 <TextField
@@ -118,7 +118,7 @@ export default function ProgramFilterSection({ setBounds }) {
                       submitSearch()
                     }
                   }}
-                  value={filter?.searchContent}
+                  value={filter?.searchContent || ""}
                 ></TextField>
               </Grid>
               <Grid item xs={1}>
@@ -138,67 +138,96 @@ export default function ProgramFilterSection({ setBounds }) {
             </Grid>
           </Grid>
           {/* Advance Filter go here */}
-          <Collapse in={openfilter}>
+          <Collapse in={openfilter} style={{ width: "100%" }}>
             <Grid container style={{ padding: 8 }}>
-              <Grid container justifyContent={"space-between"} style={{ marginTop: 24, marginBottom: 10 }}>
-                <Grid xs={4}>
+              <Grid container justifyContent={"flex-end"} style={{ marginBottom: 10 }}>
+                {/* <Grid xs={4}>
                   <Grid container>
                     <Typography variant='h6'>Search Filter</Typography>
                   </Grid>
                   <Typography variant='caption'>Select Filter and Search</Typography>
-                </Grid>
-                <Grid>
-                  <Button onClick={() => setOpenAdvance(!openAdvance)}>
-                    <Typography>{openAdvance ? "Close Advanced Search" : "Open Advanced Search"}</Typography>
+                </Grid> */}
+                <Grid item className="dropdown">
+                  <Button disabled={!openfilter} onClick={() => setOpenAdvance(!openAdvance)} fullWidth style={{ height: "100%", borderRadius: 8 }}>
+                    <Typography variant='body1'>{openAdvance ? "Close Advanced Search" : "Open Advanced Search"}</Typography>
                   </Button>
                 </Grid>
               </Grid>
               <Grid container>
-                <Grid container>
-                  <Typography variant="body1" gutterBottom>Select education level</Typography>
-                </Grid>
-                <Grid style={{ marginBottom: 14 }}>
-                  <CateList cates={gradeLevels} selected={filter.gradeLevels} handleChoose={(label) => {
-                    if (filter.gradeLevels.includes(label)) {
-                      let newGradelevel = filter.gradeLevels;
-                      newGradelevel = newGradelevel.filter(el => el !== label);
-                      setFilter((prev) => ({
-                        ...prev,
-                        gradeLevels: newGradelevel
-                      }
-                      ))
-                    } else {
-                      let newGradelevel = filter.gradeLevels;
-                      newGradelevel.push(label)
-                      setFilter((prev) => ({
-                        ...prev,
-                        gradeLevels: newGradelevel
-                      }));
-                    }
-                  }}></CateList>
-                </Grid>
-                <Grid container>
+                <Grid item xs={4}>
                   <Grid container>
-                    <Typography variant="body1" gutterBottom>Select career emphasis</Typography>
+                    <Typography variant="h6" gutterBottom>Select career emphasis</Typography>
                   </Grid>
-                  <CateList cates={careers} selected={filter.careerEmp} handleChoose={(label) => {
-                    if (filter.careerEmp.includes(label)) {
-                      let newCareerEmp = filter.careerEmp;
-                      newCareerEmp = newCareerEmp.filter(el => el !== label);
-                      setFilter((prev) => ({
-                        ...prev,
-                        careerEmp: newCareerEmp
+                  <Grid style={{ marginBottom: 14 }}>
+                    <CateList cates={careers} selected={filter.careerEmp} handleChoose={(label) => {
+                      if (filter.careerEmp.includes(label)) {
+                        let newCareerEmp = filter.careerEmp;
+                        newCareerEmp = newCareerEmp.filter(el => el !== label);
+                        setFilter((prev) => ({
+                          ...prev,
+                          careerEmp: newCareerEmp
+                        }
+                        ))
+                      } else {
+                        let newCareerEmp = filter.careerEmp;
+                        newCareerEmp.push(label)
+                        setFilter((prev) => ({
+                          ...prev,
+                          careerEmp: newCareerEmp
+                        }));
                       }
-                      ))
-                    } else {
-                      let newCareerEmp = filter.careerEmp;
-                      newCareerEmp.push(label)
-                      setFilter((prev) => ({
-                        ...prev,
-                        careerEmp: newCareerEmp
-                      }));
-                    }
-                  }}></CateList>
+                    }}></CateList>
+                  </Grid>
+                </Grid>
+                <Grid item xs={4}>
+                  <Grid container>
+                    <Typography variant="h6" gutterBottom>Select education level</Typography>
+                  </Grid>
+                  <Grid style={{ marginBottom: 14 }}>
+                    <CateList cates={gradeLevels} selected={filter.gradeLevels} handleChoose={(label) => {
+                      if (filter.gradeLevels.includes(label)) {
+                        let newGradelevel = filter.gradeLevels;
+                        newGradelevel = newGradelevel.filter(el => el !== label);
+                        setFilter((prev) => ({
+                          ...prev,
+                          gradeLevels: newGradelevel
+                        }
+                        ))
+                      } else {
+                        let newGradelevel = filter.gradeLevels;
+                        newGradelevel.push(label)
+                        setFilter((prev) => ({
+                          ...prev,
+                          gradeLevels: newGradelevel
+                        }));
+                      }
+                    }}></CateList>
+                  </Grid>
+                </Grid>
+                <Grid item xs={4}>
+                  <Grid container>
+                    <Typography variant="h6" gutterBottom>Select timing</Typography>
+                  </Grid>
+                  <Grid style={{ marginBottom: 14 }}>
+                    <CateList cates={configDuration} selected={filter.duration} handleChoose={(label) => {
+                      if (filter.duration.includes(label)) {
+                        let newTiming = filter.duration;
+                        newTiming = newTiming.filter(el => el !== label);
+                        setFilter((prev) => ({
+                          ...prev,
+                          duration: newTiming
+                        }
+                        ))
+                      } else {
+                        let newTiming = filter.duration;
+                        newTiming.push(label)
+                        setFilter((prev) => ({
+                          ...prev,
+                          duration: newTiming
+                        }));
+                      }
+                    }}></CateList>
+                  </Grid>
                 </Grid>
                 <Collapse in={openAdvance}>
                   <Grid container style={{ marginTop: 14 }}>
