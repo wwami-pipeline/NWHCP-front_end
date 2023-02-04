@@ -1,11 +1,13 @@
 @import './theme.scss';
 
 .custom-link {
-    color: $link-color !important;
-    font-size: $font-size-14;
+    // color: $link-color !important;
+    // font-size: $font-size-14;
+    font-size: 0.9rem;
     text-transform: uppercase;
     margin: 0.2rem 0.5rem;
-    // text-align: center;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 .vertical-align {
