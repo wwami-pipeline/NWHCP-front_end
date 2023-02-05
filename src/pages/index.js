@@ -31,11 +31,7 @@ const Home = () => {
 						<p style={{ fontSize: "1.2rem", lineHeight: "2rem" }}>
 							Made for students pursuing a career in the health professions.
 							<br /> Explore our site to find supplemental programs and
-							opportunities that will help you reach your goals. Start at the{" "}
-							<Link to="/how-to">
-								<strong>How To</strong>
-							</Link>{" "}
-							page to learn how it works or continue below.
+							opportunities that will help you reach your goals. 
 						</p>
 						<p className="lead ">
 							Let's match you up with programs that might be right for you!
