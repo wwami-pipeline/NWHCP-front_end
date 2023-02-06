@@ -16,12 +16,9 @@ const Home = () => {
       }}
     >
       <div className="page-wrapper text-center">
-        <h1 className="text-primary " style={{ fontSize: "1.3rem" }}>
-          Northwest Health Career Path
-        </h1>
-        <p className="lead text-dark">
+        <h2 className="text-primary" style={{ fontSize: "1.3rem" }}>
           There's something for every student in healthcare
-        </p>
+        </h2>
         <div
           className="d-flex"
           style={{ alignItems: "center", textAlign: "left" }}
