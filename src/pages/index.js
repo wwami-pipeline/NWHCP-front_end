@@ -38,10 +38,10 @@ const Home = () => {
           style={{
             fontSize: "1.2rem",
             lineHeight: "2rem",
-            width: "60%",
+            width: "48%",
             fontSize: "25px",
             position: "relative",
-            left: "655px",
+            left: "615px",
             top: "200px",
           }}
         >
@@ -52,10 +52,10 @@ const Home = () => {
         <p
           className="lead "
           style={{
-            width: "60%",
+            width: "48%",
             fontSize: "25px",
             position: "relative",
-            left: "655px",
+            left: "615px",
             top: "200px",
           }}
         >
@@ -65,11 +65,11 @@ const Home = () => {
           src={Students}
           atl="students"
           style={{
-            width: "700px",
-            height: "700px",
+            width: "550px",
+            height: "500px",
             position: "relative",
             bottom: "290px",
-            right: "70px",
+            right: "50px",
           }}
         />
       </div>
@@ -77,7 +77,7 @@ const Home = () => {
         className="text-center pb-4"
         style={{
           position: "relative",
-          bottom: "300px",
+          bottom: "265px",
         }}
       >
         <Link to="/programs">
@@ -87,7 +87,7 @@ const Home = () => {
             style={{
               borderRadius: "10px",
               border: "1px solid #101010",
-              boxShadow: "2px 5px 2px 1px #949494",
+              boxShadow: "1px #949494",
               padding: "29px",
               fontSize: "26px",
               fontWeight: "bold",
@@ -102,7 +102,7 @@ const Home = () => {
         className=""
         style={{
           position: "relative",
-          bottom: "280px",
+          bottom: "220px",
           textAlign: "center",
           fontSize: "40",
         }}
