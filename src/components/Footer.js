@@ -8,95 +8,178 @@ import { Button } from "react-bootstrap";
 const Footer = () => {
   return (
     <div className="footer main-footer py-3 mt-4">
-      <Container>
-        <Grid container spacing={5}>
-          <Grid item xs={12} sm={4}>
-            <h2 style={{ color: "white" }}>Address</h2>
+      <Container style={{ border: "10px solid white" }}>
+        {/* Grid Container Open */}
+        <Grid
+          container
+          spacing={12}
+          style={{
+            border: "10px solid yellow",
+          }}
+        >
+          <Grid item xs={12} sm={4} style={{ border: "10px solid red" }}>
+            <h2 style={{ color: "white", fontSize: "18px" }}>Address</h2>
           </Grid>
-          <Grid item xs={12} sm={4}>
-            <h2 style={{ color: "white" }}>
-              Northwest Health Career Path Website
+          <Grid item xs={12} sm={4} style={{ border: "10px solid red" }}>
+            <h2 style={{ color: "white", fontSize: "18px" }}>
+              Northwest Health Career Path
             </h2>
           </Grid>
-          <Grid item xs={12} sm={4}>
-            <h2 style={{ color: "white" }}>Keep in Touch</h2>
+          <Grid item xs={12} sm={4} style={{ border: "10px solid red" }}>
+            <h2 style={{ color: "white", fontSize: "18px" }}>Keep in Touch</h2>
           </Grid>
+        </Grid>
+        {/* Grid Container Close */}
+        {/* Grid Container Open */}
+        <Grid
+          container
+          spacing={12}
+          justifyContent={"space-between"}
+          style={{ border: "10px solid orange" }}
+        >
+          <Grid item xs={5} style={{ border: "10px solid pink" }}>
+            {/* <Grid item xs={9} style={{ border: "10px solid green" }}> */}
+            <h4 className="footer">237 West Kellog Road, Bellingham, WA</h4>
+
+            <h4
+              className="sub-text-footer"
+              style={{ color: "white", fontWeight: 500 }}
+            >
+              ahecww@whatcom.edu
+            </h4>
+            <h4
+              className="sub-text-footer"
+              style={{ color: "white", fontWeight: 500 }}
+            >
+              (360)-383-3170
+            </h4>
+          </Grid>
+          {/* Grid Item Open */}
           <Grid
-            container
-            justifyContent={"space-between"}
-            rowSpacing={1}
-            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+            item
+            xs={3}
+            style={{
+              border: "10px solid purple",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "flex-end",
+            }}
           >
-            <Grid item xs={5}>
-              <Grid item xs={9}>
-                <h4 className="footer">237 West Kellog Road, Bellingham, WA</h4>
-                <b></b>
-                <h4
-                  className="sub-text-footer"
-                  style={{ color: "white", fontWeight: 500 }}
-                >
-                  ahecww@whatcom.edu
-                </h4>
-                <b></b>
-              </Grid>
-            </Grid>
-            <Grid item xs={3}>
-              <Grid item xs={3}>
-                <h4 className="footer">Visit</h4>
-                <b></b>
-                <b></b>
-                <b></b>
-                <b></b>
-                <b></b>
-                <b></b>
-                <b></b>
-                <Link href="https://www.ahecww.org/">
-                  <Button
-                    size="lg"
-                    variant="secondary"
-                    style={{
-                      borderRadius: "10px",
-                      border: "1px solid #101010",
-                      padding: "3px",
-                      fontSize: "12px",
-                      fontWeight: "bold",
-                      boxShadow: "#202020",
-                      width: "200%",
-                    }}
-                  >
-                    AHECWW.org
-                  </Button>
-                </Link>
-                <br></br>
-                {/* <Mailto email="ahecww@whatcom.edu" obfuscate={true}> */}
-                {/* <FontAwesomeIcon
-                  icon={faEnvelope}
-                  style={{ height: 56, width: 56 }}
-                /> */}
-                {/* </Mailto> */}
-              </Grid>
-            </Grid>
-            <Grid item xs={4}>
-              <Grid container>
-                <Grid item xs={9}>
-                  <h4
-                    className="sub-text-footer"
-                    style={{ color: "white", fontWeight: 500 }}
-                  >
-                    (360)-383-3170
-                  </h4>
-                </Grid>
-              </Grid>
-            </Grid>
-            <Grid container direction={"column"}>
-              <br></br>
-              <br></br>
+            <p style={{ margin: "20px" }}>
+              Visit the Area Health Education Center of Western Washington
+            </p>
+            <Link href="https://www.ahecww.org/" style={{ margin: "5px" }}>
+              <Button
+                size="lg"
+                variant="secondary"
+                style={{
+                  borderRadius: "8px",
+                  borderStyle: "none",
+                  color: "white",
+                  cursor: "pointer",
+                  fontSize: "14px",
+                  fontWeight: "bold",
+                  height: "40px",
+                  lineHeight: "20px",
+                  padding: "10px 16px",
+                  position: "relative",
+                  textAlign: "center",
+                  verticalAlign: "baseline",
+                  width: "max-width",
+                  backgroundColor: "#008080",
+                  bottom: "8px",
+                }}
+              >
+                AHECWW.org
+              </Button>
+            </Link>
+            <article>
               <p className="small mt-2" style={{ fontSize: "16px" }}>
                 NWHCP ©2023
               </p>
-              <p className="small mt-2">
+              <p className="small mt-2" style={{ width: "200%" }}>
                 Please use computer browser for best experience
               </p>
+            </article>
+
+            {/* Grid Item Close */}
+            {/* <Mailto email="ahecww@whatcom.edu" obfuscate={true}> */}
+            {/* <FontAwesomeIcon
+                  icon={faEnvelope}
+                  style={{ height: 56, width: 56 }}
+                /> */}
+            {/* </Mailto> */}
+          </Grid>
+          <Grid item xs={4} style={{ border: "10px solid black" }}>
+            {/* <Grid container style={{ border: "10px solid lime" }}> */}
+            <Grid item xs={9} style={{ border: "10px solid lime" }}>
+              <form>
+                <p style={{ margin: "10px" }}>
+                  <input
+                    type="text"
+                    name="firstName"
+                    id="firstName"
+                    placeholder="Enter Your First Name"
+                    required
+                  />
+                </p>
+                <p style={{ margin: "10px" }}>
+                  <input
+                    type="text"
+                    name="lastName"
+                    id="lastName"
+                    placeholder="Enter Your Last Name"
+                    required
+                  />
+                </p>
+                <p style={{ margin: "10px" }}>
+                  <input
+                    type="text"
+                    name="email"
+                    id="email"
+                    placeholder="Enter Your Email"
+                    required
+                  />
+                </p>
+                <p>
+                  <label htmlFor="question" style={{ width: "200%" }}>
+                    Are You a Student or Program Administrator?
+                  </label>
+                  <textarea
+                    name="question"
+                    id="question"
+                    rows="5"
+                    cols="30"
+                    style={{ color: "grey" }}
+                  >
+                    Please tell us a few words about how we can help you
+                  </textarea>
+                </p>
+                <label htmlFor="submit" style={{ width: "200%" }}>
+                  By Clicking 'Submit', You Certify That You Are At Least 13
+                  Years of Age.
+                </label>
+                <button
+                  style={{
+                    backgroundColor: "#088F8F",
+                    margin: "10px",
+                    borderRadius: "8px",
+                    borderStyle: "none",
+                    color: "white",
+                    cursor: "pointer",
+                    fontSize: "14px",
+                    fontWeight: "bold",
+                    height: "40px",
+                    lineHeight: "20px",
+                    padding: "10px 16px",
+                    position: "relative",
+                    textAlign: "center",
+                    verticalAlign: "baseline",
+                  }}
+                >
+                  Submit
+                </button>
+              </form>
             </Grid>
           </Grid>
         </Grid>

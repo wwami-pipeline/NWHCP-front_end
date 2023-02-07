@@ -63,7 +63,7 @@ const Home = () => {
         </p>
         <img
           src={Students}
-          atl="students"
+          alt="students"
           style={{
             width: "550px",
             height: "500px",
