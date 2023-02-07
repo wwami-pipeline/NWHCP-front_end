@@ -142,20 +142,20 @@ const Footer = () => {
                   />
                 </p>
                 <p>
-                  <label htmlFor="question" style={{ width: "200%" }}>
+                  <label value="question" style={{ width: "200%" }}>
                     Are You a Student or Program Administrator?
                   </label>
                   <textarea
                     name="question"
-                    id="question"
+                    value="question"
                     rows="5"
                     cols="30"
+                    maxLength="300"
                     style={{ color: "grey" }}
-                  >
-                    Please tell us a few words about how we can help you
-                  </textarea>
+                    defaultValue="Please tell us a few words about how we can help you"
+                  ></textarea>
                 </p>
-                <label htmlFor="submit" style={{ width: "200%" }}>
+                <label value="submit" style={{ width: "200%" }}>
                   By Clicking 'Submit', You Certify That You Are At Least 13
                   Years of Age.
                 </label>
