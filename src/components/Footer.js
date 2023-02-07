@@ -4,41 +4,28 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { Container, Grid, Link } from "@mui/material";
 import { Button } from "react-bootstrap";
+import "../styles/footer/form.css";
 
 const Footer = () => {
   return (
     <div className="footer main-footer py-3 mt-4">
-      <Container style={{ border: "10px solid white" }}>
-        {/* Grid Container Open */}
-        <Grid
-          container
-          spacing={12}
-          style={{
-            border: "10px solid yellow",
-          }}
-        >
-          <Grid item xs={12} sm={4} style={{ border: "10px solid red" }}>
+      <Container>
+        <Grid container spacing={12} style={{}}>
+          <Grid item xs={12} sm={4}>
             <h2 style={{ color: "white", fontSize: "18px" }}>Address</h2>
           </Grid>
-          <Grid item xs={12} sm={4} style={{ border: "10px solid red" }}>
+          <Grid item xs={12} sm={4}>
             <h2 style={{ color: "white", fontSize: "18px" }}>
               Northwest Health Career Path
             </h2>
           </Grid>
-          <Grid item xs={12} sm={4} style={{ border: "10px solid red" }}>
+          <Grid item xs={12} sm={4}>
             <h2 style={{ color: "white", fontSize: "18px" }}>Keep in Touch</h2>
           </Grid>
         </Grid>
-        {/* Grid Container Close */}
-        {/* Grid Container Open */}
-        <Grid
-          container
-          spacing={12}
-          justifyContent={"space-between"}
-          style={{ border: "10px solid orange" }}
-        >
-          <Grid item xs={5} style={{ border: "10px solid pink" }}>
-            {/* <Grid item xs={9} style={{ border: "10px solid green" }}> */}
+
+        <Grid container spacing={12} justifyContent={"space-between"}>
+          <Grid item xs={5}>
             <h4 className="footer">237 West Kellog Road, Bellingham, WA</h4>
 
             <h4
@@ -54,18 +41,17 @@ const Footer = () => {
               (360)-383-3170
             </h4>
           </Grid>
-          {/* Grid Item Open */}
+
           <Grid
             item
             xs={3}
             style={{
-              border: "10px solid purple",
               display: "flex",
               flexDirection: "column",
               justifyContent: "flex-end",
             }}
           >
-            <p style={{ margin: "20px" }}>
+            <p style={{ margin: "20px", bottom: "10px" }}>
               Visit the Area Health Education Center of Western Washington
             </p>
             <Link href="https://www.ahecww.org/" style={{ margin: "5px" }}>
@@ -97,12 +83,11 @@ const Footer = () => {
               <p className="small mt-2" style={{ fontSize: "16px" }}>
                 NWHCP ©2023
               </p>
-              <p className="small mt-2" style={{ width: "200%" }}>
+              <p className="small mt-2">
                 Please use computer browser for best experience
               </p>
             </article>
 
-            {/* Grid Item Close */}
             {/* <Mailto email="ahecww@whatcom.edu" obfuscate={true}> */}
             {/* <FontAwesomeIcon
                   icon={faEnvelope}
@@ -110,15 +95,13 @@ const Footer = () => {
                 /> */}
             {/* </Mailto> */}
           </Grid>
-          <Grid item xs={4} style={{ border: "10px solid black" }}>
-            {/* <Grid container style={{ border: "10px solid lime" }}> */}
-            <Grid item xs={9} style={{ border: "10px solid lime" }}>
-              <form>
+          <Grid item xs={4}>
+            <Grid item xs={9}>
+              <form className="form">
                 <p style={{ margin: "10px" }}>
                   <input
                     type="text"
                     name="firstName"
-                    id="firstName"
                     placeholder="Enter Your First Name"
                     required
                   />
@@ -127,7 +110,6 @@ const Footer = () => {
                   <input
                     type="text"
                     name="lastName"
-                    id="lastName"
                     placeholder="Enter Your Last Name"
                     required
                   />
@@ -136,7 +118,6 @@ const Footer = () => {
                   <input
                     type="text"
                     name="email"
-                    id="email"
                     placeholder="Enter Your Email"
                     required
                   />
@@ -147,12 +128,11 @@ const Footer = () => {
                   </label>
                   <textarea
                     name="question"
-                    value="question"
                     rows="5"
                     cols="30"
                     maxLength="300"
+                    placeholder="Please tell us a few words about how we can help you"
                     style={{ color: "grey" }}
-                    defaultValue="Please tell us a few words about how we can help you"
                   ></textarea>
                 </p>
                 <label value="submit" style={{ width: "200%" }}>
