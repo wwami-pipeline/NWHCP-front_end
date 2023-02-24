@@ -6,6 +6,7 @@ import PathwayDropdown from "./PathwayDropdown";
 export default function SchoolAndTrainingWrapper() {
   return (
     <>
+      {/*  */}
       <PathwayDropdown level={0} title={"More"}>
         <Grid>
           <li>Academic Health Professions Schools</li>
