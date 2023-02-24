@@ -23,7 +23,7 @@ import { Grid, Typography, Button } from "@mui/material";
 import Logo from "../../images/logo-image.png"
 import { validateWebsiteWithVersion } from "../../utils/websiteUrl";
 
-const menuButtonNameID = ["About the Program", "Program Logistics", "Program Applicants"];
+const menuButtonNameID = ["About the Program", "Program Logistics", "Applicant Profile"];
 
 function ProgramDetails(props) {
   const [section, setSection] = useState(0);
@@ -149,7 +149,7 @@ function ProgramDetails(props) {
         </Grid>
         <Grid item xs={3}>
           <Button variant="outlined" style={{ borderRadius: "0", width: "100%", height: "100%" }}>
-            <Typography style={{ fontWeight: 700, fontSize: 18 }}>Check Map</Typography>
+            <Typography style={{ fontWeight: 700, fontSize: 18 }}>Show on Map</Typography>
           </Button>
         </Grid>
       </Grid>
@@ -315,7 +315,6 @@ function ProgramDetails(props) {
   return (
 
     <>
-      <button onClick={() => { console.log(program) }}></button>
       <Link to="/programs">
         <FontAwesomeIcon icon={faChevronLeft} className="mr-2" />
         Search Results
@@ -331,14 +330,14 @@ function ProgramDetails(props) {
         </Grid>
         <Grid item xs={8}>
           <Grid container style={{ marginLeft: 16 }}>
-            <h3 className="text-primary mt-4 mb-3">
-              {program.org_name || program.org_name_v2}
+            <h3 className="text-primary mt-4 mb-3" style={{width:"100%"}}>
+              {program.org_name || program.org_name_v2 || ""}
             </h3>
-            <p>{(program.street_address_1 || program.street_address_1_v2) + " " +
-              (program.street_address_2 || program.street_address_2_v2) + ", " +
-              (program.org_city || program.org_city_v2) + ", " +
-              (program.org_state || program.org_state_v2) + ", " +
-              (program.zip_code || program.zip_code_v2)}</p>
+            <p>{(program.street_address_1 || program.street_address_1_v2 || "") + " " +
+              (program.street_address_2 || program.street_address_2_v2 || "") + ", " +
+              (program.org_city || program.org_city_v2 || "") + ", " +
+              (program.org_state || program.org_state_v2 || "") + ", " +
+              (program.zip_code || program.zip_code_v2 || "") }</p>
           </Grid>
         </Grid>
         <Grid item xs={2}>
