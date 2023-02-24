@@ -47,7 +47,7 @@ export default function ProgramCard({ program, onClick }) {
         </Collapse>
         <Grid container justifyContent={"right"}>
           <Button variant="text" style={{ paddingRight: 0 }} onClick={() => setOpenMore(!openMore)}>
-            <Typography>{openMore ? "Close 🔼" : "Read more 🔽"}</Typography>
+            <Typography>{openMore ? "Close 🔼" : "... 🔽"}</Typography>
           </Button>
         </Grid>
         <Typography variant="body2">

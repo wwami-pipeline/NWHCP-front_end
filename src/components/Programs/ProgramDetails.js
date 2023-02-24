@@ -21,6 +21,7 @@ import {
 } from "../../shared/filters.js";
 import { Grid, Typography, Button } from "@mui/material";
 import Logo from "../../images/logo-image.png"
+import { validateWebsiteWithVersion } from "../../utils/websiteUrl";
 
 const menuButtonNameID = ["About the Program", "Program Logistics", "Program Applicants"];
 
@@ -30,7 +31,7 @@ function ProgramDetails(props) {
 
   const validateUrl = (url) => {
     let valid = /^(ftp|http|https):\/\//.test(url);
-    return valid ? url : "http://" + url;
+    return valid ? url : "https://" + url;
   };
   if (props.location.state === undefined) {
     return null;
@@ -133,7 +134,7 @@ function ProgramDetails(props) {
   const allCerts = Object.fromEntries(
     Object.entries(program).filter(([key]) => key.includes("certificate_title"))
   );
-  let certString = "NA";
+  let certString = "No information provided";
   Object.keys(allCerts).forEach(function (entry) {
     if (allCerts[entry] !== "") {
       certString = allCerts[entry];
@@ -143,10 +144,10 @@ function ProgramDetails(props) {
   const SubSectionNavDetail = ({ subSectionName }) => {
     return (
       <Grid container style={{ marginBottom: 24 }}>
-        <Grid item xs={10} style={{ backgroundColor: "#074983", padding: 12, width: "100%", color: "white", fontWeight: 800 }}>
-          <Typography style={{ fontSize: 32, fontWeight: 800, marginLeft: 30 }}>{subSectionName}</Typography>
+        <Grid item xs={9} style={{ backgroundColor: "#074983", padding: 12, width: "100%", color: "white", fontWeight: 800 }}>
+          <Typography style={{ fontSize: 28, fontWeight: 700, marginLeft: 30 }}>{subSectionName}</Typography>
         </Grid>
-        <Grid item xs={2}>
+        <Grid item xs={3}>
           <Button variant="outlined" style={{ borderRadius: "0", width: "100%", height: "100%" }}>
             <Typography style={{ fontWeight: 700, fontSize: 18 }}>Check Map</Typography>
           </Button>
@@ -170,7 +171,7 @@ function ProgramDetails(props) {
       if (obj === "1") {
         str = "Yes"
       } else if (obj === "0") {
-        str = "N/A"
+        str = "No information provided"
       } else if (obj === "") {
         str = "No information provided"
       } else {
@@ -264,7 +265,7 @@ function ProgramDetails(props) {
               <FontAwesomeIcon icon={faGlobe} />
             </span>
             <a
-              href={program.org_website || program.org_website_v2}
+              href={validateWebsiteWithVersion([program.org_website, program.org_website_v2])}
               target="_blank"
               rel="noreferrer"
             >
@@ -343,7 +344,7 @@ function ProgramDetails(props) {
         <Grid item xs={2}>
           <Button variant="contained" style={{ borderRadius: 0, width: "100%", marginBottom: 12, marginTop: 12 }}>
             <a
-              href={program.org_website || program.org_website_v2}
+              href={validateWebsiteWithVersion([program.org_website, program.org_website_v2])}
               target="_blank"
               rel="noreferrer"
               className="text-white"
@@ -355,7 +356,7 @@ function ProgramDetails(props) {
             onClick={() => contactRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })}
             variant="contained"
             style={{ borderRadius: 0, width: "100%", marginBottom: 12 }}>
-            <a className="text-white">Contact</a>
+            <a className="text-white">Go to contact</a>
           </Button>
           <Button variant="contained" style={{ borderRadius: 0, width: "100%", marginBottom: 12 }}>
             <a

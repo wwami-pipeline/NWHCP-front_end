@@ -91,7 +91,7 @@ export default function ProgramFilterSection({ setBounds }) {
               style={{ height: "100%", borderRadius: 8 }}
             >
               <Typography variant="body1" style={{ color: "#004987" }}>
-                {!openfilter ? "Open Filter" : "Close Filter"}
+                {!openfilter ? "Open Filters" : "Close Filters"}
               </Typography>
             </Button>
           </Grid>
