@@ -37,7 +37,7 @@ export default function ProgramFilterSection({ setBounds }) {
 
   const submitClear = () => {
     setBounds(defaultAllBound);
-    setLocation("");
+    // setLocation("");
     clearAll();
   }
 
@@ -232,7 +232,7 @@ export default function ProgramFilterSection({ setBounds }) {
                 <Collapse in={openAdvance}>
                   <Grid container style={{ marginTop: 14 }}>
                     <Grid container>
-                      <Typography variant="body1" gutterBottom>Advanced check</Typography>
+                      <Typography variant="body1" style={{fontWeight: 800}} gutterBottom>Advanced Search</Typography>
                     </Grid>
                     <Grid style={{ marginBottom: 14 }}>
                       <CateList cates={advanced} selected={filter.advanced} handleChoose={(label) => {

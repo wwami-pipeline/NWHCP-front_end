@@ -6,7 +6,7 @@ import PathwayDropdown from "./PathwayDropdown";
 export default function PathwayWrapper() {
   return (
     <>
-      <PathwayDropdown level={0} title={"Examples of pathway programs"}>
+      <PathwayDropdown level={0} title={"More"}>
         <Grid>
           <PathwayDropdown level={2} title={"• Health Career Awareness Programs "}>
             <Grid>
