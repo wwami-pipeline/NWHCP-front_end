@@ -18,7 +18,11 @@ const Footer = () => {
         container
         justifyContent={"space-around"}
         spacing={1}
-        style={{ backgroundColor: "#004987", padding: "24px 120px 24px 120px" }}
+        style={{
+          backgroundColor: "#004987",
+          padding: "24px 120px 24px 120px",
+          marginTop: 12,
+        }}
       >
         <Grid item xs={5}>
           <Grid container>
