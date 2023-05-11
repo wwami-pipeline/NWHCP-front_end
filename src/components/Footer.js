@@ -2,169 +2,284 @@ import React from "react";
 import "../scss/footers.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { Container, Grid, Link } from "@mui/material";
+import {
+  Container,
+  FormControl,
+  Grid,
+  Link,
+  TextField,
+  Typography,
+  styled,
+} from "@mui/material";
 import { Button } from "react-bootstrap";
 import "../styles/footer/form.css";
 
 const Footer = () => {
   return (
-    <div className="footer main-footer py-3 mt-4">
-      <Container>
-        <Grid container spacing={12} style={{}}>
-          <Grid item xs={12} sm={4}>
-            <h2 style={{ color: "white", fontSize: "18px" }}>Address</h2>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <h2 style={{ color: "white", fontSize: "18px" }}>
-              Northwest Health Career Path
-            </h2>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <h2 style={{ color: "white", fontSize: "18px" }}>Keep in Touch</h2>
-          </Grid>
-        </Grid>
-
-        <Grid container spacing={12} justifyContent={"space-between"}>
-          <Grid item xs={5}>
-            <h4 className="footer">237 West Kellog Road, Bellingham, WA</h4>
-
-            <h4
-              className="sub-text-footer"
-              style={{ color: "white", fontWeight: 500 }}
-            >
-              ahecww@whatcom.edu
-            </h4>
-            <h4
-              className="sub-text-footer"
-              style={{ color: "white", fontWeight: 500 }}
-            >
-              (360)-383-3170
-            </h4>
-          </Grid>
-
-          <Grid
-            item
-            xs={3}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "flex-end",
-            }}
-          >
-            <p style={{ margin: "20px", bottom: "10px" }}>
-              Visit the Area Health Education Center of Western Washington
-            </p>
-            <Link href="https://www.ahecww.org/" style={{ margin: "5px" }}>
-              <Button
-                size="lg"
-                variant="secondary"
+    <>
+      <Grid
+        container
+        justifyContent={"space-around"}
+        spacing={1}
+        style={{ backgroundColor: "#004987", padding: "24px 120px 24px 120px" }}
+      >
+        <Grid item xs={5}>
+          <Grid container>
+            <Grid item xs={12} style={{ marginBottom: 48 }}>
+              <Typography
                 style={{
-                  borderRadius: "8px",
-                  borderStyle: "none",
                   color: "white",
-                  cursor: "pointer",
-                  fontSize: "14px",
-                  fontWeight: "bold",
-                  height: "40px",
-                  lineHeight: "20px",
-                  padding: "10px 16px",
-                  position: "relative",
-                  textAlign: "center",
-                  verticalAlign: "baseline",
-                  width: "max-width",
-                  backgroundColor: "#008080",
-                  bottom: "8px",
+                  fontSize: 24,
+                  marginBottom: 24,
+                  fontWeight: 800,
                 }}
               >
-                AHECWW.org
-              </Button>
-            </Link>
-            <article>
-              <p className="small mt-2" style={{ fontSize: "16px" }}>
-                NWHCP ©2023
-              </p>
-              <p className="small mt-2">
-                Please use computer browser for best experience
-              </p>
-            </article>
-
-            {/* <Mailto email="ahecww@whatcom.edu" obfuscate={true}> */}
-            {/* <FontAwesomeIcon
-                  icon={faEnvelope}
-                  style={{ height: 56, width: 56 }}
-                /> */}
-            {/* </Mailto> */}
-          </Grid>
-          <Grid item xs={4}>
-            <Grid item xs={9}>
-              <form className="form">
-                <p style={{ margin: "10px" }}>
-                  <input
-                    type="text"
-                    name="firstName"
-                    placeholder="Enter Your First Name"
-                    required
-                  />
-                </p>
-                <p style={{ margin: "10px" }}>
-                  <input
-                    type="text"
-                    name="lastName"
-                    placeholder="Enter Your Last Name"
-                    required
-                  />
-                </p>
-                <p style={{ margin: "10px" }}>
-                  <input
-                    type="text"
-                    name="email"
-                    placeholder="Enter Your Email"
-                    required
-                  />
-                </p>
-                <p>
-                  <label value="question" style={{ width: "200%" }}>
-                    Are You a Student or Program Administrator?
-                  </label>
-                  <textarea
-                    name="question"
-                    rows="5"
-                    cols="30"
-                    maxLength="300"
-                    placeholder="Please tell us a few words about how we can help you"
-                    style={{ color: "grey" }}
-                  ></textarea>
-                </p>
-                <label value="submit" style={{ width: "200%" }}>
-                  By Clicking 'Submit', You Certify That You Are At Least 13
-                  Years of Age.
-                </label>
-                <button
+                Northwest Health Career Path
+              </Typography>
+              <Typography
+                // align="center"
+                style={{
+                  // margin: "10px 0px 10px 80px",
+                  color: "white",
+                  fontWeight: 500,
+                  fontSize: 18,
+                  marginBottom: 12,
+                }}
+              >
+                Visit the Area Health Education Center of Western Washington
+              </Typography>
+              <Link href="https://www.ahecww.org/">
+                <Button
+                  variant={"contained"}
                   style={{
-                    backgroundColor: "#088F8F",
-                    margin: "10px",
-                    borderRadius: "8px",
-                    borderStyle: "none",
+                    border: "1px solid white",
                     color: "white",
                     cursor: "pointer",
                     fontSize: "14px",
                     fontWeight: "bold",
                     height: "40px",
-                    lineHeight: "20px",
                     padding: "10px 16px",
-                    position: "relative",
                     textAlign: "center",
-                    verticalAlign: "baseline",
+                    marginTop: 24,
                   }}
                 >
-                  Submit
-                </button>
-              </form>
+                  Visit AHECWW.org
+                </Button>
+              </Link>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography
+                style={{
+                  color: "white",
+                  fontSize: 24,
+                  marginBottom: 24,
+                  fontWeight: 800,
+                }}
+              >
+                Address
+              </Typography>
+              <Typography
+                style={{
+                  color: "white",
+                  fontWeight: 500,
+                  fontSize: 18,
+                  marginBottom: 12,
+                }}
+              >
+                237 West Kellog Road, Bellingham, WA
+              </Typography>
+              <Typography
+                style={{
+                  color: "white",
+                  fontWeight: 500,
+                  fontSize: 18,
+                  marginBottom: 12,
+                }}
+              >
+                ahecww@whatcom.edu
+              </Typography>
+              <Typography
+                style={{
+                  color: "white",
+                  fontWeight: 500,
+                  fontSize: 18,
+                  marginBottom: 12,
+                }}
+              >
+                (360)-383-3170
+              </Typography>
             </Grid>
           </Grid>
         </Grid>
-      </Container>
-    </div>
+        <Grid item xs={4}>
+          <Typography
+            style={{
+              color: "white",
+              fontSize: 24,
+              marginBottom: 24,
+              fontWeight: 800,
+            }}
+          >
+            Keep in Touch
+          </Typography>
+          <FormControl className="">
+            <ContactTextField
+              label={"First Name"}
+              type={"text"}
+              placeholder={"Eg: Elon"}
+              name={"firstName"}
+            />
+            <ContactTextField
+              label={"Last Name"}
+              type={"text"}
+              placeholder={"Eg: Musk"}
+              name={"lastName"}
+            />
+            <ContactTextField
+              label={"Email"}
+              type={"text"}
+              placeholder={"Eg: company123@gmail.com"}
+              name={"email"}
+            />
+            <ContactTextFieldMutipleLine
+              name="question"
+              label={"Please tell us a few words about how we can help you"}
+              placeholder={
+                "Are you a student or program administrator? What are the problem that you are " +
+                "having with our website. Please let us know, we will contact you as soon as possible"
+              }
+            />
+            <label
+              value="submit"
+              style={{ color: "white", marginTop: 24, fontSize: 14 }}
+            >
+              By Clicking 'Submit', You Certify That You Are At Least 13 Years
+              of Age.
+            </label>
+            <Button
+              variant={"contained"}
+              style={{
+                border: "1px solid white",
+                color: "white",
+                cursor: "pointer",
+                fontSize: "14px",
+                fontWeight: "bold",
+                height: "40px",
+                padding: "10px 16px",
+                textAlign: "center",
+              }}
+            >
+              Submit
+            </Button>
+          </FormControl>
+        </Grid>
+        <Grid item xs={12}>
+          <Typography
+            align="center"
+            className="small mt-2"
+            style={{ fontSize: "16px", color: "white" }}
+          >
+            NWHCP ©{new Date().getFullYear()}
+          </Typography>
+          <Typography
+            align="center"
+            className="small mt-2"
+            style={{ color: "white" }}
+          >
+            Please use computer browser for best experience -{" "}
+            <a
+              style={{ color: "white", textDecoration: "underline" }}
+              href="https://github.com/kipiiler"
+            >
+              @kipiiler
+            </a>
+          </Typography>
+        </Grid>
+      </Grid>
+    </>
+  );
+};
+
+const CustomTextField = styled(TextField)({
+  marginTop: 12,
+  color: "white",
+  "& label.Mui-focused": {
+    color: "white",
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: "#B2BAC2",
+  },
+  "& .MuiOutlinedInput-root": {
+    "& textarea": {
+      color: "white",
+    },
+    "& fieldset": {
+      color: "white",
+      borderColor: "white",
+    },
+    "&:hover fieldset": {
+      borderColor: "#B2BAC2",
+    },
+    "& input": {
+      color: "white",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "white",
+    },
+  },
+});
+
+const ContactTextFieldMutipleLine = ({
+  label,
+  name,
+  placeholder,
+  numRow = 5,
+}) => {
+  return (
+    <CustomTextField
+      variant="outlined"
+      InputProps={{
+        style: {
+          color: "white",
+        },
+      }}
+      InputLabelProps={{
+        style: {
+          color: "white",
+        },
+      }}
+      label={label}
+      name={name}
+      rows={numRow}
+      multiline
+      cols="30"
+      maxLength="300"
+      placeholder={placeholder}
+      // style={{ color: "grey" }}
+    ></CustomTextField>
+  );
+};
+
+const ContactTextField = ({ label, type, name, placeholder }) => {
+  return (
+    <CustomTextField
+      variant="outlined"
+      InputProps={{
+        style: {
+          color: "white",
+        },
+      }}
+      InputLabelProps={{
+        style: {
+          color: "white",
+        },
+      }}
+      label={label}
+      type={type}
+      name={name}
+      placeholder={placeholder}
+      required
+    />
   );
 };
 
