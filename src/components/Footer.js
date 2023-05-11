@@ -1,9 +1,6 @@
 import React from "react";
 import "../scss/footers.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import {
-  Container,
   FormControl,
   Grid,
   Link,
@@ -149,13 +146,18 @@ const Footer = () => {
                 "having with our website. Please let us know, we will contact you as soon as possible"
               }
             />
-            <label
+            <Typography
               value="submit"
-              style={{ color: "white", marginTop: 24, fontSize: 14 }}
+              style={{
+                color: "white",
+                marginTop: 12,
+                fontSize: 14,
+                marginBottom: 12,
+              }}
             >
               By Clicking 'Submit', You Certify That You Are At Least 13 Years
               of Age.
-            </label>
+            </Typography>
             <Button
               variant={"contained"}
               style={{

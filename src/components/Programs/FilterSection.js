@@ -8,10 +8,7 @@ import {
   Collapse,
 } from "@mui/material";
 import React, { useContext, useState, useEffect } from "react";
-import {
-  bounds as defaultBound,
-  defaultAllBound,
-} from "../../../static/stateCoordinate";
+import { defaultAllBound } from "../../../static/stateCoordinate";
 
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
@@ -26,13 +23,12 @@ import {
 } from "../../shared/filters";
 
 export default function ProgramFilterSection({ setBounds }) {
-  const [location, setLocation] = useState("");
+  // const [location, setLocation] = useState("");
   const [openfilter, setOpenFilter] = useState(false);
   const [filter, setFilter] = useState({});
   const [openAdvance, setOpenAdvance] = useState(false);
 
-  const { updateFilterLocation, clearAll, updateFilter } =
-    useContext(AllProgramConText);
+  const { clearAll, updateFilter } = useContext(AllProgramConText);
 
   const curfilter = useContext(AllProgramConText).state.searchFilter;
 
@@ -300,7 +296,13 @@ export default function ProgramFilterSection({ setBounds }) {
                 <Collapse in={openAdvance}>
                   <Grid container style={{ marginTop: 14 }}>
                     <Grid container>
-                      <Typography variant="body1" style={{fontWeight: 800}} gutterBottom>Advanced Search</Typography>
+                      <Typography
+                        variant="body1"
+                        style={{ fontWeight: 800 }}
+                        gutterBottom
+                      >
+                        Advanced Search
+                      </Typography>
                     </Grid>
                     <Grid style={{ marginBottom: 14 }}>
                       <CateList

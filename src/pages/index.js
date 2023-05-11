@@ -39,7 +39,6 @@ const Home = () => {
             fontSize: "1.2rem",
             lineHeight: "2rem",
             width: "48%",
-            fontSize: "25px",
             position: "relative",
             left: "615px",
             top: "200px",
