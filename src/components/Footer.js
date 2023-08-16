@@ -16,7 +16,7 @@ const Footer = () => {
     <>
       <Grid
         container
-        justifyContent={"space-around"}
+        justifyContent="space-around"
         spacing={1}
         style={{
           backgroundColor: "#004987",
@@ -24,95 +24,92 @@ const Footer = () => {
           marginTop: 12,
         }}
       >
-        <Grid item xs={5}>
-          <Grid container>
-            <Grid item xs={12} style={{ marginBottom: 48 }}>
-              <Typography
+        <Grid container item xs={12} md={5}>
+          <Grid item xs={12}>
+            <Typography
+              style={{
+                color: "white",
+                fontSize: 24,
+                marginBottom: 24,
+                fontWeight: 800,
+              }}
+            >
+              Northwest Health Career Path
+            </Typography>
+            <Typography
+              // align="center"
+              style={{
+                // margin: "10px 0px 10px 80px",
+                color: "white",
+                fontWeight: 500,
+                fontSize: 18,
+                marginBottom: 12,
+              }}
+            >
+              Visit the Area Health Education Center of Western Washington
+            </Typography>
+            <Link href="https://www.ahecww.org/">
+              <Button
+                variant="contained"
                 style={{
+                  border: "1px solid white",
                   color: "white",
-                  fontSize: 24,
-                  marginBottom: 24,
-                  fontWeight: 800,
+                  cursor: "pointer",
+                  fontSize: "14px",
+                  fontWeight: "bold",
+                  padding: "10px 16px",
+                  textAlign: "center",
+                  marginTop: 24,
                 }}
               >
-                Northwest Health Career Path
-              </Typography>
-              <Typography
-                // align="center"
-                style={{
-                  // margin: "10px 0px 10px 80px",
-                  color: "white",
-                  fontWeight: 500,
-                  fontSize: 18,
-                  marginBottom: 12,
-                }}
-              >
-                Visit the Area Health Education Center of Western Washington
-              </Typography>
-              <Link href="https://www.ahecww.org/">
-                <Button
-                  variant={"contained"}
-                  style={{
-                    border: "1px solid white",
-                    color: "white",
-                    cursor: "pointer",
-                    fontSize: "14px",
-                    fontWeight: "bold",
-                    height: "40px",
-                    padding: "10px 16px",
-                    textAlign: "center",
-                    marginTop: 24,
-                  }}
-                >
-                  Visit AHECWW.org
-                </Button>
-              </Link>
-            </Grid>
-            <Grid item xs={12}>
-              <Typography
-                style={{
-                  color: "white",
-                  fontSize: 24,
-                  marginBottom: 24,
-                  fontWeight: 800,
-                }}
-              >
-                Address
-              </Typography>
-              <Typography
-                style={{
-                  color: "white",
-                  fontWeight: 500,
-                  fontSize: 18,
-                  marginBottom: 12,
-                }}
-              >
-                237 West Kellog Road, Bellingham, WA
-              </Typography>
-              <Typography
-                style={{
-                  color: "white",
-                  fontWeight: 500,
-                  fontSize: 18,
-                  marginBottom: 12,
-                }}
-              >
-                ahecww@whatcom.edu
-              </Typography>
-              <Typography
-                style={{
-                  color: "white",
-                  fontWeight: 500,
-                  fontSize: 18,
-                  marginBottom: 12,
-                }}
-              >
-                (360)-383-3170
-              </Typography>
-            </Grid>
+                Visit AHECWW.org
+              </Button>
+            </Link>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography
+              style={{
+                color: "white",
+                fontSize: 24,
+                marginBottom: 24,
+                fontWeight: 800,
+              }}
+            >
+              Address
+            </Typography>
+            <Typography
+              style={{
+                color: "white",
+                fontWeight: 500,
+                fontSize: 18,
+                marginBottom: 12,
+              }}
+            >
+              237 West Kellog Road, Bellingham, WA
+            </Typography>
+            <Typography
+              style={{
+                color: "white",
+                fontWeight: 500,
+                fontSize: 18,
+                marginBottom: 12,
+              }}
+            >
+              ahecww@whatcom.edu
+            </Typography>
+            <Typography
+              style={{
+                color: "white",
+                fontWeight: 500,
+                fontSize: 18,
+                marginBottom: 12,
+              }}
+            >
+              (360)-383-3170
+            </Typography>
           </Grid>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12} md={4}>
           <Typography
             style={{
               color: "white",

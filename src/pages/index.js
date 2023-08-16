@@ -1,114 +1,68 @@
 /* main page */
 import React from "react";
+import Grid from '@mui/material/Grid';
 import { Link } from "gatsby";
 import { Button } from "react-bootstrap";
-import Students from "../images/nwhcp-students.png";
+import Students from "../images/homepage_collage.png";
 
 const Home = () => {
   return (
-    <div
-      className="pt-3"
+    <Grid container spacing={6}
       style={{
-        height: "100vh",
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <div>
-        <h1
-          className="text-primary"
-          style={{
-            textAlign: "center",
-          }}
-        >
-          There's something for every student in healthcare.
-        </h1>
-      </div>
-      <div
-        className="d-flex"
-        style={{
-          textAlign: "left",
-          flex: "1",
-          display: "flex",
-          flexDirection: "column",
-          alignContent: "flex-end",
-        }}
+        paddingTop: "7%",
+        paddingBottom: "7%",
+        width: "90%",
+        margin: "auto"
+      }}>
+
+      <Grid
+        xs={12} md={4}
+        item container
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
       >
-        <p
-          style={{
-            fontSize: "1.2rem",
-            lineHeight: "2rem",
-            width: "48%",
-            position: "relative",
-            left: "615px",
-            top: "200px",
-          }}
-        >
-          Made for students pursuing a career in the health professions.
-          <br /> Explore our site to find supplemental programs and
-          opportunities that will help you reach your goals.
+        <h3 className="text-primary" style={{ textAlign: "center" }}>
+          Achieve your Future
+        </h3>
+        <p style={{ textAlign: "center", marginTop: "5%" }}>
+          Are you a student pursuing a career in the health professions?
         </p>
-        <p
-          className="lead "
-          style={{
-            width: "48%",
-            fontSize: "25px",
-            position: "relative",
-            left: "615px",
-            top: "200px",
-          }}
-        >
-          Let's match you up with programs that might be right for you!
+        <p style={{ textAlign: "center" }}>
+          Do you come from a background that might place barriers in your way?
         </p>
-        <img
-          src={Students}
-          alt="students"
-          style={{
-            width: "550px",
-            height: "500px",
-            position: "relative",
-            bottom: "290px",
-            right: "50px",
-          }}
-        />
-      </div>
-      <div
-        className="text-center pb-4"
-        style={{
-          position: "relative",
-          bottom: "265px",
-        }}
-      >
+        <p style={{ textAlign: "center", marginTop: "5%" }}>
+          Explore our site to find supplemental programs and opportunities that will help you reach your goals.
+        </p>
+  
         <Link to="/programs">
           <Button
             size="lg"
             variant="primary"
             style={{
-              borderRadius: "10px",
-              border: "1px solid #101010",
+              borderRadius: "24px",
               boxShadow: "1px #949494",
-              padding: "29px",
-              fontSize: "26px",
-              fontWeight: "bold",
-              width: "20%",
+              fontSize: "14px",
+              textTransform: "uppercase",
+              marginTop: "20%"
             }}
           >
             Get Started
           </Button>
         </Link>
-      </div>
-      <p
-        className=""
-        style={{
-          position: "relative",
-          bottom: "220px",
-          textAlign: "center",
-          fontSize: "40",
-        }}
-      >
-        Click <Link to="/about">here</Link> to learn more about us.
-      </p>
-    </div>
+      </Grid>
+      <Grid item xs={12} md={8}>
+        <img
+          src={Students}
+          alt="students"
+          style={{
+            width: "100%",
+            height: "auto"
+          }}
+        />
+
+      </Grid>
+    </Grid>
   );
 };
 export default Home;
