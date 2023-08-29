@@ -7,10 +7,10 @@ import Students from "../images/homepage_collage.png";
 
 const Home = () => {
   return (
-    <Grid container spacing={6}
+    <Grid container
       style={{
-        paddingTop: "7%",
-        paddingBottom: "7%",
+        paddingTop: "3%",
+        paddingBottom: "3%",
         width: "90%",
         margin: "auto"
       }}>
@@ -56,11 +56,11 @@ const Home = () => {
           src={Students}
           alt="students"
           style={{
-            width: "100%",
+            margin: 30,
+            width: "85%",
             height: "auto"
           }}
         />
-
       </Grid>
     </Grid>
   );

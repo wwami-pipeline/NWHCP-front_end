@@ -5,6 +5,8 @@ import {
   Grid,
   Link,
   TextField,
+  Box,
+  Stack,
   Typography,
   styled,
 } from "@mui/material";
@@ -13,24 +15,24 @@ import "../styles/footer/form.css";
 
 const Footer = () => {
   return (
-    <>
+    <Box style={{backgroundColor: "#004987"}}>
       <Grid
         container
-        justifyContent="space-around"
-        spacing={1}
+        justifyContent="space-between"
         style={{
+          width: "60%",
+          margin: "auto",
           backgroundColor: "#004987",
-          padding: "24px 120px 24px 120px",
           marginTop: 12,
         }}
       >
-        <Grid container item xs={12} md={5}>
-          <Grid item xs={12}>
+        <Grid container item xs={12} md={6} paddingTop={3}>
+          <Stack>
             <Typography
               style={{
                 color: "white",
-                fontSize: 24,
-                marginBottom: 24,
+                fontSize: 18,
+                marginBottom: 20,
                 fontWeight: 800,
               }}
             >
@@ -42,7 +44,7 @@ const Footer = () => {
                 // margin: "10px 0px 10px 80px",
                 color: "white",
                 fontWeight: 500,
-                fontSize: 18,
+                fontSize: 14,
                 marginBottom: 12,
               }}
             >
@@ -55,22 +57,21 @@ const Footer = () => {
                   border: "1px solid white",
                   color: "white",
                   cursor: "pointer",
-                  fontSize: "14px",
+                  fontSize: 12,
                   fontWeight: "bold",
                   padding: "10px 16px",
                   textAlign: "center",
                   marginTop: 24,
+                  marginBottom: 24,
                 }}
               >
                 Visit AHECWW.org
               </Button>
             </Link>
-          </Grid>
-          <Grid item xs={12}>
             <Typography
               style={{
                 color: "white",
-                fontSize: 24,
+                fontSize: 18,
                 marginBottom: 24,
                 fontWeight: 800,
               }}
@@ -81,7 +82,7 @@ const Footer = () => {
               style={{
                 color: "white",
                 fontWeight: 500,
-                fontSize: 18,
+                fontSize: 14,
                 marginBottom: 12,
               }}
             >
@@ -91,7 +92,7 @@ const Footer = () => {
               style={{
                 color: "white",
                 fontWeight: 500,
-                fontSize: 18,
+                fontSize: 14,
                 marginBottom: 12,
               }}
             >
@@ -101,20 +102,20 @@ const Footer = () => {
               style={{
                 color: "white",
                 fontWeight: 500,
-                fontSize: 18,
+                fontSize: 14,
                 marginBottom: 12,
               }}
             >
               (360)-383-3170
             </Typography>
-          </Grid>
+          </Stack>
         </Grid>
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} md={4} paddingTop={3}>
           <Typography
             style={{
               color: "white",
-              fontSize: 24,
-              marginBottom: 24,
+              fontSize: 18,
+              marginBottom: 20,
               fontWeight: 800,
             }}
           >
@@ -160,14 +161,14 @@ const Footer = () => {
               of Age.
             </Typography>
             <Button
+              size="small"
               variant={"contained"}
               style={{
                 border: "1px solid white",
                 color: "white",
                 cursor: "pointer",
-                fontSize: "14px",
+                fontSize: 14,
                 fontWeight: "bold",
-                height: "40px",
                 padding: "10px 16px",
                 textAlign: "center",
               }}
@@ -199,7 +200,7 @@ const Footer = () => {
           </Typography>
         </Grid>
       </Grid>
-    </>
+    </Box>
   );
 };
 
@@ -240,6 +241,7 @@ const ContactTextFieldMutipleLine = ({
 }) => {
   return (
     <CustomTextField
+      size="small"
       variant="outlined"
       InputProps={{
         style: {
@@ -266,6 +268,7 @@ const ContactTextFieldMutipleLine = ({
 const ContactTextField = ({ label, type, name, placeholder }) => {
   return (
     <CustomTextField
+      size="small"
       variant="outlined"
       InputProps={{
         style: {
