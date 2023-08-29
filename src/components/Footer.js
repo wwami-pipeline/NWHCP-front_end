@@ -62,7 +62,7 @@ const Footer = () => {
                   padding: "10px 16px",
                   textAlign: "center",
                   marginTop: 24,
-                  marginBottom: 24,
+                  marginBottom: 48,
                 }}
               >
                 Visit AHECWW.org
