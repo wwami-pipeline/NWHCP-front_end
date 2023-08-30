@@ -15,7 +15,7 @@ import "../styles/footer/form.css";
 
 const Footer = () => {
   return (
-    <Box style={{backgroundColor: "#004987"}}>
+    <Box style={{backgroundColor: "#004987", marginTop: 12}}>
       <Grid
         container
         justifyContent="space-between"
@@ -23,10 +23,10 @@ const Footer = () => {
           width: "60%",
           margin: "auto",
           backgroundColor: "#004987",
-          marginTop: 12,
+          paddingBottom: 30
         }}
       >
-        <Grid container item xs={12} md={6} paddingTop={3}>
+        <Grid container item xs={12} md={6} paddingTop={4}>
           <Stack>
             <Typography
               style={{
@@ -110,7 +110,7 @@ const Footer = () => {
             </Typography>
           </Stack>
         </Grid>
-        <Grid item xs={12} md={4} paddingTop={3}>
+        <Grid item xs={12} md={4} paddingTop={4}>
           <Typography
             style={{
               color: "white",
