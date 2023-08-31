@@ -31,8 +31,8 @@ const Footer = () => {
             <Typography
               style={{
                 color: "white",
-                fontSize: 18,
-                marginBottom: 20,
+                fontSize: 14,
+                marginBottom: 15,
                 fontWeight: 800,
               }}
             >
@@ -44,8 +44,8 @@ const Footer = () => {
                 // margin: "10px 0px 10px 80px",
                 color: "white",
                 fontWeight: 500,
-                fontSize: 14,
-                marginBottom: 12,
+                fontSize: 12,
+                marginBottom: 10,
               }}
             >
               Visit the Area Health Education Center of Western Washington
@@ -61,8 +61,7 @@ const Footer = () => {
                   fontWeight: "bold",
                   padding: "10px 16px",
                   textAlign: "center",
-                  marginTop: 24,
-                  marginBottom: 48,
+                  marginBottom: 30,
                 }}
               >
                 Visit AHECWW.org
@@ -71,8 +70,8 @@ const Footer = () => {
             <Typography
               style={{
                 color: "white",
-                fontSize: 18,
-                marginBottom: 24,
+                fontSize: 14,
+                marginBottom: 2,
                 fontWeight: 800,
               }}
             >
@@ -82,8 +81,8 @@ const Footer = () => {
               style={{
                 color: "white",
                 fontWeight: 500,
-                fontSize: 14,
-                marginBottom: 12,
+                fontSize: 12,
+                marginBottom: 10,
               }}
             >
               237 West Kellog Road, Bellingham, WA
@@ -92,8 +91,8 @@ const Footer = () => {
               style={{
                 color: "white",
                 fontWeight: 500,
-                fontSize: 14,
-                marginBottom: 12,
+                fontSize: 12,
+                marginBottom: 10,
               }}
             >
               ahecww@whatcom.edu
@@ -102,38 +101,44 @@ const Footer = () => {
               style={{
                 color: "white",
                 fontWeight: 500,
-                fontSize: 14,
-                marginBottom: 12,
+                fontSize: 12,
+                marginBottom: 10,
               }}
             >
               (360)-383-3170
             </Typography>
           </Stack>
         </Grid>
-        <Grid item xs={12} md={4} paddingTop={4}>
+        <Grid item xs={12} md={5} paddingTop={4}>
           <Typography
             style={{
               color: "white",
-              fontSize: 18,
-              marginBottom: 20,
+              fontSize: 14,
+              marginBottom: 5,
               fontWeight: 800,
             }}
           >
             Keep in Touch
           </Typography>
           <FormControl className="">
-            <ContactTextField
-              label={"First Name"}
-              type={"text"}
-              placeholder={"Eg: Elon"}
-              name={"firstName"}
-            />
-            <ContactTextField
-              label={"Last Name"}
-              type={"text"}
-              placeholder={"Eg: Musk"}
-              name={"lastName"}
-            />
+            <Stack direction="row" spacing={2}>
+              <div>
+                <ContactTextField
+                  label={"First Name"}
+                  type={"text"}
+                  placeholder={"Eg: Elon"}
+                  name={"firstName"}
+                />
+              </div>
+              <div>
+                <ContactTextField
+                  label={"Last Name"}
+                  type={"text"}
+                  placeholder={"Eg: Musk"}
+                  name={"lastName"}
+                />
+              </div>
+            </Stack>
             <ContactTextField
               label={"Email"}
               type={"text"}
@@ -152,9 +157,9 @@ const Footer = () => {
               value="submit"
               style={{
                 color: "white",
-                marginTop: 12,
-                fontSize: 14,
-                marginBottom: 12,
+                marginTop: 10,
+                fontSize: 12,
+                marginBottom: 10,
               }}
             >
               By Clicking 'Submit', You Certify That You Are At Least 13 Years
@@ -167,9 +172,8 @@ const Footer = () => {
                 border: "1px solid white",
                 color: "white",
                 cursor: "pointer",
-                fontSize: 14,
+                fontSize: 12,
                 fontWeight: "bold",
-                padding: "10px 16px",
                 textAlign: "center",
               }}
             >
@@ -180,15 +184,15 @@ const Footer = () => {
         <Grid item xs={12}>
           <Typography
             align="center"
-            className="small mt-2"
-            style={{ fontSize: "16px", color: "white" }}
+            className="small"
+            style={{ marginTop: 30, fontSize: 12, color: "white" }}
           >
             NWHCP ©{new Date().getFullYear()}
           </Typography>
           <Typography
             align="center"
-            className="small mt-2"
-            style={{ color: "white" }}
+            className="small"
+            style={{ marginTop: 1, fontSize: 12, color: "white" }}
           >
             Please use computer browser for best experience -{" "}
             <a
