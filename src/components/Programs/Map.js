@@ -4,6 +4,7 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { Link } from "gatsby";
 import iconLocation from "../../images/icon-location.svg";
+import iconSchool from "../../images/school-solid.svg";
 import { Context as AllProgramContext } from "../../context/programContext";
 
 // Component that displays a react leaflet map
@@ -41,9 +42,18 @@ function Map({ programs, center, bounds }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [center]);
 
-  const createMarker = (id) => {
+  const createMarkerPathway = (id) => {
     let marker = new L.Icon({
       iconUrl: iconLocation,
+      iconSize: new L.Point(20, 30),
+      className: "marker" + id,
+    });
+    return marker;
+  };
+
+  const createMarkerSchool = (id) => {
+    let marker = new L.Icon({
+      iconUrl: iconSchool,
       iconSize: new L.Point(20, 30),
       className: "marker" + id,
     });
@@ -115,8 +125,7 @@ function Map({ programs, center, bounds }) {
             return <Marker
               key={program._id}
               position={[program.latitude || 47.6062, program.longitude || -122.3321]}
-              icon={createMarker(program._id)
-              }
+              icon={program.}
             >
               <Popup>
                 <span>
