@@ -10,6 +10,7 @@ export const careers = [
   { name: "STEM", id: "stem" },
   { name: "Other", id: "other" },
 ];
+
 export const programType = [
   { name: "Certification Programs", id: "certification" },
   { name: "College Readiness Programs", id: "college_readiness" },
@@ -20,6 +21,7 @@ export const programType = [
   { name: "Tutoring & Skill Building", id: "tutoring" },
   { name: "Work-based Learning Opportunities", id: "work_based" },
 ];
+
 export const gradeLevels = [
   { name: "Middle School", id: "middle" },
   { name: "High School", id: "highschool" },
@@ -32,14 +34,16 @@ export const gradeLevels = [
 export const duration = [
   { name: "Education Program", id: "edu_program" },
   { name: "After School Program", id: "after_school" },
-  { name: "Weekday Event (Daytime)", id: "wkday_day" },
-  { name: "Weekday Event (Evening)", id: "wkday_ev" },
+  { name: "Weekday, daytime", id: "wkday_day" },
+  { name: "Weekday, evening", id: "wkday_ev" },
   { name: "Weekends", id: "wkend" },
   { name: "Year-Long", id: "year" },
   { name: "Quarterly", id: "quarter" },
+  // figure how to combine summer into school break
   { name: "Summer", id: "summer" },
   { name: "School Break", id: "school_break" },
 ];
+
 export const eligibility = [
   "General Enrollment",
   "Background Check Required",
@@ -48,6 +52,27 @@ export const eligibility = [
   "DACA Students Eligible",
   "Enrollment Preference for Students from Underrepresented Backgrounds",
 ];
+
+export const financialSupport = [
+  { name: "Free Program", id: "free_program" },
+  { name: "Financial Support/Scholarships Available", id: "support_available" },
+  { name: "Participants Paid or Stipend Offered", id: "paid_stipend_offer" },
+  { name: "Housing Provided", id: "house_provided" },
+  { name: "No Financial Support Available", id: "no_support" }
+];
+
+export const serviceArea = [
+  { name: "Single Site", id: "single_site" },
+  { name: "Neighborhood Specific", id: "neigh_specif" },
+  { name: "City", id: "city" },
+  { name: "State/Regional", id: "state_regional" }
+];
+
+export const shadowOppt = [
+  { name: "Yes", id: 'yes' },
+  { name: "No", id: 'no'}
+];
+
 export const advanced = [
   { name: "Accessible by Public Transportation", id: "public_transportation" },
   { name: "Academic Credit", id: "academic_credit" },

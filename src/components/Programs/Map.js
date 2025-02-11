@@ -42,23 +42,60 @@ function Map({ programs, center, bounds }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [center]);
 
-  const createMarkerPathway = (id) => {
-    let marker = new L.Icon({
-      iconUrl: iconLocation,
-      iconSize: new L.Point(20, 30),
-      className: "marker" + id,
+  const getProgramType = (program) => {
+    // extract all pathway type keys
+    const entries = Object.entries(program);
+    // filter entries to only include keys with 'pathway_type'
+    const filteredEntries = entries.filter(([key]) => key.includes("pathway_type"));
+    // convert filtered entries back into object
+    const allPathways = Object.fromEntries(filteredEntries);
+    let pathways = [];
+    // loop through all pathway keys
+    Object.keys(allPathways).forEach((type) => {
+      // if val of curr key = 1, then program type is active
+      if (allPathways[type] === "1") {
+        pathways.push(type.split("___")[1]);
+      }
     });
-    return marker;
-  };
+    return pathways[0] || "default";
+  }
 
-  const createMarkerSchool = (id) => {
-    let marker = new L.Icon({
-      iconUrl: iconSchool,
+  const createMarker = (id, type) => {
+    let iconType;
+    switch (type) {
+      case "certification":
+        iconType = iconSchool;
+        break;
+      case "college_readiness":
+        iconType = iconLocation;
+        break;
+      case "community_service":
+        iconType = iconLocation;
+        break;
+      case "health_career":
+        iconType = iconSchool;
+        break;
+      case "youth_camp":
+        iconType = iconLocation;
+        break;
+      case "mentor":
+        iconType = iconLocation;
+        break;
+      case "tutoring":
+        iconType = iconLocation;
+        break;
+      case "work_based":
+        iconType = iconLocation;
+        break;
+      default:
+        iconType = iconLocation;
+    }
+    return new L.Icon({
+      iconUrl: iconType,
       iconSize: new L.Point(20, 30),
       className: "marker" + id,
     });
-    return marker;
-  };
+  }
 
   // // Set map parameters
   useEffect(() => {
@@ -125,7 +162,7 @@ function Map({ programs, center, bounds }) {
             return <Marker
               key={program._id}
               position={[program.latitude || 47.6062, program.longitude || -122.3321]}
-              icon={program.}
+              icon={createMarker(program._id, getProgramType(program))}
             >
               <Popup>
                 <span>

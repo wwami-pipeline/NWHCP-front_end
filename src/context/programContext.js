@@ -211,6 +211,9 @@ export const { Context, Provider } = createContext(
       programType: [],
       gradeLevels: [],
       duration: [],
+      finanSprt: [],
+      servArea: [],
+      shadOppt: [],
       advanced: [],
       required: [],
     }

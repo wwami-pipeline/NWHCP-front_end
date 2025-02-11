@@ -2,9 +2,9 @@ import React from "react";
 import { Checkbox, Grid, Typography } from "@mui/material";
 
 export default function CateList({
-  cates,
-  selected,
-  handleChoose,
+  cates,  // list of categories/filter options to display
+  selected,  // array representing currently selected options
+  handleChoose,  // cb function triggered when user selects/deselects option
 }) {
 
   return (

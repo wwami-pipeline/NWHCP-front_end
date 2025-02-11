@@ -20,6 +20,9 @@ import {
   gradeLevels,
   advanced,
   duration as configDuration,
+  financialSupport,
+  serviceArea,
+  shadowOppt,
 } from "../../shared/filters";
 
 export default function ProgramFilterSection({ setBounds }) {
@@ -199,6 +202,7 @@ export default function ProgramFilterSection({ setBounds }) {
                 </Grid>
               </Grid>
               <Grid container>
+                {/* Start of filtering categories */}
                 <Grid item xs={4}>
                   <Grid container>
                     <Typography variant="h6" gutterBottom>
@@ -293,6 +297,101 @@ export default function ProgramFilterSection({ setBounds }) {
                     ></CateList>
                   </Grid>
                 </Grid>
+                {/* New filtering categories */}
+
+                <Grid item xs={4}>
+                  <Grid container>
+                    <Typography variant="h6" gutterBottom>
+                      Select Fees/Financial Support
+                    </Typography>
+                  </Grid>
+                  <Grid style={{ marginBottom: 14 }}>
+                    <CateList
+                      cates={financialSupport}
+                      selected={filter.finanSprt}
+                      handleChoose={(label) => {
+                        if (filter.finanSprt.includes(label)) {
+                          let newSprt = filter.finanSprt;
+                          newSprt = newSprt.filter((el) => el !== label);
+                          setFilter((prev) => ({
+                            ...prev,
+                            finanSprt: newSprt,
+                          }));
+                        } else {
+                          let newSprt = filter.finanSprt;
+                          newSprt.push(label);
+                          setFilter((prev) => ({
+                            ...prev,
+                            finanSprt: newSprt,
+                          }));
+                        }
+                      }}
+                    ></CateList>
+                  </Grid>
+                </Grid>
+
+                <Grid item xs={4}>
+                  <Grid container>
+                    <Typography variant="h6" gutterBottom>
+                      Select Service Area
+                    </Typography>
+                  </Grid>
+                  <Grid style={{ marginBottom: 14 }}>
+                    <CateList
+                      cates={serviceArea}
+                      selected={filter.servArea}
+                      handleChoose={(label) => {
+                        if (filter.servArea.includes(label)) {
+                          let newServArea = filter.servArea;
+                          newServArea = newServArea.filter((el) => el !== label);
+                          setFilter((prev) => ({
+                            ...prev,
+                            servArea: newServArea,
+                          }));
+                        } else {
+                          let newServArea = filter.servArea;
+                          newServArea.push(label);
+                          setFilter((prev) => ({
+                            ...prev,
+                            servArea: newServArea,
+                          }));
+                        }
+                      }}
+                    ></CateList>
+                  </Grid>
+                </Grid>
+
+                <Grid item xs={4}>
+                  <Grid container>
+                    <Typography variant="h6" gutterBottom>
+                      Select Shadowing Opportunities
+                    </Typography>
+                  </Grid>
+                  <Grid style={{ marginBottom: 14 }}>
+                    <CateList
+                      cates={shadowOppt}
+                      selected={filter.shadOppt}
+                      handleChoose={(label) => {
+                        if (filter.shadOppt.includes(label)) {
+                          let newShadOppt = filter.shadOppt;
+                          newShadOppt = newShadOppt.filter((el) => el !== label);
+                          setFilter((prev) => ({
+                            ...prev,
+                            shadOppt: newShadOppt,
+                          }));
+                        } else {
+                          let newShadOppt = filter.shadOppt;
+                          newShadOppt.push(label);
+                          setFilter((prev) => ({
+                            ...prev,
+                            shadOppt: newShadOppt,
+                          }));
+                        }
+                      }}
+                    ></CateList>
+                  </Grid>
+                </Grid>
+
                 <Collapse in={openAdvance}>
                   <Grid container style={{ marginTop: 14 }}>
                     <Grid container>
