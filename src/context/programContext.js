@@ -209,12 +209,11 @@ export const { Context, Provider } = createContext(
       location: "",
       careerEmp: [],
       programType: [],
-      gradeLevels: [],
-      duration: [],
+      gradeLev: [],
+      durations: [],
       finanSprt: [],
-      servArea: [],
       shadOppt: [],
-      advanced: [],
+      advanceds: [],
       required: [],
     }
   }

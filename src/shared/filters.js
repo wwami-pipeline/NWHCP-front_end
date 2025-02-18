@@ -32,16 +32,13 @@ export const gradeLevels = [
 ];
 
 export const duration = [
-  { name: "Education Program", id: "edu_program" },
-  { name: "After School Program", id: "after_school" },
   { name: "Weekday, daytime", id: "wkday_day" },
   { name: "Weekday, evening", id: "wkday_ev" },
   { name: "Weekends", id: "wkend" },
   { name: "Year-Long", id: "year" },
-  { name: "Quarterly", id: "quarter" },
   // figure how to combine summer into school break
-  { name: "Summer", id: "summer" },
-  { name: "School Break", id: "school_break" },
+  // { name: "Summer", id: "summer" },
+  { name: "School Break (Summer, Spring, Winter)", id: "school_break" },
 ];
 
 export const eligibility = [
@@ -61,13 +58,6 @@ export const financialSupport = [
   { name: "No Financial Support Available", id: "no_support" }
 ];
 
-export const serviceArea = [
-  { name: "Single Site", id: "single_site" },
-  { name: "Neighborhood Specific", id: "neigh_specif" },
-  { name: "City", id: "city" },
-  { name: "State/Regional", id: "state_regional" }
-];
-
 export const shadowOppt = [
   { name: "Yes", id: 'yes' },
   { name: "No", id: 'no'}
@@ -75,11 +65,12 @@ export const shadowOppt = [
 
 export const advanced = [
   { name: "Accessible by Public Transportation", id: "public_transportation" },
-  { name: "Academic Credit", id: "academic_credit" },
-  {
-    name: "Certificate Provided with Program Completion",
-    id: "certificate_yesno",
-  },
+  { name: "Age Requirement - Must be 18", id: "age_req" },
+  { name: "Background Check Required", id: "bckgrnd_check" },
+  { name: "Citizenship or Residency Required", id: "res_req" },
+  { name: "Certificate on Completion", id: "cert_comp" },
+  { name: "Grants/Scholarships on Completion", id: "grant_comp" },
+  { name: "Loan Repayment Options", id: "pay_opt" }
   // { name: "No Background Check Required", id: "bground_check" },
   // { name: "No Pre-requisites or Experience Required", id: "prereqs" },
   // { name: "No Citizenship Required", id: "citizen" },

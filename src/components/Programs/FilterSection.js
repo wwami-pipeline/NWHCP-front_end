@@ -21,7 +21,6 @@ import {
   advanced,
   duration as configDuration,
   financialSupport,
-  serviceArea,
   shadowOppt,
 } from "../../shared/filters";
 
@@ -244,23 +243,23 @@ export default function ProgramFilterSection({ setBounds }) {
                   <Grid style={{ marginBottom: 14 }}>
                     <CateList
                       cates={gradeLevels}
-                      selected={filter.gradeLevels}
+                      selected={filter.gradeLev}
                       handleChoose={(label) => {
-                        if (filter.gradeLevels.includes(label)) {
-                          let newGradelevel = filter.gradeLevels;
+                        if (filter.gradeLev.includes(label)) {
+                          let newGradelevel = filter.gradeLev;
                           newGradelevel = newGradelevel.filter(
                             (el) => el !== label
                           );
                           setFilter((prev) => ({
                             ...prev,
-                            gradeLevels: newGradelevel,
+                            gradeLev: newGradelevel,
                           }));
                         } else {
-                          let newGradelevel = filter.gradeLevels;
+                          let newGradelevel = filter.gradeLev;
                           newGradelevel.push(label);
                           setFilter((prev) => ({
                             ...prev,
-                            gradeLevels: newGradelevel,
+                            gradeLev: newGradelevel,
                           }));
                         }
                       }}
@@ -276,21 +275,21 @@ export default function ProgramFilterSection({ setBounds }) {
                   <Grid style={{ marginBottom: 14 }}>
                     <CateList
                       cates={configDuration}
-                      selected={filter.duration}
+                      selected={filter.durations}
                       handleChoose={(label) => {
-                        if (filter.duration.includes(label)) {
-                          let newTiming = filter.duration;
+                        if (filter.durations.includes(label)) {
+                          let newTiming = filter.durations;
                           newTiming = newTiming.filter((el) => el !== label);
                           setFilter((prev) => ({
                             ...prev,
-                            duration: newTiming,
+                            durations: newTiming,
                           }));
                         } else {
-                          let newTiming = filter.duration;
+                          let newTiming = filter.durations;
                           newTiming.push(label);
                           setFilter((prev) => ({
                             ...prev,
-                            duration: newTiming,
+                            durations: newTiming,
                           }));
                         }
                       }}
@@ -323,37 +322,6 @@ export default function ProgramFilterSection({ setBounds }) {
                           setFilter((prev) => ({
                             ...prev,
                             finanSprt: newSprt,
-                          }));
-                        }
-                      }}
-                    ></CateList>
-                  </Grid>
-                </Grid>
-
-                <Grid item xs={4}>
-                  <Grid container>
-                    <Typography variant="h6" gutterBottom>
-                      Select Service Area
-                    </Typography>
-                  </Grid>
-                  <Grid style={{ marginBottom: 14 }}>
-                    <CateList
-                      cates={serviceArea}
-                      selected={filter.servArea}
-                      handleChoose={(label) => {
-                        if (filter.servArea.includes(label)) {
-                          let newServArea = filter.servArea;
-                          newServArea = newServArea.filter((el) => el !== label);
-                          setFilter((prev) => ({
-                            ...prev,
-                            servArea: newServArea,
-                          }));
-                        } else {
-                          let newServArea = filter.servArea;
-                          newServArea.push(label);
-                          setFilter((prev) => ({
-                            ...prev,
-                            servArea: newServArea,
                           }));
                         }
                       }}
@@ -406,23 +374,23 @@ export default function ProgramFilterSection({ setBounds }) {
                     <Grid style={{ marginBottom: 14 }}>
                       <CateList
                         cates={advanced}
-                        selected={filter.advanced}
+                        selected={filter.advanceds}
                         handleChoose={(label) => {
-                          if (filter.advanced.includes(label)) {
-                            let newAdvance = filter.advanced;
+                          if (filter.advanceds.includes(label)) {
+                            let newAdvance = filter.advanceds;
                             newAdvance = newAdvance.filter(
                               (el) => el !== label
                             );
                             setFilter((prev) => ({
                               ...prev,
-                              advanced: newAdvance,
+                              advanceds: newAdvance,
                             }));
                           } else {
-                            let newAdvance = filter.advanced;
+                            let newAdvance = filter.advanceds;
                             newAdvance.push(label);
                             setFilter((prev) => ({
                               ...prev,
-                              advanced: newAdvance,
+                              advanceds: newAdvance,
                             }));
                           }
                         }}

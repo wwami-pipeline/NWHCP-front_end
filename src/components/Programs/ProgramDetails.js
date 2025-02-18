@@ -269,10 +269,6 @@ function ProgramDetails(props) {
           {/* <DetailCategoryDisplay title={"Organization Details"} obj="" /> */}
           <DetailCategoryDisplay title={"Organization Type"} obj={orgTypes} />
           <DetailCategoryDisplay
-            title={"Service Area"}
-            obj={program.other_servicearea}
-          />
-          <DetailCategoryDisplay
             title={"Career Emphasis"}
             obj={careerEmphasis}
           />
