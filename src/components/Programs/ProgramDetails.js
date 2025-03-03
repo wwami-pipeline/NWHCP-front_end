@@ -76,7 +76,7 @@ function ProgramDetails(props) {
   let finaids = [];
   Object.keys(allOrgAid).forEach(function (el) {
     if (allOrgAid[el] === "1") {
-      finaids.push(el.split("___")[1].slice(4, -1));
+      finaids.push(el.split("___")[1]);
     }
   });
 
@@ -142,6 +142,15 @@ function ProgramDetails(props) {
       certString = allCerts[entry];
     }
   });
+  // shadow
+  let shadowOpptMapped = null;
+  if (program.has_shadow === "1") {
+    shadowOpptMapped = "yes";
+  } else {
+    shadowOpptMapped = "no";
+  }
+  program.shadowOppt = shadowOpptMapped;
+
 
   const SubSectionNavDetail = ({ subSectionName }) => {
     return (

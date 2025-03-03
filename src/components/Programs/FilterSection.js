@@ -171,6 +171,105 @@ export default function ProgramFilterSection({ setBounds }) {
               </Grid>
             </Grid>
           </Grid>
+
+          <Grid container>
+            {/* Start of filtering categories */}
+            <Grid item xs={4}>
+              <Grid container>
+                <Typography variant="h6" gutterBottom>
+                  Select career emphasis
+                </Typography>
+              </Grid>
+              <Grid style={{ marginBottom: 14 }}>
+                <CateList
+                  cates={careers}
+                  selected={filter.careerEmp}
+                  handleChoose={(label) => {
+                    if (filter.careerEmp.includes(label)) {
+                      let newCareerEmp = filter.careerEmp;
+                      newCareerEmp = newCareerEmp.filter(
+                        (el) => el !== label
+                      );
+                      setFilter((prev) => ({
+                        ...prev,
+                        careerEmp: newCareerEmp,
+                      }));
+                    } else {
+                      let newCareerEmp = filter.careerEmp;
+                      newCareerEmp.push(label);
+                      setFilter((prev) => ({
+                        ...prev,
+                        careerEmp: newCareerEmp,
+                      }));
+                    }
+                  }}
+                ></CateList>
+              </Grid>
+            </Grid>
+            <Grid item xs={4}>
+              <Grid container>
+                <Typography variant="h6" gutterBottom>
+                  Select education level
+                </Typography>
+              </Grid>
+              <Grid style={{ marginBottom: 14 }}>
+                <CateList
+                  cates={gradeLevels}
+                  selected={filter.gradeLevels}
+                  handleChoose={(label) => {
+                    if (filter.gradeLevels.includes(label)) {
+                      let newGradelevel = filter.gradeLevels;
+                      newGradelevel = newGradelevel.filter(
+                        (el) => el !== label
+                      );
+                      setFilter((prev) => ({
+                        ...prev,
+                        gradeLevels: newGradelevel,
+                      }));
+                    } else {
+                      let newGradelevel = filter.gradeLevels;
+                      newGradelevel.push(label);
+                      setFilter((prev) => ({
+                        ...prev,
+                        gradeLevels: newGradelevel,
+                      }));
+                    }
+                  }}
+                ></CateList>
+              </Grid>
+            </Grid>
+            <Grid item xs={4}>
+              <Grid container>
+                <Typography variant="h6" gutterBottom>
+                  Select timing
+                </Typography>
+              </Grid>
+              <Grid style={{ marginBottom: 14 }}>
+                <CateList
+                  cates={configDuration}
+                  selected={filter.duration}
+                  handleChoose={(label) => {
+                    if (filter.duration.includes(label)) {
+                      let newTiming = filter.duration;
+                      newTiming = newTiming.filter((el) => el !== label);
+                      setFilter((prev) => ({
+                        ...prev,
+                        duration: newTiming,
+                      }));
+                    } else {
+                      let newTiming = filter.duration;
+                      newTiming.push(label);
+                      setFilter((prev) => ({
+                        ...prev,
+                        duration: newTiming,
+                      }));
+                    }
+                  }}
+                ></CateList>
+              </Grid>
+            </Grid>
+          </Grid>
+
           {/* Advance Filter go here */}
           <Collapse in={openfilter} style={{ width: "100%" }}>
             <Grid container style={{ padding: 8 }}>
@@ -200,104 +299,8 @@ export default function ProgramFilterSection({ setBounds }) {
                   </Button>
                 </Grid>
               </Grid>
-              <Grid container>
-                {/* Start of filtering categories */}
-                <Grid item xs={4}>
-                  <Grid container>
-                    <Typography variant="h6" gutterBottom>
-                      Select career emphasis
-                    </Typography>
-                  </Grid>
-                  <Grid style={{ marginBottom: 14 }}>
-                    <CateList
-                      cates={careers}
-                      selected={filter.careerEmp}
-                      handleChoose={(label) => {
-                        if (filter.careerEmp.includes(label)) {
-                          let newCareerEmp = filter.careerEmp;
-                          newCareerEmp = newCareerEmp.filter(
-                            (el) => el !== label
-                          );
-                          setFilter((prev) => ({
-                            ...prev,
-                            careerEmp: newCareerEmp,
-                          }));
-                        } else {
-                          let newCareerEmp = filter.careerEmp;
-                          newCareerEmp.push(label);
-                          setFilter((prev) => ({
-                            ...prev,
-                            careerEmp: newCareerEmp,
-                          }));
-                        }
-                      }}
-                    ></CateList>
-                  </Grid>
-                </Grid>
-                <Grid item xs={4}>
-                  <Grid container>
-                    <Typography variant="h6" gutterBottom>
-                      Select education level
-                    </Typography>
-                  </Grid>
-                  <Grid style={{ marginBottom: 14 }}>
-                    <CateList
-                      cates={gradeLevels}
-                      selected={filter.gradeLev}
-                      handleChoose={(label) => {
-                        if (filter.gradeLev.includes(label)) {
-                          let newGradelevel = filter.gradeLev;
-                          newGradelevel = newGradelevel.filter(
-                            (el) => el !== label
-                          );
-                          setFilter((prev) => ({
-                            ...prev,
-                            gradeLev: newGradelevel,
-                          }));
-                        } else {
-                          let newGradelevel = filter.gradeLev;
-                          newGradelevel.push(label);
-                          setFilter((prev) => ({
-                            ...prev,
-                            gradeLev: newGradelevel,
-                          }));
-                        }
-                      }}
-                    ></CateList>
-                  </Grid>
-                </Grid>
-                <Grid item xs={4}>
-                  <Grid container>
-                    <Typography variant="h6" gutterBottom>
-                      Select timing
-                    </Typography>
-                  </Grid>
-                  <Grid style={{ marginBottom: 14 }}>
-                    <CateList
-                      cates={configDuration}
-                      selected={filter.durations}
-                      handleChoose={(label) => {
-                        if (filter.durations.includes(label)) {
-                          let newTiming = filter.durations;
-                          newTiming = newTiming.filter((el) => el !== label);
-                          setFilter((prev) => ({
-                            ...prev,
-                            durations: newTiming,
-                          }));
-                        } else {
-                          let newTiming = filter.durations;
-                          newTiming.push(label);
-                          setFilter((prev) => ({
-                            ...prev,
-                            durations: newTiming,
-                          }));
-                        }
-                      }}
-                    ></CateList>
-                  </Grid>
-                </Grid>
                 {/* New filtering categories */}
-
+                <Grid container>
                 <Grid item xs={4}>
                   <Grid container>
                     <Typography variant="h6" gutterBottom>
@@ -374,23 +377,23 @@ export default function ProgramFilterSection({ setBounds }) {
                     <Grid style={{ marginBottom: 14 }}>
                       <CateList
                         cates={advanced}
-                        selected={filter.advanceds}
+                        selected={filter.advanced}
                         handleChoose={(label) => {
-                          if (filter.advanceds.includes(label)) {
-                            let newAdvance = filter.advanceds;
+                          if (filter.advanced.includes(label)) {
+                            let newAdvance = filter.advanced;
                             newAdvance = newAdvance.filter(
                               (el) => el !== label
                             );
                             setFilter((prev) => ({
                               ...prev,
-                              advanceds: newAdvance,
+                              advanced: newAdvance,
                             }));
                           } else {
-                            let newAdvance = filter.advanceds;
+                            let newAdvance = filter.advanced;
                             newAdvance.push(label);
                             setFilter((prev) => ({
                               ...prev,
-                              advanceds: newAdvance,
+                              advanced: newAdvance,
                             }));
                           }
                         }}

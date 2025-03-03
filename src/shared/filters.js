@@ -36,8 +36,6 @@ export const duration = [
   { name: "Weekday, evening", id: "wkday_ev" },
   { name: "Weekends", id: "wkend" },
   { name: "Year-Long", id: "year" },
-  // figure how to combine summer into school break
-  // { name: "Summer", id: "summer" },
   { name: "School Break (Summer, Spring, Winter)", id: "school_break" },
 ];
 
@@ -51,11 +49,11 @@ export const eligibility = [
 ];
 
 export const financialSupport = [
-  { name: "Free Program", id: "free_program" },
-  { name: "Financial Support/Scholarships Available", id: "support_available" },
-  { name: "Participants Paid or Stipend Offered", id: "paid_stipend_offer" },
-  { name: "Housing Provided", id: "house_provided" },
-  { name: "No Financial Support Available", id: "no_support" }
+  { name: "Free Program/Other", id: "other" },
+  { name: "Financial Support/Scholarships Available", id: "yes_financial" },
+  { name: "Participants Paid or Stipend Offered", id: "yes_stipend" },
+  { name: "Housing Provided", id: "yes_housing" },
+  { name: "No Financial Support Available", id: "no" }
 ];
 
 export const shadowOppt = [
@@ -65,12 +63,12 @@ export const shadowOppt = [
 
 export const advanced = [
   { name: "Accessible by Public Transportation", id: "public_transportation" },
-  { name: "Age Requirement - Must be 18", id: "age_req" },
-  { name: "Background Check Required", id: "bckgrnd_check" },
-  { name: "Citizenship or Residency Required", id: "res_req" },
-  { name: "Certificate on Completion", id: "cert_comp" },
-  { name: "Grants/Scholarships on Completion", id: "grant_comp" },
-  { name: "Loan Repayment Options", id: "pay_opt" }
+  { name: "Age Requirement - Must be 18", id: "age_requirement___over_18" },
+  { name: "Background Check Required", id: "background_check" },
+  { name: "Citizenship or Residency Required", id: "citizenship" },
+  { name: "Certificate on Completion", id: "certificate_yesno" },
+  { name: "Grants/Scholarships on Completion", id: "grants___yes" },
+  { name: "Loan Repayment Options", id: "lrp___yes" }
   // { name: "No Background Check Required", id: "bground_check" },
   // { name: "No Pre-requisites or Experience Required", id: "prereqs" },
   // { name: "No Citizenship Required", id: "citizen" },
