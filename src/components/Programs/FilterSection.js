@@ -86,10 +86,10 @@ export default function ProgramFilterSection({ setBounds }) {
               variant="outlined"
               onClick={() => setOpenFilter(!openfilter)}
               fullWidth
-              style={{ height: "100%", borderRadius: 8 }}
+              style={{ height: "100%", borderRadius: 4, backgroundColor: "#004987"}}
             >
-              <Typography variant="body1" style={{ color: "#004987" }}>
-                {!openfilter ? "Open Filters" : "Close Filters"}
+              <Typography variant="body1" style={{ color: "#FFFFFF" }}>
+                {!openfilter ? "Open More Filters" : "Close Filters"}
               </Typography>
             </Button>
           </Grid>
@@ -273,17 +273,17 @@ export default function ProgramFilterSection({ setBounds }) {
           {/* Advance Filter go here */}
           <Collapse in={openfilter} style={{ width: "100%" }}>
             <Grid container style={{ padding: 8 }}>
-              <Grid
+              {/* <Grid
                 container
                 justifyContent={"flex-end"}
                 style={{ marginBottom: 10 }}
               >
-                {/* <Grid xs={4}>
+                <Grid xs={4}>
                   <Grid container>
                     <Typography variant='h6'>Search Filter</Typography>
                   </Grid>
                   <Typography variant='caption'>Select Filter and Search</Typography>
-                </Grid> */}
+                </Grid>
                 <Grid item className="dropdown">
                   <Button
                     disabled={!openfilter}
@@ -298,7 +298,7 @@ export default function ProgramFilterSection({ setBounds }) {
                     </Typography>
                   </Button>
                 </Grid>
-              </Grid>
+              </Grid> */}
                 {/* New filtering categories */}
                 <Grid container>
                 <Grid item xs={4}>
@@ -363,8 +363,8 @@ export default function ProgramFilterSection({ setBounds }) {
                   </Grid>
                 </Grid>
 
-                <Collapse in={openAdvance}>
-                  <Grid container style={{ marginTop: 14 }}>
+                
+                  <Grid item xs={4}>
                     <Grid container>
                       <Typography
                         variant="body1"
@@ -400,7 +400,9 @@ export default function ProgramFilterSection({ setBounds }) {
                       ></CateList>
                     </Grid>
                   </Grid>
-                </Collapse>
+                
+
+
               </Grid>
             </Grid>
           </Collapse>

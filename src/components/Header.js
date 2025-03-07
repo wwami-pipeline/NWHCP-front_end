@@ -51,7 +51,7 @@ const Header = () => {
               Find Programs
             </Nav.Link>
             <Nav.Link href="/post" className="custom-link">
-              Post Opportunity
+              Add a Program
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
