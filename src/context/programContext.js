@@ -27,7 +27,10 @@ const programReducer = (state, action) => {
         programType: [],
         gradeLevels: [],
         duration: [],
+        finanSprt: [],
+        shadOppt: [],
         advanced: [],
+        required: [],
       }
       return newState;
     };
@@ -98,6 +101,29 @@ const programReducer = (state, action) => {
             }
           }
           return false;
+        });
+      }
+
+      const finanSupport = state.searchFilter.finanSprt;
+      if (finanSupport && finanSupport.length !== 0) {
+        newState.filteredProgram = newState.filteredProgram.filter((program) => {
+          for (const attribute in program) {
+            if (
+              attribute.includes("fin_support___") &&
+              program[attribute] === "1" &&
+              finanSupport.some((element) => attribute.includes(element))
+            ) {
+              return true;
+            }
+          }
+          return false;
+        });
+      }
+
+      const shadowOptions = state.searchFilter.shadOppt;
+      if (shadowOptions && shadowOptions.length !== 0) {
+        newState.filteredProgram = newState.filteredProgram.filter((program) => {
+          return shadowOptions.includes('yes') ? program.has_shadow === "1" : program.has_shadow === "0";
         });
       }
 
@@ -211,6 +237,8 @@ export const { Context, Provider } = createContext(
       programType: [],
       gradeLevels: [],
       duration: [],
+      finanSprt: [],
+      shadOppt: [],
       advanced: [],
       required: [],
     }

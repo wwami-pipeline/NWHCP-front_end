@@ -26,15 +26,16 @@ const Home = () => {
           Achieve your Future
         </h3>
         <p style={{ textAlign: "center", marginTop: "5%" }}>
-          Are you a student pursuing a career in the health professions?
+          Are you interested in a health career?
         </p>
         <p style={{ textAlign: "center" }}>
-          Do you come from a background that might place barriers in your way?
+        Do you have barriers that may prevent you achieving your career goals?
         </p>
         <p style={{ textAlign: "center", marginTop: "5%" }}>
-          Explore our site to find supplemental programs and opportunities that will help you reach your goals.
+        Explore our supplemental programs and opportunities that will help achieve your goals.
+
         </p>
-  
+
         <Link to="/programs">
           <Button
             size="lg"

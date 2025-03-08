@@ -10,6 +10,7 @@ export const careers = [
   { name: "STEM", id: "stem" },
   { name: "Other", id: "other" },
 ];
+
 export const programType = [
   { name: "Certification Programs", id: "certification" },
   { name: "College Readiness Programs", id: "college_readiness" },
@@ -20,6 +21,7 @@ export const programType = [
   { name: "Tutoring & Skill Building", id: "tutoring" },
   { name: "Work-based Learning Opportunities", id: "work_based" },
 ];
+
 export const gradeLevels = [
   { name: "Middle School", id: "middle" },
   { name: "High School", id: "highschool" },
@@ -30,16 +32,13 @@ export const gradeLevels = [
 ];
 
 export const duration = [
-  { name: "Education Program", id: "edu_program" },
-  { name: "After School Program", id: "after_school" },
-  { name: "Weekday Event (Daytime)", id: "wkday_day" },
-  { name: "Weekday Event (Evening)", id: "wkday_ev" },
+  { name: "Weekday, daytime", id: "wkday_day" },
+  { name: "Weekday, evening", id: "wkday_ev" },
   { name: "Weekends", id: "wkend" },
   { name: "Year-Long", id: "year" },
-  { name: "Quarterly", id: "quarter" },
-  { name: "Summer", id: "summer" },
-  { name: "School Break", id: "school_break" },
+  { name: "School Break (Summer, Spring, Winter)", id: "school_break" },
 ];
+
 export const eligibility = [
   "General Enrollment",
   "Background Check Required",
@@ -48,13 +47,28 @@ export const eligibility = [
   "DACA Students Eligible",
   "Enrollment Preference for Students from Underrepresented Backgrounds",
 ];
+
+export const financialSupport = [
+  { name: "Free Program/Other", id: "other" },
+  { name: "Financial Support/Scholarships Available", id: "yes_financial" },
+  { name: "Participants Paid or Stipend Offered", id: "yes_stipend" },
+  { name: "Housing Provided", id: "yes_housing" },
+  { name: "No Financial Support Available", id: "no" }
+];
+
+export const shadowOppt = [
+  { name: "Yes", id: 'yes' },
+  { name: "No", id: 'no'}
+];
+
 export const advanced = [
   { name: "Accessible by Public Transportation", id: "public_transportation" },
-  { name: "Academic Credit", id: "academic_credit" },
-  {
-    name: "Certificate Provided with Program Completion",
-    id: "certificate_yesno",
-  },
+  { name: "Age Requirement - Must be 18", id: "age_requirement___over_18" },
+  { name: "Background Check Required", id: "background_check" },
+  { name: "Citizenship or Residency Required", id: "citizenship" },
+  { name: "Certificate on Completion", id: "certificate_yesno" },
+  { name: "Grants/Scholarships on Completion", id: "grants___yes" },
+  { name: "Loan Repayment Options", id: "lrp___yes" }
   // { name: "No Background Check Required", id: "bground_check" },
   // { name: "No Pre-requisites or Experience Required", id: "prereqs" },
   // { name: "No Citizenship Required", id: "citizen" },

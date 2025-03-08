@@ -4,6 +4,7 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { Link } from "gatsby";
 import iconLocation from "../../images/icon-location.svg";
+import iconSchool from "../../images/school-solid.svg";
 import { Context as AllProgramContext } from "../../context/programContext";
 
 // Component that displays a react leaflet map
@@ -41,14 +42,60 @@ function Map({ programs, center, bounds }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [center]);
 
-  const createMarker = (id) => {
-    let marker = new L.Icon({
-      iconUrl: iconLocation,
+  const getProgramType = (program) => {
+    // extract all pathway type keys
+    const entries = Object.entries(program);
+    // filter entries to only include keys with 'pathway_type'
+    const filteredEntries = entries.filter(([key]) => key.includes("pathway_type"));
+    // convert filtered entries back into object
+    const allPathways = Object.fromEntries(filteredEntries);
+    let pathways = [];
+    // loop through all pathway keys
+    Object.keys(allPathways).forEach((type) => {
+      // if val of curr key = 1, then program type is active
+      if (allPathways[type] === "1") {
+        pathways.push(type.split("___")[1]);
+      }
+    });
+    return pathways[0] || "default";
+  }
+
+  const createMarker = (id, type) => {
+    let iconType;
+    switch (type) {
+      case "certification":
+        iconType = iconSchool;
+        break;
+      case "college_readiness":
+        iconType = iconLocation;
+        break;
+      case "community_service":
+        iconType = iconLocation;
+        break;
+      case "health_career":
+        iconType = iconSchool;
+        break;
+      case "youth_camp":
+        iconType = iconLocation;
+        break;
+      case "mentor":
+        iconType = iconLocation;
+        break;
+      case "tutoring":
+        iconType = iconLocation;
+        break;
+      case "work_based":
+        iconType = iconLocation;
+        break;
+      default:
+        iconType = iconLocation;
+    }
+    return new L.Icon({
+      iconUrl: iconType,
       iconSize: new L.Point(20, 30),
       className: "marker" + id,
     });
-    return marker;
-  };
+  }
 
   // // Set map parameters
   useEffect(() => {
@@ -115,8 +162,7 @@ function Map({ programs, center, bounds }) {
             return <Marker
               key={program._id}
               position={[program.latitude || 47.6062, program.longitude || -122.3321]}
-              icon={createMarker(program._id)
-              }
+              icon={createMarker(program._id, getProgramType(program))}
             >
               <Popup>
                 <span>
