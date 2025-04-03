@@ -22,3 +22,25 @@
     // background: $light-blue;
     padding: 0.5rem;
 }
+
+@media (max-width: 767px) {
+    .navbar-brand h2 {
+      font-size: 0.9rem !important;
+      max-width: 150px !important;
+    }
+}
+  
+@media (max-width: 575px) {
+    .navbar-brand h2 {
+        font-size: 0.8rem !important;
+        max-width: 120px !important;
+    }
+}
+
+@media (max-width: 375px) {
+    .navbar-brand h2 {
+        font-size: 0.7rem !important;
+        max-width: 80px !important;
+    }
+}
+  

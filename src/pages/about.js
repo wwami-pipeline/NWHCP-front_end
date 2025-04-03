@@ -8,6 +8,13 @@ import PathwayWrapper from "../components/pathwayWrapper.js";
 import DoubleArrowIcon from '@mui/icons-material/DoubleArrow';
 
 const About = () => {
+
+  const arrowIconStyle = {
+    width: "clamp(30px, 5vw, 70px)",
+    height: "clamp(30px, 5vw, 70px)",
+    color: "#074882"
+  };
+
   return (
     <div>
       <div className="page-wrapper text-left">
@@ -28,7 +35,7 @@ const About = () => {
         </p>
         <br />
         <Grid container justifyContent={"space-around"}>
-          <Grid item xs={5}>
+          <Grid item xs={4}>
           <div className="mb-4">
             <h4 style={{ color: "#435B70", paddingBottom: "8px", textAlign:"center" }}>Pathway Programs</h4>
             <p>
@@ -39,10 +46,10 @@ const About = () => {
           </Grid>
           <Grid item xs={1}>
             <Grid container alignContent="center" style={{height:"100%"}}>
-              <DoubleArrowIcon style={{width:70, height: 70, color:"#074882"}} />
+              <DoubleArrowIcon style={arrowIconStyle}/>
             </Grid>
           </Grid>
-          <Grid item xs={5} style={{height:"100%"}}>
+          <Grid item xs={4} style={{height:"100%"}}>
               <h4 style={{ color: "#435B70", paddingBottom: "8px", textAlign:"center" }}>
                 Schools and Training Programs for the Health Professions
               </h4>
