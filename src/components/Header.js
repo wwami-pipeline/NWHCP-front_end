@@ -1,45 +1,45 @@
 import React from "react";
-import { Nav, Navbar, NavItem, Container, Row, Col } from "react-bootstrap";
+import { Nav, Navbar, Container } from "react-bootstrap";
 import { StaticImage } from "gatsby-plugin-image";
 import "../scss/header.scss";
-
 const Header = () => {
   return (
     <Navbar
-      expand="md"
+      expand="lg"
       className="nwhcp-nav mb-4"
       style={{
-        justifyContent: "space-between",
         margin: "1.1rem",
         border: "1px solid #101010",
         borderRadius: "18px",
         boxShadow: "2px 2px 2px 1px #949494",
       }}
     >
-      <Nav.Item>
-        <Navbar.Brand href="/">
-          <Container>
-            <Row>
-              <StaticImage
-                src="../images/logo-image.png"
-                alt="NWHCP Logo"
-                width={40}
-              />
-              <Col>
-                <h2
-                  style={{ display: "inline", fontSize: "1.1rem" }}
-                  className="text-primary vertical-align"
-                >
-                  Northwest Health Career Path
-                </h2>
-              </Col>
-            </Row>
-          </Container>
+      <Container fluid>
+        <Navbar.Brand href="/" style={{ maxWidth: "60%" }}>
+          <div className="d-flex align-items-center">
+            <StaticImage
+              src="../images/logo-image.png"
+              alt="NWHCP Logo"
+              width={40}
+              className="me-2 flex-shrink-0"
+            />
+            <h2
+              style={{ 
+                fontSize: "1.1rem",
+                lineHeight: "1.2",
+                marginBottom: 0,
+                hyphens: "auto",
+                wordWrap: "break-word"
+              }}
+              className="text-primary"
+            >
+              Northwest Health Career Path
+            </h2>
+          </div>
         </Navbar.Brand>
-      </Nav.Item>
-      <NavItem>
-        <Navbar.Toggle area-controls="basic-navbar-nav" />
-        <Navbar.Collapse className="links-wrapper justify-content-between">
+        
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-auto" />
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav>
             <Nav.Link href="/" className="custom-link">
               Home
@@ -55,7 +55,7 @@ const Header = () => {
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
-      </NavItem>
+      </Container>
     </Navbar>
   );
 };
