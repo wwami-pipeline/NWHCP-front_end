@@ -49,17 +49,6 @@ const Footer = () => {
               }}
             >
               For more information on this project, please contact the WIHSE Center at WIHSE@uw.edu
-              </Typography>
-              <Typography
-              // align="center"
-              style={{
-                // margin: "10px 0px 10px 80px",
-                color: "white",
-                fontWeight: 500,
-                fontSize: 12,
-                marginBottom: 10,
-              }}>
-              For technical assistance on the website or survey, please contact Washington AHEC at uwahec@uw.edu
             </Typography>
             <Link href="https://www.ahecww.org/">
               <Button
@@ -78,46 +67,6 @@ const Footer = () => {
                 Visit AHECWW.org
               </Button>
             </Link>
-            <Typography
-              style={{
-                color: "white",
-                fontSize: 14,
-                marginBottom: 2,
-                fontWeight: 800,
-              }}
-            >
-              Address
-            </Typography>
-            <Typography
-              style={{
-                color: "white",
-                fontWeight: 500,
-                fontSize: 12,
-                marginBottom: 10,
-              }}
-            >
-              237 West Kellog Road, Bellingham, WA
-            </Typography>
-            <Typography
-              style={{
-                color: "white",
-                fontWeight: 500,
-                fontSize: 12,
-                marginBottom: 10,
-              }}
-            >
-              ahecww@whatcom.edu
-            </Typography>
-            <Typography
-              style={{
-                color: "white",
-                fontWeight: 500,
-                fontSize: 12,
-                marginBottom: 10,
-              }}
-            >
-              (360)-383-3170
-            </Typography>
           </Stack>
         </Grid>
         <Grid item xs={12}>
