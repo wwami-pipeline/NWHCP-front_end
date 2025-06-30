@@ -173,7 +173,7 @@ function Map({ programs, center, bounds }) {
                     <br />
                     {`${program.org_city || program.org_city_v2}, 
                 ${program.org_state || program.org_state_v2}
-                ${(program.zip_code || program.zip_code_v2).slice(0, 5)}`}
+                ${(program.zip_code || program.zip_code_v2 || "").slice(0, 5)}`}
                     <br />
                     {program.org_phone_number || program.org_phone_number_v2}
                   </p>
