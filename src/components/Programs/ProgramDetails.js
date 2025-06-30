@@ -385,7 +385,7 @@ function ProgramDetails(props) {
             {program.street_address_2 || program.street_address_2_v2},{" "}
             {program.org_city || program.org_city_v2},{" "}
             {program.org_state || program.org_state_v2},{" "}
-            {(program.zip_code || program.zip_code_v2).slice(0, 5)}
+            {(program.zip_code || program.zip_code_v2 || "").slice(0, 5)}
           </li>
         </ul>
       </>
