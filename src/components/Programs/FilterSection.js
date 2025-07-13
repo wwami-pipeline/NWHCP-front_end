@@ -6,7 +6,12 @@ import {
   Button,
   Tooltip,
   Collapse,
+  useMediaQuery,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
 } from "@mui/material";
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import React, { useContext, useState, useEffect } from "react";
 import { defaultAllBound } from "../../../static/stateCoordinate";
 
@@ -33,6 +38,8 @@ export default function ProgramFilterSection({ setBounds }) {
   const { clearAll, updateFilter } = useContext(AllProgramConText);
 
   const curfilter = useContext(AllProgramConText).state.searchFilter;
+
+  const isMobile = useMediaQuery('(max-width:768px)');
 
   useEffect(() => {
     setFilter(curfilter);
@@ -62,6 +69,27 @@ export default function ProgramFilterSection({ setBounds }) {
   //     setBounds([[newBound.ymin, newBound.xmin], [newBound.ymax, newBound.xmax]])
   //   }
   // };
+
+  const handleFilterChange = (filterName, label) => {
+    let currFilterArr = filter[filterName] || [];
+    let newFilterArr = [...currFilterArr];
+
+    if (currFilterArr.includes(label)) {
+      newFilterArr = newFilterArr.filter(el => el !== label);
+    } else {
+      newFilterArr.push(label);
+    }
+
+    setFilter(prev => ({
+      ...prev,
+      [filterName]: newFilterArr
+    }));
+
+    updateFilter({
+      ...filter,
+      [filterName]: newFilterArr
+    });
+  };
 
   return (
     <>
@@ -172,240 +200,160 @@ export default function ProgramFilterSection({ setBounds }) {
             </Grid>
           </Grid>
 
-          <Grid container>
-            {/* Start of filtering categories */}
-            <Grid item xs={4}>
+          <div>
+            {isMobile ? (
               <Grid container>
-                <Typography variant="h6" gutterBottom>
-                  Select career emphasis
-                </Typography>
-              </Grid>
-              <Grid style={{ marginBottom: 14 }}>
-                <CateList
-                  cates={careers}
-                  selected={filter.careerEmp}
-                  handleChoose={(label) => {
-                    if (filter.careerEmp.includes(label)) {
-                      let newCareerEmp = filter.careerEmp;
-                      newCareerEmp = newCareerEmp.filter(
-                        (el) => el !== label
-                      );
-                      setFilter((prev) => ({
-                        ...prev,
-                        careerEmp: newCareerEmp,
-                      }));
-                    } else {
-                      let newCareerEmp = filter.careerEmp;
-                      newCareerEmp.push(label);
-                      setFilter((prev) => ({
-                        ...prev,
-                        careerEmp: newCareerEmp,
-                      }));
-                    }
-                  }}
-                ></CateList>
-              </Grid>
-            </Grid>
-            <Grid item xs={4}>
-              <Grid container>
-                <Typography variant="h6" gutterBottom>
-                  Select education level
-                </Typography>
-              </Grid>
-              <Grid style={{ marginBottom: 14 }}>
-                <CateList
-                  cates={gradeLevels}
-                  selected={filter.gradeLevels}
-                  handleChoose={(label) => {
-                    if (filter.gradeLevels.includes(label)) {
-                      let newGradelevel = filter.gradeLevels;
-                      newGradelevel = newGradelevel.filter(
-                        (el) => el !== label
-                      );
-                      setFilter((prev) => ({
-                        ...prev,
-                        gradeLevels: newGradelevel,
-                      }));
-                    } else {
-                      let newGradelevel = filter.gradeLevels;
-                      newGradelevel.push(label);
-                      setFilter((prev) => ({
-                        ...prev,
-                        gradeLevels: newGradelevel,
-                      }));
-                    }
-                  }}
-                ></CateList>
-              </Grid>
-            </Grid>
-            <Grid item xs={4}>
-              <Grid container>
-                <Typography variant="h6" gutterBottom>
-                  Select timing
-                </Typography>
-              </Grid>
-              <Grid style={{ marginBottom: 14 }}>
-                <CateList
-                  cates={configDuration}
-                  selected={filter.duration}
-                  handleChoose={(label) => {
-                    if (filter.duration.includes(label)) {
-                      let newTiming = filter.duration;
-                      newTiming = newTiming.filter((el) => el !== label);
-                      setFilter((prev) => ({
-                        ...prev,
-                        duration: newTiming,
-                      }));
-                    } else {
-                      let newTiming = filter.duration;
-                      newTiming.push(label);
-                      setFilter((prev) => ({
-                        ...prev,
-                        duration: newTiming,
-                      }));
-                    }
-                  }}
-                ></CateList>
-              </Grid>
-            </Grid>
-          </Grid>
-
-          {/* Advance Filter go here */}
-          <Collapse in={openfilter} style={{ width: "100%" }}>
-            <Grid container style={{ padding: 8 }}>
-              {/* <Grid
-                container
-                justifyContent={"flex-end"}
-                style={{ marginBottom: 10 }}
-              >
-                <Grid xs={4}>
-                  <Grid container>
-                    <Typography variant='h6'>Search Filter</Typography>
-                  </Grid>
-                  <Typography variant='caption'>Select Filter and Search</Typography>
+                <Grid item xs={12}>
+                  <Accordion style={{ width: '100%', maxWidth: '100%' }}>
+                    <AccordionSummary variant="h6" expandIcon={<ExpandMoreIcon />}>
+                      <Typography>Career Emphasis</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <CateList
+                        cates={careers}
+                        selected={filter.careerEmp}
+                        handleChoose={(label) => handleFilterChange('careerEmp', label)}
+                      ></CateList>
+                    </AccordionDetails>
+                  </Accordion>
                 </Grid>
-                <Grid item className="dropdown">
-                  <Button
-                    disabled={!openfilter}
-                    onClick={() => setOpenAdvance(!openAdvance)}
-                    fullWidth
-                    style={{ height: "100%", borderRadius: 8 }}
-                  >
-                    <Typography variant="body1">
-                      {openAdvance
-                        ? "Close Advanced Search"
-                        : "Open Advanced Search"}
-                    </Typography>
-                  </Button>
-                </Grid>
-              </Grid> */}
-                {/* New filtering categories */}
+              </Grid>
+            ) : (
+              <div> <Grid container>
+              {/* Start of filtering categories */}
+              <Grid item xs={4}>
                 <Grid container>
-                <Grid item xs={4}>
-                  <Grid container>
-                    <Typography variant="h6" gutterBottom>
-                      Select Fees/Financial Support
-                    </Typography>
-                  </Grid>
-                  <Grid style={{ marginBottom: 14 }}>
-                    <CateList
-                      cates={financialSupport}
-                      selected={filter.finanSprt}
-                      handleChoose={(label) => {
-                        if (filter.finanSprt.includes(label)) {
-                          let newSprt = filter.finanSprt;
-                          newSprt = newSprt.filter((el) => el !== label);
-                          setFilter((prev) => ({
-                            ...prev,
-                            finanSprt: newSprt,
-                          }));
-                        } else {
-                          let newSprt = filter.finanSprt;
-                          newSprt.push(label);
-                          setFilter((prev) => ({
-                            ...prev,
-                            finanSprt: newSprt,
-                          }));
-                        }
-                      }}
-                    ></CateList>
-                  </Grid>
+                  <Typography variant="h6" gutterBottom>
+                    Select career emphasis
+                  </Typography>
                 </Grid>
-
-                <Grid item xs={4}>
-                  <Grid container>
-                    <Typography variant="h6" gutterBottom>
-                      Select Shadowing Opportunities
-                    </Typography>
-                  </Grid>
-                  <Grid style={{ marginBottom: 14 }}>
-                    <CateList
-                      cates={shadowOppt}
-                      selected={filter.shadOppt}
-                      handleChoose={(label) => {
-                        if (filter.shadOppt.includes(label)) {
-                          let newShadOppt = filter.shadOppt;
-                          newShadOppt = newShadOppt.filter((el) => el !== label);
-                          setFilter((prev) => ({
-                            ...prev,
-                            shadOppt: newShadOppt,
-                          }));
-                        } else {
-                          let newShadOppt = filter.shadOppt;
-                          newShadOppt.push(label);
-                          setFilter((prev) => ({
-                            ...prev,
-                            shadOppt: newShadOppt,
-                          }));
-                        }
-                      }}
-                    ></CateList>
-                  </Grid>
+                <Grid style={{ marginBottom: 14 }}>
+                  <CateList
+                    cates={careers}
+                    selected={filter.careerEmp}
+                    handleChoose={(label) => handleFilterChange('careerEmp', label)}
+                  ></CateList>
                 </Grid>
-
-                
+              </Grid>
+              <Grid item xs={4}>
+                <Grid container>
+                  <Typography variant="h6" gutterBottom>
+                    Select education level
+                  </Typography>
+                </Grid>
+                <Grid style={{ marginBottom: 14 }}>
+                  <CateList
+                    cates={gradeLevels}
+                    selected={filter.gradeLevels}
+                    handleChoose={(label) => handleFilterChange('gradeLevels', label)}
+                  ></CateList>
+                </Grid>
+              </Grid>
+              <Grid item xs={4}>
+                <Grid container>
+                  <Typography variant="h6" gutterBottom>
+                    Select timing
+                  </Typography>
+                </Grid>
+                <Grid style={{ marginBottom: 14 }}>
+                  <CateList
+                    cates={configDuration}
+                    selected={filter.duration}
+                    handleChoose={(label) => handleFilterChange('duration', label)}
+                  ></CateList>
+                </Grid>
+              </Grid>
+            </Grid>
+  
+            {/* Advance Filter go here */}
+            <Collapse in={openfilter} style={{ width: "100%" }}>
+              <Grid container style={{ padding: 8 }}>
+                {/* <Grid
+                  container
+                  justifyContent={"flex-end"}
+                  style={{ marginBottom: 10 }}
+                >
+                  <Grid xs={4}>
+                    <Grid container>
+                      <Typography variant='h6'>Search Filter</Typography>
+                    </Grid>
+                    <Typography variant='caption'>Select Filter and Search</Typography>
+                  </Grid>
+                  <Grid item className="dropdown">
+                    <Button
+                      disabled={!openfilter}
+                      onClick={() => setOpenAdvance(!openAdvance)}
+                      fullWidth
+                      style={{ height: "100%", borderRadius: 8 }}
+                    >
+                      <Typography variant="body1">
+                        {openAdvance
+                          ? "Close Advanced Search"
+                          : "Open Advanced Search"}
+                      </Typography>
+                    </Button>
+                  </Grid>
+                </Grid> */}
+                  {/* New filtering categories */}
+                  <Grid container>
                   <Grid item xs={4}>
                     <Grid container>
-                      <Typography
-                        variant="body1"
-                        style={{ fontWeight: 800 }}
-                        gutterBottom
-                      >
-                        Advanced Search
+                      <Typography variant="h6" gutterBottom>
+                        Select Fees/Financial Support
                       </Typography>
                     </Grid>
                     <Grid style={{ marginBottom: 14 }}>
                       <CateList
-                        cates={advanced}
-                        selected={filter.advanced}
-                        handleChoose={(label) => {
-                          if (filter.advanced.includes(label)) {
-                            let newAdvance = filter.advanced;
-                            newAdvance = newAdvance.filter(
-                              (el) => el !== label
-                            );
-                            setFilter((prev) => ({
-                              ...prev,
-                              advanced: newAdvance,
-                            }));
-                          } else {
-                            let newAdvance = filter.advanced;
-                            newAdvance.push(label);
-                            setFilter((prev) => ({
-                              ...prev,
-                              advanced: newAdvance,
-                            }));
-                          }
-                        }}
+                        cates={financialSupport}
+                        selected={filter.finanSprt}
+                        handleChoose={(label) => handleFilterChange('finanSprt', label)}
                       ></CateList>
                     </Grid>
                   </Grid>
-                
-
-
+  
+                  <Grid item xs={4}>
+                    <Grid container>
+                      <Typography variant="h6" gutterBottom>
+                        Select Shadowing Opportunities
+                      </Typography>
+                    </Grid>
+                    <Grid style={{ marginBottom: 14 }}>
+                      <CateList
+                        cates={shadowOppt}
+                        selected={filter.shadOppt}
+                        handleChoose={(label) => handleFilterChange('shadOppt', label)}
+                      ></CateList>
+                    </Grid>
+                  </Grid>
+  
+                  
+                    <Grid item xs={4}>
+                      <Grid container>
+                        <Typography
+                          variant="body1"
+                          style={{ fontWeight: 800 }}
+                          gutterBottom
+                        >
+                          Advanced Search
+                        </Typography>
+                      </Grid>
+                      <Grid style={{ marginBottom: 14 }}>
+                        <CateList
+                          cates={advanced}
+                          selected={filter.advanced}
+                          handleChoose={(label) => handleFilterChange('advanced', label)}
+                        ></CateList>
+                      </Grid>
+                    </Grid>
+                  
+  
+  
+                </Grid>
               </Grid>
-            </Grid>
-          </Collapse>
+            </Collapse> </div>
+            )}
+          </div>
+          
         </Grid>
       </Grid>
     </>
