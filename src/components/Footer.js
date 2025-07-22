@@ -15,7 +15,7 @@ import "../styles/footer/form.css";
 
 const Footer = () => {
   return (
-    <Box style={{backgroundColor: "#004987", marginTop: 12}}>
+    <Box style={{ backgroundColor: "#004987", marginTop: 12 }}>
       <Grid
         container
         justifyContent="space-between"
@@ -23,7 +23,7 @@ const Footer = () => {
           width: "60%",
           margin: "auto",
           backgroundColor: "#004987",
-          paddingBottom: 30
+          paddingBottom: 30,
         }}
       >
         <Grid container item xs={12} md={6} paddingTop={4}>
@@ -48,9 +48,10 @@ const Footer = () => {
                 marginBottom: 10,
               }}
             >
-              For more information on this project, please contact the WIHSE Center at WIHSE@uw.edu
+              For more information on this project, please contact the WIHSE
+              Center at WIHSE@uw.edu
             </Typography>
-            <Link href="https://www.ahecww.org/">
+            {/* <Link href="https://www.ahecww.org/">
               <Button
                 variant="contained"
                 style={{
@@ -66,11 +67,15 @@ const Footer = () => {
               >
                 Visit AHECWW.org
               </Button>
-            </Link>
+            </Link> */}
           </Stack>
         </Grid>
         <Grid item xs={12}>
-          <Typography align="center" className="small" style={{ marginTop: 30, fontSize: 12, color: "white" }}>
+          <Typography
+            align="center"
+            className="small"
+            style={{ marginTop: 30, fontSize: 12, color: "white" }}
+          >
             NWHCP ©{new Date().getFullYear()}
           </Typography>
         </Grid>
