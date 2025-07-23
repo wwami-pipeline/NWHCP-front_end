@@ -122,8 +122,14 @@ const About = () => {
             </Button>
           </Grid>
         </Grid>
+        <p>
+          This project represents a collaboration between Washington AHEC and
+          HCOP at the UW School of Medicine Office of Rural Programs, UW
+          Medicine Office of Healthcare Equity, Allied Center for Excellence,
+          and all of our community partners throughout the region.
+        </p>
       </div>
-      <SupportFooter />
+      {/* <SupportFooter /> */}
     </div>
   );
 };

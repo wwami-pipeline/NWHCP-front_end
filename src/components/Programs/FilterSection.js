@@ -204,10 +204,10 @@ export default function ProgramFilterSection({ setBounds }) {
             </Grid>
           </Grid>
 
-          <div>
+          <Grid xs={10} ml={"auto"} pl={2}>
             {isMobile ? (
               <Grid container>
-                <Grid item xs={12}>
+                <Grid item>
                   <Accordion style={{ width: "100%", maxWidth: "100%" }}>
                     <AccordionSummary
                       variant="h6"
@@ -367,7 +367,7 @@ export default function ProgramFilterSection({ setBounds }) {
                 </Collapse>{" "}
               </div>
             )}
-          </div>
+          </Grid>
         </Grid>
       </Grid>
     </>
