@@ -11,7 +11,7 @@ import {
   AccordionSummary,
   AccordionDetails,
 } from "@mui/material";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import React, { useContext, useState, useEffect } from "react";
 import { defaultAllBound } from "../../../static/stateCoordinate";
 
@@ -39,7 +39,7 @@ export default function ProgramFilterSection({ setBounds }) {
 
   const curfilter = useContext(AllProgramConText).state.searchFilter;
 
-  const isMobile = useMediaQuery('(max-width:768px)');
+  const isMobile = useMediaQuery("(max-width:768px)");
 
   useEffect(() => {
     setFilter(curfilter);
@@ -75,19 +75,19 @@ export default function ProgramFilterSection({ setBounds }) {
     let newFilterArr = [...currFilterArr];
 
     if (currFilterArr.includes(label)) {
-      newFilterArr = newFilterArr.filter(el => el !== label);
+      newFilterArr = newFilterArr.filter((el) => el !== label);
     } else {
       newFilterArr.push(label);
     }
 
-    setFilter(prev => ({
+    setFilter((prev) => ({
       ...prev,
-      [filterName]: newFilterArr
+      [filterName]: newFilterArr,
     }));
 
     updateFilter({
       ...filter,
-      [filterName]: newFilterArr
+      [filterName]: newFilterArr,
     });
   };
 
@@ -114,10 +114,14 @@ export default function ProgramFilterSection({ setBounds }) {
               variant="outlined"
               onClick={() => setOpenFilter(!openfilter)}
               fullWidth
-              style={{ height: "100%", borderRadius: 4, backgroundColor: "#004987"}}
+              style={{
+                height: "100%",
+                borderRadius: 4,
+                backgroundColor: "#004987",
+              }}
             >
               <Typography variant="body1" style={{ color: "#FFFFFF" }}>
-                {!openfilter ? "Open More Filters" : "Close Filters"}
+                {!openfilter ? "More Filters" : "Fewer Filters"}
               </Typography>
             </Button>
           </Grid>
@@ -165,7 +169,7 @@ export default function ProgramFilterSection({ setBounds }) {
                   fullWidth
                   label="Search programs"
                   variant="outlined"
-                  placeholder="name, contact, academic credit, location..."
+                  placeholder="program name or location..."
                   focused
                   name="searchContent"
                   onChange={handleSearchContent}
@@ -200,75 +204,87 @@ export default function ProgramFilterSection({ setBounds }) {
             </Grid>
           </Grid>
 
-          <div>
+          <Grid xs={10} ml={"auto"} pl={2}>
             {isMobile ? (
               <Grid container>
-                <Grid item xs={12}>
-                  <Accordion style={{ width: '100%', maxWidth: '100%' }}>
-                    <AccordionSummary variant="h6" expandIcon={<ExpandMoreIcon />}>
+                <Grid item>
+                  <Accordion style={{ width: "100%", maxWidth: "100%" }}>
+                    <AccordionSummary
+                      variant="h6"
+                      expandIcon={<ExpandMoreIcon />}
+                    >
                       <Typography>Career Emphasis</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                       <CateList
                         cates={careers}
                         selected={filter.careerEmp}
-                        handleChoose={(label) => handleFilterChange('careerEmp', label)}
+                        handleChoose={(label) =>
+                          handleFilterChange("careerEmp", label)
+                        }
                       ></CateList>
                     </AccordionDetails>
                   </Accordion>
                 </Grid>
               </Grid>
             ) : (
-              <div> <Grid container>
-              {/* Start of filtering categories */}
-              <Grid item xs={4}>
+              <div>
+                {" "}
                 <Grid container>
-                  <Typography variant="h6" gutterBottom>
-                    Select career emphasis
-                  </Typography>
+                  {/* Start of filtering categories */}
+                  <Grid item xs={4}>
+                    <Grid container>
+                      <Typography variant="h6" gutterBottom>
+                        Career Emphasis
+                      </Typography>
+                    </Grid>
+                    <Grid style={{ marginBottom: 14 }}>
+                      <CateList
+                        cates={careers}
+                        selected={filter.careerEmp}
+                        handleChoose={(label) =>
+                          handleFilterChange("careerEmp", label)
+                        }
+                      ></CateList>
+                    </Grid>
+                  </Grid>
+                  <Grid item xs={4}>
+                    <Grid container>
+                      <Typography variant="h6" gutterBottom>
+                        Education Level
+                      </Typography>
+                    </Grid>
+                    <Grid style={{ marginBottom: 14 }}>
+                      <CateList
+                        cates={gradeLevels}
+                        selected={filter.gradeLevels}
+                        handleChoose={(label) =>
+                          handleFilterChange("gradeLevels", label)
+                        }
+                      ></CateList>
+                    </Grid>
+                  </Grid>
+                  <Grid item xs={4}>
+                    <Grid container>
+                      <Typography variant="h6" gutterBottom>
+                        Timing
+                      </Typography>
+                    </Grid>
+                    <Grid style={{ marginBottom: 14 }}>
+                      <CateList
+                        cates={configDuration}
+                        selected={filter.duration}
+                        handleChoose={(label) =>
+                          handleFilterChange("duration", label)
+                        }
+                      ></CateList>
+                    </Grid>
+                  </Grid>
                 </Grid>
-                <Grid style={{ marginBottom: 14 }}>
-                  <CateList
-                    cates={careers}
-                    selected={filter.careerEmp}
-                    handleChoose={(label) => handleFilterChange('careerEmp', label)}
-                  ></CateList>
-                </Grid>
-              </Grid>
-              <Grid item xs={4}>
-                <Grid container>
-                  <Typography variant="h6" gutterBottom>
-                    Select education level
-                  </Typography>
-                </Grid>
-                <Grid style={{ marginBottom: 14 }}>
-                  <CateList
-                    cates={gradeLevels}
-                    selected={filter.gradeLevels}
-                    handleChoose={(label) => handleFilterChange('gradeLevels', label)}
-                  ></CateList>
-                </Grid>
-              </Grid>
-              <Grid item xs={4}>
-                <Grid container>
-                  <Typography variant="h6" gutterBottom>
-                    Select timing
-                  </Typography>
-                </Grid>
-                <Grid style={{ marginBottom: 14 }}>
-                  <CateList
-                    cates={configDuration}
-                    selected={filter.duration}
-                    handleChoose={(label) => handleFilterChange('duration', label)}
-                  ></CateList>
-                </Grid>
-              </Grid>
-            </Grid>
-  
-            {/* Advance Filter go here */}
-            <Collapse in={openfilter} style={{ width: "100%" }}>
-              <Grid container style={{ padding: 8 }}>
-                {/* <Grid
+                {/* Advance Filter go here */}
+                <Collapse in={openfilter} style={{ width: "100%" }}>
+                  <Grid container style={{ padding: 8 }}>
+                    {/* <Grid
                   container
                   justifyContent={"flex-end"}
                   style={{ marginBottom: 10 }}
@@ -294,66 +310,64 @@ export default function ProgramFilterSection({ setBounds }) {
                     </Button>
                   </Grid>
                 </Grid> */}
-                  {/* New filtering categories */}
-                  <Grid container>
-                  <Grid item xs={4}>
+                    {/* New filtering categories */}
                     <Grid container>
-                      <Typography variant="h6" gutterBottom>
-                        Select Fees/Financial Support
-                      </Typography>
-                    </Grid>
-                    <Grid style={{ marginBottom: 14 }}>
-                      <CateList
-                        cates={financialSupport}
-                        selected={filter.finanSprt}
-                        handleChoose={(label) => handleFilterChange('finanSprt', label)}
-                      ></CateList>
+                      <Grid item xs={4}>
+                        <Grid container>
+                          <Typography variant="h6" gutterBottom>
+                            Fees/Financial Support
+                          </Typography>
+                        </Grid>
+                        <Grid style={{ marginBottom: 14 }}>
+                          <CateList
+                            cates={financialSupport}
+                            selected={filter.finanSprt}
+                            handleChoose={(label) =>
+                              handleFilterChange("finanSprt", label)
+                            }
+                          ></CateList>
+                        </Grid>
+                      </Grid>
+
+                      <Grid item xs={4}>
+                        <Grid container>
+                          <Typography variant="h6" gutterBottom>
+                            Shadowing Opportunities
+                          </Typography>
+                        </Grid>
+                        <Grid style={{ marginBottom: 14 }}>
+                          <CateList
+                            cates={shadowOppt}
+                            selected={filter.shadOppt}
+                            handleChoose={(label) =>
+                              handleFilterChange("shadOppt", label)
+                            }
+                          ></CateList>
+                        </Grid>
+                      </Grid>
+
+                      <Grid item xs={4}>
+                        <Grid container>
+                          <Typography variant="h6" gutterBottom>
+                            Miscellaneous
+                          </Typography>
+                        </Grid>
+                        <Grid style={{ marginBottom: 14 }}>
+                          <CateList
+                            cates={advanced}
+                            selected={filter.advanced}
+                            handleChoose={(label) =>
+                              handleFilterChange("advanced", label)
+                            }
+                          ></CateList>
+                        </Grid>
+                      </Grid>
                     </Grid>
                   </Grid>
-  
-                  <Grid item xs={4}>
-                    <Grid container>
-                      <Typography variant="h6" gutterBottom>
-                        Select Shadowing Opportunities
-                      </Typography>
-                    </Grid>
-                    <Grid style={{ marginBottom: 14 }}>
-                      <CateList
-                        cates={shadowOppt}
-                        selected={filter.shadOppt}
-                        handleChoose={(label) => handleFilterChange('shadOppt', label)}
-                      ></CateList>
-                    </Grid>
-                  </Grid>
-  
-                  
-                    <Grid item xs={4}>
-                      <Grid container>
-                        <Typography
-                          variant="body1"
-                          style={{ fontWeight: 800 }}
-                          gutterBottom
-                        >
-                          Advanced Search
-                        </Typography>
-                      </Grid>
-                      <Grid style={{ marginBottom: 14 }}>
-                        <CateList
-                          cates={advanced}
-                          selected={filter.advanced}
-                          handleChoose={(label) => handleFilterChange('advanced', label)}
-                        ></CateList>
-                      </Grid>
-                    </Grid>
-                  
-  
-  
-                </Grid>
-              </Grid>
-            </Collapse> </div>
+                </Collapse>{" "}
+              </div>
             )}
-          </div>
-          
+          </Grid>
         </Grid>
       </Grid>
     </>

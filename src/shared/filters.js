@@ -7,6 +7,10 @@ export const careers = [
   { name: "Public Health", id: "public_health" },
   { name: "General Health Professions", id: "allied_health" },
   { name: "General Health Sciences", id: "gen_health_sci" },
+  //
+  { name: "Mental Health", id: "mental_health" },
+  { name: "Rehabilitative Medicine (PT, OT)", id: "rehab_med" },
+  //
   { name: "STEM", id: "stem" },
   { name: "Other", id: "other" },
 ];
@@ -50,25 +54,25 @@ export const eligibility = [
 
 export const financialSupport = [
   { name: "Free Program/Other", id: "other" },
-  { name: "Financial Support/Scholarships Available", id: "yes_financial" },
-  { name: "Participants Paid or Stipend Offered", id: "yes_stipend" },
+  { name: "Financial Support Available", id: "yes_financial" },
+  { name: "Stipend Offered", id: "yes_stipend" },
   { name: "Housing Provided", id: "yes_housing" },
-  { name: "No Financial Support Available", id: "no" }
+  { name: "No Financial Support Available", id: "no" },
 ];
 
 export const shadowOppt = [
-  { name: "Yes", id: 'yes' },
-  { name: "No", id: 'no'}
+  { name: "Yes", id: "yes" },
+  { name: "No", id: "no" },
 ];
 
 export const advanced = [
   { name: "Accessible by Public Transportation", id: "public_transportation" },
-  { name: "Age Requirement - Must be 18", id: "age_requirement___over_18" },
+  { name: "Age Requirement", id: "age_requirement___over_18" },
   { name: "Background Check Required", id: "background_check" },
   { name: "Citizenship or Residency Required", id: "citizenship" },
   { name: "Certificate on Completion", id: "certificate_yesno" },
   { name: "Grants/Scholarships on Completion", id: "grants___yes" },
-  { name: "Loan Repayment Options", id: "lrp___yes" }
+  { name: "Loan Repayment Options", id: "lrp___yes" },
   // { name: "No Background Check Required", id: "bground_check" },
   // { name: "No Pre-requisites or Experience Required", id: "prereqs" },
   // { name: "No Citizenship Required", id: "citizen" },

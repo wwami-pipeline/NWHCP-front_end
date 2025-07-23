@@ -151,13 +151,12 @@ function ProgramDetails(props) {
   }
   program.shadowOppt = shadowOpptMapped;
 
-
   const SubSectionNavDetail = ({ subSectionName }) => {
     return (
       <Grid container style={{ marginBottom: 24 }}>
         <Grid
           item
-          xs={9}
+          xs={12}
           style={{
             backgroundColor: "#074983",
             padding: 12,
@@ -169,16 +168,6 @@ function ProgramDetails(props) {
           <Typography style={{ fontSize: 28, fontWeight: 700, marginLeft: 30 }}>
             {subSectionName}
           </Typography>
-        </Grid>
-        <Grid item xs={3}>
-          <Button
-            variant="outlined"
-            style={{ borderRadius: "0", width: "100%", height: "100%" }}
-          >
-            <Typography style={{ fontWeight: 700, fontSize: 18 }}>
-              Show on Map
-            </Typography>
-          </Button>
         </Grid>
       </Grid>
     );
@@ -381,11 +370,28 @@ function ProgramDetails(props) {
             <span className="fa-li">
               <FontAwesomeIcon icon={faMapMarkerAlt} />
             </span>
-            {program.street_address_1 || program.street_address_1_v2},{" "}
-            {program.street_address_2 || program.street_address_2_v2},{" "}
-            {program.org_city || program.org_city_v2},{" "}
-            {program.org_state || program.org_state_v2},{" "}
-            {(program.zip_code || program.zip_code_v2 || "").slice(0, 5)}
+            <a
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                `${
+                  program.street_address_1 || program.street_address_1_v2 || ""
+                } ${
+                  program.street_address_2 || program.street_address_2_v2 || ""
+                }, ${program.org_city || program.org_city_v2 || ""}, ${
+                  program.org_state || program.org_state_v2 || ""
+                } ${(program.zip_code || program.zip_code_v2 || "").slice(
+                  0,
+                  5
+                )}`
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {program.street_address_1 || program.street_address_1_v2},{" "}
+              {program.street_address_2 || program.street_address_2_v2},{" "}
+              {program.org_city || program.org_city_v2},{" "}
+              {program.org_state || program.org_state_v2},{" "}
+              {(program.zip_code || program.zip_code_v2 || "").slice(0, 5)}
+            </a>
           </li>
         </ul>
       </>
@@ -410,7 +416,7 @@ function ProgramDetails(props) {
             backgroundSize: "contain",
           }}
         ></Grid>
-        <Grid item xs={8}>
+        <Grid item xs={"auto"}>
           <Grid container style={{ marginLeft: 16 }}>
             <h3 className="text-primary mt-4 mb-3" style={{ width: "100%" }}>
               {program.org_name || program.org_name_v2 || ""}
@@ -429,52 +435,6 @@ function ProgramDetails(props) {
                 (program.zip_code || program.zip_code_v2 || "")}
             </p>
           </Grid>
-        </Grid>
-        <Grid item xs={2}>
-          <Button
-            variant="contained"
-            style={{
-              borderRadius: 0,
-              width: "100%",
-              marginBottom: 12,
-              marginTop: 12,
-            }}
-          >
-            <a
-              href={validateWebsiteWithVersion([
-                program.org_website,
-                program.org_website_v2,
-              ])}
-              target="_blank"
-              rel="noreferrer"
-              className="text-white"
-            >
-              Website
-            </a>
-          </Button>
-          <Button
-            onClick={() =>
-              contactRef.current.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-              })
-            }
-            variant="contained"
-            style={{ borderRadius: 0, width: "100%", marginBottom: 12 }}
-          >
-            <a className="text-white">Go to contact</a>
-          </Button>
-          <Button
-            variant="contained"
-            style={{ borderRadius: 0, width: "100%", marginBottom: 12 }}
-          >
-            <a
-              href={`mailto:${program.org_email || program.org_email_v2}`}
-              className="text-white"
-            >
-              Send Email
-            </a>
-          </Button>
         </Grid>
       </Grid>
       <Grid

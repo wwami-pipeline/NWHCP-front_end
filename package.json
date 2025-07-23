@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "develop": "gatsby develop",
-    "start": "SET NODE_OPTIONS=--openssl-legacy-provider && gatsby develop",
+    "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean"
@@ -44,5 +44,8 @@
     "react-mailto": "^0.4.0",
     "sass": "^1.35.1",
     "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
   }
 }
