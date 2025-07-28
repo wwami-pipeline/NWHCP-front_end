@@ -4,7 +4,7 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { Link } from "gatsby";
 import iconLocation from "../../images/icon-location.svg";
-import iconSchool from "../../images/school-solid.svg";
+import iconSchool from "../../images/graduation-cap-solid-full.svg";
 import { Context as AllProgramContext } from "../../context/programContext";
 
 // Component that displays a react leaflet map
@@ -24,7 +24,7 @@ function Map({ programs, center, bounds }) {
       // console.log(bounds)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [bounds])
+  }, [bounds]);
 
   // useEffect(() => {
   //   if (map) {
@@ -36,7 +36,7 @@ function Map({ programs, center, bounds }) {
     if (map) {
       map.flyTo(center, 14, {
         animate: true,
-        duration: 1.5
+        duration: 1.5,
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -46,7 +46,9 @@ function Map({ programs, center, bounds }) {
     // extract all pathway type keys
     const entries = Object.entries(program);
     // filter entries to only include keys with 'pathway_type'
-    const filteredEntries = entries.filter(([key]) => key.includes("pathway_type"));
+    const filteredEntries = entries.filter(([key]) =>
+      key.includes("pathway_type")
+    );
     // convert filtered entries back into object
     const allPathways = Object.fromEntries(filteredEntries);
     let pathways = [];
@@ -58,7 +60,7 @@ function Map({ programs, center, bounds }) {
       }
     });
     return pathways[0] || "default";
-  }
+  };
 
   const createMarker = (id, type) => {
     let iconType;
@@ -92,10 +94,10 @@ function Map({ programs, center, bounds }) {
     }
     return new L.Icon({
       iconUrl: iconType,
-      iconSize: new L.Point(20, 30),
+      iconSize: new L.Point(20, 25),
       className: "marker" + id,
     });
-  }
+  };
 
   // // Set map parameters
   useEffect(() => {
@@ -127,10 +129,11 @@ function Map({ programs, center, bounds }) {
       maxLat += adjustDegree;
       maxLng += adjustDegree;
     }
-    if (map) map.fitBounds([
-      [minLat, minLng],
-      [maxLat, maxLng],
-    ]);
+    if (map)
+      map.fitBounds([
+        [minLat, minLng],
+        [maxLat, maxLng],
+      ]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [programAllStates.searchFilter.searchContent]);
 
@@ -158,32 +161,42 @@ function Map({ programs, center, bounds }) {
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          {programs && programs.map((program) => {
-            return <Marker
-              key={program._id}
-              position={[program.latitude || 47.6062, program.longitude || -122.3321]}
-              icon={createMarker(program._id, getProgramType(program))}
-            >
-              <Popup>
-                <span>
-                  <h4>{program.org_name || program.org_name_v2}</h4>
-                  <p>
-                    {program.street_address_1 || program.street_address_1_v2},
-                    {program.street_address_2 || program.street_address_2_v2}
-                    <br />
-                    {`${program.org_city || program.org_city_v2}, 
+          {programs &&
+            programs.map((program) => {
+              return (
+                <Marker
+                  key={program._id}
+                  position={[
+                    program.latitude || 47.6062,
+                    program.longitude || -122.3321,
+                  ]}
+                  icon={createMarker(program._id, getProgramType(program))}
+                >
+                  <Popup>
+                    <span>
+                      <h4>{program.org_name || program.org_name_v2}</h4>
+                      <p>
+                        {program.street_address_1 ||
+                          program.street_address_1_v2}
+                        ,
+                        {program.street_address_2 ||
+                          program.street_address_2_v2}
+                        <br />
+                        {`${program.org_city || program.org_city_v2}, 
                 ${program.org_state || program.org_state_v2}
                 ${(program.zip_code || program.zip_code_v2 || "").slice(0, 5)}`}
-                    <br />
-                    {program.org_phone_number || program.org_phone_number_v2}
-                  </p>
-                  <Link to={`/orgs/${program._id}`} state={program}>
-                    More Details
-                  </Link>
-                </span>
-              </Popup>
-            </ Marker>
-          })}
+                        <br />
+                        {program.org_phone_number ||
+                          program.org_phone_number_v2}
+                      </p>
+                      <Link to={`/orgs/${program._id}`} state={program}>
+                        More Details
+                      </Link>
+                    </span>
+                  </Popup>
+                </Marker>
+              );
+            })}
           {/* <ChangeView bounds={bounds} /> */}
         </MapContainer>
       </div>
