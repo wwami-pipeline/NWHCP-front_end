@@ -91,6 +91,15 @@ export default function ProgramFilterSection({ setBounds }) {
     });
   };
 
+  const accordionStyle = {
+    width: '90%', 
+    maxWidth: '100%',
+    marginLeft: '8px',
+    marginRight: '8px',
+    marginBottom: '8px',
+    boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.1)'
+  };
+
   return (
     <>
       <Grid container>
@@ -109,22 +118,24 @@ export default function ProgramFilterSection({ setBounds }) {
           spacing={1}
           style={{ padding: "20px 12px" }}
         >
-          <Grid item xs={2} className="dropdown">
-            <Button
-              variant="outlined"
-              onClick={() => setOpenFilter(!openfilter)}
-              fullWidth
-              style={{
-                height: "100%",
-                borderRadius: 4,
-                backgroundColor: "#004987",
-              }}
-            >
-              <Typography variant="body1" style={{ color: "#FFFFFF" }}>
-                {!openfilter ? "More Filters" : "Fewer Filters"}
-              </Typography>
-            </Button>
-          </Grid>
+          {!isMobile && (
+            <Grid item xs={2} className="dropdown">
+              <Button
+                variant="outlined"
+                onClick={() => setOpenFilter(!openfilter)}
+                fullWidth
+                style={{
+                  height: "100%",
+                  borderRadius: 4,
+                  backgroundColor: "#004987",
+                }}
+              >
+                <Typography variant="body1" style={{ color: "#FFFFFF" }}>
+                  {!openfilter ? "More Filters" : "Fewer Filters"}
+                </Typography>
+              </Button>
+            </Grid>
+          )}
           {/* <Grid item xs={2} className='type'>
             <TextField
               select
@@ -204,30 +215,102 @@ export default function ProgramFilterSection({ setBounds }) {
             </Grid>
           </Grid>
 
-          <Grid xs={10} ml={"auto"} pl={2}>
-            {isMobile ? (
-              <Grid container>
-                <Grid item>
-                  <Accordion style={{ width: "100%", maxWidth: "100%" }}>
-                    <AccordionSummary
-                      variant="h6"
-                      expandIcon={<ExpandMoreIcon />}
-                    >
-                      <Typography>Career Emphasis</Typography>
+          {isMobile ? (
+            <Grid container>
+              <Grid item xs={12}>
+                <Accordion style={{ width: "100%", maxWidth: "100%", marginBottom: '8px', marginTop: '8px' }}>
+                  <AccordionSummary variant="h6" expandIcon={<ExpandMoreIcon />}>
+                    <Typography>Career Emphasis</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <CateList
+                    cates={careers}
+                    selected={filter.careerEmp}
+                    handleChoose={(label) =>
+                      handleFilterChange("careerEmp", label)
+                    }
+                    ></CateList>
+                  </AccordionDetails>
+                </Accordion>
+              </Grid>
+              <Grid item xs={12}>
+                <Accordion style={{ width: '100%', maxWidth: '100%', marginBottom: '8px' }}>
+                  <AccordionSummary variant="h6" expandIcon={<ExpandMoreIcon />}>
+                    <Typography>Education Level</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <CateList
+                      cates={gradeLevels}
+                      selected={filter.gradeLevels}
+                      handleChoose={(label) =>
+                        handleFilterChange('gradeLevels', label)
+                      }
+                    ></CateList>
+                  </AccordionDetails>
+                </Accordion>
+              </Grid>
+              <Grid item xs={12}>
+                <Accordion style={{ width: '100%', maxWidth: '100%', marginBottom: '8px' }}>
+                  <AccordionSummary variant="h6" expandIcon={<ExpandMoreIcon />}>
+                    <Typography>Timing</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <CateList
+                      cates={configDuration}
+                      selected={filter.duration}
+                      handleChoose={(label) =>
+                        handleFilterChange('duration', label)
+                      }
+                    ></CateList>
+                  </AccordionDetails>
+                </Accordion>
+              </Grid>
+              <Grid item xs={12}>
+                <Accordion style={{ width: '100%', maxWidth: '100%' }}>
+                  <AccordionSummary variant="h6" expandIcon={<ExpandMoreIcon />}>
+                    <Typography>More Filters</Typography>
+                  </AccordionSummary>
+                  <Accordion style={accordionStyle}>
+                    <AccordionSummary variant="h6" expandIcon={<ExpandMoreIcon />}>
+                      <Typography>Fees/Financial Support</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                       <CateList
-                        cates={careers}
-                        selected={filter.careerEmp}
-                        handleChoose={(label) =>
-                          handleFilterChange("careerEmp", label)
-                        }
+                        cates={financialSupport}
+                        selected={filter.finanSprt}
+                        handleChoose={(label) => handleFilterChange('finanSprt', label)}
                       ></CateList>
                     </AccordionDetails>
                   </Accordion>
-                </Grid>
+                  <Accordion style={accordionStyle}>
+                    <AccordionSummary variant="h6" expandIcon={<ExpandMoreIcon />}>
+                      <Typography>Shadowing Opportunities</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <CateList
+                        cates={shadowOppt}
+                        selected={filter.shadOppt}
+                        handleChoose={(label) => handleFilterChange('shadOppt', label)}
+                      ></CateList>
+                    </AccordionDetails>
+                  </Accordion>
+                  <Accordion style={accordionStyle}>
+                    <AccordionSummary variant="h6" expandIcon={<ExpandMoreIcon />}>
+                      <Typography>Miscellaneous</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <CateList
+                        cates={advanced}
+                        selected={filter.advanced}
+                        handleChoose={(label) => handleFilterChange('advanced', label)}
+                      ></CateList>
+                    </AccordionDetails>
+                  </Accordion>
+                </Accordion>
               </Grid>
-            ) : (
+            </Grid>
+          ) : (
+            <Grid xs={10} ml={"auto"} pl={2}>
               <div>
                 {" "}
                 <Grid container>
@@ -366,8 +449,8 @@ export default function ProgramFilterSection({ setBounds }) {
                   </Grid>
                 </Collapse>{" "}
               </div>
-            )}
-          </Grid>
+            </Grid>
+          )}
         </Grid>
       </Grid>
     </>
