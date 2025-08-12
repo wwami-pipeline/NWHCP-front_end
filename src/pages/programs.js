@@ -7,7 +7,7 @@ Filters results
 import React, { useEffect, useState, useContext } from "react";
 import ProgramCard from "../components/Programs/ProgramCard";
 import Map from "../components/Programs/Map";
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, useMediaQuery } from "@mui/material";
 import { Context as AllProgramConText } from "../context/programContext";
 import ProgramFilterSection from "../components/Programs/FilterSection";
 
@@ -24,6 +24,7 @@ const SearchPrograms = () => {
 
   const programState = useContext(AllProgramConText).state;
   const filterProgram = programState.filteredProgram;
+  const isMobile = useMediaQuery("(max-width:768px)");
 
   useEffect(() => {
     fetchAllPrograms();
@@ -61,8 +62,20 @@ const SearchPrograms = () => {
           Found {filterProgram?.length} programs
         </h3>
       </div>
-      <Grid container style={{ height: "90vh" }}>
-        <Grid item xs={4} style={{ height: "inherit", overflowX: "hidden" }}>
+      <Grid container style={{ height: isMobile ? "auto" : "90vh" }}>
+        <Grid
+          item
+          xs={12}
+          md={4}
+          style={{ 
+            height: isMobile ? "300px" : "inherit",
+            overflowY: "auto",
+            overflowX: "hidden",
+            order: isMobile ? 2 : 1,
+            position: "relative"
+          }}
+        >
+        <div style={{ height: "100%", overflowY: "auto", overflowX: "hidden" }}>
           {filterProgram?.length && <RenderPrograms programs={filterProgram} />}
           {!filterProgram.length && (
             <Typography>
@@ -70,8 +83,27 @@ const SearchPrograms = () => {
               No program found. Please try different setting
             </Typography>
           )}
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            left: 0,
+            right: 0,
+            bottom: 0,
+            height: 56,
+            pointerEvents: "none",
+            background: "linear-gradient(to top, #fff 70%, rgba(255,255,255,0))",
+          }}
+        />
         </Grid>
-        <Grid item xs={8}>
+        <Grid
+          item
+          xs={12}
+          md={8}
+          style = {{
+            order: isMobile ? 1 : 2
+          }}
+        >
           <div>
             <Map
               programs={filterProgram}
@@ -80,10 +112,26 @@ const SearchPrograms = () => {
               markerRefs={markerRefs}
               bounds={bounds}
               setMarkerRef={setMarkerRef}
+              mapHeight={isMobile ? "300px" : "90vh"}
+              marginBtm={isMobile ? "20px" : "0px"}
             />
           </div>
         </Grid>
       </Grid>
+      {isMobile && (
+        <div
+          style={{
+            textAlign: "center",
+            color: "#004987",
+            fontWeight: 600,
+            fontSize: 16,
+            margin: "0 0 16px 0",
+            letterSpacing: 0.5,
+          }}
+        >
+          Scroll for more programs
+        </div>
+      )}
     </div>
   );
 };

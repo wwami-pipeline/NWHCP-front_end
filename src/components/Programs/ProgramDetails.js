@@ -214,7 +214,6 @@ function ProgramDetails(props) {
   const AboutApplicant = ({ program }) => {
     return (
       <Grid container>
-        <SubSectionNavDetail subSectionName={"Application's Profile"} />
         <DetailCategoryDisplay title={"Age requirement"} obj={ageReq} />
         <DetailCategoryDisplay title={"DACA"} obj={program.daca___yes} />
         <DetailCategoryDisplay title={"Education Level"} obj={gradeLevel} />
@@ -244,7 +243,6 @@ function ProgramDetails(props) {
   const AboutLogistricSection = ({ program }) => {
     return (
       <Grid container>
-        <SubSectionNavDetail subSectionName={"Program Logistics"} />
         <DetailCategoryDisplay
           title={"Public Transportation"}
           obj={program.public_transportation}
@@ -261,10 +259,8 @@ function ProgramDetails(props) {
   const AboutProgramSection = ({ program }) => {
     return (
       <Grid container>
-        <SubSectionNavDetail subSectionName={"About the Program"} />
         <Grid container style={{ marginBottom: 6 }}>
           <p>{program.description}</p>
-          {/* <DetailCategoryDisplay title={"Organization Details"} obj="" /> */}
           <DetailCategoryDisplay title={"Organization Type"} obj={orgTypes} />
           <DetailCategoryDisplay
             title={"Career Emphasis"}
@@ -405,36 +401,38 @@ function ProgramDetails(props) {
         Search Results
       </Link>
       <Grid container style={{ marginTop: 24 }}>
-        <Grid
-          item
-          xs={2}
-          style={{
-            height: 200,
-            backgroundImage: `url(${Logo})`,
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            backgroundSize: "contain",
-          }}
-        ></Grid>
-        <Grid item xs={"auto"}>
-          <Grid container style={{ marginLeft: 16 }}>
-            <h3 className="text-primary mt-4 mb-3" style={{ width: "100%" }}>
-              {program.org_name || program.org_name_v2 || ""}
-            </h3>
-            <p>
-              {(program.street_address_1 || program.street_address_1_v2 || "") +
-                " " +
-                (program.street_address_2 ||
-                  program.street_address_2_v2 ||
-                  "") +
-                ", " +
-                (program.org_city || program.org_city_v2 || "") +
-                ", " +
-                (program.org_state || program.org_state_v2 || "") +
-                ", " +
-                (program.zip_code || program.zip_code_v2 || "")}
-            </p>
-          </Grid>
+        <Grid item xs={12}>
+          <Typography
+            className="text-primary mt-4 mb-3"
+            style={{
+              width: "100%",
+              fontWeight: 700,
+              fontSize: 24,
+              color: "#004987",
+              wordBreak: "break-word",
+            }}
+          >
+            {program.org_name || program.org_name_v2 || ""}
+          </Typography>
+          <Typography
+            style={{
+              wordBreak: "break-word",
+              whiteSpace: "normal",
+              fontSize: 16,
+            }}
+          >
+            {(program.street_address_1 || program.street_address_1_v2 || "") +
+              " " +
+              (program.street_address_2 ||
+                program.street_address_2_v2 ||
+                "") +
+              ", " +
+              (program.org_city || program.org_city_v2 || "") +
+              ", " +
+              (program.org_state || program.org_state_v2 || "") +
+              ", " +
+              (program.zip_code || program.zip_code_v2 || "")}
+          </Typography>
         </Grid>
       </Grid>
       <Grid
@@ -446,7 +444,7 @@ function ProgramDetails(props) {
           minHeight: 600,
         }}
       >
-        <Grid item xs={3}>
+        <Grid item xs={12} md={3}>
           <Grid
             container
             direction="row"
@@ -464,15 +462,15 @@ function ProgramDetails(props) {
                 );
               })}
             </Grid>
-            <Grid item xs={12}>
-              <ContactSection program={program} reef={contactRef} />
-            </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={9} style={{ paddingLeft: 12 }}>
+        <Grid item xs={12} md={9}style={{ paddingLeft: 12 }}>
           {section === 0 && <AboutProgramSection program={program} />}
           {section === 1 && <AboutLogistricSection program={program} />}
           {section === 2 && <AboutApplicant program={program} />}
+        </Grid>
+        <Grid item xs={12} md={3}>
+            <ContactSection program={program} reef={contactRef} />
         </Grid>
       </Grid>
     </>
