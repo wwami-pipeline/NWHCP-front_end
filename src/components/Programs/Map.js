@@ -9,7 +9,7 @@ import { Context as AllProgramContext } from "../../context/programContext";
 
 // Component that displays a react leaflet map
 // Centers itself around the average of the search results
-function Map({ programs, center, bounds }) {
+function Map({ programs, center, bounds, mapHeight="90vh", marginBtm="0px" }) {
   const [map, setMap] = useState(null);
   const programAllStates = useContext(AllProgramContext).state;
 
@@ -148,9 +148,9 @@ function Map({ programs, center, bounds }) {
 
   if (typeof window !== "undefined") {
     return (
-      <div>
+      <div style={{ height: mapHeight, width: "100%", marginBottom: marginBtm }}>
         <MapContainer
-          style={{ height: "90vh" }}
+          style={{ height: "100%", width: "100%" }}
           center={center}
           bounds={bounds}
           whenCreated={setMap}
