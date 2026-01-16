@@ -47,7 +47,7 @@ const programReducer = (state, action) => {
         newState.filteredProgram = newState.filteredProgram.filter((program) => {
           let text = "";
           for (const attribute in program) {
-            if (!["1", "0", "", 1, 0].includes(program[attribute])) {
+            if (program[attribute] != null && !["1", "0", "", 1, 0].includes(program[attribute])) {
               text += " " + String(program[attribute]).toLowerCase();
             }
           }
@@ -254,7 +254,7 @@ function modifyReturnProgram(obj) {
     if (el.includes("_v2")) {
       if (obj[el] === "0" || obj[el] === "1") {
         obj[remove(el)] = String(Number(obj[el]) | Number(obj[remove(el)]));
-      } else {
+      } else if (obj[el] !== null && obj[el] !== undefined) {
         if (obj[remove(el)] === undefined) {
           obj[remove(el)] = obj[el];
         } else {

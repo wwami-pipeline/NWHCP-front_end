@@ -1,4 +1,7 @@
 export function validateWebsite(website) {
+  if (!website || typeof website !== 'string') {
+    return "";
+  }
   let w = ""
   if (website.startsWith("http://") || website.startsWith("https://")) {
     w = website;

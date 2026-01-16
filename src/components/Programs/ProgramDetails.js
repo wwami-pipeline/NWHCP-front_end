@@ -33,6 +33,9 @@ function ProgramDetails(props) {
   const contactRef = useRef(null);
 
   const validateUrl = (url) => {
+    if (!url || typeof url !== 'string') {
+      return "";
+    }
     let valid = /^(ftp|http|https):\/\//.test(url);
     return valid ? url : "https://" + url;
   };
@@ -53,7 +56,8 @@ function ProgramDetails(props) {
   let careerEmphasis = [];
   Object.keys(allCareers).forEach(function (career) {
     if (allCareers[career] === "1") {
-      careerEmphasis.push(prettyCareer[career.split("___")[1]]);
+      const careerKey = career.split("___")[1];
+      careerEmphasis.push(prettyCareer[careerKey] || careerKey);
     }
   });
 
@@ -99,7 +103,8 @@ function ProgramDetails(props) {
   let gradeLevel = [];
   Object.keys(allGrades).forEach(function (grade) {
     if (allGrades[grade] === "1") {
-      gradeLevel.push(prettyGrade[grade.split("___")[1]]);
+      const gradeKey = grade.split("___")[1];
+      gradeLevel.push(prettyGrade[gradeKey] || gradeKey);
     }
   });
   // program type
@@ -109,7 +114,8 @@ function ProgramDetails(props) {
   let pathways = [];
   Object.keys(allPathways).forEach(function (type) {
     if (allPathways[type] === "1") {
-      pathways.push(prettyPathway[type.split("___")[1]]);
+      const pathwayKey = type.split("___")[1];
+      pathways.push(prettyPathway[pathwayKey] || pathwayKey);
     }
   });
   // academic credits
@@ -129,16 +135,34 @@ function ProgramDetails(props) {
   let ageReq = "No";
   Object.keys(allAgeReqs).forEach(function (entry) {
     if (allAgeReqs[entry] === "1") {
-      ageReq = entry.match("___(.*)")[1];
+      const match = entry.match("___(.*)");
+      if (match && match[1]) {
+        ageReq = match[1];
+      }
     }
   });
+
+  // enrollment requirements
+  const allEnrollReqs = Object.fromEntries(
+    Object.entries(program).filter(([key]) => key.includes("enrollment"))
+  );
+  let enrollReq = "no";
+  Object.keys(allEnrollReqs).forEach(function (entry) {
+    if (allEnrollReqs[entry] === "1") {
+      const match = entry.match("___(.*)");
+      if (match && match[1]) {
+        enrollReq = match[1];
+      }
+    }
+  });
+
   // certificates
   const allCerts = Object.fromEntries(
     Object.entries(program).filter(([key]) => key.includes("certificate_title"))
   );
   let certString = "No information provided";
   Object.keys(allCerts).forEach(function (entry) {
-    if (allCerts[entry] !== "") {
+    if (allCerts[entry] && allCerts[entry] !== "") {
       certString = allCerts[entry];
     }
   });
@@ -209,6 +233,18 @@ function ProgramDetails(props) {
         </Grid>
       );
     }
+
+    // Handle null, undefined, and other types
+    return (
+      <Grid container style={{ marginBottom: 6 }}>
+        <Typography style={{ fontSize: "16px", fontWeight: 700 }}>
+            {title}:&nbsp;
+        </Typography>
+        <Typography style={{ fontSize: "16px" }} align={"left"} inline>
+            No information provided
+        </Typography>
+      </Grid>
+    );
   };
 
   const AboutApplicant = ({ program }) => {
@@ -244,14 +280,54 @@ function ProgramDetails(props) {
     return (
       <Grid container>
         <DetailCategoryDisplay
+          title={"Career Emphasis"}
+          obj={careerEmphasis}
+        />
+        <DetailCategoryDisplay
+          title={"Education Level"}
+          obj={gradeLevel}
+        />
+        <DetailCategoryDisplay
+          title={"Timing/Schedule"}
+          obj={orgTimimg}
+        />
+        <DetailCategoryDisplay title={"Program's Fee"} obj={program.has_cost} />
+        <DetailCategoryDisplay title={"Financial Aid"} obj={finaids} />
+        <DetailCategoryDisplay
+          title={"Shadow Opportunity"}
+          obj={program.has_shadow}
+        />
+        <DetailCategoryDisplay
           title={"Public Transportation"}
           obj={program.public_transportation}
         />
-        <DetailCategoryDisplay title={"Program's Time"} obj={orgTimimg} />
-        <DetailCategoryDisplay title={"Program's Fee"} obj={program.has_cost} />
-        <DetailCategoryDisplay title={"Financial Aid"} obj={finaids} />
+        <DetailCategoryDisplay title={"Academic Credit"} obj={hasAcadCred} />
+        <DetailCategoryDisplay
+          title={"Certificates Offered"}
+          obj={certString}
+        />
+        <DetailCategoryDisplay
+          title={"Background Check Requirement"}
+          obj={program.eligibility___bground_check}
+        />
+        <DetailCategoryDisplay
+          title={"Citizenship Requirement"}
+          obj={program.eligibility___citizen}
+        />
+        <DetailCategoryDisplay
+          title={"Residency Requirement"}
+          obj={program.eligibility___residency}
+        />
+        <DetailCategoryDisplay title={"Age requirement"} obj={ageReq} />
+        <DetailCategoryDisplay title={"Organization Type"} obj={orgTypes} />
+        {/* <DetailCategoryDisplay 
+          title={"Must a student be enrolled in an Academic Program or School to participate?"}
+          obj={enrollReq}
+        /> */}
         <DetailCategoryDisplay title={"Grants"} obj={program.grants___yes} />
         <DetailCategoryDisplay title={"Loan"} obj={""} />
+ 
+
       </Grid>
     );
   };
@@ -261,20 +337,6 @@ function ProgramDetails(props) {
       <Grid container>
         <Grid container style={{ marginBottom: 6 }}>
           <p>{program.description}</p>
-          <DetailCategoryDisplay title={"Organization Type"} obj={orgTypes} />
-          <DetailCategoryDisplay
-            title={"Career Emphasis"}
-            obj={careerEmphasis}
-          />
-          <DetailCategoryDisplay title={"Academic Credit"} obj={hasAcadCred} />
-          <DetailCategoryDisplay
-            title={"Shadow Opportunity"}
-            obj={program.has_shadow}
-          />
-          <DetailCategoryDisplay
-            title={"Certificates Offered"}
-            obj={certString}
-          />
         </Grid>
       </Grid>
     );
@@ -353,13 +415,10 @@ function ProgramDetails(props) {
             <a
               href={
                 "tel:+1" +
-                (program.org_phone_number || program.org_phone_number_v2).match(
-                  /\d+/g
-                )
+                ((program.org_phone_number || program.org_phone_number_v2 || "").match(/\d+/g) || []).join("")
               }
             >
-              {program.org_phone_number}
-              {program.org_phone_number_v2}
+              {program.org_phone_number || program.org_phone_number_v2 || "No phone number provided"}
             </a>
           </li>
           <li>

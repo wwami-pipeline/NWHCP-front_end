@@ -19,7 +19,8 @@ export default function ProgramCard({ program, onClick }) {
   let careerEmphasis = [];
   Object.keys(allCareers).forEach(function (career) {
     if (allCareers[career] === "1") {
-      careerEmphasis.push(prettyCareer[career.split("___")[1]]);
+      const careerKey = career.split("___")[1];
+      careerEmphasis.push(prettyCareer[careerKey] || careerKey);
     }
   });
   const emphasisList = careerEmphasis.map((emphasis, index) => {
@@ -40,10 +41,10 @@ export default function ProgramCard({ program, onClick }) {
           {program.org_name || program.org_name_v2}
         </h4>
         <Typography variant="body1" inline="true">
-          {!openMore ? program?.description.slice(0, 80) + "..." : ""}
+          {!openMore ? (program?.description || "").slice(0, 80) + "..." : ""}
         </Typography>
         <Collapse in={openMore}>
-          <Typography inline="true" variant="body1">{program?.description}</Typography>
+          <Typography inline="true" variant="body1">{program?.description || ""}</Typography>
         </Collapse>
         <Grid container justifyContent={"right"}>
           <Button variant="text" style={{ paddingRight: 0 }} onClick={() => setOpenMore(!openMore)}>
