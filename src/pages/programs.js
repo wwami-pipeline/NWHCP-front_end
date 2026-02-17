@@ -62,62 +62,63 @@ const SearchPrograms = () => {
           Found {filterProgram?.length} programs
         </h3>
       </div>
-      <Grid container style={{ height: isMobile ? "auto" : "90vh" }}>
-        <Grid
-          item
-          xs={12}
-          md={4}
-          style={{ 
-            height: isMobile ? "300px" : "inherit",
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: isMobile ? "1fr" : "1fr 2fr",
+          gridTemplateRows: isMobile ? "300px 1fr" : "90vh",
+          gridTemplateAreas: isMobile ? '"map" "list"' : '"list map"',
+          height: isMobile ? "auto" : "90vh",
+          gap: 0,
+        }}
+      >
+        <div
+          style={{
+            gridArea: "list",
+            height: isMobile ? "450px" : "inherit",
             overflowY: "auto",
             overflowX: "hidden",
-            order: isMobile ? 2 : 1,
-            position: "relative"
+            position: "relative",
           }}
         >
-        <div style={{ height: "100%", overflowY: "auto", overflowX: "hidden" }}>
-          {filterProgram?.length && <RenderPrograms programs={filterProgram} />}
-          {!filterProgram.length && (
-            <Typography>
-              {" "}
-              No program found. Please try different setting
-            </Typography>
-          )}
+          <div style={{ height: "100%", overflowY: "auto", overflowX: "hidden" }}>
+            {filterProgram?.length && <RenderPrograms programs={filterProgram} />}
+            {!filterProgram.length && (
+              <Typography>
+                {" "}
+                No program found. Please try different setting
+              </Typography>
+            )}
+          </div>
+          <div
+            style={{
+              position: "absolute",
+              left: 0,
+              right: 0,
+              bottom: 0,
+              height: 56,
+              pointerEvents: "none",
+              background: "linear-gradient(to top, #fff 70%, rgba(255,255,255,0))",
+            }}
+          />
         </div>
         <div
           style={{
-            position: "absolute",
-            left: 0,
-            right: 0,
-            bottom: 0,
-            height: 56,
-            pointerEvents: "none",
-            background: "linear-gradient(to top, #fff 70%, rgba(255,255,255,0))",
-          }}
-        />
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          md={8}
-          style = {{
-            order: isMobile ? 1 : 2
+            gridArea: "map",
           }}
         >
-          <div>
-            <Map
-              programs={filterProgram}
-              setCenter={setCenterLatLng}
-              center={centerLatLng}
-              markerRefs={markerRefs}
-              bounds={bounds}
-              setMarkerRef={setMarkerRef}
-              mapHeight={isMobile ? "300px" : "90vh"}
-              marginBtm={isMobile ? "20px" : "0px"}
-            />
-          </div>
-        </Grid>
-      </Grid>
+          <Map
+            programs={filterProgram}
+            setCenter={setCenterLatLng}
+            center={centerLatLng}
+            markerRefs={markerRefs}
+            bounds={bounds}
+            setMarkerRef={setMarkerRef}
+            mapHeight={isMobile ? "300px" : "90vh"}
+            marginBtm={isMobile ? "20px" : "0px"}
+          />
+        </div>
+      </div>
       {isMobile && (
         <div
           style={{

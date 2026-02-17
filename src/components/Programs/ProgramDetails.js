@@ -25,7 +25,7 @@ import { validateWebsiteWithVersion } from "../../utils/websiteUrl";
 const menuButtonNameID = [
   "About the Program",
   "Program Logistics",
-  "Applicant Profile",
+  "Next Steps",
 ];
 
 function ProgramDetails(props) {
@@ -122,7 +122,7 @@ function ProgramDetails(props) {
   const allAcadCreds = Object.fromEntries(
     Object.entries(program).filter(([key]) => key.includes("academic_credit"))
   );
-  let hasAcadCred = "No";
+  let hasAcadCred = null;
   Object.keys(allAcadCreds).forEach(function (entry) {
     if (allAcadCreds[entry] === "1") {
       hasAcadCred = "Yes";
@@ -132,7 +132,7 @@ function ProgramDetails(props) {
   const allAgeReqs = Object.fromEntries(
     Object.entries(program).filter(([key]) => key.includes("age_requirement"))
   );
-  let ageReq = "No";
+  let ageReq = null;
   Object.keys(allAgeReqs).forEach(function (entry) {
     if (allAgeReqs[entry] === "1") {
       const match = entry.match("___(.*)");
@@ -146,7 +146,7 @@ function ProgramDetails(props) {
   const allEnrollReqs = Object.fromEntries(
     Object.entries(program).filter(([key]) => key.includes("enrollment"))
   );
-  let enrollReq = "no";
+  let enrollReq = null;
   Object.keys(allEnrollReqs).forEach(function (entry) {
     if (allEnrollReqs[entry] === "1") {
       const match = entry.match("___(.*)");
@@ -160,7 +160,7 @@ function ProgramDetails(props) {
   const allCerts = Object.fromEntries(
     Object.entries(program).filter(([key]) => key.includes("certificate_title"))
   );
-  let certString = "No information provided";
+  let certString = null;
   Object.keys(allCerts).forEach(function (entry) {
     if (allCerts[entry] && allCerts[entry] !== "") {
       certString = allCerts[entry];
@@ -174,6 +174,33 @@ function ProgramDetails(props) {
     shadowOpptMapped = "no";
   }
   program.shadowOppt = shadowOpptMapped;
+
+  // project location
+  const stateMap = {
+    "1": "Alaska",
+    "2": "Idaho",
+    "3": "Montana",
+    "4": "Western Washington",
+    "5": "Eastern Washington",
+    "6": "Wyoming",
+    "7": "Oregon"
+  };
+  const allStateAreas = Object.fromEntries(
+    Object.entries(program).filter(([key]) => key.includes("state_servicearea"))
+  );
+  let projectLocation = [];
+  Object.keys(allStateAreas).forEach(function (entry) {
+    if (allStateAreas[entry] === "1") {
+      const match = entry.match("___(.*)");
+      if (match && match[1]) {
+        projectLocation.push(stateMap[match[1]])
+      }
+    }
+  });
+  if (projectLocation.length === 0) {
+    projectLocation = program.region_servicearea || program.city_servicearea || 
+                      program.zip_servicearea || program.other_servicearea || "";
+  }
 
   const SubSectionNavDetail = ({ subSectionName }) => {
     return (
@@ -197,31 +224,38 @@ function ProgramDetails(props) {
     );
   };
 
-  const DetailCategoryDisplay = ({ title, obj }) => {
+  const hasResponse = (obj) => {
+    if (Array.isArray(obj)) return obj.length > 0;
+    if (obj === null || obj === undefined) return false;
+    if (typeof obj === "string" || obj instanceof String) {
+      const trimmed = obj.trim();
+      return trimmed !== "" && trimmed !== "0";
+    }
+    return true;
+  };
+
+  const DetailCategoryDisplay = ({ title, obj, emptyText }) => {
+    const responded = hasResponse(obj);
+    if (!responded && (emptyText === undefined || emptyText === null)) return null;
+
     if (Array.isArray(obj)) {
+      const display = obj.length !== 0 ? obj.join(", ") : (emptyText || null);
+      if (display === null) return null;
       return (
         <Grid container style={{ marginBottom: 6 }}>
           <Typography style={{ fontSize: "16px", fontWeight: 700 }}>
             {title}:&nbsp;
           </Typography>
           <Typography style={{ fontSize: "16px" }} align={"left"} inline>
-            {obj.length !== 0 ? obj.join(", ") : "No information provided"}
+            {display}
           </Typography>
         </Grid>
       );
     }
 
     if (typeof obj === "string" || obj instanceof String) {
-      let str = "";
-      if (obj === "1") {
-        str = "Yes";
-      } else if (obj === "0") {
-        str = "No information provided";
-      } else if (obj === "") {
-        str = "No information provided";
-      } else {
-        str = obj;
-      }
+      const str = obj === "1" ? "Yes" : (obj && obj.trim() !== "" ? obj : (emptyText || ""));
+      if (!str) return null;
       return (
         <Grid container style={{ marginBottom: 6 }}>
           <Typography style={{ fontSize: "16px", fontWeight: 700 }}>
@@ -234,14 +268,16 @@ function ProgramDetails(props) {
       );
     }
 
-    // Handle null, undefined, and other types
+    // Fallback for other types
+    const fallback = (obj === null || obj === undefined || obj === "") ? (emptyText || String(obj)) : String(obj);
+    if (!fallback) return null;
     return (
       <Grid container style={{ marginBottom: 6 }}>
         <Typography style={{ fontSize: "16px", fontWeight: 700 }}>
             {title}:&nbsp;
         </Typography>
         <Typography style={{ fontSize: "16px" }} align={"left"} inline>
-            No information provided
+            {fallback}
         </Typography>
       </Grid>
     );
@@ -250,28 +286,8 @@ function ProgramDetails(props) {
   const AboutApplicant = ({ program }) => {
     return (
       <Grid container>
-        <DetailCategoryDisplay title={"Age requirement"} obj={ageReq} />
-        <DetailCategoryDisplay title={"DACA"} obj={program.daca___yes} />
-        <DetailCategoryDisplay title={"Education Level"} obj={gradeLevel} />
-        <DetailCategoryDisplay
-          title={"Background Check Requirement"}
-          obj={program.eligibility___bground_check}
-        />
-        <DetailCategoryDisplay
-          title={"Citizenship Requirement"}
-          obj={program.eligibility___citizen}
-        />
-        <DetailCategoryDisplay
-          title={"Residency Requirement"}
-          obj={program.eligibility___residency}
-        />
-        <DetailCategoryDisplay title={"Prerequisites"} obj={program.prereqs} />
-        <DetailCategoryDisplay
-          title={
-            "Requirement to be enrolled in Academic Program or School to participate"
-          }
-          obj={program.enrollment___yes}
-        />
+        <DetailCategoryDisplay title={"Once you have completed this program, here are some recommended next steps"} 
+                               obj={program.next_steps} emptyText={"No information provided"} />
       </Grid>
     );
   };
@@ -320,10 +336,10 @@ function ProgramDetails(props) {
         />
         <DetailCategoryDisplay title={"Age requirement"} obj={ageReq} />
         <DetailCategoryDisplay title={"Organization Type"} obj={orgTypes} />
-        {/* <DetailCategoryDisplay 
+        <DetailCategoryDisplay 
           title={"Must a student be enrolled in an Academic Program or School to participate?"}
           obj={enrollReq}
-        /> */}
+        />
         <DetailCategoryDisplay title={"Grants"} obj={program.grants___yes} />
         <DetailCategoryDisplay title={"Loan"} obj={""} />
  
@@ -337,6 +353,7 @@ function ProgramDetails(props) {
       <Grid container>
         <Grid container style={{ marginBottom: 6 }}>
           <p>{program.description}</p>
+          <DetailCategoryDisplay title={"Service Area"} obj={projectLocation} />
         </Grid>
       </Grid>
     );
@@ -460,7 +477,7 @@ function ProgramDetails(props) {
         Search Results
       </Link>
       <Grid container style={{ marginTop: 24 }}>
-        <Grid item xs={12}>
+        <Grid item xs={12} md={9}>
           <Typography
             className="text-primary mt-4 mb-3"
             style={{
@@ -473,7 +490,7 @@ function ProgramDetails(props) {
           >
             {program.org_name || program.org_name_v2 || ""}
           </Typography>
-          <Typography
+          {/* <Typography
             style={{
               wordBreak: "break-word",
               whiteSpace: "normal",
@@ -491,7 +508,10 @@ function ProgramDetails(props) {
               (program.org_state || program.org_state_v2 || "") +
               ", " +
               (program.zip_code || program.zip_code_v2 || "")}
-          </Typography>
+          </Typography> */}
+        </Grid>
+        <Grid item xs={12} md={3}>
+          <ContactSection program={program} reef={contactRef} />
         </Grid>
       </Grid>
       <Grid
@@ -523,13 +543,10 @@ function ProgramDetails(props) {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={12} md={9}style={{ paddingLeft: 12 }}>
+        <Grid item xs={12} md={9} style={{ paddingLeft: 12 }}>
           {section === 0 && <AboutProgramSection program={program} />}
           {section === 1 && <AboutLogistricSection program={program} />}
           {section === 2 && <AboutApplicant program={program} />}
-        </Grid>
-        <Grid item xs={12} md={3}>
-            <ContactSection program={program} reef={contactRef} />
         </Grid>
       </Grid>
     </>
