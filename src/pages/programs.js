@@ -34,7 +34,7 @@ const SearchPrograms = () => {
   const handleCardClick = (program) => {
     // Show program on map
     setCenterLatLng(
-      program?._id ? [program?.latitude, program?.longitude] : centerLatLng
+      program?._id ? [program?.latitude, program?.longitude] : centerLatLng,
     );
     var iconSelected = document.getElementsByClassName("marker" + program?._id);
     iconSelected[0].click();
@@ -81,8 +81,12 @@ const SearchPrograms = () => {
             position: "relative",
           }}
         >
-          <div style={{ height: "100%", overflowY: "auto", overflowX: "hidden" }}>
-            {filterProgram?.length && <RenderPrograms programs={filterProgram} />}
+          <div
+            style={{ height: "100%", overflowY: "auto", overflowX: "hidden" }}
+          >
+            {filterProgram?.length && (
+              <RenderPrograms programs={filterProgram} />
+            )}
             {!filterProgram.length && (
               <Typography>
                 {" "}
@@ -98,7 +102,8 @@ const SearchPrograms = () => {
               bottom: 0,
               height: 56,
               pointerEvents: "none",
-              background: "linear-gradient(to top, #fff 70%, rgba(255,255,255,0))",
+              background:
+                "linear-gradient(to top, #fff 70%, rgba(255,255,255,0))",
             }}
           />
         </div>
