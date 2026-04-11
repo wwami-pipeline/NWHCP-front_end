@@ -25,3 +25,40 @@
     color: white;
     font-size: x-small;
 }
+
+.footer-brand-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.footer-brand-logo {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.footer-brand-logo-ohec {
+    max-height: 40px;
+}
+
+.footer-brand-logo-wihse {
+    max-height: 46px;
+}
+
+@media (max-width: 768px) {
+    .footer-brand-logos {
+        gap: 12px;
+    }
+
+    .footer-brand-logo-ohec {
+        max-height: 34px;
+    }
+
+    .footer-brand-logo-wihse {
+        max-height: 40px;
+    }
+}
