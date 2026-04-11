@@ -1,16 +1,8 @@
 import React from "react";
 import "../scss/footers.scss";
-import {
-  FormControl,
-  Grid,
-  Link,
-  TextField,
-  Box,
-  Stack,
-  Typography,
-  styled,
-} from "@mui/material";
-import { Button } from "react-bootstrap";
+import uwMedicineOhecLogo from "../images/uwmedicine_ohec.svg";
+import uwMedicineWihseLogo from "../images/uwmedicine_wihse.svg";
+import { Grid, Box, Stack, Typography } from "@mui/material";
 import "../styles/footer/form.css";
 
 const Footer = () => {
@@ -51,6 +43,18 @@ const Footer = () => {
               For more information on this project, please contact the WIHSE
               Center at WIHSE@uw.edu
             </Typography>
+            <div className="footer-brand-logos" aria-label="Partner logos">
+              <img
+                src={uwMedicineOhecLogo}
+                alt="UW Medicine Office of Healthcare Equity"
+                className="footer-brand-logo footer-brand-logo-ohec"
+              />
+              <img
+                src={uwMedicineWihseLogo}
+                alt="UW Medicine WIHSE"
+                className="footer-brand-logo footer-brand-logo-wihse"
+              />
+            </div>
             {/* <Link href="https://www.ahecww.org/">
               <Button
                 variant="contained"
