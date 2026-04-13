@@ -5,7 +5,6 @@ import { Button } from "react-bootstrap";
 import { StaticImage } from "gatsby-plugin-image";
 import SchoolAndTrainingWrapper from "../components/schoolAndTrainingWrapper";
 import PathwayWrapper from "../components/pathwayWrapper.js";
-import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
 
 const About = () => {
   return (
@@ -42,6 +41,24 @@ const About = () => {
           “pathway” programs that lead to schools or training programs for the
           health professions. Check out our map to search for and identify
           pathway programs that will help you to achieve your goals!
+        </p>
+
+        <p>
+          NWHCP aligns with the{" "}
+          <strong>
+            Center for Workforce Inclusion and Healthcare System Equity (WIHSE)
+          </strong>{" "}
+          at the UW Medicine Office of Healthcare Equity, which works to
+          liberate all our communities&apos; brilliant potential to be future
+          healthcare leaders.{" "}
+          <a
+            href="https://equity.uwmedicine.org/wihse/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit the WIHSE website
+          </a>{" "}
+          to learn more.
         </p>
 
         <br />
@@ -110,19 +127,27 @@ const About = () => {
         </Grid>
 
         <br />
-        <p>
-          We also encourage advisors, counselors, and program administrators to
-          utilize this map to direct students and find ways to bridge gaps in
-          programming
-        </p>
-        <Grid container justifyContent={"center"}>
-          <Grid>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            gap: "1.25rem",
+            justifyContent: "space-between",
+          }}
+        >
+          <p style={{ marginBottom: 0, flex: "1 1 280px" }}>
+            We also encourage advisors, counselors, and program administrators to
+            utilize this map to direct students and find ways to bridge gaps in
+            programming
+          </p>
+          <div style={{ flexShrink: 0 }}>
             <Button href="/programs" variant="primary" size="lg">
-              Get Started
+              Find a Program Now
             </Button>
-          </Grid>
-        </Grid>
-        <p style={{ margin: 10 }}>
+          </div>
+        </div>
+        <p style={{ margin:0 }}>
           This project represents a collaboration between Washington AHEC and
           HCOP at the UW School of Medicine Office of Rural Programs, UW
           Medicine Office of Healthcare Equity, Allied Center for Excellence,
