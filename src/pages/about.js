@@ -61,6 +61,24 @@ const About = () => {
           to learn more.
         </p>
 
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            gap: "1rem",
+          }}
+        >
+          <p className="m-0">
+            We also encourage advisors, counselors, and program administrators to
+            utilize this map to direct students and find ways to bridge gaps in
+            programming
+          </p>
+          <Button href="/programs" variant="primary" size="lg">
+            Find a Program Now
+          </Button>
+        </div>
+
         <br />
 
         {/* <Grid container justifyContent={"space-around"}> */}
@@ -127,27 +145,7 @@ const About = () => {
         </Grid>
 
         <br />
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            gap: "1.25rem",
-            justifyContent: "space-between",
-          }}
-        >
-          <p style={{ marginBottom: 0, flex: "1 1 280px" }}>
-            We also encourage advisors, counselors, and program administrators to
-            utilize this map to direct students and find ways to bridge gaps in
-            programming
-          </p>
-          <div style={{ flexShrink: 0 }}>
-            <Button href="/programs" variant="primary" size="lg">
-              Find a Program Now
-            </Button>
-          </div>
-        </div>
-        <p style={{ margin:0 }}>
+        <p style={{ margin: 0 }}>
           This project represents a collaboration between Washington AHEC and
           HCOP at the UW School of Medicine Office of Rural Programs, UW
           Medicine Office of Healthcare Equity, Allied Center for Excellence,
