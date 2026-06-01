@@ -5,7 +5,13 @@ import { Button } from "react-bootstrap";
 import { StaticImage } from "gatsby-plugin-image";
 import SchoolAndTrainingWrapper from "../components/schoolAndTrainingWrapper";
 import PathwayWrapper from "../components/pathwayWrapper.js";
-import DoubleArrowIcon from "@mui/icons-material/DoubleArrow";
+
+const aboutSectionBoxStyle = {
+  backgroundColor: "#e9ecef",
+  padding: "1.25rem 1.5rem",
+  borderRadius: "8px",
+  border: "1px solid #ced4da",
+};
 
 const About = () => {
   return (
@@ -44,6 +50,42 @@ const About = () => {
           pathway programs that will help you to achieve your goals!
         </p>
 
+        <p>
+          NWHCP aligns with the{" "}
+          <strong>
+            Center for Workforce Inclusion and Healthcare System Equity (WIHSE)
+          </strong>{" "}
+          at the UW Medicine Office of Healthcare Equity, which works to
+          liberate all our communities&apos; brilliant potential to be future
+          healthcare leaders.{" "}
+          <a
+            href="https://equity.uwmedicine.org/wihse/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit the WIHSE website
+          </a>{" "}
+          to learn more.
+        </p>
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-start",
+            gap: "1rem",
+          }}
+        >
+          <p className="m-0">
+            We also encourage advisors, counselors, and program administrators to
+            utilize this map to direct students and find ways to bridge gaps in
+            programming
+          </p>
+          <Button href="/programs" variant="primary" size="lg">
+            Find a Program Now
+          </Button>
+        </div>
+
         <br />
 
         {/* <Grid container justifyContent={"space-around"}> */}
@@ -54,7 +96,7 @@ const About = () => {
           spacing={4}
         >
           <Grid item xs={12} md={4}>
-            <div className="mb-4">
+            <div className="mb-4" style={aboutSectionBoxStyle}>
               <h4
                 style={{
                   color: "#435B70",
@@ -92,37 +134,27 @@ const About = () => {
             md={4}
             // style={{ height: "100%" }}
           >
-            <h4
-              style={{
-                color: "#435B70",
-                paddingBottom: "8px",
-                textAlign: "center",
-              }}
-            >
-              Schools and Training Programs for the Health Professions
-            </h4>
-            <p>
-              Schools and training programs are also shown on our map. Find your
-              end goal as as you work to create a pathway to get there!
-            </p>
-            <SchoolAndTrainingWrapper />
+            <div style={aboutSectionBoxStyle}>
+              <h4
+                style={{
+                  color: "#435B70",
+                  paddingBottom: "8px",
+                  textAlign: "center",
+                }}
+              >
+                Schools and Training Programs for the Health Professions
+              </h4>
+              <p>
+                Schools and training programs are also shown on our map. Find your
+                end goal as as you work to create a pathway to get there!
+              </p>
+              <SchoolAndTrainingWrapper />
+            </div>
           </Grid>
         </Grid>
 
         <br />
-        <p>
-          We also encourage advisors, counselors, and program administrators to
-          utilize this map to direct students and find ways to bridge gaps in
-          programming
-        </p>
-        <Grid container justifyContent={"center"}>
-          <Grid>
-            <Button href="/programs" variant="primary" size="lg">
-              Get Started
-            </Button>
-          </Grid>
-        </Grid>
-        <p style={{ margin: 10 }}>
+        <p style={{ margin: 0 }}>
           This project represents a collaboration between Washington AHEC and
           HCOP at the UW School of Medicine Office of Rural Programs, UW
           Medicine Office of Healthcare Equity, Allied Center for Excellence,
