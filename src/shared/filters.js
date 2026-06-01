@@ -35,6 +35,16 @@ export const gradeLevels = [
   { name: "Other", id: "other" },
 ];
 
+export const programGradePresets = [
+  { name: "Doctor for a Day", gradeIds: ["middle", "highschool"] },
+  { name: "UDOC", gradeIds: ["highschool"] },
+  { name: "SHPEP", gradeIds: ["com_college", "undergrad", "postgrad"] },
+  {
+    name: "SHPEPLE",
+    gradeIds: ["com_college", "undergrad", "postgrad", "other"],
+  },
+];
+
 export const duration = [
   { name: "Weekday, daytime", id: "wkday_day" },
   { name: "Weekday, evening", id: "wkday_ev" },

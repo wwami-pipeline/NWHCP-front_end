@@ -23,11 +23,62 @@ import CateList from "./cateSelect";
 import {
   careers,
   gradeLevels,
+  programGradePresets,
   advanced,
   duration as configDuration,
   financialSupport,
   shadowOppt,
 } from "../../shared/filters";
+
+// Helper function to check if the selected grade levels match the preset grade levels
+const gradeLevelsMatch = (selected, presetIds) => {
+  console.log("selected", selected);
+  const selectedSet = new Set(selected);
+  const presetSet = new Set(presetIds);
+  if (selectedSet.size !== presetSet.size) return false;
+  return presetIds.every((id) => selectedSet.has(id));
+};
+
+function EducationLevelFilter({
+  selectedGradeLevels,
+  onGradeLevelChange,
+  onGradeLevelPreset,
+}) {
+  return (
+    <>
+      <Typography variant="caption" display="block" gutterBottom>
+        Quick select by program:
+      </Typography>
+      <Grid container style={{ marginBottom: 12 }}>
+        {programGradePresets.map((preset) => {
+          const isActive = gradeLevelsMatch(selectedGradeLevels, preset.gradeIds);
+          return (
+            <Grid item key={preset.name} style={{ marginRight: 8, marginBottom: 8 }}>
+              <Button
+                variant="outlined"
+                size="small"
+                onClick={() => onGradeLevelPreset(preset.gradeIds)}
+                style={{
+                  borderColor: isActive ? "#004987" : "#004978",
+                  color: isActive ? "#FFFFFF" : "#004978",
+                  backgroundColor: isActive ? "#004987" : "transparent",
+                  borderRadius: 40,
+                }}
+              >
+                {preset.name}
+              </Button>
+            </Grid>
+          );
+        })}
+      </Grid>
+      <CateList
+        cates={gradeLevels}
+        selected={selectedGradeLevels}
+        handleChoose={onGradeLevelChange}
+      />
+    </>
+  );
+}
 
 export default function ProgramFilterSection({ setBounds }) {
   // const [location, setLocation] = useState("");
@@ -89,6 +140,12 @@ export default function ProgramFilterSection({ setBounds }) {
       ...filter,
       [filterName]: newFilterArr,
     });
+  };
+
+  const handleGradeLevelPreset = (gradeIds) => {
+    const updatedFilter = { ...filter, gradeLevels: gradeIds };
+    setFilter(updatedFilter);
+    updateFilter(updatedFilter);
   };
 
   const accordionStyle = {
@@ -275,13 +332,13 @@ export default function ProgramFilterSection({ setBounds }) {
                     <Typography>Education Level</Typography>
                   </AccordionSummary>
                   <AccordionDetails>
-                    <CateList
-                      cates={gradeLevels}
-                      selected={filter.gradeLevels}
-                      handleChoose={(label) =>
+                    <EducationLevelFilter
+                      selectedGradeLevels={filter.gradeLevels}
+                      onGradeLevelChange={(label) =>
                         handleFilterChange("gradeLevels", label)
                       }
-                    ></CateList>
+                      onGradeLevelPreset={handleGradeLevelPreset}
+                    />
                   </AccordionDetails>
                 </Accordion>
               </Grid>
@@ -401,13 +458,13 @@ export default function ProgramFilterSection({ setBounds }) {
                       </Typography>
                     </Grid>
                     <Grid style={{ marginBottom: 14 }}>
-                      <CateList
-                        cates={gradeLevels}
-                        selected={filter.gradeLevels}
-                        handleChoose={(label) =>
+                      <EducationLevelFilter
+                        selectedGradeLevels={filter.gradeLevels}
+                        onGradeLevelChange={(label) =>
                           handleFilterChange("gradeLevels", label)
                         }
-                      ></CateList>
+                        onGradeLevelPreset={handleGradeLevelPreset}
+                      />
                     </Grid>
                   </Grid>
                   <Grid item xs={4}>
