@@ -100,24 +100,34 @@ export default function ProgramFilterSection({ setBounds }) {
     boxShadow: "0px 2px 5px rgba(0, 0, 0, 0.1)",
   };
 
+  const programsFilterSectionBoxStyle = {
+    backgroundColor: "#e9ecef",
+    padding: "1.25rem 1.5rem",
+    borderRadius: "8px",
+    border: "1px solid #ced4da",
+    width: "100%",
+    boxSizing: "border-box",
+  };
+
   return (
     <>
       <Grid container>
-        <Grid container>
-          <Typography
-            variant="h2"
-            style={{ fontWeight: 700, fontSize: "24px", color: "#004978" }}
+        <div style={programsFilterSectionBoxStyle}>
+          <Grid container>
+            <Typography
+              variant="h2"
+              style={{ fontWeight: 700, fontSize: "24px", color: "#004978" }}
+            >
+              Find your Career Path
+            </Typography>
+            {/* <button onClick={() => console.log(filter)}>debug filter</button> */}
+          </Grid>
+          <Grid
+            container
+            alignContent={"center"}
+            spacing={1}
+            style={{ padding: "20px 12px" }}
           >
-            Find your Career Path
-          </Typography>
-          {/* <button onClick={() => console.log(filter)}>debug filter</button> */}
-        </Grid>
-        <Grid
-          container
-          alignContent={"center"}
-          spacing={1}
-          style={{ padding: "20px 12px" }}
-        >
           {/* {!isMobile && (
             <Grid item className="dropdown">
               {" "}
@@ -505,6 +515,7 @@ export default function ProgramFilterSection({ setBounds }) {
             </Grid>
           )}
         </Grid>
+        </div>
       </Grid>
     </>
   );

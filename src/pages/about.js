@@ -6,6 +6,13 @@ import { StaticImage } from "gatsby-plugin-image";
 import SchoolAndTrainingWrapper from "../components/schoolAndTrainingWrapper";
 import PathwayWrapper from "../components/pathwayWrapper.js";
 
+const aboutSectionBoxStyle = {
+  backgroundColor: "#e9ecef",
+  padding: "1.25rem 1.5rem",
+  borderRadius: "8px",
+  border: "1px solid #ced4da",
+};
+
 const About = () => {
   return (
     <div>
@@ -89,7 +96,7 @@ const About = () => {
           spacing={4}
         >
           <Grid item xs={12} md={4}>
-            <div className="mb-4">
+            <div className="mb-4" style={aboutSectionBoxStyle}>
               <h4
                 style={{
                   color: "#435B70",
@@ -127,20 +134,22 @@ const About = () => {
             md={4}
             // style={{ height: "100%" }}
           >
-            <h4
-              style={{
-                color: "#435B70",
-                paddingBottom: "8px",
-                textAlign: "center",
-              }}
-            >
-              Schools and Training Programs for the Health Professions
-            </h4>
-            <p>
-              Schools and training programs are also shown on our map. Find your
-              end goal as as you work to create a pathway to get there!
-            </p>
-            <SchoolAndTrainingWrapper />
+            <div style={aboutSectionBoxStyle}>
+              <h4
+                style={{
+                  color: "#435B70",
+                  paddingBottom: "8px",
+                  textAlign: "center",
+                }}
+              >
+                Schools and Training Programs for the Health Professions
+              </h4>
+              <p>
+                Schools and training programs are also shown on our map. Find your
+                end goal as as you work to create a pathway to get there!
+              </p>
+              <SchoolAndTrainingWrapper />
+            </div>
           </Grid>
         </Grid>
 

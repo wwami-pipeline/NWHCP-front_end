@@ -11,6 +11,8 @@ import { Grid, Typography, useMediaQuery } from "@mui/material";
 import { Context as AllProgramConText } from "../context/programContext";
 import ProgramFilterSection from "../components/Programs/FilterSection";
 
+const programListBackground = "#e9ecef";
+
 // Page Component
 const SearchPrograms = () => {
   const [centerLatLng, setCenterLatLng] = useState([47.6062, -122.3321]); // Seattle, WA
@@ -43,7 +45,16 @@ const SearchPrograms = () => {
   const RenderPrograms = (props) => {
     return props.programs.map((program, index) => {
       return (
-        <div key={"program" + index}>
+        <div
+          key={"program" + index}
+          style={{
+            backgroundColor: "#fff",
+            borderRadius: "8px",
+            marginBottom: "0.75rem",
+            padding: "0.25rem 0.5rem",
+            boxShadow: "0 1px 3px rgba(0, 0, 0, 0.08)",
+          }}
+        >
           <ProgramCard
             program={program}
             onClick={() => handleCardClick(program)}
@@ -79,10 +90,17 @@ const SearchPrograms = () => {
             overflowY: "auto",
             overflowX: "hidden",
             position: "relative",
+            backgroundColor: programListBackground,
           }}
         >
           <div
-            style={{ height: "100%", overflowY: "auto", overflowX: "hidden" }}
+            style={{
+              height: "100%",
+              overflowY: "auto",
+              overflowX: "hidden",
+              backgroundColor: programListBackground,
+              padding: "0.5rem 0.75rem 1rem",
+            }}
           >
             {filterProgram?.length && (
               <RenderPrograms programs={filterProgram} />
@@ -102,8 +120,7 @@ const SearchPrograms = () => {
               bottom: 0,
               height: 56,
               pointerEvents: "none",
-              background:
-                "linear-gradient(to top, #fff 70%, rgba(255,255,255,0))",
+              background: `linear-gradient(to top, ${programListBackground} 70%, rgba(233, 236, 239, 0))`,
             }}
           />
         </div>
